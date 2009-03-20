@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC 
+	"-//SPRING//DTD BEAN//EN" 
+	"http://www.springframework.org/dtd/spring-beans.dtd">
+	
+<beans>
+	<!-- Example of SAF2 action instantiated by Spring -->
+    <bean
+        id="loginAction"
+        class="org.fct.unl.pt.cikp.actions.login.Login" />
+    <bean
+        id="loginSupport"
+        class="org.fct.unl.pt.cikp.actions.login.LoginSuport" />
+    <bean
+        id="registerAction"
+        class="org.fct.unl.pt.cikp.actions.register.Register" />
+    <bean
+        id="registerSupport"
+        class="org.fct.unl.pt.cikp.actions.register.RegisterSuport" />
+    <bean
+        id="userSupport"
+        class="org.fct.unl.pt.cikp.actions.user.UserSupport" />
+    <bean
+        id="defineActorAction"
+        class="org.fct.unl.pt.cikp.actions.user.DefineActor" />
+    
+
+    <!--<bean
+        id="userService"
+        class="org.fct.unl.pt.cikp.service.user.UserServiceImpl" />
+    <bean
+        id="cikpService"
+        class="org.fct.unl.pt.cikp.service.CikpServiceImpl" />-->
+</beans>
+

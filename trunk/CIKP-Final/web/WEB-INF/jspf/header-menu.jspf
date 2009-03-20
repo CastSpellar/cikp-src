@@ -1,0 +1,19 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="windows-1252" %>
+<div id="header">
+    <div id="menu1">
+        <div id="menu">
+            <ul>
+                <li><a href="#" title="">Publish</a></li>
+                <li><a href="#" title="">Subscribe</a></li>
+                <li><a href="#" title="">Query</a></li>
+                <li><a href="#" title="">Browse User</a></li>
+                <li><a href="#" title="">Browse Item</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="logo">
+        <h1><s:text name="logo" /></h1>
+    </div>
+
+</div>

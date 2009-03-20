@@ -1,0 +1,50 @@
+
+package org.fct.unl.pt.cikp.data.ontology;
+
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.fct.unl.pt.cikp.service.ontology.OntServiceImpl;
+import org.fct.unl.pt.cikp.service.ontology.manager.exceptions.MissingParamException;
+
+/**
+ *
+ * @author Paulo Figueiras
+ */
+public class PhysicalProductServiceImpl implements PhysicalProductService {
+
+    private OntServiceImpl ont ;
+
+    public PhysicalProduct createPhysicalProduct(PhysicalProduct prod) {
+        OntServiceImpl onts = getOnt() ;
+        try {
+            onts.createIndividual(prod.getType(), prod.getName());
+            onts.addLiteralByProperty("has_Location", prod.getName(), prod.getLocation());
+            onts.addLiteralByProperty("has_Name", prod.getName(), prod.getName());
+            onts.addLiteralByProperty("has_Event_Affiliation", prod.getName(), prod.getEventaffiliation());
+            onts.addLiteralByProperty("has_Process_Affiliation", prod.getName(), prod.getProcaffiliation());
+            onts.addLiteralByProperty("has_Project_Affiliation", prod.getName(), prod.getProjaffiliation());
+        } catch (IOException ex) {
+            Logger.getLogger(PhysicalProductServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MissingParamException ex) {
+            Logger.getLogger(PhysicalProductServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PhysicalProductServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return prod ;
+    }
+
+    /**
+     * @return the ont
+     */
+    public OntServiceImpl getOnt() {
+        return new OntServiceImpl();
+    }
+
+    /**
+     * @param ont the ont to set
+     */
+    public void setOnt(OntServiceImpl ont) {
+        this.ont = ont;
+    }
+}
