@@ -23,6 +23,9 @@
     <bean
         id="defineActorAction"
         class="org.fct.unl.pt.cikp.actions.user.DefineActor" />
+    <bean
+        id="itemsPickerAction"
+        class="org.fct.unl.pt.cikp.actions.user.ItemsPicker" />
     
 
     <!--<bean
