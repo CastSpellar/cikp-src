@@ -42,7 +42,7 @@ public class IndividualActorServiceImpl implements IndividualActorService {
             onts.addLiteralByProperty("has_Ethnicity_Status", actor.getUsername(), (actor.getEthnicitystatus() == null ? "" : actor.getEthnicitystatus()));
             onts.addLiteralByProperty("has_Experience", actor.getUsername(), (actor.getExperience() == null ? "" : actor.getExperience()));
             onts.addLiteralByProperty("has_Gender", actor.getUsername(), (actor.getGender() == null ? "" : actor.getGender()));
-            onts.addLiteralByProperty("has_Information_Need", actor.getUsername(), (actor.getInfoneed() == null ? "" : actor.getInfoneed()));
+            onts.addLiteralByProperty("has_Information_And_Knowledge_Need", actor.getUsername(), (actor.getInfoneed() == null ? "" : actor.getInfoneed()));
             onts.addLiteralByProperty("has_Knowledge", actor.getUsername(), (actor.getKnowledge() == null ? "" : actor.getKnowledge()));
             onts.addLiteralByProperty("has_Marital_Status", actor.getUsername(), (actor.getMaritalstatus() == null ? "" : actor.getMaritalstatus()));
             onts.addLiteralByProperty("has_Skill", actor.getUsername(), (actor.getSkill() == null ? "" : actor.getSkill()));
@@ -72,9 +72,9 @@ public class IndividualActorServiceImpl implements IndividualActorService {
                         onts.addLiteralByProperty("has_Experience", aux, "");
                     }
                     if (actor.getRoleinfoneed() != null) {
-                        onts.addLiteralByProperty("has_Information_Need", aux, actor.getRoleinfoneed().get(counter));
+                        onts.addLiteralByProperty("has_Information_And_Knowledge_Need", aux, actor.getRoleinfoneed().get(counter));
                     } else {
-                        onts.addLiteralByProperty("has_Information_Need", aux, "");
+                        onts.addLiteralByProperty("has_Information_And_Knowledge_Need", aux, "");
                     }
                     if (actor.getRoleknowledge() != null) {
                         onts.addLiteralByProperty("has_Knowledge", aux, actor.getRoleknowledge().get(counter));

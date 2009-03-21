@@ -45,7 +45,9 @@ public interface OntService {
 
     public ArrayList listDirectSubClasses(String cls) throws IOException, MissingParamException, ClassNotFoundException ;
 
-    public void listAbsoluteSubClasses(ArrayList<String> list, ArrayList<Integer> hierarchy, int counter, String cls) throws IOException, MissingParamException, ClassNotFoundException ;
+    public void createXMLFileXTree(String fileName, String supercls) throws MissingParamException, ClassNotFoundException ;
+
+    public void listAbsoluteSubClasses(ArrayList<String> list, ArrayList<Integer> hierarchy, int counter, String cls, boolean bool) throws IOException, MissingParamException, ClassNotFoundException ;
 
     public OntModel getM() throws IOException, MissingParamException, ClassNotFoundException ;
 

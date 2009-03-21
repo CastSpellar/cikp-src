@@ -6,9 +6,16 @@ import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Property;
+import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
+import com.hp.hpl.jena.util.iterator.Filter;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.fct.unl.pt.cikp.service.ontology.manager.PersistentOntology;
 import org.fct.unl.pt.cikp.service.ontology.manager.PersistentOntologyImpl;
 import org.fct.unl.pt.cikp.service.ontology.manager.exceptions.MissingParamException;
@@ -120,18 +127,85 @@ public class OntServiceImpl implements OntService {
         return clsArray ;
     }
 
-    public void listAbsoluteSubClasses(ArrayList<String> list, ArrayList<Integer> hierarchy, int counter, String cls) throws IOException, MissingParamException, ClassNotFoundException {
+    public void listAbsoluteSubClasses(ArrayList<String> list, ArrayList<Integer> hierarchy, int counter, String cls, boolean bool) throws IOException, MissingParamException, ClassNotFoundException {
         OntClass c = getClass(cls) ;
-        list.add(c.getLocalName());
-        hierarchy.add(counter);
-        counter++ ;
+        if (!bool) {
+            bool = true ;
+        }
+        else {
+            list.add(c.getLocalName());
+            hierarchy.add(counter);
+            counter++ ;
+        }
         ExtendedIterator iter = c.listSubClasses() ;
         if(iter.hasNext()){
             while ( iter.hasNext() ) {
                 OntClass auxc = (OntClass) iter.next() ;
-                listAbsoluteSubClasses(list, hierarchy, counter, auxc.getLocalName()) ;
+                listAbsoluteSubClasses(list, hierarchy, counter, auxc.getLocalName(), true) ;
             }
         }
+    }
+
+    public void createXMLFileXTree(String fileName, String supercls) throws MissingParamException, ClassNotFoundException {
+
+        String ENCODING = "ISO-8859-1" ;
+
+        try {
+            File f = new File(fileName) ;
+            f.createNewFile() ;
+            PrintWriter out = new PrintWriter(new FileOutputStream(f)) ;
+            out.println("<?xml version=\"1.0\" encoding=\""+ENCODING+"\"?>");
+            out.println("<tree id=\"0\" radio=\"1\">");
+            out.flush() ;
+            ArrayList<String> list = new ArrayList<String>() ;
+            OntClass cls = getClass(supercls) ;
+            writeClassesXTree(cls, new ArrayList<OntClass>(), 0, out) ;
+            /*
+              out.println("<USER ID=\""+id[i]+"\" TYPE=\""+type[i]+"\">"+desc[i]+"</USER>");
+            }*/
+            out.println("</tree>");
+            out.flush() ;
+            out.close() ;
+        } catch (IOException ex) {
+            Logger.getLogger(PersistentOntologyImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void writeClassesXTree(OntClass cls, ArrayList<OntClass> occurs, int depth, PrintWriter out){
+        boolean writeTerm = true ;
+        if((!cls.isRestriction()) && (!cls.isAnon())) {
+            for(int i = 0; i < depth + 1; i++){
+                out.print("\t") ;
+            }
+            out.flush() ;
+            // recurse to the next level down
+            if (cls.canAs( OntClass.class )  &&  !occurs.contains( cls )) {
+                ExtendedIterator i = cls.listSubClasses(true) ;
+                if(i.hasNext()) {
+                    out.println("<item text=\"" + cls.getLocalName() + "\" id=\"" + cls.getURI() + "\" im0=\"Class.ico\" im1=\"Class.ico\" im2=\"Class.ico\">") ;
+                    while(i.hasNext()) {
+                        OntClass sub = (OntClass) i.next();
+
+                        // we push this expression on the occurs list before we recurse
+                        occurs.add( cls );
+                        writeClassesXTree(sub, occurs, depth + 1, out) ;
+                        occurs.remove( cls );
+                    }
+                }
+                else {
+                    out.println("<item text=\"" + cls.getLocalName() + "\" id=\"" + cls.getURI() + "\" im0=\"Class.ico\" im1=\"Class.ico\" im2=\"Class.ico\" />") ;
+                    writeTerm = false ;
+                }
+            }
+            if(writeTerm) {
+                for(int i = 0; i < depth + 1; i++){
+                    out.print("\t") ;
+                }
+                out.println("</item>") ;
+            }
+        }
+
+
     }
 
     /**
