@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<tree id="0" radio="1">
+	<item text="Event_Attribute" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Event_Attribute" im0="Class.ico" im1="Class.ico" im2="Class.ico">
+		<item text="Event_Location" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Event_Location" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+		<item text="Event_Subject_Domain" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Event_Subject_Domain" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+		<item text="Event_Cost" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Event_Cost" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+		<item text="Event_Starting_Time" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Event_Starting_Time" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+		<item text="Event_Type" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Event_Type" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+		<item text="Event_Ending_Time" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Event_Ending_Time" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+	</item>
+</tree>

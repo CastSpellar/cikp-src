@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<tree id="0" radio="1">
+	<item text="Project_Attribute" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Project_Attribute" im0="Class.ico" im1="Class.ico" im2="Class.ico">
+		<item text="Project_Location" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Project_Location" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+		<item text="Project_Type" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Project_Type" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+		<item text="Project_Name" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Project_Name" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+		<item text="Project_Total_Investment" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Project_Total_Investment" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+		<item text="Project_Starting_Date" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Project_Starting_Date" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+		<item text="Project_Closing_Date" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Project_Closing_Date" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+	</item>
+</tree>
