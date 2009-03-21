@@ -5,7 +5,9 @@
 
 package org.fct.unl.pt.cikp.data.ontology;
 
+import com.hp.hpl.jena.ontology.Individual;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.fct.unl.pt.cikp.service.ontology.*;
@@ -54,7 +56,7 @@ public class IndividualActorServiceImpl implements IndividualActorService {
                 int counter = 0;
                 while (iter.hasNext()) {
                     String role = (String) iter.next();
-                    String aux = actor.getUsername() + "_" + role;
+                    String aux = role + "_" + actor.getUsername();
                     onts.createIndividual(role, aux);
                     if (actor.getRoleauthority() != null) {
                         onts.addLiteralByProperty("has_Authority", aux, actor.getRoleauthority().get(counter));
@@ -139,6 +141,100 @@ public class IndividualActorServiceImpl implements IndividualActorService {
             Logger.getLogger(IndividualActorServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             return null ;
         }
+    }
+
+    public IndividualActor getIndividualActorByName(String username) {
+        IndividualActor actor = new IndividualActor() ;
+        try {
+            actor.setActortype(getOnt().getIndividualClass(username));
+            actor.setAge((Integer)getOnt().getLiteralByProperty(username, "has_Age"));
+            actor.setEmail((String)getOnt().getLiteralByProperty(username, "has_Email_Address")) ;
+            actor.setFamilyname((String)getOnt().getLiteralByProperty(username, "has_Family_Name")) ;
+            actor.setFaxnumber((String)getOnt().getLiteralByProperty(username, "has_Fax_Number")) ;
+            actor.setGivenname((String)getOnt().getLiteralByProperty(username, "has_Given_Name")) ;
+            actor.setHomephone((String)getOnt().getLiteralByProperty(username, "has_Home_Phone_Number")) ;
+            actor.setMailingaddress((String)getOnt().getLiteralByProperty(username, "has_Mailing_Address")) ;
+            actor.setMiddlename((String)getOnt().getLiteralByProperty(username, "has_Middle_Name")) ;
+            actor.setMobilephone((String)getOnt().getLiteralByProperty(username, "has_Mobile_Phone_Number")) ;
+            actor.setName((String)getOnt().getLiteralByProperty(username, "has_Name")) ;
+            actor.setWorkphone((String)getOnt().getLiteralByProperty(username, "has_Work_Phone_Number")) ;
+            actor.setAbility((String) getOnt().getLiteralByProperty(username, "has_Ability")) ;
+            actor.setCetificateandlicense((String)getOnt().getLiteralByProperty(username, "has_Certificate_And_License")) ;
+            actor.setCommlanguage((String)getOnt().getLiteralByProperty(username, "has_Communication_Language")) ;
+            actor.setEducationbg((String)getOnt().getLiteralByProperty(username, "has_Education_Background")) ;
+            actor.setEthnicitystatus((String)getOnt().getLiteralByProperty(username, "has_Ethnicity_Status")) ;
+            actor.setExperience((String)getOnt().getLiteralByProperty(username, "has_Experience")) ;
+            actor.setGender((String)getOnt().getLiteralByProperty(username, "has_Gender")) ;
+            actor.setInfoneed((String)getOnt().getLiteralByProperty(username, "has_Information_And_Knowledge_Need")) ;
+            actor.setKnowledge((String)getOnt().getLiteralByProperty(username, "has_Knowledge")) ;
+            actor.setMaritalstatus((String)getOnt().getLiteralByProperty(username, "has_Marital_Status")) ;
+            actor.setSkill((String)getOnt().getLiteralByProperty(username, "has_Skill")) ;
+            actor.setTrainingobt((String)getOnt().getLiteralByProperty(username, "has_Training_Obtained")) ;
+            actor.setCopaffiliation((String)getOnt().getLiteralByProperty(username, "has_COP_Affiliation")) ;
+            actor.setOrgaffiliation((String)getOnt().getLiteralByProperty(username, "has_Organization_Affiliation")) ;
+            ArrayList<String> list = new ArrayList<String>() ;
+            getOnt().listAllInstancesOfClass(list, "Role");
+            if(!list.isEmpty()){
+                Iterator i = list.iterator() ;
+                ArrayList<String> listroles = new ArrayList<String>() ;
+                ArrayList<String> listroleauthority = new ArrayList<String>() ;
+                ArrayList<String> listroleeventaffil = new ArrayList<String>() ;
+                ArrayList<String> listroleexperience = new ArrayList<String>() ;
+                ArrayList<String> listroleinfoneed = new ArrayList<String>() ;
+                ArrayList<String> listroleknowledge = new ArrayList<String>() ;
+                ArrayList<String> listroleliability = new ArrayList<String>() ;
+                ArrayList<String> listroleorgaffil = new ArrayList<String>() ;
+                ArrayList<String> listroleprocaffil = new ArrayList<String>() ;
+                ArrayList<String> listroleprodaffil = new ArrayList<String>() ;
+                ArrayList<String> listroleprojaffil = new ArrayList<String>() ;
+                ArrayList<String> listroleresponsibility = new ArrayList<String>() ;
+                ArrayList<String> listroleright = new ArrayList<String>() ;
+                ArrayList<String> listroleskill = new ArrayList<String>() ;
+                ArrayList<String> listroletrainingobt = new ArrayList<String>() ;
+                while(i.hasNext()) {
+                    String aux = (String)i.next() ;
+                    if(aux.endsWith(username)) {
+                        listroles.add(aux);
+                        listroleauthority.add((String)getOnt().getLiteralByProperty(aux, "has_Authority"));
+                        listroleeventaffil.add((String)getOnt().getLiteralByProperty(aux, "has_Event_Affiliation"));
+                        listroleexperience.add((String)getOnt().getLiteralByProperty(aux, "has_Experience"));
+                        listroleinfoneed.add((String)getOnt().getLiteralByProperty(aux, "has_Information_And_Knowledge_Need"));
+                        listroleknowledge.add((String)getOnt().getLiteralByProperty(aux, "has_Knowledge"));
+                        listroleliability.add((String)getOnt().getLiteralByProperty(aux, "has_Liability"));
+                        listroleorgaffil.add((String)getOnt().getLiteralByProperty(aux, "has_Organization_Affiliation"));
+                        listroleprocaffil.add((String)getOnt().getLiteralByProperty(aux, "has_Process_Affiliation"));
+                        listroleprodaffil.add((String)getOnt().getLiteralByProperty(aux, "has_Product_Affiliation"));
+                        listroleprojaffil.add((String)getOnt().getLiteralByProperty(aux, "has_Project_Affiliation"));
+                        listroleresponsibility.add((String)getOnt().getLiteralByProperty(aux, "has_Responsibility"));
+                        listroleright.add((String)getOnt().getLiteralByProperty(aux, "has_Right"));
+                        listroleskill.add((String)getOnt().getLiteralByProperty(aux, "has_Skill"));
+                        listroletrainingobt.add((String)getOnt().getLiteralByProperty(aux, "has_Training_Obtained"));
+
+                    }
+                }
+                actor.setRoleauthority(listroleauthority);
+                actor.setRoleeventaffiliation(listroleeventaffil);
+                actor.setRoleexperience(listroleexperience);
+                actor.setRoleinfoneed(listroleinfoneed);
+                actor.setRoleknowledge(listroleknowledge);
+                actor.setRoleliability(listroleliability);
+                actor.setRoleorgaffiliation(listroleorgaffil);
+                actor.setRoleprocaffiliation(listroleprocaffil);
+                actor.setRoleprodaffiliation(listroleprodaffil);
+                actor.setRoleprojaffiliation(listroleprojaffil);
+                actor.setRoleresponsibility(listroleresponsibility);
+                actor.setRoleright(listroleright);
+                actor.setRoleskill(listroleskill);
+                actor.setRoletrainingobt(listroletrainingobt);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(IndividualActorServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MissingParamException ex) {
+            Logger.getLogger(IndividualActorServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(IndividualActorServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return actor ;
     }
 
     /**

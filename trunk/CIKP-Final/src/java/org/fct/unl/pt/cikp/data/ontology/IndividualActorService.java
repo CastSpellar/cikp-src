@@ -5,8 +5,6 @@
 
 package org.fct.unl.pt.cikp.data.ontology;
 
-import org.fct.unl.pt.cikp.data.ontology.IndividualActor;
-
 /**
  *
  * @author Bruno
@@ -14,5 +12,7 @@ import org.fct.unl.pt.cikp.data.ontology.IndividualActor;
 public interface IndividualActorService {
 
     public IndividualActor createActor(IndividualActor actor) ;
+
+    public IndividualActor getIndividualActorByName(String username) ;
 
 }

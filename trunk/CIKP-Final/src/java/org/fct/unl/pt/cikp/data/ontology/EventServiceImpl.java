@@ -23,7 +23,7 @@ public class EventServiceImpl implements EventService {
     public Event createEvent(Event ev) {
         OntServiceImpl onts = getOnt() ;
         try {
-            String aux = (ev.getUsername() + "_" + ev.getEventtype()) ;
+            String aux = (ev.getEventtype() + "_" + ev.getUsername()) ;
             onts.createIndividual(ev.getEventtype(), aux);
             onts.addLiteralByProperty("has_Location", aux, ev.getLocation());
             onts.addLiteralByProperty("has_Subject_Domain", aux, ev.getSubjectDomain());

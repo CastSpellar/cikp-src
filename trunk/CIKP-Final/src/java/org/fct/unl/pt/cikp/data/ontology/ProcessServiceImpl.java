@@ -18,7 +18,7 @@ public class ProcessServiceImpl implements ProcessService {
 
     public Process createProcess(Process proc) {
         OntServiceImpl onts = getOnt() ;
-        String aux = proc.getUsername() + "_" + proc.getProctype() ;
+        String aux = proc.getProctype() + "_" + proc.getUsername() ;
         try {
             onts.createIndividual(proc.getProctype(), aux);
             onts.addLiteralByProperty("has_Location", aux, proc.getLocation());

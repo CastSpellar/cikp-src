@@ -21,7 +21,7 @@ public class KnowledgeItemServiceImpl implements  KnowledgeItemService{
     public KnowledgeItem createKnowledgeItem(KnowledgeItem ki) {
         try {
             OntService onts = getOnt();
-            String kikey = ki.getAuthor() + "_" + ki.getName();
+            String kikey = ki.getName() + "_" + ki.getAuthor();
             onts.createIndividual(ki.getType(), kikey);
             onts.addLiteralByProperty("has_Knowledge_Item_Author", kikey, ki.getAuthor());
             onts.addLiteralByProperty("has_Knowledge_Item_Composition_Language", kikey, ki.getComplanguage());
