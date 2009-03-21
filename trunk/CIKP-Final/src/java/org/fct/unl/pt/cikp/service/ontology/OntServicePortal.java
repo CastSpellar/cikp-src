@@ -20,7 +20,6 @@ import org.fct.unl.pt.cikp.data.ontology.Project;
 import org.fct.unl.pt.cikp.data.ontology.ProjectService;
 import org.fct.unl.pt.cikp.data.ontology.Process;
 import org.fct.unl.pt.cikp.data.ontology.ProcessService;
-import org.fct.unl.pt.cikp.service.ontology.manager.exceptions.MissingParamException;
 
 /**
  *
@@ -30,7 +29,11 @@ public interface OntServicePortal {
 
    public IndividualActor createIndividualActor(IndividualActor actor) ;
 
+   public IndividualActor getIndividualActorByUsername(String username) ;
+
     public OrganizationActor createOrganizationActor(OrganizationActor actor) ;
+
+    public OrganizationActor getOrganizationActorByUsername(String username) ;
 
     public KnowledgeItem createKnowledgeItem(KnowledgeItem item) ;
 

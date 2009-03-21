@@ -59,6 +59,10 @@ public class OntServicePortalImpl implements OntServicePortal {
         return getOrganizationActorService().createOrganizationActor(actor) ;
     }
 
+    public OrganizationActor getOrganizationActorByUsername(String username) {
+        return getOrganizationActorService().getOrganizationActorByName(username) ;
+    }
+
     public KnowledgeItem createKnowledgeItem(KnowledgeItem item) {
         return getKnowledgeItemService().createKnowledgeItem(item) ;
     }
