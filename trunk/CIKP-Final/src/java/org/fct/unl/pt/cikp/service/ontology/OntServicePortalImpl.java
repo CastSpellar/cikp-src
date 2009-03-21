@@ -80,7 +80,7 @@ public class OntServicePortalImpl implements OntServicePortal {
         ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
         int counter = 0 ;
         try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Skill_Type");
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Skill_Type", false);
         } catch (IOException ex) {
             Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {
@@ -96,7 +96,7 @@ public class OntServicePortalImpl implements OntServicePortal {
         ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
         int counter = 0 ;
         try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Ability_Type");
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Ability_Type", false);
         } catch (IOException ex) {
             Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {
@@ -112,7 +112,7 @@ public class OntServicePortalImpl implements OntServicePortal {
         ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
         int counter = 0 ;
         try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Knowledge_Type");
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Knowledge_Type", false);
         } catch (IOException ex) {
             Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {
@@ -128,7 +128,7 @@ public class OntServicePortalImpl implements OntServicePortal {
         ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
         int counter = 0 ;
         try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Certificate_And_License_Type");
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Certificate_And_License_Type", false);
         } catch (IOException ex) {
             Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {
@@ -144,7 +144,7 @@ public class OntServicePortalImpl implements OntServicePortal {
         ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
         int counter = 0 ;
         try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Language");
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Language", false);
         } catch (IOException ex) {
             Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {
@@ -160,7 +160,7 @@ public class OntServicePortalImpl implements OntServicePortal {
         ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
         int counter = 0 ;
         try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Education_Background_Type");
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Education_Background_Type", false);
         } catch (IOException ex) {
             Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {
@@ -176,7 +176,7 @@ public class OntServicePortalImpl implements OntServicePortal {
         ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
         int counter = 0 ;
         try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Ethnic_Group");
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Ethnic_Group", false);
         } catch (IOException ex) {
             Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {
@@ -192,7 +192,7 @@ public class OntServicePortalImpl implements OntServicePortal {
         ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
         int counter = 0 ;
         try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Experience_Type");
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Experience_Type", false);
         } catch (IOException ex) {
             Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {
@@ -222,7 +222,7 @@ public class OntServicePortalImpl implements OntServicePortal {
         ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
         int counter = 0 ;
         try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Marital_Status_Value");
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Marital_Status_Value", false);
         } catch (IOException ex) {
             Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {
@@ -238,7 +238,7 @@ public class OntServicePortalImpl implements OntServicePortal {
         ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
         int counter = 0 ;
         try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Training_Type");
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Training_Type", false);
         } catch (IOException ex) {
             Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {
@@ -254,7 +254,7 @@ public class OntServicePortalImpl implements OntServicePortal {
         ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
         int counter = 0 ;
         try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Authority_Type");
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Authority_Type", false);
         } catch (IOException ex) {
             Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {
@@ -270,7 +270,7 @@ public class OntServicePortalImpl implements OntServicePortal {
         ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
         int counter = 0 ;
         try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Liability_Type");
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Liability_Type", false);
         } catch (IOException ex) {
             Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {
@@ -286,7 +286,7 @@ public class OntServicePortalImpl implements OntServicePortal {
         ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
         int counter = 0 ;
         try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Resposibility_Type");
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Resposibility_Type", false);
         } catch (IOException ex) {
             Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {
@@ -302,7 +302,7 @@ public class OntServicePortalImpl implements OntServicePortal {
         ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
         int counter = 0 ;
         try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Right_Type");
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Right_Type", false);
         } catch (IOException ex) {
             Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {
@@ -402,7 +402,7 @@ public class OntServicePortalImpl implements OntServicePortal {
         ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
         int counter = 0 ;
         try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Geographic_Area");
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Geographic_Area", false);
         } catch (IOException ex) {
             Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {
@@ -418,7 +418,7 @@ public class OntServicePortalImpl implements OntServicePortal {
         ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
         int counter = 0 ;
         try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Geographic_Area");
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Geographic_Area", false);
         } catch (IOException ex) {
             Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {
