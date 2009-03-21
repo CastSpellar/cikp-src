@@ -32,4 +32,6 @@ public interface CikpService {
     public IndividualActor createIndividualActor(IndividualActor actor) ;
 
     public ArrayList<String> listKnowledges() ;
+
+    public void createXMLTree(String filename, String cls) ;
 }

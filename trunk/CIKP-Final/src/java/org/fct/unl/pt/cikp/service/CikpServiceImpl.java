@@ -71,4 +71,8 @@ public class CikpServiceImpl implements CikpService {
         return getOntServicePortal().listKnowledges() ;
     }
 
+    public void createXMLTree(String filename, String cls) {
+        getOntServicePortal().createXMLTree(filename, cls);
+    }
+
 }

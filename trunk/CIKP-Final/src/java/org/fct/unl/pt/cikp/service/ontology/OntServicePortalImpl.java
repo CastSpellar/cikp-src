@@ -70,6 +70,16 @@ public class OntServicePortalImpl implements OntServicePortal {
     public Process createProcess(Process proc) {
         return getProcessService().createProcess(proc) ;
     }
+    
+    public void createXMLTree(String filename, String cls) {
+        try {
+            getOntService().createXMLFileXTree(filename, cls);
+        } catch (MissingParamException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     public PhysicalProduct createPhysicalProduct(PhysicalProduct prod) {
         return getPhysicalProductService().createPhysicalProduct(prod) ;
