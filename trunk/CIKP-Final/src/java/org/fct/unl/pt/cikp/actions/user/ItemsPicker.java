@@ -28,10 +28,17 @@ public class ItemsPicker extends ActionSupport implements ServletRequestAware, S
         this.request = request ;
     }
 
+
+    /**
+     Falta verificar se o parametro existe e caso nao exista retorna um erros*/
     @Override
     public String execute() throws Exception {
+        String serverXmlPath = org.apache.struts2.ServletActionContext.getServletContext().getRealPath("/ontxml/") ;
+        String globalPath = org.apache.struts2.ServletActionContext.getServletContext().getContextPath() ;
         String attrClass = request.getParameter(Constants.ATTR_CLASS) ;
-        
+        String fileName = serverXmlPath + "/" + attrClass + ".xml" ;
+        getService().createXMLTree(fileName, attrClass);
+        session.put(Constants.XML_FILE, globalPath + "/" + attrClass + ".xml") ;
         return SUCCESS ;
     }
 

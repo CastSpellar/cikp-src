@@ -12,11 +12,16 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title><s:text name="userprofile.title" />"</title>
-        <script type="text/javascript">
+        <script>
+
+            var tree ;
+            var human_attributes_tree ;
 
             function init() {
-                var tree = new OntXTree('<s:url value="/ontxml/teste2.xml" />') ;
-                tree.genTree('tree_div', {'dropIds' : $w('DefineActor_actortype DefineActor_roles'), 'imgPath' : '<s:url value="/images/custom/" />'}) ;
+                tree = new OntXTree('<s:url value="/ontxml/teste2.xml" />') ;
+                tree.genTree('tree_div', {'dropIds' : $w('DefineActor_actortype'), 'imgPath' : '<s:url value="/images/custom/" />'}) ;
+                human_attributes_tree = new OntXTree('<s:url value="/ontxml/human_attribute.xml" />') ;
+                human_attributes_tree.genTree('atributes_tree_div', {'dropIds' : $w('DefineActor_actortype'), 'imgPath' : '<s:url value="/images/custom/" />', 'checkbox' : 1}) ;
             }
 
             function addRolePrototype() {
@@ -37,6 +42,24 @@
 
             function removeRole(id) {
                 
+            }
+
+            function showHumanAttrTree(){
+                /*var human_attributes_tree_div = new Element('div', { 'class': 'show_tree', id: 'atributes_tree_div' }) ;
+                alert('div created') ;
+                $('left_back').appendChild(human_attributes_tree_div);
+                alert('div added') ;*/
+                // insert it in the document
+                /*var human_attributes_tree = new OntXTree('<s:url value="/ontxml/human_attribute.xml" />') ;
+                alert('tree created') ;
+                human_attributes_tree.genTree('atributes_tree_div', {'dropIds' : $w('DefineActor_actortype'), 'imgPath' : '<s:url value="/images/custom/" />', 'checkbox' : 1}) ;
+                alert('tree generated') ;*/
+                $('attributes_tree_div_container').removeClassName('hidden_tree') ;
+                $('attributes_tree_div_container').addClassName('show_tree');
+            }
+
+            function getAllChecked() {
+                alert(human_attributes_tree.getAllChecked());
             }
 
         </script>
@@ -120,7 +143,7 @@
                         </tr>
                         <tr>
                             <td colspan="4" align="right">
-                                <input type="button" value="<s:text name="userprofile.additem" />" onclick="javascript:alert('Available Soon.') ;" class="button" />
+                               <input type="button" value="<s:text name="userprofile.additem" />" onclick="showHumanAttrTree();" class="button" />
                             </td>
                         </tr>
 
@@ -199,6 +222,14 @@
             <div id="left_back">
                 <h3><s:text name="userprofile.onttree" /></h3>
                 <div id="tree_div" class="title_back">
+                </div>
+                <div id="attributes_tree_div_container" class="hidden_tree">
+                    <h3><s:text name="userprofile.attributestree" /></h3>
+                    <div id="atributes_tree_div" class="title_back">
+                    </div>
+                    <div id="attr_control_div">
+                        <input type="button" value="<s:text name="userprofile.addattr" />" class="button" onclick="getAllChecked();" />
+                    </div>
                 </div>
             </div>
             <div id="bottom"></div>

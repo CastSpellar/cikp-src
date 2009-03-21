@@ -19,6 +19,17 @@ var OntXTree = Class.create({
         for(var index in default_args) {
             if(typeof options[index] == "undefined") options[index] = default_args[index];
         }
+
+        /*tree=new dhtmlXTreeObject("treeboxbox_tree","100%","100%",0);
+            tree.setImagePath("../imgs/");
+            //enable checkboxes
+            tree.enableCheckBoxes(1);
+            tree.loadXML("tree.xml");
+
+            ....
+            tree.showItemCheckbox(id,false); //hide checkbox
+            tree.showItemCheckbox(id,true);  //show checkbox*/
+
         this.t = new dhtmlXTreeObject($(treeDiv), "100%", "100%", 0);
         /* options[] has all the data - user provided and optional */
         //alert(options[1]) ;
@@ -27,6 +38,7 @@ var OntXTree = Class.create({
         this.t.loadXML(this.url) ;
         this.dropIds = options['dropIds'] ;
         this.t.enableCheckBoxes(options['checkbox']) ;
+        this.t.enableThreeStateCheckboxes(true);
         this.t.enableDragAndDrop(true) ;
         this.t.enableTreeLines(false);
         // set plus images
@@ -35,7 +47,6 @@ var OntXTree = Class.create({
         this.t.setStdImages("book.gif","books_open.gif","books_close.gif");
         var i ;
         for(i in this.dropIds) {
-            alert(this.dropIds[i]) ;
             this.setDropTarget(this.dropIds[i]) ;
         }
 
@@ -73,5 +84,8 @@ var OntXTree = Class.create({
         
         //set input control as “landing zone” 
         this.t.dragger.addDragLanding($(dropId), new s_control);
+    },
+    getAllChecked: function(){
+        return this.t.getAllChecked() ;
     }
 });

@@ -11,10 +11,15 @@ package org.fct.unl.pt.cikp.constants;
  */
 public class Constants {
 
+    /*Session Variable and Parameters Names*/
     public static final String USER = "user" ;
     public static final String ACTOR = "actor" ;
     public static final String KNOWLEDGES = "knowledges" ;
     public static final String ATTR_CLASS = "attr_class" ;
-    public static final String XML_FILE_PATH = "file_path" ;
+    public static final String XML_FILE = "xml_file" ;
+
+
+    /*SYSTEM PATHS*/
+    public static final String XML_FILE_PATH = "c:/xmlfiles/" ;
 
 }

@@ -210,6 +210,22 @@ body {
     padding: 10px;
 }
 
+#left .hidden_tree
+{
+    display: none;
+}
+
+#left .show_tree
+{
+    display: block;
+}
+
+#left #attr_control_div
+{
+    float: right;
+    padding-right: 15px;
+}
+
 
 #left a {
     color: #23609C;
@@ -270,6 +286,22 @@ body {
 }
 
 #right .box
+{
+    border: 1px solid #C9C9C9;
+    background: #ffffff;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#center
+{
+    float:right;
+    width: 300px;
+    height: 300px;
+    padding-right: 50%;
+}
+
+#center .box
 {
     border: 1px solid #C9C9C9;
     background: #ffffff;

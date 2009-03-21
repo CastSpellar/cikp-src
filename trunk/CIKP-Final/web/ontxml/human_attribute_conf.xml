@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<human_atributes>
+    <Knowledge>
+        <Control>
+            <![CDATA[
+                <select name="knowledge" headerKey="-1" headerValue="-- Select knowledge --" />
+            ]]>
+        </Control>
+    </Knowledge>
+    <Experience></Experience>
+    <Information_And_Knowledge_Need></Information_And_Knowledge_Need>
+    <Education_Background></Education_Background>
+    <Certificate_And_License></Certificate_And_License>
+    <Reputation></Reputation>
+    <Training_Obtained></Training_Obtained>
+    <Ability></Ability>
+    <Skill></Skill>
+    <Project_Affiliation></Project_Affiliation>
+    <Process_Affiliation></Process_Affiliation>
+    <Product_Affiliation></Product_Affiliation>
+    <Geographic_Affiliation></Geographic_Affiliation>
+    <Organizational_Affiliation></Organizational_Affiliation>
+    <Event_Affiliation></Event_Affiliation>
+    <Age></Age>
+    <Personal_Contact_Number></Personal_Contact_Number>
+    <Home_Phone_Number></Home_Phone_Number>
+    <Mobile_Phone_Number></Mobile_Phone_Number>
+    <Given_Name></Given_Name>
+    <Religion></Religion>
+    <Communication_Language></Communication_Language>
+    <Middle_Name></Middle_Name>
+    <Family_Name></Family_Name>
+    <Gender></Gender>
+    <Name></Name>
+    <Mailing_Address></Mailing_Address>
+    <Email_Address></Email_Address>
+    <Ethnicity></Ethnicity>
+    <Work_Contact_Number></Work_Contact_Number>
+    <Office_Phone_Number></Office_Phone_Number>
+    <Fax_Number></Fax_Number>
+    <Marital_Status></Marital_Status>
+</human_atributes>
