@@ -7,4 +7,6 @@ package org.fct.unl.pt.cikp.data.ontology;
 
 public interface OrganizationActorService {
     public OrganizationActor createOrganizationActor(OrganizationActor actor) ;
+
+    public OrganizationActor getOrganizationActorByName(String username) ;
 }
