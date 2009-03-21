@@ -21,12 +21,17 @@
         id="userSupport"
         class="org.fct.unl.pt.cikp.actions.user.UserSupport" />
     <bean
+        id="knowledgeItemSupport"
+        class="org.fct.unl.pt.cikp.actions.knowledge.item.KnowledgeItemSupport" />
+    <bean
         id="defineActorAction"
         class="org.fct.unl.pt.cikp.actions.user.DefineActor" />
     <bean
         id="itemsPickerAction"
         class="org.fct.unl.pt.cikp.actions.user.ItemsPicker" />
-    
+    <bean
+        id="defineKnowledgeItemAction"
+        class="org.fct.unl.pt.cikp.actions.knowledge.item.DefineKnowledgeItem" />
 
     <!--<bean
         id="userService"
