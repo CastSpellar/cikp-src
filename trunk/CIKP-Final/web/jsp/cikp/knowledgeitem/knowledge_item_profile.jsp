@@ -26,6 +26,16 @@
                 <s:form action="DefineKnowledgeItem" method="POST">
                      <table width="520px">
                         <tr>
+                            <td>
+                                <h1><s:text name="knowledgeitem.name" />"</h1>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
                             <td >
                                 <s:text name="knowledgeitem.file" />
                             </td>
@@ -34,6 +44,11 @@
                             </td>
                             <td>
                                 <input type="button" value="<s:text name="knowledgeitem.browsefile" />" onclick="alert('Available Soon...') ;" class="button" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <br />
                             </td>
                         </tr>
                         <tr>
@@ -69,6 +84,11 @@
                             </td>
                             <td>
                                 <s:textfield name="keyword" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <br />
                             </td>
                         </tr>
                         <tr>

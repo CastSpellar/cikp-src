@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="struts-cikp-comunity-of-practice" extends="struts-default" namespace="/comunityofpractice">
+        <action name="DefineComunityOfPractice" class="defineComunityOfPracticeAction">
+            <result name="input">/jsp/cikp/comunityofpractice/comunity_of_pracice_profile.jsp</result>
+            <result>/jsp/cikp/user/user_interface.jsp</result>
+        </action>
+        <action name="SubscribeComunityOfPractice" class="subscribeComunityOfPracticeAction">
+            <result name="input">/jsp/cikp/subscribe/subscribe.jsp</result>
+            <result>/jsp/cikp/user/user_interface.jsp</result>
+        </action>
+        <action name="*" class="comunityOfPracticeSupport">
+            <result>/jsp/cikp/comunityofpractice/{1}.jsp</result>
+        </action>
