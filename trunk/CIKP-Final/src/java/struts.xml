@@ -13,7 +13,6 @@
     <include file="struts-cikp-login.xml" />
     <include file="struts-cikp-user.xml" />
     <include file="struts-cikp-knowledge-item.xml" />
-    <include file="struts-cikp-comunity-of-practice.xml" />
 
     <!--<package name="default" extends="struts-default">
         <action name="showLogin" class="org.fct.unl.pt.cikp.action.login.Login">

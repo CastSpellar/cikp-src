@@ -32,15 +32,7 @@
     <bean
         id="knowledgeItemSupport"
         class="org.fct.unl.pt.cikp.actions.knowledge.item.KnowledgeItemSupport" />
-    <bean
-        id="defineComunityOfPracticeAction"
-        class="org.fct.unl.pt.cikp.actions.comunity.of.practice.DefineComunityOfPractice" />
-    <bean
-        id="subscribeComunityOfPracticeAction"
-        class="org.fct.unl.pt.cikp.actions.comunity.of.practice.SubscribeComunityOfPractice" />
-    <bean
-        id="comunityOfPracticeSupport"
-        class="org.fct.unl.pt.cikp.actions.comunity.of.practice.ComunityOfPracticeSupport" />
+    
 
     <!--<bean
         id="userService"
