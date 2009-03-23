@@ -23,7 +23,6 @@
                             <h4><s:text name="userinterface.pagename" /></h4>
                         </td>
                     </tr>
-                    
                 </table>
             </div>
             <div class="box">
