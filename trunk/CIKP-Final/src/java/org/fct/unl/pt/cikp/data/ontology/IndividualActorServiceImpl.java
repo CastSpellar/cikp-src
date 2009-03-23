@@ -5,7 +5,6 @@
 
 package org.fct.unl.pt.cikp.data.ontology;
 
-import com.hp.hpl.jena.ontology.Individual;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;

@@ -50,7 +50,8 @@
                                 {code:"Knowledge Item", "url":"", size:[44,120]}
                             ]
                         },
-                        {code:"Query", url:""}
+                        {code:"Query", url:""},
+                        {code:"Home", url:"<s:url value="/user/user_interface.action" />" }
                     ];
 
                     // Part 3 - Initialization code

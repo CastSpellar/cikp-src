@@ -20,6 +20,16 @@
                 <table width="520px">
                     <tr>
                         <td colspan="4">
+                            <h4><s:text name="userinterface.pagename" /></h4>
+                        </td>
+                    </tr>
+                    
+                </table>
+            </div>
+            <div class="box">
+                <table width="520px">
+                    <tr>
+                        <td colspan="4">
                             <h3>
                                 <s:text name="userinterface.myreceiveitems" />
                             </h3>

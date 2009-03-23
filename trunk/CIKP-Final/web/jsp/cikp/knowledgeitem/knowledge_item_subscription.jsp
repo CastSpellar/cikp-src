@@ -47,7 +47,7 @@
                     <table width="520px">
                         <tr>
                             <td colspan="4" align="left">
-                                <h4><s:text name="knowledgeitem.subscribename" /></h4>
+                                <h4><s:text name="knowledgeitem.subscribepagename" /></h4>
                             </td>
                         </tr>
                         <tr>

@@ -45,7 +45,7 @@
                      <table width="520px">
                         <tr>
                             <td colspan="4">
-                                <h4><s:text name="knowledgeitem.name" /></h4>
+                                <h4><s:text name="knowledgeitem.pagename" /></h4>
                             </td>
                         </tr>
                         <tr>

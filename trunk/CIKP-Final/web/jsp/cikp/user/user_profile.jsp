@@ -88,6 +88,16 @@
                 <s:form action="DefineActor" method="POST">
                     <table>
                         <tr>
+                            <td colspan="4">
+                                <h4><s:text name="userprofile.pagename" /></h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
                             <td colspan="3" align="right">
                                 <s:text name="userprofile.actortype" />
                             </td>
