@@ -21,6 +21,24 @@
             }
 
         </script>
+        <script type="text/javascript">
+            if ( typeof window.addEventListener != "undefined" )
+                window.addEventListener( "load", init, false );
+            else if ( typeof window.attachEvent != "undefined" ) {
+                window.attachEvent( "onload", init );
+            }
+            else {
+                if ( window.onload != null ) {
+                    var oldOnload = window.onload;
+                    window.onload = function ( e ) {
+                        oldOnload( e );
+                        init();
+                    };
+                }
+                else
+                    window.onload = init;
+            }
+        </script>
     </head>
     <body>
         <div id="right">
@@ -28,8 +46,8 @@
                 <s:form action="SubscribeKnowledgeItem" method="POST">
                     <table width="520px">
                         <tr>
-                            <td colspan="3" align="right">
-                                <h1><s:text name="knowledgeitem.subscribename" />"</h1>
+                            <td colspan="4" align="left">
+                                <h4><s:text name="knowledgeitem.subscribename" /></h4>
                             </td>
                         </tr>
                         <tr>
@@ -38,7 +56,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td colspan="3">
                                 <s:text name="knowledgeitem.subscribetype" />
                             </td>
                             <td>
@@ -58,7 +76,7 @@
                                 <s:select name="kisubscribefiletype" headerKey="-1" headerValue="-- Select File Type --" list="{'.doc', '.pdf'}" />
                             </td>
                             <td width="20%">
-                                <s:text name="knowledgeitem.subscribedomainsubject" />
+                                <s:text name="knowledgeitem.subscribesubjectdomain" />
                             </td>
                             <td width="30%">
                                 <s:select name="kisubscribesubjectdomain" headerKey="-1" headerValue="-- Select Domain Subject --" list="{'domain_1', 'domain_2'}" />

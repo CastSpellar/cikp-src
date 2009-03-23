@@ -10,9 +10,6 @@
             <result name="input">/jsp/cikp/user/user_profile.jsp</result>
             <result>/jsp/cikp/user/user_interface.jsp</result>
         </action>
-        <action name="ItemsPicker" class="itemsPickerAction">
-            <result>/jsp/cikp/user/items_picker.jsp</result>
-        </action>
         <action name="*" class="userSupport">
             <result>/jsp/cikp/user/{1}.jsp</result>
         </action>

@@ -20,6 +20,7 @@
         <script type="text/javascript" src="<s:url value="/lib/xtree/dhtmlxcommon.js" />"></script>
         <script type="text/javascript" src="<s:url value="/lib/xtree/dhtmlxtree.js" />"></script>
         <script type="text/javascript" src="<s:url value="/lib/ontology/OntXTree.js" />"></script>
+        <script type="text/javascript" src="<s:url value="/lib/menu/coolmenu.js" />"></script>
         <link href="<s:url value="/styles/styles.css" />" type="text/css" rel="stylesheet" />
         <decorator:head />
         <s:head />

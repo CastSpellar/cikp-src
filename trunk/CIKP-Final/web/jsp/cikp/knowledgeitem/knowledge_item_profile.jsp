@@ -19,6 +19,24 @@
                 tree.genTree('tree_div', {'dropIds' : $w('DefineKnowledgeItem_kitype'), 'imgPath' : '<s:url value="/images/custom/" />'}) ;
             }
          </script>
+         <script type="text/javascript">
+            if ( typeof window.addEventListener != "undefined" )
+                window.addEventListener( "load", init, false );
+            else if ( typeof window.attachEvent != "undefined" ) {
+                window.attachEvent( "onload", init );
+            }
+            else {
+                if ( window.onload != null ) {
+                    var oldOnload = window.onload;
+                    window.onload = function ( e ) {
+                        oldOnload( e );
+                        init();
+                    };
+                }
+                else
+                    window.onload = init;
+            }
+        </script>
     </head>
     <body>
         <div id="right">
@@ -26,8 +44,8 @@
                 <s:form action="DefineKnowledgeItem" method="POST">
                      <table width="520px">
                         <tr>
-                            <td>
-                                <h1><s:text name="knowledgeitem.name" />"</h1>
+                            <td colspan="4">
+                                <h4><s:text name="knowledgeitem.name" /></h4>
                             </td>
                         </tr>
                         <tr>

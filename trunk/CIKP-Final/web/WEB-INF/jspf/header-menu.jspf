@@ -1,14 +1,68 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="windows-1252" %>
+<%@taglib uri="/struts-tags" prefix="s" %>
 <div id="header">
     <div id="menu1">
         <div id="menu">
             <ul>
-                <li><a href="#" title="">Publish</a></li>
-                <li><a href="#" title="">Subscribe</a></li>
-                <li><a href="#" title="">Query</a></li>
-                <li><a href="#" title="">Browse User</a></li>
-                <li><a href="#" title="">Browse Item</a></li>
+                <script type="text/javascript">
+                    // Part 1 - Styles
+                    var STYLE = {
+                        border:0,              // item's border width, pixels; zero means "none";
+                        shadow:0,              // item's shadow size, pixels; zero means "none"
+                        color:{
+                            border:"#white",  // color of the item border, if any;
+                            shadow:"#DBD8D1",  // color of the item shadow, if any;
+                            bgON:"#silver",      // background color for the items;
+                            bgOVER:"#white"   // background color for the item
+                                       // which is under mouse right now;
+                        },
+                        css:{
+                            ON:null,           // CSS class for items;
+                            OVER:null          // CSS class  for item which is under mouse;
+                        }
+                    };
+
+                    // Part 2 - Menu structure
+                    var MENU_ITEMS = [
+                        {pos:"relative", itemoff:[0,99], leveloff:[42,0], style:STYLE, size:[44,100], backgroundStyle:'background: transparent url(../images/menu2.gif);', textStyle:'padding-left: 10px; color: blue;'},
+                        {code:"New", url:"#",
+                            sub:[
+                                {itemoff:[42,0]},
+                                {code:"Comunity of Practice", "url":"",  size:[44,120], backgroundStyle:'background: transparent url(../images/menu2.gif);'},
+                                {code:"Event", "url":"", size:[44,120]},
+                                {code:"Process", "url":"", size:[44,120]},
+                                {code:"Project", "url":"", size:[44,120]}
+                            ]
+                        },
+                        {code:"Publish", url:"<s:url value="/knowledgeitem/knowledge_item_profile.action" />"},
+                        {code:"Subscribe", url:"",
+                            sub:[
+                                {itemoff:[42,0]},
+                                {code:"Comunity of Practice", "url":"", size:[44,120]},
+                                {code:"Knowledge Item", "url":"<s:url value="/knowledgeitem/knowledge_item_subscription.action" />", size:[44,120]}
+                            ]
+                        },
+                        {code:"Browse", url:"",
+                            sub:[
+                                {itemoff:[42,0]},
+                                {code:"User", "url":"", size:[44,120]},
+                                {code:"Knowledge Item", "url":"", size:[44,120]}
+                            ]
+                        },
+                        {code:"Query", url:""}
+                    ];
+
+                    // Part 3 - Initialization code
+                    var m1 = new COOLjsMenu("menu1", MENU_ITEMS);
+                </script>
+                <!--<ul>
+                    <li><a href="#" title="">Publish</a></li>
+                    <li><a href="#" title="">Subscribe</a></li>
+                    <li><a href="#" title="">Query</a></li>
+                    <li><a href="#" title="">Browse User</a></li>
+                    <li><a href="#" title="">Browse Item</a></li>
+                </ul>-->
             </ul>
         </div>
     </div>
