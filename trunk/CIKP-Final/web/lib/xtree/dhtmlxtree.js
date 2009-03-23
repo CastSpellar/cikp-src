@@ -54,7 +54,7 @@ function dhtmlXTreeObject(htmlObject, width, height, rootId){
 
 	this.parentObject.style.overflow="hidden";
    	this._itim_dg=true;
-    this.dlmtr=",";
+    this.dlmtr=" ";
     this.dropLower=false;
 	this.enableIEImageFix();
 

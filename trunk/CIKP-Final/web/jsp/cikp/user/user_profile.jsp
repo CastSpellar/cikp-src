@@ -14,14 +14,55 @@
         <title><s:text name="userprofile.title" />"</title>
         <script>
 
+            var UiAttrManager = Class.create({
+                initialize: function(xmlFile, divId, tableId) {
+                    this.xmlFile = xmlFile ;
+                    this.divId = divId ;
+                    this.tableId = tableId ;
+                    this.selectedIds = [] ;
+                    this.xmlDoc = new XmlLoader(this.xmlFile) ;
+                },
+                generateTable: function(ids) {
+                    var nTds = 4 ;
+                    var tdCounter = 0 ;
+                    //var table = new Element("table", {id : this.tableId}) ;
+                    var table = $(this.tableId).update("") ;
+                    var index = 0 ;
+                    while(index < ids.length) {
+                        if((tdCounter % nTds) == 0){
+                            tableRow = new Element("tr") ;
+                            table.insert(tableRow) ;
+                            tdCounter = 0 ;
+                        }
+                        var id = ids[index] ;
+                        var control = this.getControl(id) ;
+                        var td1 = new Element("td", {'width' : '20%'}).update(id.replace('_', ' ') + ':') ;
+                        tableRow.insert(td1) ;
+                        var td2 = new Element("td", {'width' : '30%'}).update(control) ;
+                        tableRow.insert(td2) ;
+                        index++ ;
+                        tdCounter += 2 ;
+                    }
+                    //$(this.tableId).update(table) ;
+                },
+                getControl: function(controlId){
+                    var xmlDoc = this.xmlDoc.getDocument() ;
+                    var elem = xmlDoc.getElementsByTagName(controlId)[0] ;
+                    var control = elem.getElementsByTagName('Control')[0];
+                    return control.childNodes[1].data ;
+                }
+            }) ;
+
             var tree ;
             var human_attributes_tree ;
+            var ui_manager ;
 
             function init() {
                 tree = new OntXTree('<s:url value="/ontxml/teste2.xml" />') ;
                 tree.genTree('tree_div', {'dropIds' : $w('DefineActor_actortype'), 'imgPath' : '<s:url value="/images/custom/" />'}) ;
                 human_attributes_tree = new OntXTree('<s:url value="/ontxml/human_attribute.xml" />') ;
                 human_attributes_tree.genTree('atributes_tree_div', {'dropIds' : $w('DefineActor_actortype'), 'imgPath' : '<s:url value="/images/custom/" />', 'checkbox' : 1}) ;
+                ui_manager = new UiAttrManager('<s:url value="/ontxml/human_attribute_conf.xml" />', 'actor_div', 'human_attr_tab') ;
             }
 
             function addRolePrototype() {
@@ -41,7 +82,7 @@
             }
 
             function removeRole(id) {
-                
+
             }
 
             function showHumanAttrTree(){
@@ -58,28 +99,58 @@
                 $('attributes_tree_div_container').addClassName('show_tree');
             }
 
+            function hideHumanAttrTree() {
+                $('attributes_tree_div_container').removeClassName('show_tree') ;
+                $('attributes_tree_div_container').addClassName('hidden_tree');
+            }
+
             function getAllChecked() {
                 alert(human_attributes_tree.getAllChecked());
             }
 
+            function addAttributesBtnClick(){
+                var checked = human_attributes_tree.getAllChecked() ;
+                if(checked == '')
+                    return ;
+                checked = checked.replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#Human_Attribute ', '') ;
+                checked = checked.replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#Human_Abstract_Attribute ', '') ;
+                checked = checked.replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#Human_Physical_Attribute ', '') ;
+                checked = checked.replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#Human_Affiliation ', '') ;
+                checked = checked.replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#Personal_Contact_Number ', '') ;
+                checked = checked.replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#Contact_Address ', '') ;
+                checked = checked.replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#Work_Contact_Number ', '') ;
+                //alert(checked) ;
+                var checkedArr = checked.split(' ') ;
+                var index = 0 ;
+                while(index < checkedArr.length) {
+                    checkedArr[index] = checkedArr[index].replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#', '') ;
+                    index++ ;
+                }
+                //var tab = ui_manager.generateTable(checkedArr) ;
+                ui_manager.generateTable(checkedArr) ;
+                hideHumanAttrTree() ;
+                //$('right').appendChild(tab) ;
+                //var table = manager.generateTable() ;
+            }
+
         </script>
         <script type="text/javascript">
-        if ( typeof window.addEventListener != "undefined" )
-            window.addEventListener( "load", init, false );
-        else if ( typeof window.attachEvent != "undefined" ) {
-            window.attachEvent( "onload", init );
-        }
-        else {
-            if ( window.onload != null ) {
-                var oldOnload = window.onload;
-                window.onload = function ( e ) {
-                    oldOnload( e );
-                    init();
-                };
+            if ( typeof window.addEventListener != "undefined" )
+                window.addEventListener( "load", init, false );
+            else if ( typeof window.attachEvent != "undefined" ) {
+                window.attachEvent( "onload", init );
             }
-            else
-                window.onload = init;
-        }
+            else {
+                if ( window.onload != null ) {
+                    var oldOnload = window.onload;
+                    window.onload = function ( e ) {
+                        oldOnload( e );
+                        init();
+                    };
+                }
+                else
+                    window.onload = init;
+            }
         </script>
     </head>
     <body>
@@ -109,6 +180,8 @@
                                 <br />
                             </td>
                         </tr>
+                    </table>
+                    <table id="human_attr_tab">
                         <tr>
                             <td width="20%">
                                 <s:text name="userprofile.givenname" />
@@ -150,68 +223,70 @@
                                 <br />
                             </td>
                         </tr>
+                    </table>
+                    <table id="human_attr_control_tab">
                         <tr>
                             <td colspan="4" align="right">
-                               <input type="button" value="<s:text name="userprofile.additem" />" onclick="showHumanAttrTree();" class="button" />
+                                <input type="button" value="<s:text name="userprofile.additem" />" onclick="showHumanAttrTree();" class="button" />
                             </td>
                         </tr>
 
                     </table>
                 </div>
                 <s:iterator value="#session['actor'].roles">
-                <div class="box" id="role_div">
-                    <table id="roletable">
-                        <tr>
-                            <td width="15%">
-                                <s:text name="userprofile.role" />
-                            </td>
-                            <td width="35%">
-                                <s:textfield name="roles" />
-                            </td>
-                            <td colspan="2">
-                                &nbsp;
-                            </td>
-                        </tr>
-                        <tr>
+                    <div class="box" id="role_div">
+                        <table id="roletable">
+                            <tr>
+                                <td width="15%">
+                                    <s:text name="userprofile.role" />
+                                </td>
+                                <td width="35%">
+                                    <s:textfield name="roles" />
+                                </td>
+                                <td colspan="2">
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    <br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%">
+                                    <s:text name="userprofile.ability" />
+                                </td>
+                                <td width="35%">
+                                    <s:select name="ability.iterator" key="ability" headerKey="-1" headerValue="-- Select ability --" list="{'Ability1', 'Ability2'}" />
+                                </td>
+                                <td width="15%">
+                                    <s:text name="userprofile.knowledge" />
+                                </td>
+                                <td width="35%">
+                                    <s:select name="knowledge" headerKey="-1" headerValue="-- Select knowledge --" list="#session['knowledges']" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%">
+                                    <s:text name="userprofile.skill" />
+                                </td>
+                                <td width="35%">
+                                    <s:select name="skill" key="skill" headerKey="-1" headerValue="-- Select skill --" list="{'Professional_Skill', 'Amateur_Skill'}" />
+                                </td>
+                                <td colspan="2">
+
+                                </td>
+                            </tr>
                             <td colspan="4">
                                 <br />
                             </td>
-                        </tr>
-                        <tr>
-                            <td width="15%">
-                                <s:text name="userprofile.ability" />
-                            </td>
-                            <td width="35%">
-                                <s:select name="ability.iterator" key="ability" headerKey="-1" headerValue="-- Select ability --" list="{'Ability1', 'Ability2'}" />
-                            </td>
-                            <td width="15%">
-                                <s:text name="userprofile.knowledge" />
-                            </td>
-                            <td width="35%">
-                                <s:select name="knowledge" headerKey="-1" headerValue="-- Select knowledge --" list="#session['knowledges']" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="15%">
-                                <s:text name="userprofile.skill" />
-                            </td>
-                            <td width="35%">
-                                <s:select name="skill" key="skill" headerKey="-1" headerValue="-- Select skill --" list="{'Professional_Skill', 'Amateur_Skill'}" />
-                            </td>
-                            <td colspan="2">
-
-                            </td>
-                        </tr>
-                        <td colspan="4">
-                            <br />
-                        </td>
-                        <tr>
-                            <td colspan="4" align="right">
-                                <input type="button" value="<s:text name="userprofile.additem" />" onclick="alert('Available Soon...') ;" class="button" />
-                            </td>
-                        </tr>
-                    </table>
-                </div>
+                            <tr>
+                                <td colspan="4" align="right">
+                                    <input type="button" value="<s:text name="userprofile.additem" />" onclick="alert('Available Soon...') ;" class="button" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                 </s:iterator>
                 <div class="box" id="controls_div">
                     <table align="center">
@@ -237,7 +312,7 @@
                     <div id="atributes_tree_div" class="title_back">
                     </div>
                     <div id="attr_control_div">
-                        <input type="button" value="<s:text name="userprofile.addattr" />" class="button" onclick="getAllChecked();" />
+                        <input type="button" value="<s:text name="userprofile.addattr" />" class="button" onclick="addAttributesBtnClick();" />
                     </div>
                 </div>
             </div>
