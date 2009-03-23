@@ -19,7 +19,7 @@
             <div class="box">
                 <table width="520px">
                     <tr>
-                        <td colspan="4">
+                        <td colspan="4" align="center">
                             <h4><s:text name="userinterface.pagename" /></h4>
                         </td>
                     </tr>

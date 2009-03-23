@@ -157,11 +157,11 @@
         <div id="right">
             <div class="box">
                 <table width="520px">
-                        <tr>
-                            <td colspan="4" align="center">
-                                <h4><s:text name="userprofile.pagename" /></h4>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td colspan="4" align="center">
+                            <h4><s:text name="userprofile.pagename" /></h4>
+                        </td>
+                    </tr>
                 </table>
             </div>
             <div class="box" id="actor_div">

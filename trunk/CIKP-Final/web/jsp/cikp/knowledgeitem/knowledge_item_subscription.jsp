@@ -42,13 +42,15 @@
     </head>
     <body>
         <div id="right">
-            <table width="520px">
+            <div class="box">
+                <table width="520px">
                         <tr>
                             <td colspan="4" align="center">
                                 <h4><s:text name="knowledgeitem.subscribepagename" /></h4>
                             </td>
                         </tr>
                 </table>
+            </div>
             <div class="box" id="knowledge_item_subscription_div">
                 <s:form action="SubscribeKnowledgeItem" method="POST">
                     <table width="520px">
