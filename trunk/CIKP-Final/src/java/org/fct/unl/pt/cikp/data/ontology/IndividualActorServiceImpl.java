@@ -44,6 +44,7 @@ public class IndividualActorServiceImpl implements IndividualActorService {
             onts.addLiteralByProperty("has_Ethnicity_Status", actor.getUsername(), (actor.getEthnicitystatus() == null ? "" : actor.getEthnicitystatus()));
             onts.addLiteralByProperty("has_Experience", actor.getUsername(), (actor.getExperience() == null ? "" : actor.getExperience()));
             onts.addLiteralByProperty("has_Gender", actor.getUsername(), (actor.getGender() == null ? "" : actor.getGender()));
+            onts.addLiteralByProperty("has_Geographic_Affiliation", actor.getUsername(), (actor.getGeoaffiliation() == null ? "" : actor.getGeoaffiliation()));
             onts.addLiteralByProperty("has_Information_And_Knowledge_Need", actor.getUsername(), (actor.getInfoneed() == null ? "" : actor.getInfoneed()));
             onts.addLiteralByProperty("has_Knowledge", actor.getUsername(), (actor.getKnowledge() == null ? "" : actor.getKnowledge()));
             onts.addLiteralByProperty("has_Marital_Status", actor.getUsername(), (actor.getMaritalstatus() == null ? "" : actor.getMaritalstatus()));
@@ -165,6 +166,7 @@ public class IndividualActorServiceImpl implements IndividualActorService {
             actor.setEthnicitystatus((String)getOnt().getLiteralByProperty(username, "has_Ethnicity_Status")) ;
             actor.setExperience((String)getOnt().getLiteralByProperty(username, "has_Experience")) ;
             actor.setGender((String)getOnt().getLiteralByProperty(username, "has_Gender")) ;
+            actor.setGeoaffiliation((String)getOnt().getLiteralByProperty(username, "has_Geographic_Affiliation")) ;
             actor.setInfoneed((String)getOnt().getLiteralByProperty(username, "has_Information_And_Knowledge_Need")) ;
             actor.setKnowledge((String)getOnt().getLiteralByProperty(username, "has_Knowledge")) ;
             actor.setMaritalstatus((String)getOnt().getLiteralByProperty(username, "has_Marital_Status")) ;

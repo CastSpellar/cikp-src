@@ -29,6 +29,7 @@ public class IndividualActor {
     private String ethnicitystatus ;
     private String experience ;
     private String gender ;
+    private String geoaffiliation ;
     private String infoneed ;
     private String knowledge ;
     private String maritalstatus ;
@@ -640,5 +641,19 @@ public class IndividualActor {
      */
     public void setRoleprojaffiliation(ArrayList<String> roleprojaffiliation) {
         this.roleprojaffiliation = roleprojaffiliation;
+    }
+
+    /**
+     * @return the geoaffiliation
+     */
+    public String getGeoaffiliation() {
+        return geoaffiliation;
+    }
+
+    /**
+     * @param geoaffiliation the geoaffiliation to set
+     */
+    public void setGeoaffiliation(String geoaffiliation) {
+        this.geoaffiliation = geoaffiliation;
     }
 }
