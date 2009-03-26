@@ -8,11 +8,11 @@ public class Event {
 
     private String username ;
     private String eventtype ;
-    private int eventcost ;
-    private String eventendingtime ;
-    private String eventstartingtime ;
-    private String location ;
-    private String subjectDomain ;
+    private int event_cost ;
+    private String event_ending_time ;
+    private String event_starting_time ;
+    private String event_location ;
+    private String event_subject_domain ;
 
     public void Event() {}
 
@@ -45,74 +45,73 @@ public class Event {
     }
 
     /**
-     * @return the eventcost
+     * @return the event_cost
      */
-    public int getEventcost() {
-        return eventcost;
+    public int getEvent_cost() {
+        return event_cost;
     }
 
     /**
-     * @param eventcost the eventcost to set
+     * @param event_cost the event_cost to set
      */
-    public void setEventcost(int eventcost) {
-        this.eventcost = eventcost;
+    public void setEvent_cost(int event_cost) {
+        this.event_cost = event_cost;
     }
 
     /**
-     * @return the eventendingtime
+     * @return the event_ending_time
      */
-    public String getEventendingtime() {
-        return eventendingtime;
+    public String getEvent_ending_time() {
+        return event_ending_time;
     }
 
     /**
-     * @param eventendingtime the eventendingtime to set
+     * @param event_ending_time the event_ending_time to set
      */
-    public void setEventendingtime(String eventendingtime) {
-        this.eventendingtime = eventendingtime;
+    public void setEvent_ending_time(String event_ending_time) {
+        this.event_ending_time = event_ending_time;
     }
 
     /**
-     * @return the eventstartingtime
+     * @return the event_starting_time
      */
-    public String getEventstartingtime() {
-        return eventstartingtime;
+    public String getEvent_starting_time() {
+        return event_starting_time;
     }
 
     /**
-     * @param eventstartingtime the eventstartingtime to set
+     * @param event_starting_time the event_starting_time to set
      */
-    public void setEventstartingtime(String eventstartingtime) {
-        this.eventstartingtime = eventstartingtime;
+    public void setEvent_starting_time(String event_starting_time) {
+        this.event_starting_time = event_starting_time;
     }
 
     /**
-     * @return the location
+     * @return the event_location
      */
-    public String getLocation() {
-        return location;
+    public String getEvent_location() {
+        return event_location;
     }
 
     /**
-     * @param location the location to set
+     * @param event_location the event_location to set
      */
-    public void setLocation(String location) {
-        this.location = location;
+    public void setEvent_location(String event_location) {
+        this.event_location = event_location;
     }
 
     /**
-     * @return the subjectDomain
+     * @return the event_subject_domain
      */
-    public String getSubjectDomain() {
-        return subjectDomain;
+    public String getEvent_subject_domain() {
+        return event_subject_domain;
     }
 
     /**
-     * @param subjectDomain the subjectDomain to set
+     * @param event_subject_domain the event_subject_domain to set
      */
-    public void setSubjectDomain(String subjectDomain) {
-        this.subjectDomain = subjectDomain;
+    public void setEvent_subject_domain(String event_subject_domain) {
+        this.event_subject_domain = event_subject_domain;
     }
-
 
 }

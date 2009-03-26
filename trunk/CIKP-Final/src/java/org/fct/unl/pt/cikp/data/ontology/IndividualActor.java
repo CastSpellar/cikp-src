@@ -12,46 +12,32 @@ public class IndividualActor {
     private String username ;
     private String actortype ;
     private int age ;
-    private String email ;
-    private String familyname ;
-    private String faxnumber ;
-    private String givenname ;
-    private String homephone ;
-    private String mailingaddress ;
-    private String middlename ;
-    private String mobilephone ;
+    private String email_address ;
+    private String family_name ;
+    private String fax_number ;
+    private String given_name ;
+    private String home_phone_number ;
+    private String mailing_address ;
+    private String middle_name ;
+    private String mobile_phone_number ;
     private String name ;
-    private String workphone ;
+    private String work_phone_number ;
     private String ability ;
-    private String cetificateandlicense ;
-    private String commlanguage ;
-    private String educationbg ;
-    private String ethnicitystatus ;
+    private String cetificate_and_license ;
+    private String communication_language ;
+    private String education_background ;
+    private String ethnicity ;
     private String experience ;
     private String gender ;
-    private String geoaffiliation ;
-    private String infoneed ;
+    private String geographic_affiliation ;
+    private String information_and_knowledge_need ;
     private String knowledge ;
-    private String maritalstatus ;
+    private String marital_status ;
     private String skill ;
-    private String trainingobt ;
-    private String copaffiliation ;
-    private String orgaffiliation ;
-    private ArrayList<String> roles ;
-    private ArrayList<String> roleauthority ;
-    private ArrayList<String> roleexperience ;
-    private ArrayList<String> roleinfoneed ;
-    private ArrayList<String> roleknowledge ;
-    private ArrayList<String> roleliability ;
-    private ArrayList<String> roleresponsibility ;
-    private ArrayList<String> roleright ;
-    private ArrayList<String> roleskill ;
-    private ArrayList<String> roletrainingobt ;
-    private ArrayList<String> roleeventaffiliation ;
-    private ArrayList<String> roleorgaffiliation ;
-    private ArrayList<String> roleprocaffiliation ;
-    private ArrayList<String> roleprodaffiliation ;
-    private ArrayList<String> roleprojaffiliation ;
+    private String training_obtained ;
+    private String cop_affiliation ;
+    private String organizational_affiliation ;
+    private ArrayList<Role> roles ;
 
     public IndividualActor() {}
 
@@ -98,115 +84,115 @@ public class IndividualActor {
     }
 
     /**
-     * @return the email
+     * @return the email_address
      */
-    public String getEmail() {
-        return email;
+    public String getEmail_address() {
+        return email_address;
     }
 
     /**
-     * @param email the email to set
+     * @param email_address the email_address to set
      */
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail_address(String email_address) {
+        this.email_address = email_address;
     }
 
     /**
-     * @return the familyname
+     * @return the family_name
      */
-    public String getFamilyname() {
-        return familyname;
+    public String getFamily_name() {
+        return family_name;
     }
 
     /**
-     * @param familyname the familyname to set
+     * @param family_name the family_name to set
      */
-    public void setFamilyname(String familyname) {
-        this.familyname = familyname;
+    public void setFamily_name(String family_name) {
+        this.family_name = family_name;
     }
 
     /**
-     * @return the faxnumber
+     * @return the fax_number
      */
-    public String getFaxnumber() {
-        return faxnumber;
+    public String getFax_number() {
+        return fax_number;
     }
 
     /**
-     * @param faxnumber the faxnumber to set
+     * @param fax_number the fax_number to set
      */
-    public void setFaxnumber(String faxnumber) {
-        this.faxnumber = faxnumber;
+    public void setFax_number(String fax_number) {
+        this.fax_number = fax_number;
     }
 
     /**
-     * @return the givenname
+     * @return the given_name
      */
-    public String getGivenname() {
-        return givenname;
+    public String getGiven_name() {
+        return given_name;
     }
 
     /**
-     * @param givenname the givenname to set
+     * @param given_name the given_name to set
      */
-    public void setGivenname(String givenname) {
-        this.givenname = givenname;
+    public void setGiven_name(String given_name) {
+        this.given_name = given_name;
     }
 
     /**
-     * @return the homephone
+     * @return the home_phone_number
      */
-    public String getHomephone() {
-        return homephone;
+    public String getHome_phone_number() {
+        return home_phone_number;
     }
 
     /**
-     * @param homephone the homephone to set
+     * @param home_phone_number the home_phone_number to set
      */
-    public void setHomephone(String homephone) {
-        this.homephone = homephone;
+    public void setHome_phone_number(String home_phone_number) {
+        this.home_phone_number = home_phone_number;
     }
 
     /**
-     * @return the mailingaddress
+     * @return the mailing_address
      */
-    public String getMailingaddress() {
-        return mailingaddress;
+    public String getMailing_address() {
+        return mailing_address;
     }
 
     /**
-     * @param mailingaddress the mailingaddress to set
+     * @param mailing_address the mailing_address to set
      */
-    public void setMailingaddress(String mailingaddress) {
-        this.mailingaddress = mailingaddress;
+    public void setMailing_address(String mailing_address) {
+        this.mailing_address = mailing_address;
     }
 
     /**
-     * @return the middlename
+     * @return the middle_name
      */
-    public String getMiddlename() {
-        return middlename;
+    public String getMiddle_name() {
+        return middle_name;
     }
 
     /**
-     * @param middlename the middlename to set
+     * @param middle_name the middle_name to set
      */
-    public void setMiddlename(String middlename) {
-        this.middlename = middlename;
+    public void setMiddle_name(String middle_name) {
+        this.middle_name = middle_name;
     }
 
     /**
-     * @return the mobilephone
+     * @return the mobile_phone_number
      */
-    public String getMobilephone() {
-        return mobilephone;
+    public String getMobile_phone_number() {
+        return mobile_phone_number;
     }
 
     /**
-     * @param mobilephone the mobilephone to set
+     * @param mobile_phone_number the mobile_phone_number to set
      */
-    public void setMobilephone(String mobilephone) {
-        this.mobilephone = mobilephone;
+    public void setMobile_phone_number(String mobile_phone_number) {
+        this.mobile_phone_number = mobile_phone_number;
     }
 
     /**
@@ -224,17 +210,17 @@ public class IndividualActor {
     }
 
     /**
-     * @return the workphone
+     * @return the work_phone_number
      */
-    public String getWorkphone() {
-        return workphone;
+    public String getWork_phone_number() {
+        return work_phone_number;
     }
 
     /**
-     * @param workphone the workphone to set
+     * @param work_phone_number the work_phone_number to set
      */
-    public void setWorkphone(String workphone) {
-        this.workphone = workphone;
+    public void setWork_phone_number(String work_phone_number) {
+        this.work_phone_number = work_phone_number;
     }
 
     /**
@@ -252,59 +238,59 @@ public class IndividualActor {
     }
 
     /**
-     * @return the cetificateandlicense
+     * @return the cetificate_and_license
      */
-    public String getCetificateandlicense() {
-        return cetificateandlicense;
+    public String getCetificate_and_license() {
+        return cetificate_and_license;
     }
 
     /**
-     * @param cetificateandlicense the cetificateandlicense to set
+     * @param cetificate_and_license the cetificate_and_license to set
      */
-    public void setCetificateandlicense(String cetificateandlicense) {
-        this.cetificateandlicense = cetificateandlicense;
+    public void setCetificate_and_license(String cetificate_and_license) {
+        this.cetificate_and_license = cetificate_and_license;
     }
 
     /**
-     * @return the commlanguage
+     * @return the communication_language
      */
-    public String getCommlanguage() {
-        return commlanguage;
+    public String getCommunication_language() {
+        return communication_language;
     }
 
     /**
-     * @param commlanguage the commlanguage to set
+     * @param communication_language the communication_language to set
      */
-    public void setCommlanguage(String commlanguage) {
-        this.commlanguage = commlanguage;
+    public void setCommunication_language(String communication_language) {
+        this.communication_language = communication_language;
     }
 
     /**
-     * @return the educationbg
+     * @return the education_background
      */
-    public String getEducationbg() {
-        return educationbg;
+    public String getEducation_background() {
+        return education_background;
     }
 
     /**
-     * @param educationbg the educationbg to set
+     * @param education_background the education_background to set
      */
-    public void setEducationbg(String educationbg) {
-        this.educationbg = educationbg;
+    public void setEducation_background(String education_background) {
+        this.education_background = education_background;
     }
 
     /**
-     * @return the ethnicitystatus
+     * @return the ethnicity
      */
-    public String getEthnicitystatus() {
-        return ethnicitystatus;
+    public String getEthnicity() {
+        return ethnicity;
     }
 
     /**
-     * @param ethnicitystatus the ethnicitystatus to set
+     * @param ethnicity the ethnicity to set
      */
-    public void setEthnicitystatus(String ethnicitystatus) {
-        this.ethnicitystatus = ethnicitystatus;
+    public void setEthnicity(String ethnicity) {
+        this.ethnicity = ethnicity;
     }
 
     /**
@@ -336,17 +322,31 @@ public class IndividualActor {
     }
 
     /**
-     * @return the infoneed
+     * @return the geographic_affiliation
      */
-    public String getInfoneed() {
-        return infoneed;
+    public String getGeographic_affiliation() {
+        return geographic_affiliation;
     }
 
     /**
-     * @param infoneed the infoneed to set
+     * @param geographic_affiliation the geographic_affiliation to set
      */
-    public void setInfoneed(String infoneed) {
-        this.infoneed = infoneed;
+    public void setGeographic_affiliation(String geographic_affiliation) {
+        this.geographic_affiliation = geographic_affiliation;
+    }
+
+    /**
+     * @return the information_and_knowledge_need
+     */
+    public String getInformation_and_knowledge_need() {
+        return information_and_knowledge_need;
+    }
+
+    /**
+     * @param information_and_knowledge_need the information_and_knowledge_need to set
+     */
+    public void setInformation_and_knowledge_need(String information_and_knowledge_need) {
+        this.information_and_knowledge_need = information_and_knowledge_need;
     }
 
     /**
@@ -364,17 +364,17 @@ public class IndividualActor {
     }
 
     /**
-     * @return the maritalstatus
+     * @return the marital_status
      */
-    public String getMaritalstatus() {
-        return maritalstatus;
+    public String getMarital_status() {
+        return marital_status;
     }
 
     /**
-     * @param maritalstatus the maritalstatus to set
+     * @param marital_status the marital_status to set
      */
-    public void setMaritalstatus(String maritalstatus) {
-        this.maritalstatus = maritalstatus;
+    public void setMarital_status(String marital_status) {
+        this.marital_status = marital_status;
     }
 
     /**
@@ -392,268 +392,60 @@ public class IndividualActor {
     }
 
     /**
-     * @return the trainingobt
+     * @return the training_obtained
      */
-    public String getTrainingobt() {
-        return trainingobt;
+    public String getTraining_obtained() {
+        return training_obtained;
     }
 
     /**
-     * @param trainingobt the trainingobt to set
+     * @param training_obtained the training_obtained to set
      */
-    public void setTrainingobt(String trainingobt) {
-        this.trainingobt = trainingobt;
+    public void setTraining_obtained(String training_obtained) {
+        this.training_obtained = training_obtained;
     }
 
     /**
-     * @return the copaffiliation
+     * @return the cop_affiliation
      */
-    public String getCopaffiliation() {
-        return copaffiliation;
+    public String getCop_affiliation() {
+        return cop_affiliation;
     }
 
     /**
-     * @param copaffiliation the copaffiliation to set
+     * @param cop_affiliation the cop_affiliation to set
      */
-    public void setCopaffiliation(String copaffiliation) {
-        this.copaffiliation = copaffiliation;
+    public void setCop_affiliation(String cop_affiliation) {
+        this.cop_affiliation = cop_affiliation;
     }
 
     /**
-     * @return the orgaffiliation
+     * @return the organizational_affiliation
      */
-    public String getOrgaffiliation() {
-        return orgaffiliation;
+    public String getOrganizational_affiliation() {
+        return organizational_affiliation;
     }
 
     /**
-     * @param orgaffiliation the orgaffiliation to set
+     * @param organizational_affiliation the organizational_affiliation to set
      */
-    public void setOrgaffiliation(String orgaffiliation) {
-        this.orgaffiliation = orgaffiliation;
+    public void setOrganizational_affiliation(String organizational_affiliation) {
+        this.organizational_affiliation = organizational_affiliation;
     }
 
     /**
      * @return the roles
      */
-    public ArrayList<String> getRoles() {
+    public ArrayList<Role> getRoles() {
         return roles;
     }
 
     /**
      * @param roles the roles to set
      */
-    public void setRoles(ArrayList<String> roles) {
+    public void setRoles(ArrayList<Role> roles) {
         this.roles = roles;
     }
 
-    /**
-     * @return the roleauthority
-     */
-    public ArrayList<String> getRoleauthority() {
-        return roleauthority;
-    }
 
-    /**
-     * @param roleauthority the roleauthority to set
-     */
-    public void setRoleauthority(ArrayList<String> roleauthority) {
-        this.roleauthority = roleauthority;
-    }
-
-    /**
-     * @return the roleexperience
-     */
-    public ArrayList<String> getRoleexperience() {
-        return roleexperience;
-    }
-
-    /**
-     * @param roleexperience the roleexperience to set
-     */
-    public void setRoleexperience(ArrayList<String> roleexperience) {
-        this.roleexperience = roleexperience;
-    }
-
-    /**
-     * @return the roleinfoneed
-     */
-    public ArrayList<String> getRoleinfoneed() {
-        return roleinfoneed;
-    }
-
-    /**
-     * @param roleinfoneed the roleinfoneed to set
-     */
-    public void setRoleinfoneed(ArrayList<String> roleinfoneed) {
-        this.roleinfoneed = roleinfoneed;
-    }
-
-    /**
-     * @return the roleknowledge
-     */
-    public ArrayList<String> getRoleknowledge() {
-        return roleknowledge;
-    }
-
-    /**
-     * @param roleknowledge the roleknowledge to set
-     */
-    public void setRoleknowledge(ArrayList<String> roleknowledge) {
-        this.roleknowledge = roleknowledge;
-    }
-
-    /**
-     * @return the roleliability
-     */
-    public ArrayList<String> getRoleliability() {
-        return roleliability;
-    }
-
-    /**
-     * @param roleliability the roleliability to set
-     */
-    public void setRoleliability(ArrayList<String> roleliability) {
-        this.roleliability = roleliability;
-    }
-
-    /**
-     * @return the roleresponsibility
-     */
-    public ArrayList<String> getRoleresponsibility() {
-        return roleresponsibility;
-    }
-
-    /**
-     * @param roleresponsibility the roleresponsibility to set
-     */
-    public void setRoleresponsibility(ArrayList<String> roleresponsibility) {
-        this.roleresponsibility = roleresponsibility;
-    }
-
-    /**
-     * @return the roleright
-     */
-    public ArrayList<String> getRoleright() {
-        return roleright;
-    }
-
-    /**
-     * @param roleright the roleright to set
-     */
-    public void setRoleright(ArrayList<String> roleright) {
-        this.roleright = roleright;
-    }
-
-    /**
-     * @return the roleskill
-     */
-    public ArrayList<String> getRoleskill() {
-        return roleskill;
-    }
-
-    /**
-     * @param roleskill the roleskill to set
-     */
-    public void setRoleskill(ArrayList<String> roleskill) {
-        this.roleskill = roleskill;
-    }
-
-    /**
-     * @return the roletrainingobt
-     */
-    public ArrayList<String> getRoletrainingobt() {
-        return roletrainingobt;
-    }
-
-    /**
-     * @param roletrainingobt the roletrainingobt to set
-     */
-    public void setRoletrainingobt(ArrayList<String> roletrainingobt) {
-        this.roletrainingobt = roletrainingobt;
-    }
-
-    /**
-     * @return the roleeventaffiliation
-     */
-    public ArrayList<String> getRoleeventaffiliation() {
-        return roleeventaffiliation;
-    }
-
-    /**
-     * @param roleeventaffiliation the roleeventaffiliation to set
-     */
-    public void setRoleeventaffiliation(ArrayList<String> roleeventaffiliation) {
-        this.roleeventaffiliation = roleeventaffiliation;
-    }
-
-    /**
-     * @return the roleorgaffiliation
-     */
-    public ArrayList<String> getRoleorgaffiliation() {
-        return roleorgaffiliation;
-    }
-
-    /**
-     * @param roleorgaffiliation the roleorgaffiliation to set
-     */
-    public void setRoleorgaffiliation(ArrayList<String> roleorgaffiliation) {
-        this.roleorgaffiliation = roleorgaffiliation;
-    }
-
-    /**
-     * @return the roleprocaffiliation
-     */
-    public ArrayList<String> getRoleprocaffiliation() {
-        return roleprocaffiliation;
-    }
-
-    /**
-     * @param roleprocaffiliation the roleprocaffiliation to set
-     */
-    public void setRoleprocaffiliation(ArrayList<String> roleprocaffiliation) {
-        this.roleprocaffiliation = roleprocaffiliation;
-    }
-
-    /**
-     * @return the roleprodaffiliation
-     */
-    public ArrayList<String> getRoleprodaffiliation() {
-        return roleprodaffiliation;
-    }
-
-    /**
-     * @param roleprodaffiliation the roleprodaffiliation to set
-     */
-    public void setRoleprodaffiliation(ArrayList<String> roleprodaffiliation) {
-        this.roleprodaffiliation = roleprodaffiliation;
-    }
-
-    /**
-     * @return the roleprojaffiliation
-     */
-    public ArrayList<String> getRoleprojaffiliation() {
-        return roleprojaffiliation;
-    }
-
-    /**
-     * @param roleprojaffiliation the roleprojaffiliation to set
-     */
-    public void setRoleprojaffiliation(ArrayList<String> roleprojaffiliation) {
-        this.roleprojaffiliation = roleprojaffiliation;
-    }
-
-    /**
-     * @return the geoaffiliation
-     */
-    public String getGeoaffiliation() {
-        return geoaffiliation;
-    }
-
-    /**
-     * @param geoaffiliation the geoaffiliation to set
-     */
-    public void setGeoaffiliation(String geoaffiliation) {
-        this.geoaffiliation = geoaffiliation;
-    }
 }

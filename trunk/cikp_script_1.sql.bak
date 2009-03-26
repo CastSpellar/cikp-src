@@ -1,0 +1,81 @@
+﻿DROP TABLE IF EXISTS `cikp`.`file`;
+CREATE TABLE  `cikp`.`file` (
+  `File_ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `File` blob NOT NULL,
+  PRIMARY KEY (`File_ID`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `cikp`.`keyword`;
+CREATE TABLE  `cikp`.`keyword` (
+  `Keyword_ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `Keyword` varchar(100) NOT NULL,
+  PRIMARY KEY (`Keyword_ID`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `cikp`.`knowledge_item`;
+CREATE TABLE  `cikp`.`knowledge_item` (
+  `Knowledge_Item_ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `Name` varchar(255) NOT NULL,
+  `Knowledge_Item_File_Size` int(10) unsigned NOT NULL,
+  `Knowledge_Item_Creation_Time` time NOT NULL,
+  `Knowledge_Item_Creation_Date` date NOT NULL,
+  `Knowledge_Item_Author` varchar(20) NOT NULL,
+  `Knowledge_Item_Composition_Language` varchar(20) DEFAULT NULL,
+  `Knowledge_Item_Copyright_Owner` varchar(200) DEFAULT NULL,
+  `Knowledge_Item_Destination` varchar(100) DEFAULT NULL,
+  `Knowledge_Item_File_Type` varchar(50) NOT NULL,
+  `Knowledge_Item_Security_Clearance` varchar(100) DEFAULT NULL,
+  `Knowledge_Item_Source` varchar(20) DEFAULT NULL,
+  `Knowledge_Item_Type` varchar(100) NOT NULL,
+  `Subject_Domain` varchar(100) DEFAULT NULL,
+  `File_ID` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`Knowledge_Item_ID`) USING BTREE,
+  KEY `FK_File` (`File_ID`),
+  CONSTRAINT `FK_File` FOREIGN KEY (`File_ID`) REFERENCES `file` (`File_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `cikp`.`knowledge_item_keyword`;
+CREATE TABLE  `cikp`.`knowledge_item_keyword` (
+  `Knowledge_Item_ID` int(10) unsigned NOT NULL,
+  `Keyword_ID` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`Knowledge_Item_ID`,`Keyword_ID`),
+  KEY `FK_Keyword` (`Keyword_ID`),
+  CONSTRAINT `FK_Keyword` FOREIGN KEY (`Keyword_ID`) REFERENCES `keyword` (`Keyword_ID`),
+  CONSTRAINT `FK_Knowledge_Item` FOREIGN KEY (`Knowledge_Item_ID`) REFERENCES `knowledge_item` (`Knowledge_Item_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `cikp`.`subscription`;
+CREATE TABLE  `cikp`.`subscription` (
+  `Subscription_ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `Name` varchar(20) DEFAULT NULL,
+  `Knowledge_Item_File_Size` int(10) unsigned DEFAULT NULL,
+  `Knowledge_Item_Creation_Time` time DEFAULT NULL,
+  `Knowledge_Item_Creation_Date` date DEFAULT NULL,
+  `Knowledge_Item_Author` varchar(200) DEFAULT NULL,
+  `Knowledge_Item_Composition_Language` varchar(100) DEFAULT NULL,
+  `Knowledge_Item_Copyright_Owner` varchar(200) DEFAULT NULL,
+  `Knowledge_Item_Destination` varchar(100) DEFAULT NULL,
+  `Knowledge_Item_File_Type` varchar(50) DEFAULT NULL,
+  `Knowledge_Item_Security_Clearance` varchar(100) DEFAULT NULL,
+  `Knowledge_Item_Source` varchar(20) DEFAULT NULL,
+  `Knowledge_Item_Type` varchar(100) DEFAULT NULL,
+  `Subject_Domain` varchar(100) DEFAULT NULL,
+  `user_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`Subscription_ID`),
+  KEY `FK_user` (`user_id`),
+  CONSTRAINT `FK_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `cikp`.`user`;
+CREATE TABLE  `cikp`.`user` (
+  `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_firstname` varchar(50) NOT NULL,
+  `user_lastname` varchar(50) NOT NULL,
+  `user_company` varchar(50) NOT NULL,
+  `user_telephone` varchar(50) NOT NULL,
+  `user_email` varchar(50) NOT NULL,
+  `user_username` varchar(20) NOT NULL,
+  `user_password` varchar(50) NOT NULL,
+  `user_uri` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;

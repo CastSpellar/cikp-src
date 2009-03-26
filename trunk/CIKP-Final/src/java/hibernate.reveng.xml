@@ -2,5 +2,10 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="cikp"/>
+  <table-filter match-name="file"/>
+  <table-filter match-name="keyword"/>
+  <table-filter match-name="knowledge_item"/>
+  <table-filter match-name="knowledge_item_keyword"/>
+  <table-filter match-name="subscription"/>
   <table-filter match-name="user"/>
 </hibernate-reverse-engineering>

@@ -8,11 +8,11 @@ package org.fct.unl.pt.cikp.data.ontology;
 public class Process {
     
     private String location ;
-    private String subjectdomain ;
-    private int proccost ;
-    private String procendingtime ;
-    private String procstartingtime ;
-    private String proctype ;
+    private String subject_domain ;
+    private int process_cost ;
+    private String process_ending_time ;
+    private String process_starting_time ;
+    private String process_type ;
     private String username ;
 
     public Process() {}
@@ -32,73 +32,73 @@ public class Process {
     }
 
     /**
-     * @return the subjectdomain
+     * @return the subject_domain
      */
-    public String getSubjectdomain() {
-        return subjectdomain;
+    public String getSubject_domain() {
+        return subject_domain;
     }
 
     /**
-     * @param subjectdomain the subjectdomain to set
+     * @param subject_domain the subject_domain to set
      */
-    public void setSubjectdomain(String subjectdomain) {
-        this.subjectdomain = subjectdomain;
+    public void setSubject_domain(String subject_domain) {
+        this.subject_domain = subject_domain;
     }
 
     /**
-     * @return the proccost
+     * @return the process_cost
      */
-    public int getProccost() {
-        return proccost;
+    public int getProcess_cost() {
+        return process_cost;
     }
 
     /**
-     * @param proccost the proccost to set
+     * @param process_cost the process_cost to set
      */
-    public void setProccost(int proccost) {
-        this.proccost = proccost;
+    public void setProcess_cost(int process_cost) {
+        this.process_cost = process_cost;
     }
 
     /**
-     * @return the procendingtime
+     * @return the process_ending_time
      */
-    public String getProcendingtime() {
-        return procendingtime;
+    public String getProcess_ending_time() {
+        return process_ending_time;
     }
 
     /**
-     * @param procendingtime the procendingtime to set
+     * @param process_ending_time the process_ending_time to set
      */
-    public void setProcendingtime(String procendingtime) {
-        this.procendingtime = procendingtime;
+    public void setProcess_ending_time(String process_ending_time) {
+        this.process_ending_time = process_ending_time;
     }
 
     /**
-     * @return the procstartingtime
+     * @return the process_starting_time
      */
-    public String getProcstartingtime() {
-        return procstartingtime;
+    public String getProcess_starting_time() {
+        return process_starting_time;
     }
 
     /**
-     * @param procstartingtime the procstartingtime to set
+     * @param process_starting_time the process_starting_time to set
      */
-    public void setProcstartingtime(String procstartingtime) {
-        this.procstartingtime = procstartingtime;
+    public void setProcess_starting_time(String process_starting_time) {
+        this.process_starting_time = process_starting_time;
     }
 
     /**
-     * @return the proctype
+     * @return the process_type
      */
-    public String getProctype() {
-        return proctype;
+    public String getProcess_type() {
+        return process_type;
     }
 
     /**
-     * @param proctype the proctype to set
+     * @param process_type the process_type to set
      */
-    public void setProctype(String proctype) {
-        this.proctype = proctype;
+    public void setProcess_type(String process_type) {
+        this.process_type = process_type;
     }
 
     /**
@@ -114,5 +114,7 @@ public class Process {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    
 
 }

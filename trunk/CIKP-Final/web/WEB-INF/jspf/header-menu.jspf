@@ -11,8 +11,6 @@
                         border:0,              // item's border width, pixels; zero means "none";
                         shadow:0,              // item's shadow size, pixels; zero means "none"
                         color:{
-                            border:"#white",  // color of the item border, if any;
-                            shadow:"#DBD8D1",  // color of the item shadow, if any;
                             bgON:"#silver",      // background color for the items;
                             bgOVER:"#white"   // background color for the item
                                        // which is under mouse right now;

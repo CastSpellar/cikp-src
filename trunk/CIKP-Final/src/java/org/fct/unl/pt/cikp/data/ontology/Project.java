@@ -8,13 +8,13 @@ package org.fct.unl.pt.cikp.data.ontology;
 public class Project {
 
     private String location ;
-    private String deliverymethod ;
-    private String closingdate ;
+    private String project_delivery_method ;
+    private String project_closing_date ;
     private String name ;
-    private String startingdate ;
-    private String totalinvestiment ;
-    private String type ;
-    private String prodaffiliation ;
+    private String project_starting_date ;
+    private int project_total_investiment ;
+    private String project_type ;
+    private String product_affiliation ;
 
     public Project() {}
 
@@ -33,31 +33,31 @@ public class Project {
     }
 
     /**
-     * @return the deliverymethod
+     * @return the project_delivery_method
      */
-    public String getDeliverymethod() {
-        return deliverymethod;
+    public String getProject_delivery_method() {
+        return project_delivery_method;
     }
 
     /**
-     * @param deliverymethod the deliverymethod to set
+     * @param project_delivery_method the project_delivery_method to set
      */
-    public void setDeliverymethod(String deliverymethod) {
-        this.deliverymethod = deliverymethod;
+    public void setProject_delivery_method(String project_delivery_method) {
+        this.project_delivery_method = project_delivery_method;
     }
 
     /**
-     * @return the closingdate
+     * @return the project_closing_date
      */
-    public String getClosingdate() {
-        return closingdate;
+    public String getProject_closing_date() {
+        return project_closing_date;
     }
 
     /**
-     * @param closingdate the closingdate to set
+     * @param project_closing_date the project_closing_date to set
      */
-    public void setClosingdate(String closingdate) {
-        this.closingdate = closingdate;
+    public void setProject_closing_date(String project_closing_date) {
+        this.project_closing_date = project_closing_date;
     }
 
     /**
@@ -75,58 +75,60 @@ public class Project {
     }
 
     /**
-     * @return the startingdate
+     * @return the project_starting_date
      */
-    public String getStartingdate() {
-        return startingdate;
+    public String getProject_starting_date() {
+        return project_starting_date;
     }
 
     /**
-     * @param startingdate the startingdate to set
+     * @param project_starting_date the project_starting_date to set
      */
-    public void setStartingdate(String startingdate) {
-        this.startingdate = startingdate;
+    public void setProject_starting_date(String project_starting_date) {
+        this.project_starting_date = project_starting_date;
     }
 
     /**
-     * @return the totalinvestiment
+     * @return the project_total_investiment
      */
-    public String getTotalinvestiment() {
-        return totalinvestiment;
+    public int getProject_total_investiment() {
+        return project_total_investiment;
     }
 
     /**
-     * @param totalinvestiment the totalinvestiment to set
+     * @param project_total_investiment the project_total_investiment to set
      */
-    public void setTotalinvestiment(String totalinvestiment) {
-        this.totalinvestiment = totalinvestiment;
+    public void setProject_total_investiment(int project_total_investiment) {
+        this.project_total_investiment = project_total_investiment;
     }
 
     /**
-     * @return the type
+     * @return the project_type
      */
-    public String getType() {
-        return type;
+    public String getProject_type() {
+        return project_type;
     }
 
     /**
-     * @param type the type to set
+     * @param project_type the project_type to set
      */
-    public void setType(String type) {
-        this.type = type;
+    public void setProject_type(String project_type) {
+        this.project_type = project_type;
     }
 
     /**
-     * @return the prodaffiliation
+     * @return the product_affiliation
      */
-    public String getProdaffiliation() {
-        return prodaffiliation;
+    public String getProduct_affiliation() {
+        return product_affiliation;
     }
 
     /**
-     * @param prodaffiliation the prodaffiliation to set
+     * @param product_affiliation the product_affiliation to set
      */
-    public void setProdaffiliation(String prodaffiliation) {
-        this.prodaffiliation = prodaffiliation;
+    public void setProduct_affiliation(String product_affiliation) {
+        this.product_affiliation = product_affiliation;
     }
+
+    
 }

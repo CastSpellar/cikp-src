@@ -21,9 +21,9 @@ public class PhysicalProductServiceImpl implements PhysicalProductService {
             onts.createIndividual(prod.getType(), prod.getName());
             onts.addLiteralByProperty("has_Location", prod.getName(), prod.getLocation());
             onts.addLiteralByProperty("has_Name", prod.getName(), prod.getName());
-            onts.addLiteralByProperty("has_Event_Affiliation", prod.getName(), prod.getEventaffiliation());
-            onts.addLiteralByProperty("has_Process_Affiliation", prod.getName(), prod.getProcaffiliation());
-            onts.addLiteralByProperty("has_Project_Affiliation", prod.getName(), prod.getProjaffiliation());
+            onts.addLiteralByProperty("has_Event_Affiliation", prod.getName(), prod.getEvent_affiliation());
+            onts.addLiteralByProperty("has_Process_Affiliation", prod.getName(), prod.getProcess_affiliation());
+            onts.addLiteralByProperty("has_Project_Affiliation", prod.getName(), prod.getProject_affiliation());
         } catch (IOException ex) {
             Logger.getLogger(PhysicalProductServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {

@@ -9,9 +9,9 @@ public class PhysicalProduct {
 
     private String location ;
     private String name ;
-    private String eventaffiliation ;
-    private String procaffiliation ;
-    private String projaffiliation ;
+    private String event_affiliation ;
+    private String process_affiliation ;
+    private String project_affiliation ;
     private String type ;
 
     public void PhysicalProduct() {}
@@ -47,43 +47,43 @@ public class PhysicalProduct {
     /**
      * @return the eventaffiliation
      */
-    public String getEventaffiliation() {
-        return eventaffiliation;
+    public String getEvent_affiliation() {
+        return event_affiliation;
     }
 
     /**
      * @param eventaffiliation the eventaffiliation to set
      */
-    public void setEventaffiliation(String eventaffiliation) {
-        this.eventaffiliation = eventaffiliation;
+    public void setEvent_affiliation(String eventaffiliation) {
+        this.event_affiliation = eventaffiliation;
     }
 
     /**
      * @return the procaffiliation
      */
-    public String getProcaffiliation() {
-        return procaffiliation;
+    public String getProcess_affiliation() {
+        return process_affiliation;
     }
 
     /**
      * @param procaffiliation the procaffiliation to set
      */
-    public void setProcaffiliation(String procaffiliation) {
-        this.procaffiliation = procaffiliation;
+    public void setProcess_affiliation(String procaffiliation) {
+        this.process_affiliation = procaffiliation;
     }
 
     /**
      * @return the projaffiliation
      */
-    public String getProjaffiliation() {
-        return projaffiliation;
+    public String getProject_affiliation() {
+        return project_affiliation;
     }
 
     /**
      * @param projaffiliation the projaffiliation to set
      */
-    public void setProjaffiliation(String projaffiliation) {
-        this.projaffiliation = projaffiliation;
+    public void setProject_affiliation(String projaffiliation) {
+        this.project_affiliation = projaffiliation;
     }
 
     /**

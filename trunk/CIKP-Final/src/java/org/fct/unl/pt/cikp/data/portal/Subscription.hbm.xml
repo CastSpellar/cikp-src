@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/Mar/2009 22:39:36 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="org.fct.unl.pt.cikp.data.portal.Subscription" table="subscription" catalog="cikp">
+        <id name="subscriptionId" type="java.lang.Integer">
+            <column name="Subscription_ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="org.fct.unl.pt.cikp.data.portal.User" fetch="select">
+            <column name="user_id" not-null="true" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="Name" length="20" />
+        </property>
+        <property name="knowledgeItemFileSize" type="java.lang.Integer">
+            <column name="Knowledge_Item_File_Size" />
+        </property>
+        <property name="knowledgeItemCreationTime" type="time">
+            <column name="Knowledge_Item_Creation_Time" length="8" />
+        </property>
+        <property name="knowledgeItemCreationDate" type="date">
+            <column name="Knowledge_Item_Creation_Date" length="10" />
+        </property>
+        <property name="knowledgeItemAuthor" type="string">
+            <column name="Knowledge_Item_Author" length="200" />
+        </property>
+        <property name="knowledgeItemCompositionLanguage" type="string">
+            <column name="Knowledge_Item_Composition_Language" length="100" />
+        </property>
+        <property name="knowledgeItemCopyrightOwner" type="string">
+            <column name="Knowledge_Item_Copyright_Owner" length="200" />
+        </property>
+        <property name="knowledgeItemDestination" type="string">
+            <column name="Knowledge_Item_Destination" length="100" />
+        </property>
+        <property name="knowledgeItemFileType" type="string">
+            <column name="Knowledge_Item_File_Type" length="50" />
+        </property>
+        <property name="knowledgeItemSecurityClearance" type="string">
+            <column name="Knowledge_Item_Security_Clearance" length="100" />
+        </property>
+        <property name="knowledgeItemSource" type="string">
+            <column name="Knowledge_Item_Source" length="20" />
+        </property>
+        <property name="knowledgeItemType" type="string">
+            <column name="Knowledge_Item_Type" length="100" />
+        </property>
+        <property name="subjectDomain" type="string">
+            <column name="Subject_Domain" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>

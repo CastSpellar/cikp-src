@@ -1,13 +1,17 @@
 package org.fct.unl.pt.cikp.data.portal;
-// Generated 5/Mar/2009 23:34:06 by Hibernate Tools 3.2.1.GA
+// Generated 26/Mar/2009 22:39:19 by Hibernate Tools 3.2.1.GA
 
 
-import com.opensymphony.xwork2.validator.annotations.Validation;
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -29,6 +33,7 @@ public class User  implements java.io.Serializable {
      private String userUsername;
      private String userPassword;
      private String userUri;
+     private Set<Subscription> subscriptions = new HashSet<Subscription>(0);
 
     public User() {
     }
@@ -43,7 +48,7 @@ public class User  implements java.io.Serializable {
         this.userUsername = userUsername;
         this.userPassword = userPassword;
     }
-    public User(String userFirstname, String userLastname, String userCompany, String userTelephone, String userEmail, String userUsername, String userPassword, String userUri) {
+    public User(String userFirstname, String userLastname, String userCompany, String userTelephone, String userEmail, String userUsername, String userPassword, String userUri, Set<Subscription> subscriptions) {
        this.userFirstname = userFirstname;
        this.userLastname = userLastname;
        this.userCompany = userCompany;
@@ -52,6 +57,7 @@ public class User  implements java.io.Serializable {
        this.userUsername = userUsername;
        this.userPassword = userPassword;
        this.userUri = userUri;
+       this.subscriptions = subscriptions;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -135,6 +141,14 @@ public class User  implements java.io.Serializable {
     
     public void setUserUri(String userUri) {
         this.userUri = userUri;
+    }
+@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="user")
+    public Set<Subscription> getSubscriptions() {
+        return this.subscriptions;
+    }
+    
+    public void setSubscriptions(Set<Subscription> subscriptions) {
+        this.subscriptions = subscriptions;
     }
 
 

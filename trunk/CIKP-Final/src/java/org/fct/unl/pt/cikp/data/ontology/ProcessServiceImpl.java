@@ -18,14 +18,14 @@ public class ProcessServiceImpl implements ProcessService {
 
     public Process createProcess(Process proc) {
         OntServiceImpl onts = getOnt() ;
-        String aux = proc.getProctype() + "_" + proc.getUsername() ;
+        String aux = proc.getProcess_type() + "_" + proc.getUsername() ;
         try {
-            onts.createIndividual(proc.getProctype(), aux);
+            onts.createIndividual(proc.getProcess_type(), aux);
             onts.addLiteralByProperty("has_Location", aux, proc.getLocation());
-            onts.addLiteralByProperty("has_Subject_Domain", aux, proc.getSubjectdomain());
-            onts.addLiteralByProperty("has_Process_Cost", aux, proc.getProccost());
-            onts.addLiteralByProperty("has_Process_Starting_Time", aux, new AbstractDateTime(proc.getProcstartingtime()));
-            onts.addLiteralByProperty("has_Process_Ending_Time", aux, new AbstractDateTime(proc.getProcendingtime()));
+            onts.addLiteralByProperty("has_Subject_Domain", aux, proc.getSubject_domain());
+            onts.addLiteralByProperty("has_Process_Cost", aux, proc.getProcess_cost());
+            onts.addLiteralByProperty("has_Process_Starting_Time", aux, new AbstractDateTime(proc.getProcess_starting_time()));
+            onts.addLiteralByProperty("has_Process_Ending_Time", aux, new AbstractDateTime(proc.getProcess_ending_time()));
         } catch (IOException ex) {
             Logger.getLogger(ProcessServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {

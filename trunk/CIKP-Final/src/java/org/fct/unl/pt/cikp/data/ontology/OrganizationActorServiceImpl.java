@@ -20,15 +20,15 @@ public class OrganizationActorServiceImpl implements OrganizationActorService {
         try {
             OntService onts = getOnt();
             onts.createIndividual(actor.getType(), actor.getUsername());
-            onts.addLiteralByProperty("has_Communication_Language", actor.getUsername(), actor.getCommlanguage());
-            onts.addLiteralByProperty("has_Email_Address", actor.getUsername(), actor.getEmail());
+            onts.addLiteralByProperty("has_Communication_Language", actor.getUsername(), actor.getCommunication_language());
+            onts.addLiteralByProperty("has_Email_Address", actor.getUsername(), actor.getEmail_address());
             onts.addLiteralByProperty("has_Experience", actor.getUsername(), actor.getExperience());
-            onts.addLiteralByProperty("has_Fax_Number", actor.getUsername(), actor.getFaxnumber());
-            onts.addLiteralByProperty("has_Geographic_Affiliation", actor.getUsername(), actor.getGeoaffiliation());
-            onts.addLiteralByProperty("has_Information_And_Knowledge_Need", actor.getUsername(), actor.getInfoneed());
-            onts.addLiteralByProperty("has_Mailing_Address", actor.getUsername(), actor.getMailingaddress());
+            onts.addLiteralByProperty("has_Fax_Number", actor.getUsername(), actor.getFax_number());
+            onts.addLiteralByProperty("has_Geographic_Affiliation", actor.getUsername(), actor.getGeographic_affiliation());
+            onts.addLiteralByProperty("has_Information_And_Knowledge_Need", actor.getUsername(), actor.getInformation_and_knowledge_need());
+            onts.addLiteralByProperty("has_Mailing_Address", actor.getUsername(), actor.getMailing_address());
             onts.addLiteralByProperty("has_Name", actor.getUsername(), actor.getName());
-            onts.addLiteralByProperty("has_Work_Phone_Number", actor.getUsername(), actor.getWorkphone());
+            onts.addLiteralByProperty("has_Work_Phone_Number", actor.getUsername(), actor.getWork_phone_number());
             return actor;
         } catch (IOException ex) {
             Logger.getLogger(OrganizationActorServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
@@ -45,16 +45,16 @@ public class OrganizationActorServiceImpl implements OrganizationActorService {
     public OrganizationActor getOrganizationActorByName(String username) {
         OrganizationActor actor = new OrganizationActor() ;
         try {
-            actor.setCommlanguage((String) getOnt().getLiteralByProperty(username, "has_Communication_Language"));
-            actor.setEmail((String)getOnt().getLiteralByProperty(username, "has_Email_Address"));
+            actor.setCommunication_language((String) getOnt().getLiteralByProperty(username, "has_Communication_Language"));
+            actor.setEmail_address((String)getOnt().getLiteralByProperty(username, "has_Email_Address"));
             actor.setExperience((String)getOnt().getLiteralByProperty(username, "has_Experience"));
-            actor.setFaxnumber((String)getOnt().getLiteralByProperty(username, "has_Fax_Number"));
-            actor.setGeoaffiliation((String)getOnt().getLiteralByProperty(username, "has_Geographic_Affiliation"));
-            actor.setInfoneed((String)getOnt().getLiteralByProperty(username, "has_Information_And_Knowledge_Need"));
-            actor.setMailingaddress((String)getOnt().getLiteralByProperty(username, "has_Mailing_Address"));
+            actor.setFax_number((String)getOnt().getLiteralByProperty(username, "has_Fax_Number"));
+            actor.setGeographic_affiliation((String)getOnt().getLiteralByProperty(username, "has_Geographic_Affiliation"));
+            actor.setInformation_and_knowledge_need((String)getOnt().getLiteralByProperty(username, "has_Information_And_Knowledge_Need"));
+            actor.setMailing_address((String)getOnt().getLiteralByProperty(username, "has_Mailing_Address"));
             actor.setName((String)getOnt().getLiteralByProperty(username, "has_Name"));
             actor.setType((String)getOnt().getIndividualClass(username));
-            actor.setWorkphone((String)getOnt().getLiteralByProperty(username, "has_Work_Phone_Number"));
+            actor.setWork_phone_number((String)getOnt().getLiteralByProperty(username, "has_Work_Phone_Number"));
         } catch (IOException ex) {
             Logger.getLogger(OrganizationActorServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {

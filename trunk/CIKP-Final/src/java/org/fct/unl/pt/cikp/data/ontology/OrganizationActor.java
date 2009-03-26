@@ -7,32 +7,32 @@ package org.fct.unl.pt.cikp.data.ontology;
 
 public class OrganizationActor {
 
-    private String commlanguage ;
+    private String communication_language ;
     private String experience ;
-    private String infoneed ;
-    private String geoaffiliation ;
-    private String email ;
-    private String faxnumber ;
-    private String mailingaddress ;
+    private String information_and_knowledge_need ;
+    private String geographic_affiliation ;
+    private String email_address ;
+    private String fax_number ;
+    private String mailing_address ;
     private String name ;
-    private String workphone ;
+    private String work_phone_number ;
     private String type ;
     private String username ;
 
     public OrganizationActor() {}
 
     /**
-     * @return the commlanguage
+     * @return the communication_language
      */
-    public String getCommlanguage() {
-        return commlanguage;
+    public String getCommunication_language() {
+        return communication_language;
     }
 
     /**
-     * @param commlanguage the commlanguage to set
+     * @param communication_language the communication_language to set
      */
-    public void setCommlanguage(String commlanguage) {
-        this.commlanguage = commlanguage;
+    public void setCommunication_language(String communication_language) {
+        this.communication_language = communication_language;
     }
 
     /**
@@ -50,73 +50,73 @@ public class OrganizationActor {
     }
 
     /**
-     * @return the infoneed
+     * @return the information_and_knowledge_need
      */
-    public String getInfoneed() {
-        return infoneed;
+    public String getInformation_and_knowledge_need() {
+        return information_and_knowledge_need;
     }
 
     /**
-     * @param infoneed the infoneed to set
+     * @param information_and_knowledge_need the information_and_knowledge_need to set
      */
-    public void setInfoneed(String infoneed) {
-        this.infoneed = infoneed;
+    public void setInformation_and_knowledge_need(String information_and_knowledge_need) {
+        this.information_and_knowledge_need = information_and_knowledge_need;
     }
 
     /**
-     * @return the geoaffiliation
+     * @return the geographic_affiliation
      */
-    public String getGeoaffiliation() {
-        return geoaffiliation;
+    public String getGeographic_affiliation() {
+        return geographic_affiliation;
     }
 
     /**
-     * @param geoaffiliation the geoaffiliation to set
+     * @param geographic_affiliation the geographic_affiliation to set
      */
-    public void setGeoaffiliation(String geoaffiliation) {
-        this.geoaffiliation = geoaffiliation;
+    public void setGeographic_affiliation(String geographic_affiliation) {
+        this.geographic_affiliation = geographic_affiliation;
     }
 
     /**
-     * @return the email
+     * @return the email_address
      */
-    public String getEmail() {
-        return email;
+    public String getEmail_address() {
+        return email_address;
     }
 
     /**
-     * @param email the email to set
+     * @param email_address the email_address to set
      */
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail_address(String email_address) {
+        this.email_address = email_address;
     }
 
     /**
-     * @return the faxnumber
+     * @return the fax_number
      */
-    public String getFaxnumber() {
-        return faxnumber;
+    public String getFax_number() {
+        return fax_number;
     }
 
     /**
-     * @param faxnumber the faxnumber to set
+     * @param fax_number the fax_number to set
      */
-    public void setFaxnumber(String faxnumber) {
-        this.faxnumber = faxnumber;
+    public void setFax_number(String fax_number) {
+        this.fax_number = fax_number;
     }
 
     /**
-     * @return the mailingaddress
+     * @return the mailing_address
      */
-    public String getMailingaddress() {
-        return mailingaddress;
+    public String getMailing_address() {
+        return mailing_address;
     }
 
     /**
-     * @param mailingaddress the mailingaddress to set
+     * @param mailing_address the mailing_address to set
      */
-    public void setMailingaddress(String mailingaddress) {
-        this.mailingaddress = mailingaddress;
+    public void setMailing_address(String mailing_address) {
+        this.mailing_address = mailing_address;
     }
 
     /**
@@ -134,17 +134,17 @@ public class OrganizationActor {
     }
 
     /**
-     * @return the workphone
+     * @return the work_phone_number
      */
-    public String getWorkphone() {
-        return workphone;
+    public String getWork_phone_number() {
+        return work_phone_number;
     }
 
     /**
-     * @param workphone the workphone to set
+     * @param work_phone_number the work_phone_number to set
      */
-    public void setWorkphone(String workphone) {
-        this.workphone = workphone;
+    public void setWork_phone_number(String work_phone_number) {
+        this.work_phone_number = work_phone_number;
     }
 
     /**
@@ -174,4 +174,6 @@ public class OrganizationActor {
     public void setUsername(String username) {
         this.username = username;
     }
+
+   
 }
