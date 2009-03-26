@@ -1,5 +1,7 @@
 package org.fct.unl.pt.cikp.data.ontology;
 
+import com.hp.hpl.jena.datatypes.xsd.impl.XSDDateType;
+import com.hp.hpl.jena.datatypes.xsd.impl.XSDTimeType;
 import java.util.ArrayList;
 
 /**
@@ -10,8 +12,8 @@ import java.util.ArrayList;
 public class KnowledgeItem {
 
     private String name ;
-    private String knowledge_item_creation_date ;
-    private String knowledge_item_creation_time ;
+    private XSDDateType knowledge_item_creation_date ;
+    private XSDTimeType knowledge_item_creation_time ;
     private int knowledge_item_file_size ;
     private ArrayList<String> knowledge_item_keyword ;
     private String knowledge_item_author ;
@@ -47,30 +49,7 @@ public class KnowledgeItem {
     /**
      * @return the knowledge_item_creation_date
      */
-    public String getKnowledge_item_creation_date() {
-        return knowledge_item_creation_date;
-    }
-
-    /**
-     * @param knowledge_item_creation_date the knowledge_item_creation_date to set
-     */
-    public void setKnowledge_item_creation_date(String knowledge_item_creation_date) {
-        this.knowledge_item_creation_date = knowledge_item_creation_date;
-    }
-
-    /**
-     * @return the knowledge_item_creation_time
-     */
-    public String getKnowledge_item_creation_time() {
-        return knowledge_item_creation_time;
-    }
-
-    /**
-     * @param knowledge_item_creation_time the knowledge_item_creation_time to set
-     */
-    public void setKnowledge_item_creation_time(String knowledge_item_creation_time) {
-        this.knowledge_item_creation_time = knowledge_item_creation_time;
-    }
+    
 
     /**
      * @return the knowledge_item_file_size
@@ -280,6 +259,34 @@ public class KnowledgeItem {
      */
     public void setProject_affiliation(String project_affiliation) {
         this.project_affiliation = project_affiliation;
+    }
+
+    /**
+     * @return the knowledge_item_creation_date
+     */
+    public XSDDateType getKnowledge_item_creation_date() {
+        return knowledge_item_creation_date;
+    }
+
+    /**
+     * @param knowledge_item_creation_date the knowledge_item_creation_date to set
+     */
+    public void setKnowledge_item_creation_date(XSDDateType knowledge_item_creation_date) {
+        this.knowledge_item_creation_date = knowledge_item_creation_date;
+    }
+
+    /**
+     * @return the knowledge_item_creation_time
+     */
+    public XSDTimeType getKnowledge_item_creation_time() {
+        return knowledge_item_creation_time;
+    }
+
+    /**
+     * @param knowledge_item_creation_time the knowledge_item_creation_time to set
+     */
+    public void setKnowledge_item_creation_time(XSDTimeType knowledge_item_creation_time) {
+        this.knowledge_item_creation_time = knowledge_item_creation_time;
     }
 
    

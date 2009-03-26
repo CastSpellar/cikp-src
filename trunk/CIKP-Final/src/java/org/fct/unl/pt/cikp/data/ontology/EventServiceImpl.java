@@ -5,7 +5,6 @@
 
 package org.fct.unl.pt.cikp.data.ontology;
 
-import com.hp.hpl.jena.datatypes.xsd.AbstractDateTime;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,8 +27,8 @@ public class EventServiceImpl implements EventService {
             onts.addLiteralByProperty("has_Location", aux, ev.getEvent_location());
             onts.addLiteralByProperty("has_Subject_Domain", aux, ev.getEvent_subject_domain());
             onts.addLiteralByProperty("has_Event_Cost", aux, ev.getEvent_cost());
-            onts.addLiteralByProperty("has_Event_Starting_Time", aux, new AbstractDateTime(ev.getEvent_starting_time()));
-            onts.addLiteralByProperty("has_Event_Ending_Time", aux, new AbstractDateTime(ev.getEvent_ending_time()));
+            onts.addLiteralByProperty("has_Event_Starting_Time", aux, ev.getEvent_starting_time());
+            onts.addLiteralByProperty("has_Event_Ending_Time", aux, ev.getEvent_ending_time());
         } catch (IOException ex) {
             Logger.getLogger(EventServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {

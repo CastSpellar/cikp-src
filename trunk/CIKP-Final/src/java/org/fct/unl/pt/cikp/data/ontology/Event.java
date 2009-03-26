@@ -1,5 +1,6 @@
 package org.fct.unl.pt.cikp.data.ontology;
 
+import com.hp.hpl.jena.datatypes.xsd.impl.XSDTimeType;
 /**
  *
  * @author Paulo Figueiras
@@ -9,8 +10,8 @@ public class Event {
     private String username ;
     private String eventtype ;
     private int event_cost ;
-    private String event_ending_time ;
-    private String event_starting_time ;
+    private XSDTimeType event_ending_time ;
+    private XSDTimeType event_starting_time ;
     private String event_location ;
     private String event_subject_domain ;
 
@@ -58,33 +59,7 @@ public class Event {
         this.event_cost = event_cost;
     }
 
-    /**
-     * @return the event_ending_time
-     */
-    public String getEvent_ending_time() {
-        return event_ending_time;
-    }
-
-    /**
-     * @param event_ending_time the event_ending_time to set
-     */
-    public void setEvent_ending_time(String event_ending_time) {
-        this.event_ending_time = event_ending_time;
-    }
-
-    /**
-     * @return the event_starting_time
-     */
-    public String getEvent_starting_time() {
-        return event_starting_time;
-    }
-
-    /**
-     * @param event_starting_time the event_starting_time to set
-     */
-    public void setEvent_starting_time(String event_starting_time) {
-        this.event_starting_time = event_starting_time;
-    }
+    
 
     /**
      * @return the event_location
@@ -112,6 +87,34 @@ public class Event {
      */
     public void setEvent_subject_domain(String event_subject_domain) {
         this.event_subject_domain = event_subject_domain;
+    }
+
+    /**
+     * @return the event_ending_time
+     */
+    public XSDTimeType getEvent_ending_time() {
+        return event_ending_time;
+    }
+
+    /**
+     * @param event_ending_time the event_ending_time to set
+     */
+    public void setEvent_ending_time(XSDTimeType event_ending_time) {
+        this.event_ending_time = event_ending_time;
+    }
+
+    /**
+     * @return the event_starting_time
+     */
+    public XSDTimeType getEvent_starting_time() {
+        return event_starting_time;
+    }
+
+    /**
+     * @param event_starting_time the event_starting_time to set
+     */
+    public void setEvent_starting_time(XSDTimeType event_starting_time) {
+        this.event_starting_time = event_starting_time;
     }
 
 }

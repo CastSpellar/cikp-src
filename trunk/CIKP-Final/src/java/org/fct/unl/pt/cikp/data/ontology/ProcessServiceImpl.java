@@ -1,7 +1,6 @@
 
 package org.fct.unl.pt.cikp.data.ontology;
 
-import com.hp.hpl.jena.datatypes.xsd.AbstractDateTime;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,8 +23,8 @@ public class ProcessServiceImpl implements ProcessService {
             onts.addLiteralByProperty("has_Location", aux, proc.getLocation());
             onts.addLiteralByProperty("has_Subject_Domain", aux, proc.getSubject_domain());
             onts.addLiteralByProperty("has_Process_Cost", aux, proc.getProcess_cost());
-            onts.addLiteralByProperty("has_Process_Starting_Time", aux, new AbstractDateTime(proc.getProcess_starting_time()));
-            onts.addLiteralByProperty("has_Process_Ending_Time", aux, new AbstractDateTime(proc.getProcess_ending_time()));
+            onts.addLiteralByProperty("has_Process_Starting_Time", aux, proc.getProcess_starting_time());
+            onts.addLiteralByProperty("has_Process_Ending_Time", aux, proc.getProcess_ending_time());
         } catch (IOException ex) {
             Logger.getLogger(ProcessServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {

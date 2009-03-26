@@ -1,5 +1,7 @@
 package org.fct.unl.pt.cikp.data.ontology;
 
+import com.hp.hpl.jena.datatypes.xsd.impl.XSDDateType;
+
 /**
  *
  * @author Paulo Figueiras
@@ -9,9 +11,9 @@ public class Project {
 
     private String location ;
     private String project_delivery_method ;
-    private String project_closing_date ;
+    private XSDDateType project_closing_date ;
     private String name ;
-    private String project_starting_date ;
+    private XSDDateType project_starting_date ;
     private int project_total_investiment ;
     private String project_type ;
     private String product_affiliation ;
@@ -47,20 +49,6 @@ public class Project {
     }
 
     /**
-     * @return the project_closing_date
-     */
-    public String getProject_closing_date() {
-        return project_closing_date;
-    }
-
-    /**
-     * @param project_closing_date the project_closing_date to set
-     */
-    public void setProject_closing_date(String project_closing_date) {
-        this.project_closing_date = project_closing_date;
-    }
-
-    /**
      * @return the name
      */
     public String getName() {
@@ -72,20 +60,6 @@ public class Project {
      */
     public void setName(String name) {
         this.name = name;
-    }
-
-    /**
-     * @return the project_starting_date
-     */
-    public String getProject_starting_date() {
-        return project_starting_date;
-    }
-
-    /**
-     * @param project_starting_date the project_starting_date to set
-     */
-    public void setProject_starting_date(String project_starting_date) {
-        this.project_starting_date = project_starting_date;
     }
 
     /**
@@ -128,6 +102,34 @@ public class Project {
      */
     public void setProduct_affiliation(String product_affiliation) {
         this.product_affiliation = product_affiliation;
+    }
+
+    /**
+     * @return the project_closing_date
+     */
+    public XSDDateType getProject_closing_date() {
+        return project_closing_date;
+    }
+
+    /**
+     * @param project_closing_date the project_closing_date to set
+     */
+    public void setProject_closing_date(XSDDateType project_closing_date) {
+        this.project_closing_date = project_closing_date;
+    }
+
+    /**
+     * @return the project_starting_date
+     */
+    public XSDDateType getProject_starting_date() {
+        return project_starting_date;
+    }
+
+    /**
+     * @param project_starting_date the project_starting_date to set
+     */
+    public void setProject_starting_date(XSDDateType project_starting_date) {
+        this.project_starting_date = project_starting_date;
     }
 
     

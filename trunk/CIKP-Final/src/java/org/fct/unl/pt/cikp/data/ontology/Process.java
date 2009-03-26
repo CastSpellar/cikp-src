@@ -1,6 +1,9 @@
 
 package org.fct.unl.pt.cikp.data.ontology;
 
+import com.hp.hpl.jena.datatypes.xsd.impl.XSDDateType;
+import com.hp.hpl.jena.datatypes.xsd.impl.XSDTimeType;
+
 /**
  *
  * @author Paulo Figueiras
@@ -10,8 +13,8 @@ public class Process {
     private String location ;
     private String subject_domain ;
     private int process_cost ;
-    private String process_ending_time ;
-    private String process_starting_time ;
+    private XSDTimeType process_ending_time ;
+    private XSDDateType process_starting_time ;
     private String process_type ;
     private String username ;
 
@@ -59,33 +62,7 @@ public class Process {
         this.process_cost = process_cost;
     }
 
-    /**
-     * @return the process_ending_time
-     */
-    public String getProcess_ending_time() {
-        return process_ending_time;
-    }
-
-    /**
-     * @param process_ending_time the process_ending_time to set
-     */
-    public void setProcess_ending_time(String process_ending_time) {
-        this.process_ending_time = process_ending_time;
-    }
-
-    /**
-     * @return the process_starting_time
-     */
-    public String getProcess_starting_time() {
-        return process_starting_time;
-    }
-
-    /**
-     * @param process_starting_time the process_starting_time to set
-     */
-    public void setProcess_starting_time(String process_starting_time) {
-        this.process_starting_time = process_starting_time;
-    }
+    
 
     /**
      * @return the process_type
@@ -113,6 +90,34 @@ public class Process {
      */
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    /**
+     * @return the process_ending_time
+     */
+    public XSDTimeType getProcess_ending_time() {
+        return process_ending_time;
+    }
+
+    /**
+     * @param process_ending_time the process_ending_time to set
+     */
+    public void setProcess_ending_time(XSDTimeType process_ending_time) {
+        this.process_ending_time = process_ending_time;
+    }
+
+    /**
+     * @return the process_starting_time
+     */
+    public XSDDateType getProcess_starting_time() {
+        return process_starting_time;
+    }
+
+    /**
+     * @param process_starting_time the process_starting_time to set
+     */
+    public void setProcess_starting_time(XSDDateType process_starting_time) {
+        this.process_starting_time = process_starting_time;
     }
 
     
