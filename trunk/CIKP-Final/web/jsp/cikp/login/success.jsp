@@ -15,6 +15,6 @@
         <title><s:text name="welcome.title" /></title>
     </head>
     <body>
-        <h1><s:text name="welcome.msg" />&nbsp;<%= request.getParameter("userUsername") %></h1>
+        <h1><s:text name="welcome.msg" />&nbsp;<s:label name="userUsername" /></h1>
     </body>
 </html>

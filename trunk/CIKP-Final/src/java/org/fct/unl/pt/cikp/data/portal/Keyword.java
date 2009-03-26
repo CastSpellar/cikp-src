@@ -1,5 +1,5 @@
 package org.fct.unl.pt.cikp.data.portal;
-// Generated 26/Mar/2009 22:39:19 by Hibernate Tools 3.2.1.GA
+// Generated 26/Mar/2009 23:02:52 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;

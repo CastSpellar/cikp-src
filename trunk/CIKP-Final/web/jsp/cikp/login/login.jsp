@@ -45,7 +45,7 @@
                             <td colspan="2" align="right">
                                 <s:reset name="login.reset">
                                 </s:reset>
-                                <s:submit name="login.submit">
+                                <s:submit value="login.submit">
                                 </s:submit>
                             </td>
                         </tr>

@@ -56,12 +56,15 @@
                             <td >
                                 <s:text name="knowledgeitem.file" />
                             </td>
-                            <td colspan="2">
+                            <td colspan="3">
+                                <s:file name="teste" key="knowledgeitem.browsefile" />
+                            </td>
+                            <%--<td colspan="2">
                                 <s:textfield name="kifile" />
                             </td>
                             <td>
                                 <input type="button" value="<s:text name="knowledgeitem.browsefile" />" onclick="alert('Available Soon...') ;" class="button" />
-                            </td>
+                            </td>--%>
                         </tr>
                         <tr>
                             <td colspan="4">

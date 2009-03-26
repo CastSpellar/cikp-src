@@ -10,8 +10,8 @@ import org.fct.unl.pt.cikp.data.ontology.IndividualActor;
 import org.fct.unl.pt.cikp.data.portal.User;
 import org.fct.unl.pt.cikp.service.ontology.OntServicePortal;
 import org.fct.unl.pt.cikp.service.ontology.OntServicePortalImpl;
-import org.fct.unl.pt.cikp.service.user.UserService;
-import org.fct.unl.pt.cikp.service.user.UserServiceImpl;
+import org.fct.unl.pt.cikp.data.portal.UserService;
+import org.fct.unl.pt.cikp.data.portal.UserServiceImpl;
 
 /**
  *

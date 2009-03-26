@@ -21,6 +21,7 @@
         <script type="text/javascript" src="<s:url value="/lib/xtree/dhtmlxtree.js" />"></script>
         <script type="text/javascript" src="<s:url value="/lib/ontology/OntXTree.js" />"></script>
         <script type="text/javascript" src="<s:url value="/lib/xml/XmlLoader.js" />"></script>
+        <script type="text/javascript" src="<s:url value="/lib/ui_manager/UiAttrManager.js" />"></script>
         <script type="text/javascript" src="<s:url value="/lib/menu/coolmenu.js" />"></script>
         <link href="<s:url value="/styles/styles.css" />" type="text/css" rel="stylesheet" />
         <decorator:head />

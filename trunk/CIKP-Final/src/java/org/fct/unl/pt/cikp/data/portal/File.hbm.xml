@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 26/Mar/2009 22:39:36 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 26/Mar/2009 23:02:52 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="org.fct.unl.pt.cikp.data.portal.File" table="file" catalog="cikp">
         <id name="fileId" type="java.lang.Integer">

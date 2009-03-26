@@ -24,7 +24,22 @@ import org.fct.unl.pt.cikp.service.ontology.manager.exceptions.MissingParamExcep
  */
 public class OntServiceImpl implements OntService {
 
-    private static String configFilePath = "c:/config.xml" ;
+    private String configFilePath = "C:/config.xml" ;
+
+
+    /**
+     * @return the configFilePath
+     */
+    public String getConfigFilePath() {
+        return configFilePath;
+    }
+
+    /**
+     * @param aConfigFilePath the configFilePath to set
+     */
+    public void setConfigFilePath(String configFilePath) {
+        this.configFilePath = configFilePath;
+    }
 
     private PersistentOntology po ;
 
@@ -212,7 +227,7 @@ public class OntServiceImpl implements OntService {
     public PersistentOntology getPo() throws IOException, MissingParamException, ClassNotFoundException  {
         po = new PersistentOntologyImpl() ;
         po.setS_reload(false) ;
-        po.setConfigFilePath(configFilePath) ;
+        po.setConfigFilePath(getConfigFilePath()) ;
         return po;
     }
 

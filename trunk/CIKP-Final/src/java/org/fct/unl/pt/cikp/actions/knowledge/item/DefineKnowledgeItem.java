@@ -7,6 +7,7 @@ package org.fct.unl.pt.cikp.actions.knowledge.item;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import java.io.File;
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 import org.fct.unl.pt.cikp.data.ontology.KnowledgeItem;
@@ -17,21 +18,18 @@ import org.fct.unl.pt.cikp.service.CikpServiceImpl;
  *
  * @author Figueiras
  */
-public class DefineKnowledgeItem extends ActionSupport implements ModelDriven, SessionAware {
+public class DefineKnowledgeItem extends ActionSupport implements SessionAware, ModelDriven<KnowledgeItem> {
 
     private CikpService cikpService ;
 
-    private Map session ;
+    private String uploadFileName ;
+    private File file ;
 
-    private KnowledgeItem item = new KnowledgeItem() ;
+    private Map session ;
 
     @Override
     public String execute() throws Exception {
         return SUCCESS ;
-    }
-
-    public Object getModel() {
-        return item ;
     }
 
     public void setSession(Map arg0) {
@@ -50,5 +48,37 @@ public class DefineKnowledgeItem extends ActionSupport implements ModelDriven, S
      */
     public void setCikpService(CikpService cikpService) {
         this.cikpService = cikpService;
+    }
+
+    /**
+     * @return the uploadFileName
+     */
+    public String getUploadFileName() {
+        return uploadFileName;
+    }
+
+    /**
+     * @param uploadFileName the uploadFileName to set
+     */
+    public void setUploadFileName(String uploadFileName) {
+        this.uploadFileName = uploadFileName;
+    }
+
+    /**
+     * @return the file
+     */
+    public File getFile() {
+        return file;
+    }
+
+    /**
+     * @param file the file to set
+     */
+    public void setFile(File file) {
+        this.file = file;
+    }
+
+    public KnowledgeItem getModel() {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }
