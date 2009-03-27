@@ -32,13 +32,16 @@
     <bean
         id="knowledgeItemSupport"
         class="org.fct.unl.pt.cikp.actions.knowledge.item.KnowledgeItemSupport" />
+    <bean
+        id="ServiceAction"
+        class="org.fct.unl.pt.cikp.actions.ajax.ServiceAction" />
     
 
     <!--<bean
         id="userService"
-        class="org.fct.unl.pt.cikp.service.user.UserServiceImpl" />
+        class="org.fct.unl.pt.cikp.service.user.UserServiceImpl" /> -->
     <bean
         id="cikpService"
-        class="org.fct.unl.pt.cikp.service.CikpServiceImpl" />-->
+        class="org.fct.unl.pt.cikp.service.CikpServiceImpl" />
 </beans>
 
