@@ -16,16 +16,22 @@
         <title><decorator:title default="Contruction Information And Knowledge Portal" /></title>
         <meta name="keywords" content="" />
         <meta name="description" content="" />
+        <s:head />
         <script type="text/javascript" language="javascript" src="<s:url value="/lib/prototype/prototype.js" />"></script>
+        <script type="text/javascript" src="<s:url value="/lib/ajax/ajax.js" />"></script>
         <script type="text/javascript" src="<s:url value="/lib/xtree/dhtmlxcommon.js" />"></script>
         <script type="text/javascript" src="<s:url value="/lib/xtree/dhtmlxtree.js" />"></script>
         <script type="text/javascript" src="<s:url value="/lib/ontology/OntXTree.js" />"></script>
         <script type="text/javascript" src="<s:url value="/lib/xml/XmlLoader.js" />"></script>
         <script type="text/javascript" src="<s:url value="/lib/ui_manager/UiAttrManager.js" />"></script>
         <script type="text/javascript" src="<s:url value="/lib/menu/coolmenu.js" />"></script>
+        <script>
+            <s:url id="serviceURL" namespace="/ajax" action="ServiceAction" />
+            var serviceURL = '${serviceURL}';
+        </script>
+
         <link href="<s:url value="/styles/styles.css" />" type="text/css" rel="stylesheet" />
         <decorator:head />
-        <s:head />
     </head>
     <body>
         <div id="content">
