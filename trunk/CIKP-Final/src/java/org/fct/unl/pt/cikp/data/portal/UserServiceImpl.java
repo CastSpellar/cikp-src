@@ -5,7 +5,6 @@
 
 package org.fct.unl.pt.cikp.data.portal;
 
-import org.fct.unl.pt.cikp.data.portal.*;
 import org.hibernate.Session;
 
 /**
@@ -18,17 +17,17 @@ public class UserServiceImpl implements UserService {
         return HibernateUtil.getSessionFactory().getCurrentSession() ;
     }
 
-    public boolean existsUserName(User u) {
+    public boolean existsUserName(UserPortal u) {
         Session session = getSession() ;
         session.beginTransaction() ;
-        User res = (User) session.createQuery(
-        "select u from User as u where u.userUsername = ?").setString(0, u.getUserUsername())
+        UserPortal res = (UserPortal) session.createQuery(
+        "select u from UserPortal as u where u.userUsername = ?").setString(0, u.getUserUsername())
         .uniqueResult() ;
         session.getTransaction().commit();
         return res == null ? false : true ;
     }
 
-    public User register(User u) {
+    public UserPortal register(UserPortal u) {
         Session session = getSession() ;
         session.beginTransaction() ;
         session.save(u) ;
@@ -36,11 +35,11 @@ public class UserServiceImpl implements UserService {
         return u ;
     }
 
-    public User authenticateUser(User u) {
+    public UserPortal authenticateUser(UserPortal u) {
         Session session  = getSession() ;
         session.beginTransaction() ;
-        User user = (User) session.createQuery(
-        "select u from User as u where u.userUsername = ? and u.userPassword = ?")
+        UserPortal user = (UserPortal) session.createQuery(
+        "select u from UserPortal as u where u.userUsername = ? and u.userPassword = ?")
         .setString(0, u.getUserUsername())
         .setString(1, u.getUserPassword())
         .uniqueResult() ;
@@ -48,7 +47,7 @@ public class UserServiceImpl implements UserService {
         return user ;
     }
 
-    public void updateUser(User u) {
+    public void updateUser(UserPortal u) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 

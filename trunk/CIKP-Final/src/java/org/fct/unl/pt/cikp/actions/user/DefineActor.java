@@ -11,7 +11,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 import org.fct.unl.pt.cikp.constants.Constants;
 import org.fct.unl.pt.cikp.data.ontology.IndividualActor;
-import org.fct.unl.pt.cikp.data.portal.User;
+import org.fct.unl.pt.cikp.data.portal.UserPortal;
 import org.fct.unl.pt.cikp.service.CikpService;
 import org.fct.unl.pt.cikp.service.CikpServiceImpl;
 
@@ -29,7 +29,7 @@ public class DefineActor extends ActionSupport implements ModelDriven, SessionAw
 
     @Override
     public String execute() throws Exception {
-        User u = (User) session.get(Constants.USER) ;
+        UserPortal u = (UserPortal) session.get(Constants.USER) ;
         actor.setUsername(u.getUserUsername()) ;
         IndividualActor createdIndividualActor = getCikpService().createIndividualActor(actor);
         session.put(Constants.ACTOR, createdIndividualActor) ;

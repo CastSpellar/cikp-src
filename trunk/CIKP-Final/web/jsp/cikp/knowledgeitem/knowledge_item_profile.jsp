@@ -50,14 +50,14 @@
                 </table>
             </div>
             <div class="box" id="knowledge_item_div">
-                <s:form action="DefineKnowledgeItem" method="POST">
+                <s:form action="DefineKnowledgeItem" method="POST" enctype="multipart/form-data">
                      <table width="520px">
                         <tr>
                             <td >
                                 <s:text name="knowledgeitem.file" />
                             </td>
                             <td colspan="3">
-                                <s:file name="teste" key="knowledgeitem.browsefile" />
+                                <s:file name="teste" key="file" />
                             </td>
                             <%--<td colspan="2">
                                 <s:textfield name="kifile" />
@@ -73,7 +73,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <s:text name="knowledgeitem.type" />
+                                <s:text name="knowledge_item_type" />
                             </td>
                             <td>
                                 <s:textfield name="kitype" />
@@ -86,13 +86,13 @@
                         </tr>
                         <tr>
                             <td width="20%">
-                                <s:text name="knowledgeitem.filetype" />
+                                <s:text name="knowledge_item_file_type" />
                             </td>
                             <td width="30%">
                                 <s:select name="filetype" headerKey="-1" headerValue="-- Select File Type --" list="{'1','2'}" />
                             </td>
                             <td width="20%">
-                                <s:text name="knowledgeitem.subjectdomain" />
+                                <s:text name="subject_domain" />
                             </td>
                             <td width="30%">
                                 <s:select name="subjectdomain" headerKey="-1" headerValue="-- Select Subject Domain --" list="{'1','2'}" />
@@ -100,7 +100,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <s:text name="knowledgeitem.keyword" />
+                                <s:text name="knowledge_item_keyword" />
                             </td>
                             <td>
                                 <s:textfield name="keyword" />
@@ -114,7 +114,7 @@
                         <tr>
                             <td colspan="4" align="right">
                                 <input type="button" value="<s:text name="knowledgeitem.additem" />" onclick="alert('Available Soon...') ;" class="button" />
-                                <s:submit key="knowledgeitem.submit" onclick="alert('Available Soon...') ;" cssClass="button" />
+                                <s:submit key="knowledgeitem.submit" cssClass="button" />
                                 <input type="button" value="<s:text name="knowledgeitem.cancel" />" onclick="window.location.href='<s:url action="UserInterface" />'" class="button" />
                             </td>
                         </tr>

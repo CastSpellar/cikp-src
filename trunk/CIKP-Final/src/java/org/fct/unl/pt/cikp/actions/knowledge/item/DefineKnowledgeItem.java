@@ -13,6 +13,7 @@ import org.apache.struts2.interceptor.SessionAware;
 import org.fct.unl.pt.cikp.data.ontology.KnowledgeItem;
 import org.fct.unl.pt.cikp.service.CikpService;
 import org.fct.unl.pt.cikp.service.CikpServiceImpl;
+import org.fct.unl.pt.cikp.data.portal.KnowledgeItemPortal;
 
 /**
  *
@@ -24,11 +25,16 @@ public class DefineKnowledgeItem extends ActionSupport implements SessionAware, 
 
     private String uploadFileName ;
     private File file ;
+    private KnowledgeItem knowledge_item = new KnowledgeItem() ;
 
     private Map session ;
 
     @Override
     public String execute() throws Exception {
+        getCikpService().createKnowledgeItem(knowledge_item) ;
+        KnowledgeItemPortal kip = new KnowledgeItemPortal() ;
+        kip.setKnowledgeItemType(knowledge_item.getKnowledge_item_type()) ;
+        kip.setKnowledgeItemFileType(knowledge_item.getKnowledge_item_file_type());
         return SUCCESS ;
     }
 
@@ -79,6 +85,6 @@ public class DefineKnowledgeItem extends ActionSupport implements SessionAware, 
     }
 
     public KnowledgeItem getModel() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return knowledge_item ;
     }
 }

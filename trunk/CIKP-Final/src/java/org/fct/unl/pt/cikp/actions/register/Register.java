@@ -10,7 +10,7 @@ import com.opensymphony.xwork2.validator.annotations.RequiredFieldValidator;
 import com.opensymphony.xwork2.validator.annotations.Validation;
 import com.opensymphony.xwork2.validator.annotations.Validations;
 import com.opensymphony.xwork2.validator.annotations.VisitorFieldValidator;
-import org.fct.unl.pt.cikp.data.portal.User;
+import org.fct.unl.pt.cikp.data.portal.UserPortal;
 import org.fct.unl.pt.cikp.service.CikpService;
 import org.fct.unl.pt.cikp.service.CikpServiceImpl;
 
@@ -20,7 +20,7 @@ import org.fct.unl.pt.cikp.service.CikpServiceImpl;
  */
 public class Register extends ActionSupport implements ModelDriven {
 
-    private User user = new User();
+    private UserPortal user = new UserPortal();
     private String password2;
     private CikpService cikpService;
 

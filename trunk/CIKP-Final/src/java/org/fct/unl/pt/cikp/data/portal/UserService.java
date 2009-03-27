@@ -5,20 +5,18 @@
 
 package org.fct.unl.pt.cikp.data.portal;
 
-import org.fct.unl.pt.cikp.data.portal.*;
-
 /**
  *
  * @author Bruno
  */
 public interface UserService {
 
-    public boolean existsUserName(User u) ;
+    public boolean existsUserName(UserPortal u) ;
 
-    public User register(User u) ;
+    public UserPortal register(UserPortal u) ;
 
-    public User authenticateUser(User u) ;
+    public UserPortal authenticateUser(UserPortal u) ;
     
-    public void updateUser(User u) ;
+    public void updateUser(UserPortal u) ;
 
 }

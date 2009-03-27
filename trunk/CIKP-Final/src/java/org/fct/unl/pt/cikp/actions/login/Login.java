@@ -13,7 +13,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 import org.fct.unl.pt.cikp.constants.Constants;
 import org.fct.unl.pt.cikp.data.ontology.IndividualActor;
-import org.fct.unl.pt.cikp.data.portal.User;
+import org.fct.unl.pt.cikp.data.portal.UserPortal;
 import org.fct.unl.pt.cikp.service.CikpService;
 import org.fct.unl.pt.cikp.service.CikpServiceImpl;
 
@@ -32,7 +32,7 @@ public class Login extends ActionSupport implements SessionAware {
     public String execute() {
         /*ArrayList<String> knowledges = getCikpService().listKnowledges() ;
         session.put(Constants.KNOWLEDGES, knowledges) ;*/
-        User u = new User() ;
+        UserPortal u = new UserPortal() ;
         u.setUserUsername(getUserUsername()) ;
         u.setUserPassword(getUserPassword()) ;
         u = getCikpService().authenticateUser(u) ;

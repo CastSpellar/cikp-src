@@ -6,8 +6,11 @@
 package org.fct.unl.pt.cikp.service;
 
 import java.util.ArrayList;
+import java.util.List;
+import org.fct.unl.pt.cikp.data.ajax.AttributeControl;
 import org.fct.unl.pt.cikp.data.ontology.IndividualActor;
-import org.fct.unl.pt.cikp.data.portal.User;
+import org.fct.unl.pt.cikp.data.ontology.KnowledgeItem;
+import org.fct.unl.pt.cikp.data.portal.UserPortal;
 import org.fct.unl.pt.cikp.service.ontology.OntServicePortal;
 import org.fct.unl.pt.cikp.service.ontology.OntServicePortalImpl;
 import org.fct.unl.pt.cikp.data.portal.UserService;
@@ -33,19 +36,19 @@ public class CikpServiceImpl implements CikpService {
         return new UserServiceImpl() ;
     }
 
-    public void updateUser(User u) {
+    public void updateUser(UserPortal u) {
         getUserService().updateUser(u);
     }
 
-    public boolean existsUser(User u) {
+    public boolean existsUser(UserPortal u) {
         return getUserService().existsUserName(u) ;
     }
 
-    public User authenticateUser(User u) {
+    public UserPortal authenticateUser(UserPortal u) {
         return getUserService().authenticateUser(u) ;
     }
 
-    public User registerUser(User u) {
+    public UserPortal registerUser(UserPortal u) {
         return getUserService().register(u) ;
     }
 
@@ -73,6 +76,22 @@ public class CikpServiceImpl implements CikpService {
 
     public void createXMLTree(String filename, String cls) {
         getOntServicePortal().createXMLTree(filename, cls);
+    }
+
+    public KnowledgeItem createKnowledgeItem(KnowledgeItem item) {
+        return getOntServicePortal().createKnowledgeItem(item) ;
+    }
+
+    public AttributeControl getAttributeControl(String attributeName) {
+        AttributeControl attrControl = new AttributeControl() ;
+        attrControl.setControlName(attributeName);
+        attrControl.setControlType("select");
+        List<String> values = new ArrayList<String>() ;
+        values.add("Teste1") ;
+        values.add("Teste2") ;
+        values.add("Teste3") ;
+        attrControl.setValues(values);
+        return attrControl ;
     }
 
 }
