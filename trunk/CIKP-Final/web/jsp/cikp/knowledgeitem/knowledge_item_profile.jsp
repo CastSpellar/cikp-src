@@ -85,16 +85,16 @@
                             </td>
                         </tr>
                         <tr>
-                            <td width="20%">
+                            <td class="fieldName">
                                 <s:text name="knowledge_item_file_type" />
                             </td>
-                            <td width="30%">
+                            <td class="fieldValue">
                                 <s:select name="filetype" headerKey="-1" headerValue="-- Select File Type --" list="{'1','2'}" />
                             </td>
-                            <td width="20%">
+                            <td class="fieldName">
                                 <s:text name="subject_domain" />
                             </td>
-                            <td width="30%">
+                            <td class="fieldValue">
                                 <s:select name="subjectdomain" headerKey="-1" headerValue="-- Select Subject Domain --" list="{'1','2'}" />
                             </td>
                         </tr>

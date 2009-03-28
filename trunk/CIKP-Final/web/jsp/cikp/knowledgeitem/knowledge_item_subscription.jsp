@@ -68,44 +68,44 @@
                             </td>
                         </tr>
                         <tr>
-                            <td width="20%">
+                            <td class="fieldName">
                                 <s:text name="knowledgeitem.subscribefiletype" />
                             </td>
-                            <td width="30%">
+                            <td class="fieldValue">
                                 <s:select name="kisubscribefiletype" headerKey="-1" headerValue="-- Select File Type --" list="{'.doc', '.pdf'}" />
                             </td>
-                            <td width="20%">
+                            <td class="fieldName">
                                 <s:text name="knowledgeitem.subscribesubjectdomain" />
                             </td>
-                            <td width="30%">
+                            <td class="fieldValue">
                                 <s:select name="kisubscribesubjectdomain" headerKey="-1" headerValue="-- Select Domain Subject --" list="{'domain_1', 'domain_2'}" />
                             </td>
                         </tr>
                         <tr>
-                            <td width="20%">
+                            <td class="fieldName">
                                 <s:text name="knowledgeitem.subscribekeyword" />
                             </td>
-                            <td width="30%">
+                            <td class="fieldValue">
                                 <s:textfield name="kisubscribekeyword" />
                             </td>
-                            <td width="20%">
+                            <td class="fieldName">
                                 <s:text name="knowledgeitem.subscribegeoaffiliation" />
                             </td>
-                            <td width="30%">
+                            <td class="fieldValue">
                                 <s:select name="kisubscribegeoaffiliation" headerKey="-1" headerValue="-- Select Geographic Affiliation --" list="{'Canada', 'Portugal'}" />
                             </td>
                         </tr>
                         <tr>
-                            <td width="20%">
+                            <td class="fieldName">
                                 <s:text name="knowledgeitem.subscribeprojaffiliation" />
                             </td>
-                            <td width="30%">
+                            <td class="fieldValue">
                                 <s:select name="kisubscribeprojaffiliation" headerKey="-1" headerValue="-- Select Project Affiliation --" list="{'Project_1', 'Project_2'}" />
                             </td>
-                            <td width="20%">
+                            <td class="fieldName">
                                 <s:text name="knowledgeitem.subscribecomlanguage" />
                             </td>
-                            <td width="30%">
+                            <td class="fieldValue">
                                 <s:select name="kisubscribecomlanguage" headerKey="-1" headerValue="-- Select Composition Language --" list="{'English', 'Portuguese'}" />
                             </td>
                         </tr>
