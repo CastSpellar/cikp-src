@@ -144,30 +144,30 @@
                     </table>
                     <table id="human_attr_tab">
                         <tr>
-                            <td width="20%">
+                            <td class="fieldName">
                                 <s:text name="userprofile.givenname" />
                             </td>
-                            <td width="30%">
+                            <td class="fieldValue">
                                 <s:textfield name="givenname" />
                             </td>
-                            <td width="20%">
+                            <td class="fieldName">
                                 <s:text name="userprofile.familyname" />
                             </td>
-                            <td width="30%">
+                            <td class="fieldValue">
                                 <s:textfield name="familyname" />
                             </td>
                         </tr>
                         <tr>
-                            <td width="20%">
+                            <td class="fieldName">
                                 <s:text name="userprofile.middlename" />
                             </td>
-                            <td width="30%">
+                            <td class="fieldValue">
                                 <s:textfield name="middlename" />
                             </td>
-                            <td width="20%">
+                            <td class="fieldName">
                                 <s:text name="userprofile.age" />
                             </td>
-                            <td width="30%">
+                            <td class="fieldValue">
                                 <s:textfield name="age" />
                             </td>
                         </tr
@@ -185,6 +185,11 @@
                             </td>
                         </tr>
                     </table>
+
+                    <table id="added_controls">
+
+                    </table>
+
                     <table id="human_attr_control_tab">
                         <tr>
                             <td colspan="4" align="right">
