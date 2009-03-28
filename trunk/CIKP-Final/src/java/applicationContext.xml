@@ -35,7 +35,15 @@
     <bean
         id="ServiceAction"
         class="org.fct.unl.pt.cikp.actions.ajax.ServiceAction" />
-    
+    <bean
+        id="administratorAction"
+        class="org.fct.unl.pt.cikp.actions.administrator.Administrator" />
+    <bean
+        id="administratorSupport"
+        class="org.fct.unl.pt.cikp.actions.administrator.AdministratorSupport" />
+    <bean
+        id="downloadOntAction"
+        class="org.fct.unl.pt.cikp.actions.administrator.DownloadOnt" />
 
     <!--<bean
         id="userService"

@@ -38,9 +38,53 @@ public interface CikpService {
 
     public KnowledgeItem createKnowledgeItem(KnowledgeItem item) ;
 
+    public void createXMLTree(String filename, String cls) ;
+
+    public ArrayList<String> listAbilitys() ;
+
+    public ArrayList<String> listAuthoritys() ;
+
+    public ArrayList<String> listCOPAffiliations() ;
+
+    public ArrayList<String> listCertificatesAndLicences() ;
+
+    public ArrayList<String> listCommLanguages() ;
+
+    public ArrayList<String> listEducationBGs() ;
+
+    public ArrayList<String> listEthnicitys() ;
+
+    public ArrayList<String> listEventAffiliations() ;
+
+    public ArrayList<String> listExperiences() ;
+
+    public ArrayList<String> listGeoAffiliations() ;
+
+    public ArrayList<String> listInfoNeeds() ;
+
     public ArrayList<String> listKnowledges() ;
 
-    public void createXMLTree(String filename, String cls) ;
+    public ArrayList<String> listLiabilitys() ;
+
+    public ArrayList<String> listLocations() ;
+
+    public ArrayList<String> listMaritalStatus();
+
+    public ArrayList<String> listOrgAffiliations() ;
+
+    public ArrayList<String> listProcAffiliations() ;
+
+    public ArrayList<String> listProdAffiliations() ;
+
+    public ArrayList<String> listProjAffiliations();
+
+    public ArrayList<String> listResponsibilitys();
+
+    public ArrayList<String> listRights();
+
+    public ArrayList<String> listSkills();
+
+    public ArrayList<String> listTrainingObts();
 
     public AttributeControl getAttributeControl(String attributeName) ;
 }

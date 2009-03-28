@@ -78,7 +78,7 @@ public class CikpServiceImpl implements CikpService {
         Session session = getSession() ;
         session.beginTransaction() ;
         UserPortal user = getUserService().register(u, session) ;
-        session.getTransaction().commit(); ;
+        session.getTransaction().commit();
         return user ;
     }
 
@@ -100,8 +100,96 @@ public class CikpServiceImpl implements CikpService {
         this.ontServicePortal = ontServicePortal;
     }
 
+    public ArrayList<String> listAbilitys() {
+        return getOntServicePortal().listAbilitys() ;
+    }
+
+    public ArrayList<String> listAuthoritys() {
+        return getOntServicePortal().listAuthoritys() ;
+    }
+
+    public ArrayList<String> listCOPAffiliations() {
+        return getOntServicePortal().listCOPAffiliations() ;
+    }
+
+    public ArrayList<String> listCertificatesAndLicences() {
+        return getOntServicePortal().listCertificatesAndLicenses() ;
+    }
+
+    public ArrayList<String> listCommLanguages() {
+        return getOntServicePortal().listCommLanguages() ;
+    }
+
+    public ArrayList<String> listEducationBGs() {
+        return getOntServicePortal().listEducationBGs() ;
+    }
+
+    public ArrayList<String> listEthnicitys() {
+        return getOntServicePortal().listEthnicitys() ;
+    }
+
+    public ArrayList<String> listEventAffiliations() {
+        return getOntServicePortal().listEventAffiliations() ;
+    }
+
+    public ArrayList<String> listExperiences() {
+        return getOntServicePortal().listExperiences() ;
+    }
+
+    public ArrayList<String> listGeoAffiliations() {
+        return getOntServicePortal().listGeoAffiliations() ;
+    }
+
+    public ArrayList<String> listInfoNeeds() {
+        return getOntServicePortal().listInfoNeeds() ;
+    }
+
     public ArrayList<String> listKnowledges() {
         return getOntServicePortal().listKnowledges() ;
+    }
+
+    public ArrayList<String> listLiabilitys() {
+        return getOntServicePortal().listLiabilitys() ;
+    }
+
+    public ArrayList<String> listLocations() {
+        return getOntServicePortal().listLocations() ;
+    }
+
+    public ArrayList<String> listMaritalStatus() {
+        return getOntServicePortal().listMaritalStatus() ;
+    }
+
+    public ArrayList<String> listOrgAffiliations() {
+        return getOntServicePortal().listOrgAffiliations() ;
+    }
+
+    public ArrayList<String> listProcAffiliations() {
+        return getOntServicePortal().listProcAffiliations() ;
+    }
+
+    public ArrayList<String> listProdAffiliations() {
+        return getOntServicePortal().listProdAffiliations() ;
+    }
+
+    public ArrayList<String> listProjAffiliations() {
+        return getOntServicePortal().listProjAffiliations() ;
+    }
+
+    public ArrayList<String> listResponsibilitys() {
+        return getOntServicePortal().listResponsibilitys() ;
+    }
+
+    public ArrayList<String> listRights() {
+        return getOntServicePortal().listRights() ;
+    }
+
+    public ArrayList<String> listSkills() {
+        return getOntServicePortal().listSkills() ;
+    }
+
+    public ArrayList<String> listTrainingObts() {
+        return getOntServicePortal().listTrainingObts() ;
     }
 
     public void createXMLTree(String filename, String cls) {

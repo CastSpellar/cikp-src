@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : struts-cikp-administrator.xml
+    Created on : 27 de Março de 2009, 1:14
+    Author     : Figueiras
+    Description:
+        Purpose of the document follows.
+-->
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="struts-cikp-administrator" extends="struts-default" namespace="/administrator">
+        <action name="Administrator" class="administratorAction">
+            <result name="input">/jsp/cikp/administrator/administrator.jsp</result>
+            <result>/jsp/cikp/user/user_interface.jsp</result>
+        </action>
+        <action name="DownloadOnt" class="downloadOntAction">
+            <result type="stream" name="success">
+                <param name="contentType">application/xml</param>
+                <param name="inputName">inputStream</param>
+                <param name="contentDisposition">attatchement; filename="teste.xml"</param>
+                <param name="bufferSize">1024</param>
+            </result>
+        </action>
+        <action name="*" class="administratorSupport">
+            <result>/jsp/cikp/administrator/{1}.jsp</result>
+        </action>
+	</package>
+</struts>

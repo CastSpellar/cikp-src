@@ -23,7 +23,8 @@
 
                     // Part 2 - Menu structure
                     var MENU_ITEMS = [
-                        {pos:"relative", itemoff:[0,99], leveloff:[42,0], style:STYLE, size:[44,100], backgroundStyle:'background: transparent url(../images/menu2.gif);', textStyle:'padding-left: 10px; color: blue;'},
+                        {pos:"relative", itemoff:[0,99], leveloff:[42,0], style:STYLE, size:[44,120], backgroundStyle:'background: transparent url(../images/menu2.gif);', textStyle:'padding-left: 10px; color: blue;'},
+                        {code:"Home", url:"<s:url value="/user/user_interface.action" />" },
                         {code:"New", url:"#",
                             sub:[
                                 {itemoff:[42,0]},
@@ -49,7 +50,7 @@
                             ]
                         },
                         {code:"Query", url:""},
-                        {code:"Home", url:"<s:url value="/user/user_interface.action" />" }
+                        {code:"Admin", url:"<s:url value="/administrator/administrator.action" />" }
                     ];
 
                     // Part 3 - Initialization code
