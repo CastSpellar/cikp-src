@@ -2,13 +2,8 @@
 var service = new CIKPWebService(serviceURL);
 var table = new AttributeControl('added_controls');
 table.insertAttributeControl('Knowledge_Item_File_Type_Value');
+table.insertAttributeControlList(['Value1','Value2','Value3']);
 */
-
-var attributeControl = {
-    controlName:'Knowledge_Item_File_Type_Value',
-    controlType:'select',
-    values:['Value1','Value2','Value3']
-}
 
 var AttributeControl = Class.create({
     initialize: function(tableName) {
@@ -16,9 +11,7 @@ var AttributeControl = Class.create({
     },
 
     insertAttributeControlList: function(attributeList){
-        attributeList.each(function(attributeName){
-            this.insertAttributeControl(attributeName);
-        });
+        attributeList.reverse().each(this.insertAttributeControl.bind(this));
     },
 
     insertAttributeControl: function(attributeName) {
@@ -28,7 +21,7 @@ var AttributeControl = Class.create({
     setAttributeControl: function(attributeControl) {
         try{
             var newLine = false;
-            var tableRows = $('added_controls').select('tr');
+            var tableRows = this.table.select('tr');
             var tr;
             if (tableRows.size() != 0){
                 tr = tableRows[tableRows.size()-1];
@@ -38,7 +31,7 @@ var AttributeControl = Class.create({
                     newLine = true;
                 }
             } else {
-                $('added_controls').insert(new Element('tbody'));
+                this.table.insert(new Element('tbody'));
                 tr = new Element('tr');
                 newLine = true;
             }
@@ -55,7 +48,7 @@ var AttributeControl = Class.create({
             }else control = new Element(attributeControl.controlType);
             tr.insert( new Element('td', { 'class': 'fieldValue' } ).update(control) );
 
-            if (newLine) $('added_controls').down('tbody').insert(tr);
+            if (newLine) this.table.down('tbody').insert(tr);
         } catch(e) { console.log(e); }
     }
 });
