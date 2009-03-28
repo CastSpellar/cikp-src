@@ -15,6 +15,12 @@ var AttributeControl = Class.create({
         this.table = $(tableName);
     },
 
+    insertAttributeControlList: function(attributeList){
+        attributeList.each(function(attributeName){
+            this.insertAttributeControl(attributeName);
+        });
+    },
+
     insertAttributeControl: function(attributeName) {
         service.getAttributeControl(attributeName,this.setAttributeControl.bind(this));
     },
