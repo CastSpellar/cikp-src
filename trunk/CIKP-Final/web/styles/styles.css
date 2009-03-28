@@ -1,3 +1,11 @@
+.fieldName{
+    width: 20%;
+}
+
+.fieldValue{
+    width: 30%;
+}
+
 * {
     margin: 0px;
     padding: 0px;
