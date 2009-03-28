@@ -11,18 +11,6 @@ var AttributeControl = Class.create({
         this.controlMap = $H();
     },
 
-    registerOnMap: function(attributeControl){
-        try{
-           var isUndefined = Object.isUndefined(this.controlMap.get(attributeControl.controlName) );
-           if( isUndefined == true )
-                this.controlMap.set(attributeControl.controlName,attributeControl);
-
-           return !isUndefined;
-        } catch(e){
-            console.log(e);
-        }
-    },
-
     insertAttributeControlList: function(attributeList){
         try{
             attributeList.reverse().each(this.insertAttributeControl.bind(this));
@@ -33,45 +21,46 @@ var AttributeControl = Class.create({
     },   
 
     insertAttributeControl: function(attributeName) {
-        service.getAttributeControl(attributeName,this.setAttributeControl.bind(this));
+        console.log(this.controlMap);
+        var isUndefined = Object.isUndefined(this.controlMap.get(attributeName) );
+        if( isUndefined == true )
+            service.getAttributeControl(attributeName,this.setAttributeControl.bind(this));
+        else console.log(attributeName + ' is already set!');
     },
 
     setAttributeControl: function(attributeControl) {
         try{
-            var isSet = this.registerOnMap.bind(this,attributeControl);           
-            if( isSet == false){
-                var newLine = false;
-                var tableRows = this.table.select('tr');
-                var tr;
-                if (tableRows.size() != 0){
-                    tr = tableRows[tableRows.size()-1];
-                    var numberOfTDs = tr.select('td').size();
-                    if (numberOfTDs == 4) {
-                        tr = new Element('tr');
-                        newLine = true;
-                    }
-                } else {
-                    this.table.insert(new Element('tbody'));
+            //this.registerOnMap.bind(attributeControl,this);
+            this.controlMap.set(attributeControl.controlName,attributeControl);
+            var newLine = false;
+            var tableRows = this.table.select('tr');
+            var tr;
+            if (tableRows.size() != 0){
+                tr = tableRows[tableRows.size()-1];
+                var numberOfTDs = tr.select('td').size();
+                if (numberOfTDs == 4) {
                     tr = new Element('tr');
                     newLine = true;
                 }
-
-                var controlName = attributeControl.controlName.gsub('_',' ');
-                tr.insert( new Element('td', { 'class': 'fieldName' }).update(controlName + ':') );
-
-                var control;
-                if( attributeControl.controlType == 'select'){
-                    control = new Element(attributeControl.controlType);
-                    attributeControl.values.each(function(value){
-                        control.insert(new Element('option', { 'value':value } ).update(value) );
-                    });
-                }else control = new Element(attributeControl.controlType);
-                tr.insert( new Element('td', { 'class': 'fieldValue' } ).update(control) );
-
-                if (newLine) this.table.down('tbody').insert(tr);
             } else {
-                console.log(attributeControl.controlName.gsub('_',' ') + ' is already set!')
+                this.table.insert(new Element('tbody'));
+                tr = new Element('tr');
+                newLine = true;
             }
+
+            var controlName = attributeControl.controlName.gsub('_',' ');
+            tr.insert( new Element('td', { 'class': 'fieldName' }).update(controlName + ':') );
+
+            var control;
+            if( attributeControl.controlType == 'select'){
+                control = new Element(attributeControl.controlType);
+                attributeControl.values.each(function(value){
+                    control.insert(new Element('option', { 'value':value } ).update(value) );
+                });
+            }else control = new Element(attributeControl.controlType);
+            tr.insert( new Element('td', { 'class': 'fieldValue' } ).update(control) );
+
+            if (newLine) this.table.down('tbody').insert(tr);
         } catch(e) { console.log(e); }
     }
 });
