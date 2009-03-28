@@ -7,31 +7,31 @@
 	<!-- Example of SAF2 action instantiated by Spring -->
     <bean
         id="loginAction"
-        class="org.fct.unl.pt.cikp.actions.login.Login" />
+        class="org.fct.unl.pt.cikp.actions.login.Login" singleton="false" />
     <bean
         id="loginSupport"
-        class="org.fct.unl.pt.cikp.actions.login.LoginSuport" />
+        class="org.fct.unl.pt.cikp.actions.login.LoginSuport" singleton="false" />
     <bean
         id="registerAction"
-        class="org.fct.unl.pt.cikp.actions.register.Register" />
+        class="org.fct.unl.pt.cikp.actions.register.Register" singleton="false" />
     <bean
         id="registerSupport"
-        class="org.fct.unl.pt.cikp.actions.register.RegisterSuport" />
+        class="org.fct.unl.pt.cikp.actions.register.RegisterSuport" singleton="false" />
     <bean
         id="userSupport"
-        class="org.fct.unl.pt.cikp.actions.user.UserSupport" />
+        class="org.fct.unl.pt.cikp.actions.user.UserSupport" singleton="false" />
     <bean
         id="defineActorAction"
-        class="org.fct.unl.pt.cikp.actions.user.DefineActor" />
+        class="org.fct.unl.pt.cikp.actions.user.DefineActor" singleton="false" />
     <bean
         id="defineKnowledgeItemAction"
-        class="org.fct.unl.pt.cikp.actions.knowledge.item.DefineKnowledgeItem" />
+        class="org.fct.unl.pt.cikp.actions.knowledge.item.DefineKnowledgeItem" singleton="false" />
     <bean
         id="subscribeKnowledgeItemAction"
-        class="org.fct.unl.pt.cikp.actions.knowledge.item.SubscribeKnowledgeItem" />
+        class="org.fct.unl.pt.cikp.actions.knowledge.item.SubscribeKnowledgeItem" singleton="false" />
     <bean
         id="knowledgeItemSupport"
-        class="org.fct.unl.pt.cikp.actions.knowledge.item.KnowledgeItemSupport" />
+        class="org.fct.unl.pt.cikp.actions.knowledge.item.KnowledgeItemSupport" singleton="false" />
     <bean
         id="ServiceAction"
         class="org.fct.unl.pt.cikp.actions.ajax.ServiceAction" />

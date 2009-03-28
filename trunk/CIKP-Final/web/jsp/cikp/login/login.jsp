@@ -32,6 +32,9 @@
                             <td>
                                 <s:textfield name="userUsername" />
                             </td>
+                            <td>
+                                <s:actionmessage name="userUsername" />
+                            </td>
                         </tr>
                         <tr>
                             <td>
@@ -39,6 +42,9 @@
                             </td>
                             <td>
                                 <s:password name="userPassword" />
+                            </td>
+                            <td>
+                                <s:actionmessage name="userPassword" />
                             </td>
                         </tr>
                         <tr>

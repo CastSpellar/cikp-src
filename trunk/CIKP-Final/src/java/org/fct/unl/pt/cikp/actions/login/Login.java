@@ -28,8 +28,9 @@ public class Login extends ActionSupport implements SessionAware {
     private String userPassword ;
 
     private Map<String, Object> session ;
-    
-    public String execute() {
+
+    @Override
+    public String execute() throws Exception {
         /*ArrayList<String> knowledges = getCikpService().listKnowledges() ;
         session.put(Constants.KNOWLEDGES, knowledges) ;*/
         UserPortal u = new UserPortal() ;
@@ -39,6 +40,11 @@ public class Login extends ActionSupport implements SessionAware {
         //IndividualActor actor = new IndividualActor() ;
         session.put(Constants.USER, u) ;
         return SUCCESS ;
+    }
+
+    @Override
+    public void validate() {
+        
     }
 
     /**

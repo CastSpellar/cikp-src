@@ -27,7 +27,7 @@ public class PersistentOntologyImpl implements PersistentOntology {
 
     private HashMap<String, String> params = new HashMap<String, String>() ;
 
-    private String s_params[] = {"ont_file", "db_url", /*"db_user",*/ "db_passwd", "db", "db_driver"} ;
+    private String s_params[] = {"ont_file", "db_url", "db_user", /*"db_passwd", */"db", "db_driver"} ;
     private String s_dbURL ;
     private String s_dbUser ;
     private String s_dbPw = "" ;

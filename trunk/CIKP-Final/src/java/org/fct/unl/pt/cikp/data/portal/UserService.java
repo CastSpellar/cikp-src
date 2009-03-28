@@ -5,18 +5,20 @@
 
 package org.fct.unl.pt.cikp.data.portal;
 
+import org.hibernate.Session;
+
 /**
  *
  * @author Bruno
  */
 public interface UserService {
 
-    public boolean existsUserName(UserPortal u) ;
+    public boolean existsUserName(UserPortal u, Session session) ;
 
-    public UserPortal register(UserPortal u) ;
+    public UserPortal register(UserPortal u, Session session) ;
 
-    public UserPortal authenticateUser(UserPortal u) ;
+    public UserPortal authenticateUser(UserPortal u, Session session) ;
     
-    public void updateUser(UserPortal u) ;
+    public void updateUser(UserPortal u, Session session) ;
 
 }

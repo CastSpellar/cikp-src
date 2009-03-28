@@ -10,11 +10,19 @@ import java.util.List;
 import org.fct.unl.pt.cikp.data.ajax.AttributeControl;
 import org.fct.unl.pt.cikp.data.ontology.IndividualActor;
 import org.fct.unl.pt.cikp.data.ontology.KnowledgeItem;
+import org.fct.unl.pt.cikp.data.portal.FilePortal;
+import org.fct.unl.pt.cikp.data.portal.FilePortalService;
+import org.fct.unl.pt.cikp.data.portal.FilePortalServiceImpl;
+import org.fct.unl.pt.cikp.data.portal.HibernateUtil;
+import org.fct.unl.pt.cikp.data.portal.KnowledgeItemPortal;
+import org.fct.unl.pt.cikp.data.portal.KnowledgeItemPortalService;
+import org.fct.unl.pt.cikp.data.portal.KnowledgeItemPortalServiceImpl;
 import org.fct.unl.pt.cikp.data.portal.UserPortal;
 import org.fct.unl.pt.cikp.service.ontology.OntServicePortal;
 import org.fct.unl.pt.cikp.service.ontology.OntServicePortalImpl;
 import org.fct.unl.pt.cikp.data.portal.UserService;
 import org.fct.unl.pt.cikp.data.portal.UserServiceImpl;
+import org.hibernate.Session;
 
 /**
  *
@@ -23,7 +31,14 @@ import org.fct.unl.pt.cikp.data.portal.UserServiceImpl;
 public class CikpServiceImpl implements CikpService {
 
     private UserService userService ;
+    private KnowledgeItemPortalService kiService ;
+    private FilePortalService fpService ;
     private OntServicePortal ontServicePortal ;
+
+
+     private Session getSession() {
+        return HibernateUtil.getSessionFactory().getCurrentSession() ;
+    }
 
     /**
      * @param userService the userService to set
@@ -37,19 +52,34 @@ public class CikpServiceImpl implements CikpService {
     }
 
     public void updateUser(UserPortal u) {
-        getUserService().updateUser(u);
+        Session session = getSession() ;
+        session.beginTransaction() ;
+        getUserService().updateUser(u, session);
+        session.getTransaction().commit() ;
     }
 
     public boolean existsUser(UserPortal u) {
-        return getUserService().existsUserName(u) ;
+        Session session = getSession() ;
+        session.beginTransaction() ;
+        boolean result = getUserService().existsUserName(u, session) ;
+        session.getTransaction().commit();
+        return result ;
     }
 
     public UserPortal authenticateUser(UserPortal u) {
-        return getUserService().authenticateUser(u) ;
+        Session session = getSession() ;
+        session.beginTransaction() ;
+        UserPortal user = getUserService().authenticateUser(u, session) ;
+        session.getTransaction().commit();
+        return user ;
     }
 
     public UserPortal registerUser(UserPortal u) {
-        return getUserService().register(u) ;
+        Session session = getSession() ;
+        session.beginTransaction() ;
+        UserPortal user = getUserService().register(u, session) ;
+        session.getTransaction().commit(); ;
+        return user ;
     }
 
     public IndividualActor createIndividualActor(IndividualActor actor) {
@@ -92,6 +122,44 @@ public class CikpServiceImpl implements CikpService {
         values.add("Teste3") ;
         attrControl.setValues(values);
         return attrControl ;
+    }
+
+    /**
+     * @return the kiService
+     */
+    public KnowledgeItemPortalService getKiService() {
+        return new KnowledgeItemPortalServiceImpl() ;
+    }
+
+    /**
+     * @param kiService the kiService to set
+     */
+    public void setKiService(KnowledgeItemPortalService kiService) {
+        this.kiService = kiService;
+    }
+
+    public KnowledgeItemPortal createKnowledgeItemPortal(KnowledgeItemPortal ki) {
+        Session session = getSession() ;
+        session.beginTransaction() ;
+        FilePortal fp = getFpService().store(ki.getFilePortal(), session) ;
+        ki.setFilePortal(fp) ;
+        KnowledgeItemPortal k = getKiService().store(ki, session) ;
+        session.beginTransaction().commit();
+        return k ;
+    }
+
+    /**
+     * @return the fpService
+     */
+    public FilePortalService getFpService() {
+        return new FilePortalServiceImpl() ;
+    }
+
+    /**
+     * @param fpService the fpService to set
+     */
+    public void setFpService(FilePortalService fpService) {
+        this.fpService = fpService;
     }
 
 }

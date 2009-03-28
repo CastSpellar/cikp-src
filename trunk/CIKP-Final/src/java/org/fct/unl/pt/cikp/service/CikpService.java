@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import org.fct.unl.pt.cikp.data.ajax.AttributeControl;
 import org.fct.unl.pt.cikp.data.ontology.IndividualActor;
 import org.fct.unl.pt.cikp.data.ontology.KnowledgeItem;
+import org.fct.unl.pt.cikp.data.portal.KnowledgeItemPortal;
 import org.fct.unl.pt.cikp.data.portal.UserPortal;
 
 /**
@@ -26,6 +27,8 @@ public interface CikpService {
     public UserPortal authenticateUser(UserPortal u) ;
 
     public UserPortal registerUser(UserPortal u) ;
+
+    public KnowledgeItemPortal createKnowledgeItemPortal(KnowledgeItemPortal ki) ;
 
 
     /**

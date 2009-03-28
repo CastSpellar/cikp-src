@@ -1,0 +1,14 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//
+EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+    <field name="userPassword">
+        <field-validator type="requiredstring">
+            <message key="login.required" />
+        </field-validator>
+    </field>
+    <field name="userUsername">
+        <field-validator type="requiredstring">
+            <message key="login.required" />
+        </field-validator>
+    </field>
+</validators>

@@ -1,5 +1,5 @@
 package org.fct.unl.pt.cikp.data.portal;
-// Generated 26/Mar/2009 23:51:03 by Hibernate Tools 3.2.1.GA
+// Generated 28/Mar/2009 1:29:07 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -26,17 +26,20 @@ public class FilePortal  implements java.io.Serializable {
 
      private Integer fileId;
      private byte[] file;
+     private String fileName;
      private Set<KnowledgeItemPortal> knowledgeItemPortals = new HashSet<KnowledgeItemPortal>(0);
 
     public FilePortal() {
     }
 
 	
-    public FilePortal(byte[] file) {
+    public FilePortal(byte[] file, String fileName) {
         this.file = file;
+        this.fileName = fileName;
     }
-    public FilePortal(byte[] file, Set<KnowledgeItemPortal> knowledgeItemPortals) {
+    public FilePortal(byte[] file, String fileName, Set<KnowledgeItemPortal> knowledgeItemPortals) {
        this.file = file;
+       this.fileName = fileName;
        this.knowledgeItemPortals = knowledgeItemPortals;
     }
    
@@ -58,6 +61,15 @@ public class FilePortal  implements java.io.Serializable {
     
     public void setFile(byte[] file) {
         this.file = file;
+    }
+    
+    @Column(name="FileName", nullable=false)
+    public String getFileName() {
+        return this.fileName;
+    }
+    
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="filePortal")
     public Set<KnowledgeItemPortal> getKnowledgeItemPortals() {

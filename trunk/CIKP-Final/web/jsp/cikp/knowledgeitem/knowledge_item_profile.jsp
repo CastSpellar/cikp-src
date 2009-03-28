@@ -57,14 +57,8 @@
                                 <s:text name="knowledgeitem.file" />
                             </td>
                             <td colspan="3">
-                                <s:file name="teste" key="file" />
+                                <s:file name="upload" key="file" />
                             </td>
-                            <%--<td colspan="2">
-                                <s:textfield name="kifile" />
-                            </td>
-                            <td>
-                                <input type="button" value="<s:text name="knowledgeitem.browsefile" />" onclick="alert('Available Soon...') ;" class="button" />
-                            </td>--%>
                         </tr>
                         <tr>
                             <td colspan="4">
@@ -76,7 +70,7 @@
                                 <s:text name="knowledge_item_type" />
                             </td>
                             <td>
-                                <s:textfield name="kitype" />
+                                <s:textfield name="knowledge_item_type" />
                             </td>
                         </tr>
                         <tr>
@@ -89,13 +83,13 @@
                                 <s:text name="knowledge_item_file_type" />
                             </td>
                             <td class="fieldValue">
-                                <s:select name="filetype" headerKey="-1" headerValue="-- Select File Type --" list="{'1','2'}" />
+                                <s:select name="knowledge_item_file_type" headerKey="-1" headerValue="-- Select File Type --" list="{'1','2'}" />
                             </td>
                             <td class="fieldName">
                                 <s:text name="subject_domain" />
                             </td>
                             <td class="fieldValue">
-                                <s:select name="subjectdomain" headerKey="-1" headerValue="-- Select Subject Domain --" list="{'1','2'}" />
+                                <s:select name="subject_domain" headerKey="-1" headerValue="-- Select Subject Domain --" list="{'1','2'}" />
                             </td>
                         </tr>
                         <tr>
@@ -103,7 +97,7 @@
                                 <s:text name="knowledge_item_keyword" />
                             </td>
                             <td>
-                                <s:textfield name="keyword" />
+                                <s:textfield name="knowledge_item_keyword" />
                             </td>
                         </tr>
                         <tr>
