@@ -65,7 +65,7 @@ var AttributeControl = Class.create({
             } else {
                 if( attributeControl.controlType == 'select'){
                     control = new Element(attributeControl.controlType,{'id' : attributeControl.controlName});
-                    attributeControl.values.each(function(value, index){
+                    attributeControl.values.each(function(value){
                         var option = new Element('option', { 'value':value } ).update(value);
                         control.insert(option);
                     });
