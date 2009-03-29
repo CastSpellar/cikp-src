@@ -17,7 +17,7 @@ var AttributeControl = Class.create({
                 attributeList.each(this.getControlContent.bind(this));
                 this.table.innerHTML = '';
                 attributeList.reverse().each(this.insertAttributeControl.bind(this));
-            }
+            } else this.table.innerHTML = '';
         } catch (e) {
             console.log(e);
         }
@@ -37,8 +37,6 @@ var AttributeControl = Class.create({
 
     setAttributeControl: function(attributeControl) {
         try{
-            console.log(attributeControl);
-            //this.registerOnMap.bind(attributeControl,this);
             this.controlMap.set(attributeControl.controlName,attributeControl);
             var newLine = false;
             var tableRows = this.table.select('tr');
@@ -64,7 +62,8 @@ var AttributeControl = Class.create({
                 control = attributeControl.html;
             } else {
                 if( attributeControl.controlType == 'select'){
-                    control = new Element(attributeControl.controlType,{'id' : attributeControl.controlName});
+                    control = new Element(attributeControl.controlType,{'id' : attributeControl.controlName,
+                                                                        'name': attributeControl.controlName.underscore() });
                     attributeControl.values.each(function(value){
                         var option = new Element('option', { 'value':value } ).update(value);
                         control.insert(option);
@@ -72,7 +71,8 @@ var AttributeControl = Class.create({
                     if( Object.isUndefined(attributeControl.value) == false )
                         control.selectedIndex = attributeControl.value;
                 }else {
-                    control = new Element(attributeControl.controlType,{'id' : attributeControl.controlName});
+                    control = new Element(attributeControl.controlType,{'id' : attributeControl.controlName,
+                                                                        'name': attributeControl.controlName.underscore() });
                     if( Object.isUndefined(attributeControl.value) == false )
                         control.value = attributeControl.value;
                 }
