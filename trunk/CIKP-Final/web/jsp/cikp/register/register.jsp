@@ -90,6 +90,14 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td>
+                                    <s:text name="register.userorgcheck" />
+                                </td>
+                                <td>
+                                    <s:checkbox name="userorgcheck" value="false" />
+                                </td>
+                            </tr>
+                            <tr>
                                 <td colspan="2" align="right">
                                     <s:submit key="register.submit" />
                                     <s:reset key="register.reset" />

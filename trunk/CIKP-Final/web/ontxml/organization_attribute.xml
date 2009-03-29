@@ -4,7 +4,6 @@
 		<item text="Organization_Abstract_Attribute" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Organization_Abstract_Attribute" im0="Class.ico" im1="Class.ico" im2="Class.ico">
 			<item text="Experience" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Experience" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
 			<item text="Information_And_Knowledge_Need" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Information_And_Knowledge_Need" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
-			<item text="Reputation" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Reputation" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
 		</item>
 		<item text="Organization_Physical_Attribute" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Organization_Physical_Attribute" im0="Class.ico" im1="Class.ico" im2="Class.ico">
 			<item text="Organization_Affiliation" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Organization_Affiliation" im0="Class.ico" im1="Class.ico" im2="Class.ico">

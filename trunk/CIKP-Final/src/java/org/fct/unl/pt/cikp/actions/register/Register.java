@@ -22,6 +22,7 @@ public class Register extends ActionSupport implements ModelDriven {
 
     private UserPortal user = new UserPortal();
     private String password2;
+    private boolean userorgcheck ;
     private CikpService cikpService;
 
     @Override
@@ -29,7 +30,15 @@ public class Register extends ActionSupport implements ModelDriven {
     public String execute() throws Exception {
         getCikpService().registerUser(user);
         String p = getPassword2();
-        return SUCCESS;
+        boolean aux = isUserorgcheck() ;
+        String str1 = ("organizationsuccess") ;
+        String str2 = ("usersuccess") ;
+        if (aux) {
+            return str1 ;
+        }
+        else {
+            return str2 ;
+        }
     }
 
     @Override
@@ -72,5 +81,19 @@ public class Register extends ActionSupport implements ModelDriven {
      */
     public void setPassword2(String password2) {
         this.password2 = password2;
+    }
+
+    /**
+     * @return the userorgcheck
+     */
+    public boolean isUserorgcheck() {
+        return userorgcheck;
+    }
+
+    /**
+     * @param userorgcheck the userorgcheck to set
+     */
+    public void setUserorgcheck(boolean userorgcheck) {
+        this.userorgcheck = userorgcheck;
     }
 }

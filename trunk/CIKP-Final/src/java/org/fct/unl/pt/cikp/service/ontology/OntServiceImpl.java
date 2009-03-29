@@ -10,6 +10,7 @@ import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -240,5 +241,17 @@ public class OntServiceImpl implements OntService {
 
     public OntModel getM() throws IOException, MissingParamException, ClassNotFoundException {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public void writeOnt(OutputStream out) {
+        try {
+            getPo().writeOnt(out);
+        } catch (IOException ex) {
+            Logger.getLogger(OntServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MissingParamException ex) {
+            Logger.getLogger(OntServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(OntServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

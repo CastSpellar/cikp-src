@@ -18,6 +18,7 @@ public class OrganizationActor {
     private String work_phone_number ;
     private String type ;
     private String username ;
+    private int age ;
 
     public OrganizationActor() {}
 
@@ -173,6 +174,20 @@ public class OrganizationActor {
      */
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    /**
+     * @return the age
+     */
+    public int getAge() {
+        return age;
+    }
+
+    /**
+     * @param age the age to set
+     */
+    public void setAge(int age) {
+        this.age = age;
     }
 
    

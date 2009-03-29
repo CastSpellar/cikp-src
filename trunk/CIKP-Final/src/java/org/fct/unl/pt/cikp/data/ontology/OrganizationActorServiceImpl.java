@@ -21,6 +21,7 @@ public class OrganizationActorServiceImpl implements OrganizationActorService {
             OntService onts = getOnt();
             onts.createIndividual(actor.getType(), actor.getUsername());
             onts.addLiteralByProperty("has_Communication_Language", actor.getUsername(), actor.getCommunication_language());
+            onts.addLiteralByProperty("has_Age", actor.getUsername(), actor.getAge()) ;
             onts.addLiteralByProperty("has_Email_Address", actor.getUsername(), actor.getEmail_address());
             onts.addLiteralByProperty("has_Experience", actor.getUsername(), actor.getExperience());
             onts.addLiteralByProperty("has_Fax_Number", actor.getUsername(), actor.getFax_number());
@@ -46,6 +47,7 @@ public class OrganizationActorServiceImpl implements OrganizationActorService {
         OrganizationActor actor = new OrganizationActor() ;
         try {
             actor.setCommunication_language((String) getOnt().getLiteralByProperty(username, "has_Communication_Language"));
+            actor.setAge((Integer)getOnt().getLiteralByProperty(username, "has_Age")) ;
             actor.setEmail_address((String)getOnt().getLiteralByProperty(username, "has_Email_Address"));
             actor.setExperience((String)getOnt().getLiteralByProperty(username, "has_Experience"));
             actor.setFax_number((String)getOnt().getLiteralByProperty(username, "has_Fax_Number"));

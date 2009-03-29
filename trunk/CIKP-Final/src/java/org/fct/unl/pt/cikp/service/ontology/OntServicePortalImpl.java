@@ -6,6 +6,7 @@
 package org.fct.unl.pt.cikp.service.ontology;
 
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -557,6 +558,10 @@ public class OntServicePortalImpl implements OntServicePortal {
      */
     public void setPhysicalProductService(PhysicalProductService physicalProductService) {
         this.physicalProductService = physicalProductService;
+    }
+
+    public void writeOnt(OutputStream out) {
+        getOntService().writeOnt(out);
     }
 
 }

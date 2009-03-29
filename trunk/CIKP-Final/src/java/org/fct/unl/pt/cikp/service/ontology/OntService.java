@@ -10,6 +10,7 @@ import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.rdf.model.Property;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import org.fct.unl.pt.cikp.service.ontology.manager.exceptions.MissingParamException;
 
@@ -48,6 +49,8 @@ public interface OntService {
     public void createXMLFileXTree(String fileName, String supercls) throws MissingParamException, ClassNotFoundException ;
 
     public void listAbsoluteSubClasses(ArrayList<String> list, ArrayList<Integer> hierarchy, int counter, String cls, boolean bool) throws IOException, MissingParamException, ClassNotFoundException ;
+
+    public void writeOnt(OutputStream out) ;
 
     public OntModel getM() throws IOException, MissingParamException, ClassNotFoundException ;
 

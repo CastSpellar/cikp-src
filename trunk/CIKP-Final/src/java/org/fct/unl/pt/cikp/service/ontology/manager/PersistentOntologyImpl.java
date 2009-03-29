@@ -117,13 +117,10 @@ public class PersistentOntologyImpl implements PersistentOntology {
         // now load the source document, which will also load any imports
         m.read( in,  "" );
     }
-    public void writeOnt() {
-
-    }
 
     public void createXMLFile(String fileName) {
         Model base = maker.createModel( s_source, false ) ;
-        OntModel m = ModelFactory.createOntologyModel( getModelSpec( maker ), base ) ;
+        //OntModel m = ModelFactory.createOntologyModel( getModelSpec( maker ), base ) ;
         String ENCODING = "ISO-8859-1" ;
         
         try {
@@ -213,7 +210,7 @@ public class PersistentOntologyImpl implements PersistentOntology {
 
     public void createXMLFileXTree(String fileName) {
         Model base = maker.createModel( s_source, false ) ;
-        OntModel m = ModelFactory.createOntologyModel( getModelSpec( maker ), base ) ;
+        //OntModel m = ModelFactory.createOntologyModel( getModelSpec( maker ), base ) ;
         String ENCODING = "ISO-8859-1" ;
 
         try {
@@ -313,5 +310,9 @@ public class PersistentOntologyImpl implements PersistentOntology {
         this.configFilePath = configFilePath;
         loadConfigParams() ;
         loadMaker();
+    }
+
+    public void writeOnt(OutputStream out) {
+        getModel().write(out, "RDF/XML") ;
     }
 }

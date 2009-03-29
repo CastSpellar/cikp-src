@@ -44,7 +44,12 @@
     <bean
         id="downloadOntAction"
         class="org.fct.unl.pt.cikp.actions.administrator.DownloadOnt" />
-
+    <bean
+        id="organizationSupport"
+        class="org.fct.unl.pt.cikp.actions.organization.OrganizationSupport" />
+    <bean
+        id="defineOrganizationAction"
+        class="org.fct.unl.pt.cikp.actions.organization.DefineOrganization" />
     <!--<bean
         id="userService"
         class="org.fct.unl.pt.cikp.service.user.UserServiceImpl" /> -->

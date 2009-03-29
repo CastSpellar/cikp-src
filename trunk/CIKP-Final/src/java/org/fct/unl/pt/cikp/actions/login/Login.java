@@ -6,13 +6,9 @@
 package org.fct.unl.pt.cikp.actions.login;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
-import com.opensymphony.xwork2.validator.annotations.Validation;
-import java.util.ArrayList;
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 import org.fct.unl.pt.cikp.constants.Constants;
-import org.fct.unl.pt.cikp.data.ontology.IndividualActor;
 import org.fct.unl.pt.cikp.data.portal.UserPortal;
 import org.fct.unl.pt.cikp.service.CikpService;
 import org.fct.unl.pt.cikp.service.CikpServiceImpl;

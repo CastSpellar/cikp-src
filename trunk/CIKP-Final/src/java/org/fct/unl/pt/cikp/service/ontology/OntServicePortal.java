@@ -5,6 +5,7 @@
 
 package org.fct.unl.pt.cikp.service.ontology;
 
+import java.io.OutputStream;
 import java.util.ArrayList;
 import org.fct.unl.pt.cikp.data.ontology.Event;
 import org.fct.unl.pt.cikp.data.ontology.EventService;
@@ -92,6 +93,8 @@ public interface OntServicePortal {
     public ArrayList <String> listGeoAffiliations() ;
 
     public ArrayList <String> listLocations() ;
+
+    public void writeOnt(OutputStream out) ;
 
     /**
      * @return the individualActorService

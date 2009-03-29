@@ -5,10 +5,12 @@
 
 package org.fct.unl.pt.cikp.service;
 
+import java.io.OutputStream;
 import java.util.ArrayList;
 import org.fct.unl.pt.cikp.data.ajax.AttributeControl;
 import org.fct.unl.pt.cikp.data.ontology.IndividualActor;
 import org.fct.unl.pt.cikp.data.ontology.KnowledgeItem;
+import org.fct.unl.pt.cikp.data.ontology.OrganizationActor;
 import org.fct.unl.pt.cikp.data.portal.KnowledgeItemPortal;
 import org.fct.unl.pt.cikp.data.portal.UserPortal;
 
@@ -30,11 +32,15 @@ public interface CikpService {
 
     public KnowledgeItemPortal createKnowledgeItemPortal(KnowledgeItemPortal ki) ;
 
+    public void writeOnt(OutputStream out) ;
+
 
     /**
      Ontology Methods
      */
     public IndividualActor createIndividualActor(IndividualActor actor) ;
+
+    public OrganizationActor createOrganizationActor(OrganizationActor actor) ;
 
     public KnowledgeItem createKnowledgeItem(KnowledgeItem item) ;
 

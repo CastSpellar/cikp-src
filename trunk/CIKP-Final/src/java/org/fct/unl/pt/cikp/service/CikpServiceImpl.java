@@ -5,11 +5,13 @@
 
 package org.fct.unl.pt.cikp.service;
 
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import org.fct.unl.pt.cikp.data.ajax.AttributeControl;
 import org.fct.unl.pt.cikp.data.ontology.IndividualActor;
 import org.fct.unl.pt.cikp.data.ontology.KnowledgeItem;
+import org.fct.unl.pt.cikp.data.ontology.OrganizationActor;
 import org.fct.unl.pt.cikp.data.portal.FilePortal;
 import org.fct.unl.pt.cikp.data.portal.FilePortalService;
 import org.fct.unl.pt.cikp.data.portal.FilePortalServiceImpl;
@@ -248,6 +250,14 @@ public class CikpServiceImpl implements CikpService {
      */
     public void setFpService(FilePortalService fpService) {
         this.fpService = fpService;
+    }
+
+    public void writeOnt(OutputStream out) {
+        getOntServicePortal().writeOnt(out);
+    }
+
+    public OrganizationActor createOrganizationActor(OrganizationActor actor) {
+        return getOntServicePortal().createOrganizationActor(actor) ;
     }
 
 }

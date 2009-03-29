@@ -15,6 +15,7 @@
     <include file="struts-cikp-knowledge-item.xml" />
     <include file="struts-cikp-ajax.xml" />
     <include file="struts-cikp-administrator.xml" />
+    <include file="struts-cikp-organization.xml" />
     <!--<package name="default" extends="struts-default">
         <action name="showLogin" class="org.fct.unl.pt.cikp.action.login.Login">
             <result>/jsp/cikp/login/login.jsp</result>

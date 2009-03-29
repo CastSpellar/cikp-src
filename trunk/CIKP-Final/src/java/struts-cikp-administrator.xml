@@ -22,7 +22,7 @@
             <result type="stream" name="success">
                 <param name="contentType">application/xml</param>
                 <param name="inputName">inputStream</param>
-                <param name="contentDisposition">attatchement; filename="teste.xml"</param>
+                <param name="contentDisposition">attatchement; filename="CIKPOntology.owl"</param>
                 <param name="bufferSize">1024</param>
             </result>
         </action>
