@@ -91,9 +91,6 @@ var AttributeControl = Class.create({
             console.log(attributeMap);
             this.controlMap.set(attribute ,attributeMap);
         }
-
-            //// = Object.clone(this.controlMap,tempHash);
-            //attribute = Object.clone(attribute,{'value':element.gets});
     },
 
     getControlValue: function(controlID){
