@@ -116,7 +116,7 @@
                         </tr>
                         <tr>
                             <td colspan="4" align="right">
-                                <input type="button" value="<s:text name="knowledgeitem.subscribeadditem" />" onclick="javascript:alert('Available Soon.') ;" class="button" />
+                                <input type="button" value="<s:text name="knowledgeitem.subscribeaddattr" />" onclick="javascript:alert('Available Soon.') ;" class="button" />
                             </td>
                         </tr>
                     </table>

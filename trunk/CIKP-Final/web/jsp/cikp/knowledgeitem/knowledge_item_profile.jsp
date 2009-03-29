@@ -107,7 +107,7 @@
                         </tr>
                         <tr>
                             <td colspan="4" align="right">
-                                <input type="button" value="<s:text name="knowledgeitem.additem" />" onclick="alert('Available Soon...') ;" class="button" />
+                                <input type="button" value="<s:text name="knowledgeitem.addattr" />" onclick="alert('Available Soon...') ;" class="button" />
                                 <s:submit key="knowledgeitem.submit" cssClass="button" />
                                 <input type="button" value="<s:text name="knowledgeitem.cancel" />" onclick="window.location.href='<s:url action="UserInterface" />'" class="button" />
                             </td>

@@ -172,7 +172,7 @@
                     <table id="human_attr_control_tab">
                         <tr>
                             <td colspan="4" align="right">
-                                <input type="button" value="<s:text name="organizationprofile.additem" />" onclick="showOrgAttrTree();" class="button" />
+                                <input type="button" value="<s:text name="organizationprofile.addattr" />" onclick="showOrgAttrTree();" class="button" />
                             </td>
                         </tr>
                     </table>
@@ -192,15 +192,15 @@
         <div id="left">
             <div id="top"></div>
             <div id="left_back">
-                <h3><s:text name="userprofile.onttree" /></h3>
+                <h3><s:text name="organizationserprofile.onttree" /></h3>
                 <div id="tree_div" class="title_back">
                 </div>
                 <div id="attributes_tree_div_container" class="hidden_tree">
-                    <h3><s:text name="userprofile.attributestree" /></h3>
+                    <h3><s:text name="organizationprofile.attributestree" /></h3>
                     <div id="atributes_tree_div" class="title_back">
                     </div>
                     <div id="attr_control_div">
-                        <input type="button" value="<s:text name="userprofile.addattr" />" class="button" onclick="addAttributesBtnClick();" />
+                        <input type="button" value="<s:text name="organizationprofile.additem" />" class="button" onclick="addAttributesBtnClick();" />
                     </div>
                 </div>
             </div>

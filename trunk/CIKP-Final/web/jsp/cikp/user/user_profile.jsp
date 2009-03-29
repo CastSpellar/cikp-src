@@ -199,7 +199,7 @@
                     <table id="human_attr_control_tab">
                         <tr>
                             <td colspan="4" align="right">
-                                <input type="button" value="<s:text name="userprofile.additem" />" onclick="showHumanAttrTree();" class="button" />
+                                <input type="button" value="<s:text name="userprofile.addattr" />" onclick="showHumanAttrTree();" class="button" />
                             </td>
                         </tr>
 
@@ -254,7 +254,7 @@
                             </td>
                             <tr>
                                 <td colspan="4" align="right">
-                                    <input type="button" value="<s:text name="userprofile.additem" />" onclick="alert('Available Soon...') ;" class="button" />
+                                    <input type="button" value="<s:text name="userprofile.addattr" />" onclick="alert('Available Soon...') ;" class="button" />
                                 </td>
                             </tr>
                         </table>
@@ -284,7 +284,7 @@
                     <div id="atributes_tree_div" class="title_back">
                     </div>
                     <div id="attr_control_div">
-                        <input type="button" value="<s:text name="userprofile.addattr" />" class="button" onclick="addAttributesBtnClick();" />
+                        <input type="button" value="<s:text name="userprofile.additem" />" class="button" onclick="addAttributesBtnClick();" />
                     </div>
                 </div>
             </div>
