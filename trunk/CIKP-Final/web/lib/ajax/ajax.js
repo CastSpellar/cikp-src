@@ -87,9 +87,11 @@ var AttributeControl = Class.create({
     getControlContent: function(attribute){
         if( Object.isUndefined(this.controlMap.get(attribute)) == false ){
             var attributeMap = this.controlMap.get(attribute);
-            attributeMap.value = this.getControlValue(attributeMap.controlName);
-            console.log(attributeMap);
-            this.controlMap.set(attribute ,attributeMap);
+            if($(attributeMap.controlName) != null ){
+                attributeMap.value = this.getControlValue(attributeMap.controlName);
+                console.log(attributeMap);
+                this.controlMap.set(attribute ,attributeMap);
+            }
         }
     },
 
