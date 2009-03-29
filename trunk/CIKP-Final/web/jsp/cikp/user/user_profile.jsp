@@ -37,7 +37,7 @@
                 var nextRow = new Element('tr') ;
                 nextRow.
                     insert(new Element('td', {'colspan':'4', 'align':'right'}).
-                    update(new Element('input' , {'class':'button', 'value':'<s:text name="userprofile.additem" />', 'onclick':'alert(\'Available Soon\')', 'type':'button'}))) ;
+                    update(new Element('input' , {'class':'button', 'value':'<s:text name="userprofile.addattr" />', 'onclick':'alert(\'Available Soon\')', 'type':'button'}))) ;
                 var tab = new Element('table').update(tabRow)
                 tab.insert(nextRow) ;
                 var newRole_div = new Element('div', {'class':'box'}).
