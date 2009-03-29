@@ -13,7 +13,11 @@ var AttributeControl = Class.create({
 
     insertAttributeControlList: function(attributeList){
         try{
-            attributeList.reverse().each(this.insertAttributeControl.bind(this));
+            if(attributeList.size() != 0){
+                attributeList.each(this.getControlContent.bind(this));
+                this.table.innerHTML = '';
+                attributeList.reverse().each(this.insertAttributeControl.bind(this));
+            }
         } catch (e) {
             console.log(e);
         }
@@ -21,15 +25,19 @@ var AttributeControl = Class.create({
     },   
 
     insertAttributeControl: function(attributeName) {
-        console.log(this.controlMap);
         var isUndefined = Object.isUndefined(this.controlMap.get(attributeName) );
         if( isUndefined == true )
             service.getAttributeControl(attributeName,this.setAttributeControl.bind(this));
-        else console.log(attributeName + ' is already set!');
+        else {
+            this.setAttributeControl(this.controlMap.get(attributeName));
+            
+        }
+        //else console.log(attributeName + ' is already set!');
     },
 
     setAttributeControl: function(attributeControl) {
         try{
+            console.log(attributeControl);
             //this.registerOnMap.bind(attributeControl,this);
             this.controlMap.set(attributeControl.controlName,attributeControl);
             var newLine = false;
@@ -52,16 +60,44 @@ var AttributeControl = Class.create({
             tr.insert( new Element('td', { 'class': 'fieldName' }).update(controlName + ':') );
 
             var control;
-            if( attributeControl.controlType == 'select'){
-                control = new Element(attributeControl.controlType);
-                attributeControl.values.each(function(value){
-                    control.insert(new Element('option', { 'value':value } ).update(value) );
-                });
-            }else control = new Element(attributeControl.controlType);
+            if( Object.isUndefined(attributeControl.html) == false ){
+                control = attributeControl.html;
+            } else {
+                if( attributeControl.controlType == 'select'){
+                    control = new Element(attributeControl.controlType,{'id' : attributeControl.controlName});
+                    attributeControl.values.each(function(value, index){
+                        var option = new Element('option', { 'value':value } ).update(value);
+                        control.insert(option);
+                    });
+                    if( Object.isUndefined(attributeControl.value) == false )
+                        control.selectedIndex = attributeControl.value;
+                }else {
+                    control = new Element(attributeControl.controlType,{'id' : attributeControl.controlName});
+                    if( Object.isUndefined(attributeControl.value) == false )
+                        control.value = attributeControl.value;
+                }
+            }
             tr.insert( new Element('td', { 'class': 'fieldValue' } ).update(control) );
-
             if (newLine) this.table.down('tbody').insert(tr);
+
+            //Event.observe(attributeControl.name,'change', this.elementChanged);
         } catch(e) { console.log(e); }
+    } ,
+
+    getControlContent: function(attribute){
+        if( Object.isUndefined(this.controlMap.get(attribute)) == false ){
+            var attributeMap = this.controlMap.get(attribute);
+            attributeMap.value = this.getControlValue(attributeMap.controlName);
+            console.log(attributeMap);
+            this.controlMap.set(attribute ,attributeMap);
+        }
+
+            //// = Object.clone(this.controlMap,tempHash);
+            //attribute = Object.clone(attribute,{'value':element.gets});
+    },
+
+    getControlValue: function(controlID){
+        return $(controlID).selectedIndex || $(controlID).value ;
     }
 });
 

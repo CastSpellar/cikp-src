@@ -17,6 +17,7 @@
             var tree ;
             var human_attributes_tree ;
             var ui_manager ;
+            var attributeController ;
 
             function init() {
                 tree = new OntXTree('<s:url value="/ontxml/teste2.xml" />') ;
@@ -24,6 +25,8 @@
                 human_attributes_tree = new OntXTree('<s:url value="/ontxml/human_attribute.xml" />') ;
                 human_attributes_tree.genTree('atributes_tree_div', {'dropIds' : $w('DefineActor_actortype'), 'imgPath' : '<s:url value="/images/custom/" />', 'checkbox' : 1}) ;
                 ui_manager = new UiAttrManager('<s:url value="/ontxml/human_attribute_conf.xml" />', 'actor_div', 'human_attr_tab') ;
+                attributeController = new AttributeControl('added_controls');
+
             }
 
             function addRolePrototype() {
@@ -88,7 +91,10 @@
                     index++ ;
                 }
                 //var tab = ui_manager.generateTable(checkedArr) ;
-                ui_manager.generateTable(checkedArr) ;
+
+                attributeController.insertAttributeControlList(checkedArr);
+
+                //ui_manager.generateTable(checkedArr) ;
                 hideHumanAttrTree() ;
                 //$('right').appendChild(tab) ;
                 //var table = manager.generateTable() ;

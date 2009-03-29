@@ -15,5 +15,4 @@ var CIKPWebService = Class.create({
         defered.addCallback(callbackFunction);
     }
 });
-
-//var service = new CIKPWebService(serviceURL);
+var service = new CIKPWebService(serviceURL);
