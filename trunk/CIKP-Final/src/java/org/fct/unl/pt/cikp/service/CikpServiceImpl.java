@@ -19,6 +19,9 @@ import org.fct.unl.pt.cikp.data.portal.HibernateUtil;
 import org.fct.unl.pt.cikp.data.portal.KnowledgeItemPortal;
 import org.fct.unl.pt.cikp.data.portal.KnowledgeItemPortalService;
 import org.fct.unl.pt.cikp.data.portal.KnowledgeItemPortalServiceImpl;
+import org.fct.unl.pt.cikp.data.portal.SubscriptionPortal;
+import org.fct.unl.pt.cikp.data.portal.SubscriptionPortalService;
+import org.fct.unl.pt.cikp.data.portal.SubscriptionPortalServiceImpl;
 import org.fct.unl.pt.cikp.data.portal.UserPortal;
 import org.fct.unl.pt.cikp.service.ontology.OntServicePortal;
 import org.fct.unl.pt.cikp.service.ontology.OntServicePortalImpl;
@@ -36,6 +39,7 @@ public class CikpServiceImpl implements CikpService {
     private KnowledgeItemPortalService kiService ;
     private FilePortalService fpService ;
     private OntServicePortal ontServicePortal ;
+    private SubscriptionPortalService subsService ;
 
 
      private Session getSession() {
@@ -258,6 +262,24 @@ public class CikpServiceImpl implements CikpService {
 
     public OrganizationActor createOrganizationActor(OrganizationActor actor) {
         return getOntServicePortal().createOrganizationActor(actor) ;
+    }
+
+    public SubscriptionPortal createSubscriptionPortal(SubscriptionPortal subscription) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    /**
+     * @return the subsService
+     */
+    public SubscriptionPortalService getSubsService() {
+        return new SubscriptionPortalServiceImpl() ;
+    }
+
+    /**
+     * @param subsService the subsService to set
+     */
+    public void setSubsService(SubscriptionPortalService subsService) {
+        this.subsService = subsService;
     }
 
 }

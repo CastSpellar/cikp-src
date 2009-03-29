@@ -34,9 +34,11 @@
                             </h3>
                         </td>
                         <td colspan="4">
-                            <input type="button" value="View Items" style="width: 70px" />
+                            <%--<input type="button" value="View Items" style="width: 70px" />--%>
                         </td>
                     </tr>
+                </table>
+                <table>
                     <tr>
                         <td>
                             <p style="height: 5px;"></p>
@@ -84,6 +86,7 @@
                             </h4>
                         </td>
                     </tr>
+                    <s:iterator value="#session['user'].knowledgeItemPortals">
                     <tr>
                         <td>
                             Yes
@@ -92,24 +95,30 @@
                             None
                         </td>
                         <td>
-                            CIKP_doc
+                            <%--CIKP_doc--%>
+                            <s:property value="name" />
                         </td>
                         <td>
-                            Something
+                            
+                            <%--Something--%>
                         </td>
                         <td>
-                            Today
+                            <s:property value="knowledgeItemCreationDate" />
+                            <%--Today--%>
                         </td>
                         <td>
-                            Bruno Oliveira
+                            <s:property value="knowledgeItemSource" />
+                            <%--Bruno Oliveira--%>
                         </td>
                         <td>
-                            None
+                            <s:property value="filePortal.fileName" />
+                            <%--None--%>
                         </td>
                         <td>
                             Poor
                         </td>
                     </tr>
+                    </s:iterator>
                 </table>
             </div>
             <div class="box">
@@ -263,7 +272,7 @@
                             </h3>
                         </td>
                         <td>
-                            <input type="button" value="View" style="width: 70px" />
+                            <input type="button" value="View" style="width: 70px" class="button" />
                         </td>
                     </tr>
                 </table>
@@ -364,8 +373,8 @@
                         </tr>
                         <tr>
                             <td colspan="2" align="right">
-                                <input type="button" value="View Buddies" style="width: 80px" />
-                                <input type="button" value="Edit Buddies" style="width: 80px" />
+                                <input type="button" value="View Buddies" style="width: 80px" class="button" />
+                                <input type="button" value="Edit Buddies" style="width: 80px" class="button" />
                             </td>
                         </tr>
                     </table>

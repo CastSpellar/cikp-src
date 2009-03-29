@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 28/Mar/2009 19:51:38 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="org.fct.unl.pt.cikp.data.portal.OntologyControlsPortal" table="ontology_controls_portal" catalog="cikp">
+        <id name="ontologyControlsId" type="java.lang.Integer">
+            <column name="Ontology_Controls_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="controlType" type="string">
+            <column name="Control_Type" length="45" not-null="true" />
+        </property>
+        <property name="controlId" type="string">
+            <column name="Control_Id" length="100" not-null="true" />
+        </property>
+        <property name="propertyName" type="string">
+            <column name="Property_Name" length="100" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

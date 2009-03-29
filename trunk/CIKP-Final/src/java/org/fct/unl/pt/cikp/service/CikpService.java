@@ -12,6 +12,7 @@ import org.fct.unl.pt.cikp.data.ontology.IndividualActor;
 import org.fct.unl.pt.cikp.data.ontology.KnowledgeItem;
 import org.fct.unl.pt.cikp.data.ontology.OrganizationActor;
 import org.fct.unl.pt.cikp.data.portal.KnowledgeItemPortal;
+import org.fct.unl.pt.cikp.data.portal.SubscriptionPortal;
 import org.fct.unl.pt.cikp.data.portal.UserPortal;
 
 /**
@@ -31,8 +32,8 @@ public interface CikpService {
     public UserPortal registerUser(UserPortal u) ;
 
     public KnowledgeItemPortal createKnowledgeItemPortal(KnowledgeItemPortal ki) ;
-
-    public void writeOnt(OutputStream out) ;
+    
+    public SubscriptionPortal createSubscriptionPortal(SubscriptionPortal subscription) ;
 
 
     /**
@@ -93,4 +94,6 @@ public interface CikpService {
     public ArrayList<String> listTrainingObts();
 
     public AttributeControl getAttributeControl(String attributeName) ;
+
+    public void writeOnt(OutputStream out) ;
 }

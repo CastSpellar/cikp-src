@@ -16,7 +16,9 @@
 
             var tree ;
             var human_attributes_tree ;
-            var ui_manager ;
+            var attrControl ;
+            var service ;
+            //var ui_manager ;
             var attributeController ;
 
             function init() {
@@ -24,7 +26,9 @@
                 tree.genTree('tree_div', {'dropIds' : $w('DefineActor_actortype'), 'imgPath' : '<s:url value="/images/custom/" />'}) ;
                 human_attributes_tree = new OntXTree('<s:url value="/ontxml/human_attribute.xml" />') ;
                 human_attributes_tree.genTree('atributes_tree_div', {'dropIds' : $w('DefineActor_actortype'), 'imgPath' : '<s:url value="/images/custom/" />', 'checkbox' : 1}) ;
-                ui_manager = new UiAttrManager('<s:url value="/ontxml/human_attribute_conf.xml" />', 'actor_div', 'human_attr_tab') ;
+                service = new CIKPWebService(serviceURL);
+                attrControl = new AttributeControl('added_controls');
+                <%--ui_manager = new UiAttrManager('<s:url value="/ontxml/human_attribute_conf.xml" />', 'actor_div', 'human_attr_tab') ;--%>
                 attributeController = new AttributeControl('added_controls');
 
             }
@@ -163,7 +167,7 @@
                                 <s:textfield name="familyname" />
                             </td>
                         </tr>
-                        <tr>
+                        <%--<tr>
                             <td class="fieldName">
                                 <s:text name="userprofile.middlename" />
                             </td>
@@ -176,13 +180,43 @@
                             <td class="fieldValue">
                                 <s:textfield name="age" />
                             </td>
-                        </tr
+                        </tr>--%>
                         <tr>
-                            <td>
+                            <td class="fieldName">
                                 <s:text name="userprofile.gender" />
                             </td>
-                            <td>
+                            <td class="fieldName">
                                 <s:select name="gender" headerKey="-1" headerValue="-- Select Gender --" list="{'Male', 'Female'}" />
+                            </td>
+                            <td class="fieldName">
+                                <s:text name="userprofile.age" />
+                            </td>
+                            <td class="fieldName">
+                                <s:textfield name="age" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fieldName">
+                                <s:text name="userprofile.comunicationlanguage" />
+                            </td>
+                            <td class="fieldName">
+                                <s:textfield name="comunication_language" />
+                                <%--<s:select name="comunication_language" headerKey="-1" headerValue="-- Select --" list="#session['comm_lang']" />--%>
+                            </td>
+                            <td class="fieldName">
+                                <s:text name="userprofile.geographicaffiliation" />
+                            </td>
+                            <td class="fieldName">
+                                <%--<s:textfield name="geographic_affiliation" />--%>
+                                <s:select name="geographic_affiliation" headerKey="-1" headerValue="-- Select --" list="#session['geo_aff']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fieldName">
+                                <s:text name="userprofile.name" />
+                            </td>
+                            <td class="fieldName">
+                                <s:textfield name="name" />
                             </td>
                         </tr>
                         <tr>
@@ -266,7 +300,7 @@
                             <td colspan="4" align="right">
                                 <input type="button" value="<s:text name="userprofile.addrole" />" onclick="addRolePrototype() ;" class="button" />
                                 <s:submit key="userprofile.submit" cssClass="button" />
-                                <input type="button" value="<s:text name="userprofile.cancel" />" onclick="window.location.href='<s:url action="UserInterface" />'" class="button" />
+                                <input type="button" value="<s:text name="userprofile.cancel" />" onclick="window.location.href='<s:url action="user_interface" />'" class="button" />
                             </td>
                         </tr>
                     </table>

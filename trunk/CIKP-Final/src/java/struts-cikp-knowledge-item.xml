@@ -8,7 +8,7 @@
 	<package name="struts-cikp-knowledge-item" extends="struts-default" namespace="/knowledgeitem">
         <action name="DefineKnowledgeItem" class="defineKnowledgeItemAction">
             <result name="input">/jsp/cikp/knowledgeitem/knowledge_item_profile.jsp</result>
-            <result>/jsp/cikp/user/user_interface.jsp</result>
+            <result type="redirect">/user/user_interface.action</result>
         </action>
         <action name="SubscribeKnowledgeItem" class="subscribeKnowledgeItemAction">
             <result name="input">/jsp/cikp/subscribe/subscribe.jsp</result>

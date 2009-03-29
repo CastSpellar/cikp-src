@@ -17,22 +17,15 @@
 				<item text="Project_Affiliation" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Project_Affiliation" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
 				<item text="Process_Affiliation" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Process_Affiliation" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
 				<item text="Product_Affiliation" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Product_Affiliation" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
-				<item text="Geographic_Affiliation" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Geographic_Affiliation" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
 				<item text="Organizational_Affiliation" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Organizational_Affiliation" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
 				<item text="Event_Affiliation" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Event_Affiliation" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
 			</item>
-			<item text="Age" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Age" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
 			<item text="Personal_Contact_Number" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Personal_Contact_Number" im0="Class.ico" im1="Class.ico" im2="Class.ico">
 				<item text="Home_Phone_Number" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Home_Phone_Number" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
 				<item text="Mobile_Phone_Number" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Mobile_Phone_Number" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
 			</item>
-			<item text="Given_Name" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Given_Name" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
 			<item text="Religion" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Religion" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
-			<item text="Communication_Language" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Communication_Language" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
 			<item text="Middle_Name" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Middle_Name" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
-			<item text="Family_Name" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Family_Name" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
-			<item text="Gender" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Gender" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
-			<item text="Name" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Name" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
 			<item text="Contact_Address" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Contact_Address" im0="Class.ico" im1="Class.ico" im2="Class.ico">
 				<item text="Mailing_Address" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Mailing_Address" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
 				<item text="Email_Address" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Email_Address" im0="Class.ico" im1="Class.ico" im2="Class.ico" />

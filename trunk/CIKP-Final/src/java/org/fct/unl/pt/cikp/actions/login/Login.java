@@ -6,6 +6,7 @@
 package org.fct.unl.pt.cikp.actions.login;
 
 import com.opensymphony.xwork2.ActionSupport;
+import java.util.ArrayList;
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 import org.fct.unl.pt.cikp.constants.Constants;
@@ -29,6 +30,10 @@ public class Login extends ActionSupport implements SessionAware {
     public String execute() throws Exception {
         /*ArrayList<String> knowledges = getCikpService().listKnowledges() ;
         session.put(Constants.KNOWLEDGES, knowledges) ;*/
+        ArrayList<String> geoAffiliations = getCikpService().listGeoAffiliations() ;
+        session.put(Constants.GEOAFFILIATION, geoAffiliations) ;
+        ArrayList<String> commLanguages = getCikpService().listCommLanguages() ;
+        session.put(Constants.COMMLANG, commLanguages) ;
         UserPortal u = new UserPortal() ;
         u.setUserUsername(getUserUsername()) ;
         u.setUserPassword(getUserPassword()) ;

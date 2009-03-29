@@ -10,6 +10,7 @@ import com.opensymphony.xwork2.ModelDriven;
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 import org.fct.unl.pt.cikp.data.ontology.KnowledgeItem;
+import org.fct.unl.pt.cikp.data.portal.SubscriptionPortal;
 import org.fct.unl.pt.cikp.service.CikpService;
 import org.fct.unl.pt.cikp.service.CikpServiceImpl;
 
@@ -23,10 +24,16 @@ public class SubscribeKnowledgeItem extends ActionSupport implements ModelDriven
 
     private Map session ;
 
-    private KnowledgeItem item = new KnowledgeItem() ;
+    private SubscriptionPortal subscription = new SubscriptionPortal() ;
+
+    @Override
+    public String execute() throws Exception {
+        getCikpService().createSubscriptionPortal(subscription) ;
+        return SUCCESS ;
+    }
 
     public Object getModel() {
-        return item ;
+        return subscription ;
     }
 
     public void setSession(Map arg0) {

@@ -1,5 +1,5 @@
 package org.fct.unl.pt.cikp.data.portal;
-// Generated 28/Mar/2009 1:29:07 by Hibernate Tools 3.2.1.GA
+// Generated 28/Mar/2009 19:51:22 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;

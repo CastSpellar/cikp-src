@@ -11,7 +11,7 @@
 
 <html>
     <head>
-        <meta http-equiv="Refresh" content="2;URL=<s:url value="/user/user_profile.action" />">
+        <meta http-equiv="Refresh" content="2;URL=<s:url value="/login/login.action" />">
             <title><s:text name="register.success.title" /></title>
     </head>
     <body>

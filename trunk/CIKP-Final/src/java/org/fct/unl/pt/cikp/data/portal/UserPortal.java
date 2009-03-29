@@ -1,5 +1,5 @@
 package org.fct.unl.pt.cikp.data.portal;
-// Generated 28/Mar/2009 1:29:07 by Hibernate Tools 3.2.1.GA
+// Generated 28/Mar/2009 19:51:22 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -33,6 +33,7 @@ public class UserPortal  implements java.io.Serializable {
      private String userUsername;
      private String userPassword;
      private String userUri;
+     private Set<KnowledgeItemPortal> knowledgeItemPortals = new HashSet<KnowledgeItemPortal>(0);
      private Set<SubscriptionPortal> subscriptionPortals = new HashSet<SubscriptionPortal>(0);
 
     public UserPortal() {
@@ -48,7 +49,7 @@ public class UserPortal  implements java.io.Serializable {
         this.userUsername = userUsername;
         this.userPassword = userPassword;
     }
-    public UserPortal(String userFirstname, String userLastname, String userCompany, String userTelephone, String userEmail, String userUsername, String userPassword, String userUri, Set<SubscriptionPortal> subscriptionPortals) {
+    public UserPortal(String userFirstname, String userLastname, String userCompany, String userTelephone, String userEmail, String userUsername, String userPassword, String userUri, Set<KnowledgeItemPortal> knowledgeItemPortals, Set<SubscriptionPortal> subscriptionPortals) {
        this.userFirstname = userFirstname;
        this.userLastname = userLastname;
        this.userCompany = userCompany;
@@ -57,6 +58,7 @@ public class UserPortal  implements java.io.Serializable {
        this.userUsername = userUsername;
        this.userPassword = userPassword;
        this.userUri = userUri;
+       this.knowledgeItemPortals = knowledgeItemPortals;
        this.subscriptionPortals = subscriptionPortals;
     }
    
@@ -141,6 +143,14 @@ public class UserPortal  implements java.io.Serializable {
     
     public void setUserUri(String userUri) {
         this.userUri = userUri;
+    }
+@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="userPortal")
+    public Set<KnowledgeItemPortal> getKnowledgeItemPortals() {
+        return this.knowledgeItemPortals;
+    }
+    
+    public void setKnowledgeItemPortals(Set<KnowledgeItemPortal> knowledgeItemPortals) {
+        this.knowledgeItemPortals = knowledgeItemPortals;
     }
 @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="userPortal")
     public Set<SubscriptionPortal> getSubscriptionPortals() {

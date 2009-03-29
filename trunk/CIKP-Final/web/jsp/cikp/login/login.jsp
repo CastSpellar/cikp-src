@@ -49,10 +49,8 @@
                         </tr>
                         <tr>
                             <td colspan="2" align="right">
-                                <s:reset name="login.reset">
-                                </s:reset>
-                                <s:submit value="login.submit">
-                                </s:submit>
+                                <s:reset name="login.reset" cssClass="smallbutton" />
+                                <s:submit name="login.submit" cssClass="smallbutton" />
                             </td>
                         </tr>
                     </table>

@@ -65,7 +65,9 @@ public class DefineKnowledgeItem extends ActionSupport implements SessionAware, 
     }
 
     private KnowledgeItemPortal createKiObj(FilePortal fp) {
+        UserPortal user = (UserPortal) session.get(Constants.USER) ;
         KnowledgeItemPortal kip = new KnowledgeItemPortal() ;
+        kip.setUserPortal(user) ;
         kip.setName(knowledge_item.getName()) ;
         kip.setKnowledgeItemSource(knowledge_item.getKnowledge_item_source()) ;
         kip.setKnowledgeItemType(knowledge_item.getKnowledge_item_type()) ;

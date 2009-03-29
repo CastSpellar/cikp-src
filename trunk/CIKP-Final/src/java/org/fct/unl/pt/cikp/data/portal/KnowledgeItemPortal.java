@@ -1,5 +1,5 @@
 package org.fct.unl.pt.cikp.data.portal;
-// Generated 28/Mar/2009 1:29:07 by Hibernate Tools 3.2.1.GA
+// Generated 28/Mar/2009 19:51:22 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -31,6 +31,7 @@ public class KnowledgeItemPortal  implements java.io.Serializable {
 
 
      private Integer knowledgeItemId;
+     private UserPortal userPortal;
      private FilePortal filePortal;
      private String name;
      private int knowledgeItemFileSize;
@@ -51,7 +52,8 @@ public class KnowledgeItemPortal  implements java.io.Serializable {
     }
 
 	
-    public KnowledgeItemPortal(FilePortal filePortal, String name, int knowledgeItemFileSize, Date knowledgeItemCreationTime, Date knowledgeItemCreationDate, String knowledgeItemAuthor, String knowledgeItemFileType, String knowledgeItemType) {
+    public KnowledgeItemPortal(UserPortal userPortal, FilePortal filePortal, String name, int knowledgeItemFileSize, Date knowledgeItemCreationTime, Date knowledgeItemCreationDate, String knowledgeItemAuthor, String knowledgeItemFileType, String knowledgeItemType) {
+        this.userPortal = userPortal;
         this.filePortal = filePortal;
         this.name = name;
         this.knowledgeItemFileSize = knowledgeItemFileSize;
@@ -61,7 +63,8 @@ public class KnowledgeItemPortal  implements java.io.Serializable {
         this.knowledgeItemFileType = knowledgeItemFileType;
         this.knowledgeItemType = knowledgeItemType;
     }
-    public KnowledgeItemPortal(FilePortal filePortal, String name, int knowledgeItemFileSize, Date knowledgeItemCreationTime, Date knowledgeItemCreationDate, String knowledgeItemAuthor, String knowledgeItemCompositionLanguage, String knowledgeItemCopyrightOwner, String knowledgeItemDestination, String knowledgeItemFileType, String knowledgeItemSecurityClearance, String knowledgeItemSource, String knowledgeItemType, String subjectDomain, Set<KeywordPortal> keywordPortals) {
+    public KnowledgeItemPortal(UserPortal userPortal, FilePortal filePortal, String name, int knowledgeItemFileSize, Date knowledgeItemCreationTime, Date knowledgeItemCreationDate, String knowledgeItemAuthor, String knowledgeItemCompositionLanguage, String knowledgeItemCopyrightOwner, String knowledgeItemDestination, String knowledgeItemFileType, String knowledgeItemSecurityClearance, String knowledgeItemSource, String knowledgeItemType, String subjectDomain, Set<KeywordPortal> keywordPortals) {
+       this.userPortal = userPortal;
        this.filePortal = filePortal;
        this.name = name;
        this.knowledgeItemFileSize = knowledgeItemFileSize;
@@ -88,6 +91,15 @@ public class KnowledgeItemPortal  implements java.io.Serializable {
     
     public void setKnowledgeItemId(Integer knowledgeItemId) {
         this.knowledgeItemId = knowledgeItemId;
+    }
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="User_ID", nullable=false)
+    public UserPortal getUserPortal() {
+        return this.userPortal;
+    }
+    
+    public void setUserPortal(UserPortal userPortal) {
+        this.userPortal = userPortal;
     }
 @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="File_ID", nullable=false)

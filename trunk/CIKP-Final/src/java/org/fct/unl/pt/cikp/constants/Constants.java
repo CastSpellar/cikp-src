@@ -18,6 +18,8 @@ public class Constants {
     public static final String ATTR_CLASS = "attr_class" ;
     public static final String XML_FILE = "xml_file" ;
     public static final String ORGANIZATION = "organization" ;
+    public static final String GEOAFFILIATION = "geo_aff" ;
+    public static final String COMMLANG = "comm_lang" ;
 
 
     /*SYSTEM PATHS*/

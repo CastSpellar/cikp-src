@@ -45,9 +45,9 @@ console.log("Name: " + itemSpec.name + " Type: " + itemSpec.type)
 
     @SMDMethod
     public AttributeControl getAttributeControl(String name){
-        try{
+        /*try{
             return cikpService.getAttributeControl(name);
-        } catch(Exception e){
+        } catch(Exception e){*/
             AttributeControl attrControl = new AttributeControl() ;
             attrControl.setControlName(name);
             attrControl.setControlType("select");
@@ -57,7 +57,7 @@ console.log("Name: " + itemSpec.name + " Type: " + itemSpec.type)
             values.add("Teste3") ;
             attrControl.setValues(values);
             return attrControl ;
-        }
+        //}
         
     }
 

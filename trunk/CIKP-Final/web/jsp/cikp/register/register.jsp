@@ -32,6 +32,9 @@
                                 <td>
                                     <s:textfield name="userFirstname" size="20" />
                                 </td>
+                                <td>
+                                    <s:actionerror />
+                                </td>
                             </tr>
                             <tr>
                                 <td nowrap="nowrap">
@@ -39,6 +42,9 @@
                                 </td>
                                 <td>
                                     <s:textfield name="userLastname" size="20" />
+                                </td>
+                                <td>
+                                    <s:actionerror />
                                 </td>
                             </tr>
                             <tr>
@@ -48,6 +54,9 @@
                                 <td>
                                     <s:textfield name="userCompany" size="20" />
                                 </td>
+                                <td>
+                                    <s:actionerror />
+                                </td>
                             </tr>
                             <tr>
                                 <td nowrap="nowrap">
@@ -55,6 +64,9 @@
                                 </td>
                                 <td>
                                     <s:textfield name="userTelephone" size="20" />
+                                </td>
+                                <td>
+                                    <s:actionerror />
                                 </td>
                             </tr>
                             <tr>
@@ -64,6 +76,9 @@
                                 <td>
                                     <s:textfield name="userEmail" size="20" cssClass="registerText" />
                                 </td>
+                                <td>
+                                    <s:actionerror />
+                                </td>
                             </tr>
                             <tr>
                                 <td nowrap="nowrap">
@@ -71,6 +86,9 @@
                                 </td>
                                 <td>
                                     <s:textfield name="userUsername" size="20" cssClass="registerText" />
+                                </td>
+                                <td>
+                                    <s:actionerror />
                                 </td>
                             </tr>
                             <tr>
@@ -80,6 +98,9 @@
                                 <td>
                                     <s:password name="userPassword" size="20" cssClass="registerText" />
                                 </td>
+                                <td>
+                                    <s:actionerror />
+                                </td>
                             </tr>
                             <tr>
                                 <td nowrap="nowrap">
@@ -87,6 +108,9 @@
                                 </td>
                                 <td>
                                     <s:password name="password2" size="20" cssClass="registerText" />
+                                </td>
+                                <td>
+                                    <s:actionerror />
                                 </td>
                             </tr>
                             <tr>
@@ -99,8 +123,8 @@
                             </tr>
                             <tr>
                                 <td colspan="2" align="right">
-                                    <s:submit key="register.submit" />
-                                    <s:reset key="register.reset" />
+                                    <s:submit key="register.submit" cssClass="smallbutton" />
+                                    <s:reset key="register.reset" cssClass="smallbutton" />
                                 </td>
                             </tr>
                         </table>
