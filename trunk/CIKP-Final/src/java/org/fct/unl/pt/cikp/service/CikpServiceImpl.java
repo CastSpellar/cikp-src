@@ -19,6 +19,9 @@ import org.fct.unl.pt.cikp.data.portal.HibernateUtil;
 import org.fct.unl.pt.cikp.data.portal.KnowledgeItemPortal;
 import org.fct.unl.pt.cikp.data.portal.KnowledgeItemPortalService;
 import org.fct.unl.pt.cikp.data.portal.KnowledgeItemPortalServiceImpl;
+import org.fct.unl.pt.cikp.data.portal.OntologyControlsPortal;
+import org.fct.unl.pt.cikp.data.portal.OntologyControlsPortalService;
+import org.fct.unl.pt.cikp.data.portal.OntologyControlsPortalServiceImpl;
 import org.fct.unl.pt.cikp.data.portal.SubscriptionPortal;
 import org.fct.unl.pt.cikp.data.portal.SubscriptionPortalService;
 import org.fct.unl.pt.cikp.data.portal.SubscriptionPortalServiceImpl;
@@ -40,6 +43,7 @@ public class CikpServiceImpl implements CikpService {
     private FilePortalService fpService ;
     private OntServicePortal ontServicePortal ;
     private SubscriptionPortalService subsService ;
+    private OntologyControlsPortalService ontControlService ;
 
 
      private Session getSession() {
@@ -286,13 +290,35 @@ public class CikpServiceImpl implements CikpService {
         this.subsService = subsService;
     }
 
-    public String getControl(String name) {
-        return "select" ;
+    public OntologyControlsPortal getControl(String name) {
+        Session session = getSession() ;
+        session.beginTransaction() ;
+        OntologyControlsPortal o = getOntControlService().getControl(name, session) ;
+        session.getTransaction().commit();
+        return o ;
         //OntologyControlsPortal control = getOntologyControls
     }
 
     public ArrayList<String> getSubClasses(String name) {
         return getOntServicePortal().listSubClasses(name) ;
+    }
+
+    /**
+     * @return the ontControlService
+     */
+    public OntologyControlsPortalService getOntControlService() {
+        return new OntologyControlsPortalServiceImpl() ;
+    }
+
+    /**
+     * @param ontControlService the ontControlService to set
+     */
+    public void setOntControlService(OntologyControlsPortalService ontControlService) {
+        this.ontControlService = ontControlService;
+    }
+
+    public List<String> listInstances(String name) {
+        return getOntServicePortal().listInstances(name) ;
     }
 
 }

@@ -7,11 +7,13 @@ package org.fct.unl.pt.cikp.service;
 
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.List;
 import org.fct.unl.pt.cikp.data.ajax.AttributeControl;
 import org.fct.unl.pt.cikp.data.ontology.IndividualActor;
 import org.fct.unl.pt.cikp.data.ontology.KnowledgeItem;
 import org.fct.unl.pt.cikp.data.ontology.OrganizationActor;
 import org.fct.unl.pt.cikp.data.portal.KnowledgeItemPortal;
+import org.fct.unl.pt.cikp.data.portal.OntologyControlsPortal;
 import org.fct.unl.pt.cikp.data.portal.SubscriptionPortal;
 import org.fct.unl.pt.cikp.data.portal.UserPortal;
 
@@ -24,6 +26,8 @@ public interface CikpService {
     /* Methods for the Portal User */
 
     public boolean existsUser(UserPortal u) ;
+
+    public List<String> listInstances(String name);
 
     public void updateUser(UserPortal u) ;
 
@@ -97,7 +101,7 @@ public interface CikpService {
 
     public void writeOnt(OutputStream out) ;
 
-    public String getControl(String name) ;
+    public OntologyControlsPortal getControl(String name) ;
 
     public ArrayList<String> getSubClasses(String name) ;
 }

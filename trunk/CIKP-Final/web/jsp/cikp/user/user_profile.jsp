@@ -372,7 +372,7 @@
                     <table align="center">
                         <tr>
                             <td colspan="4" align="right">
-                                <input type="button" value="<s:text name="userprofile.addrole" />" onclick="roleManager.addRole('<s:url value="/ontxml/human_attribute.xml" />');" class="button" />
+                                <input type="button" value="<s:text name="userprofile.addrole" />" onclick="roleManager.addRole('<s:url value="/ontxml/role_attribute.xml" />');" class="button" />
                                 <s:submit key="userprofile.submit" cssClass="button" />
                                 <input type="button" value="<s:text name="userprofile.cancel" />" onclick="window.location.href='<s:url action="user_interface" />'" class="button" />
                             </td>

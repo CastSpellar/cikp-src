@@ -580,4 +580,18 @@ public class OntServicePortalImpl implements OntServicePortal {
         return results ;
     }
 
+    public ArrayList<String> listInstances(String name) {
+        ArrayList<String> res = new ArrayList<String>() ;
+        try {
+            getOntService().listAllInstancesOfClass(res, name);
+        } catch (IOException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MissingParamException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return res ;
+    }
+
 }

@@ -177,4 +177,6 @@ public interface OntServicePortal {
 
     public ArrayList<String> listSubClasses(String name) ;
 
+    public ArrayList<String> listInstances(String name) ;
+
 }
