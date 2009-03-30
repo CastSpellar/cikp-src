@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.fct.unl.pt.cikp.service.ontology.OntServiceImpl;
+import org.fct.unl.pt.cikp.service.ontology.manager.PersistentOntology;
 import org.fct.unl.pt.cikp.service.ontology.manager.exceptions.MissingParamException;
 
 /**
@@ -15,15 +16,15 @@ public class PhysicalProductServiceImpl implements PhysicalProductService {
 
     private OntServiceImpl ont ;
 
-    public PhysicalProduct createPhysicalProduct(PhysicalProduct prod) {
+    public PhysicalProduct createPhysicalProduct(PhysicalProduct prod, PersistentOntology p) {
         OntServiceImpl onts = getOnt() ;
         try {
-            onts.createIndividual(prod.getType(), prod.getName());
-            onts.addLiteralByProperty("has_Location", prod.getName(), prod.getLocation());
-            onts.addLiteralByProperty("has_Name", prod.getName(), prod.getName());
-            onts.addLiteralByProperty("has_Event_Affiliation", prod.getName(), prod.getEvent_affiliation());
-            onts.addLiteralByProperty("has_Process_Affiliation", prod.getName(), prod.getProcess_affiliation());
-            onts.addLiteralByProperty("has_Project_Affiliation", prod.getName(), prod.getProject_affiliation());
+            onts.createIndividual(prod.getType(), prod.getName(), p);
+            onts.addLiteralByProperty("has_Location", prod.getName(), prod.getLocation(), p);
+            onts.addLiteralByProperty("has_Name", prod.getName(), prod.getName(), p);
+            onts.addLiteralByProperty("has_Event_Affiliation", prod.getName(), prod.getEvent_affiliation(), p);
+            onts.addLiteralByProperty("has_Process_Affiliation", prod.getName(), prod.getProcess_affiliation(), p);
+            onts.addLiteralByProperty("has_Project_Affiliation", prod.getName(), prod.getProject_affiliation(), p);
         } catch (IOException ex) {
             Logger.getLogger(PhysicalProductServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {

@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.fct.unl.pt.cikp.service.ontology.OntServiceImpl;
+import org.fct.unl.pt.cikp.service.ontology.manager.PersistentOntology;
 import org.fct.unl.pt.cikp.service.ontology.manager.exceptions.MissingParamException;
 
 /**
@@ -19,16 +20,16 @@ public class EventServiceImpl implements EventService {
 
     private OntServiceImpl ont ;
 
-    public Event createEvent(Event ev) {
+    public Event createEvent(Event ev, PersistentOntology p) {
         OntServiceImpl onts = getOnt() ;
         try {
             String aux = (ev.getEventtype() + "_" + ev.getUsername()) ;
-            onts.createIndividual(ev.getEventtype(), aux);
-            onts.addLiteralByProperty("has_Location", aux, ev.getEvent_location());
-            onts.addLiteralByProperty("has_Subject_Domain", aux, ev.getEvent_subject_domain());
-            onts.addLiteralByProperty("has_Event_Cost", aux, ev.getEvent_cost());
-            onts.addLiteralByProperty("has_Event_Starting_Time", aux, ev.getEvent_starting_time());
-            onts.addLiteralByProperty("has_Event_Ending_Time", aux, ev.getEvent_ending_time());
+            onts.createIndividual(ev.getEventtype(), aux, p);
+            onts.addLiteralByProperty("has_Location", aux, ev.getEvent_location(), p);
+            onts.addLiteralByProperty("has_Subject_Domain", aux, ev.getEvent_subject_domain(), p);
+            onts.addLiteralByProperty("has_Event_Cost", aux, ev.getEvent_cost(), p);
+            onts.addLiteralByProperty("has_Event_Starting_Time", aux, ev.getEvent_starting_time(), p);
+            onts.addLiteralByProperty("has_Event_Ending_Time", aux, ev.getEvent_ending_time(), p);
         } catch (IOException ex) {
             Logger.getLogger(EventServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {
