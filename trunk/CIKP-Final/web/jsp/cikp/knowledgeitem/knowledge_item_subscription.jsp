@@ -71,13 +71,6 @@
                 
                 var tree = new OntXTree('<s:url value="/ontxml/teste2.xml" />') ;
                 tree.genTree('tree_div', {'dropIds' : $w('input_box_ki'), 'imgPath' : '<s:url value="/images/custom/" />'}) ;
-                /*var attributes_tree = new OntXTree('<s:url value="/ontxml/human_attribute.xml" />') ;
-                attributes_tree.genTree(this.atributes_tree_div,
-                                    {'dropIds' : $w('input_box_ki'),
-                                     'imgPath' : '<s:url value="/images/custom/" />',
-                                     'checkbox' : 1}) ;
-                var attributeController = new AttributeControl('added_ki_attributes');
-                */
             }
 
             document.observe('dom:loaded',init);
