@@ -96,4 +96,8 @@ public interface CikpService {
     public AttributeControl getAttributeControl(String attributeName) ;
 
     public void writeOnt(OutputStream out) ;
+
+    public String getControl(String name) ;
+
+    public ArrayList<String> getSubClasses(String name) ;
 }

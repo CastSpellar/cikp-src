@@ -37,19 +37,19 @@
         class="org.fct.unl.pt.cikp.actions.ajax.ServiceAction" />
     <bean
         id="administratorAction"
-        class="org.fct.unl.pt.cikp.actions.administrator.Administrator" />
+        class="org.fct.unl.pt.cikp.actions.administrator.Administrator" singleton="false" />
     <bean
         id="administratorSupport"
-        class="org.fct.unl.pt.cikp.actions.administrator.AdministratorSupport" />
+        class="org.fct.unl.pt.cikp.actions.administrator.AdministratorSupport" singleton="false" />
     <bean
         id="downloadOntAction"
-        class="org.fct.unl.pt.cikp.actions.administrator.DownloadOnt" />
+        class="org.fct.unl.pt.cikp.actions.administrator.DownloadOnt" singleton="false" />
     <bean
         id="organizationSupport"
-        class="org.fct.unl.pt.cikp.actions.organization.OrganizationSupport" />
+        class="org.fct.unl.pt.cikp.actions.organization.OrganizationSupport" singleton="false" />
     <bean
         id="defineOrganizationAction"
-        class="org.fct.unl.pt.cikp.actions.organization.DefineOrganization" />
+        class="org.fct.unl.pt.cikp.actions.organization.DefineOrganization" singleton="false" />
     <!--<bean
         id="userService"
         class="org.fct.unl.pt.cikp.service.user.UserServiceImpl" /> -->

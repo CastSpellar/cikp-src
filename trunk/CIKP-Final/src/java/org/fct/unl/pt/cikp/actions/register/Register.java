@@ -6,10 +6,6 @@ package org.fct.unl.pt.cikp.actions.register;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
-import com.opensymphony.xwork2.validator.annotations.RequiredFieldValidator;
-import com.opensymphony.xwork2.validator.annotations.Validation;
-import com.opensymphony.xwork2.validator.annotations.Validations;
-import com.opensymphony.xwork2.validator.annotations.VisitorFieldValidator;
 import org.fct.unl.pt.cikp.data.portal.UserPortal;
 import org.fct.unl.pt.cikp.service.CikpService;
 import org.fct.unl.pt.cikp.service.CikpServiceImpl;
@@ -20,16 +16,16 @@ import org.fct.unl.pt.cikp.service.CikpServiceImpl;
  */
 public class Register extends ActionSupport implements ModelDriven {
 
-    private UserPortal user = new UserPortal();
+    private UserPortal userPortal = new UserPortal();
     private String password2;
-    private boolean userorgcheck ;
     private CikpService cikpService;
 
     @Override
     //@Validations(visitorFields = {@VisitorFieldValidator(message = "Default message", fieldName = "model", appendPrefix = false)})
     public String execute() throws Exception {
-        getCikpService().registerUser(user);
-        String p = getPassword2();
+        getCikpService().registerUser(userPortal);
+        return SUCCESS ;
+        /*String p = getPassword2();
         boolean aux = isUserorgcheck() ;
         String str1 = ("organizationsuccess") ;
         String str2 = ("usersuccess") ;
@@ -38,21 +34,18 @@ public class Register extends ActionSupport implements ModelDriven {
         }
         else {
             return str2 ;
-        }
+        }*/
     }
 
     @Override
     public void validate() {
-        /*if ( getPassword().length() == 0 ){
-        addFieldError( "password", getText("password.required") );
-        }
-        if ( getUsername().length() == 0 ){
-        addFieldError( "username", getText("username.required") );
-        }*/
+        boolean existsUsername = getCikpService().existsUser(userPortal) ;
+        if(existsUsername)
+            addFieldError("user.userUsername", "Username allready taken");
     }
 
     public Object getModel() {
-        return user;
+        return userPortal;
     }
 
     /**
@@ -81,19 +74,5 @@ public class Register extends ActionSupport implements ModelDriven {
      */
     public void setPassword2(String password2) {
         this.password2 = password2;
-    }
-
-    /**
-     * @return the userorgcheck
-     */
-    public boolean isUserorgcheck() {
-        return userorgcheck;
-    }
-
-    /**
-     * @param userorgcheck the userorgcheck to set
-     */
-    public void setUserorgcheck(boolean userorgcheck) {
-        this.userorgcheck = userorgcheck;
     }
 }

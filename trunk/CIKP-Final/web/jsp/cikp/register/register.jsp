@@ -33,7 +33,9 @@
                                     <s:textfield name="userFirstname" size="20" />
                                 </td>
                                 <td>
-                                    <s:actionerror />
+                                    <s:fielderror>
+                                        <s:param>userFirstname</s:param>
+                                    </s:fielderror>
                                 </td>
                             </tr>
                             <tr>
@@ -44,7 +46,9 @@
                                     <s:textfield name="userLastname" size="20" />
                                 </td>
                                 <td>
-                                    <s:actionerror />
+                                    <s:fielderror>
+                                        <s:param>userLastname</s:param>
+                                    </s:fielderror>
                                 </td>
                             </tr>
                             <tr>
@@ -55,7 +59,9 @@
                                     <s:textfield name="userCompany" size="20" />
                                 </td>
                                 <td>
-                                    <s:actionerror />
+                                    <s:fielderror>
+                                        <s:param>userCompany</s:param>
+                                    </s:fielderror>
                                 </td>
                             </tr>
                             <tr>
@@ -66,7 +72,9 @@
                                     <s:textfield name="userTelephone" size="20" />
                                 </td>
                                 <td>
-                                    <s:actionerror />
+                                    <s:fielderror>
+                                        <s:param>userTelephone</s:param>
+                                    </s:fielderror>
                                 </td>
                             </tr>
                             <tr>
@@ -77,7 +85,9 @@
                                     <s:textfield name="userEmail" size="20" cssClass="registerText" />
                                 </td>
                                 <td>
-                                    <s:actionerror />
+                                    <s:fielderror>
+                                        <s:param>userEmail</s:param>
+                                    </s:fielderror>
                                 </td>
                             </tr>
                             <tr>
@@ -88,7 +98,9 @@
                                     <s:textfield name="userUsername" size="20" cssClass="registerText" />
                                 </td>
                                 <td>
-                                    <s:actionerror />
+                                    <s:fielderror>
+                                        <s:param>userUsername</s:param>
+                                    </s:fielderror>
                                 </td>
                             </tr>
                             <tr>
@@ -99,7 +111,9 @@
                                     <s:password name="userPassword" size="20" cssClass="registerText" />
                                 </td>
                                 <td>
-                                    <s:actionerror />
+                                    <s:fielderror>
+                                        <s:param>userPassword</s:param>
+                                    </s:fielderror>
                                 </td>
                             </tr>
                             <tr>
@@ -110,7 +124,9 @@
                                     <s:password name="password2" size="20" cssClass="registerText" />
                                 </td>
                                 <td>
-                                    <s:actionerror />
+                                    <s:fielderror>
+                                        <s:param>password2</s:param>
+                                    </s:fielderror>
                                 </td>
                             </tr>
                             <tr>
@@ -118,13 +134,20 @@
                                     <s:text name="register.userorgcheck" />
                                 </td>
                                 <td>
-                                    <s:checkbox name="userorgcheck" value="false" />
+                                    <s:checkbox name="userOrganization" value="false" />
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2" align="right">
                                     <s:submit key="register.submit" cssClass="smallbutton" />
                                     <s:reset key="register.reset" cssClass="smallbutton" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <s:actionerror />
+                                    <s:actionmessage />
+                                    <s:fielderror />
                                 </td>
                             </tr>
                         </table>

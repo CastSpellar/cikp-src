@@ -1,5 +1,6 @@
 ﻿DROP TABLE IF EXISTS `cikp`.`knowledge_item_keyword_portal`;
 DROP TABLE IF EXISTS `cikp`.`keyword_portal`;
+DROP TABLE IF EXISTS `cikp`.`knowledge_item_subscription_portal`;
 DROP TABLE IF EXISTS `cikp`.`knowledge_item_portal`;
 DROP TABLE IF EXISTS `cikp`.`file_portal`;
 DROP TABLE IF EXISTS `cikp`.`subscription_portal`;
@@ -16,8 +17,9 @@ CREATE TABLE  `cikp`.`user_portal` (
   `user_username` varchar(20) NOT NULL,
   `user_password` varchar(50) NOT NULL,
   `user_uri` varchar(50) DEFAULT NULL,
+  `user_organization` tinyint(1) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
                                               
 CREATE TABLE  `cikp`.`file_portal` (
   `File_ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -93,4 +95,13 @@ CREATE TABLE  `cikp`.`ontology_controls_portal` (
   `Control_Id` varchar(100) NOT NULL,
   `Property_Name` varchar(100) NOT NULL,
   PRIMARY KEY (`Ontology_Controls_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE  `cikp`.`knowledge_item_subscription_portal` (
+  `Knowledge_Item_ID` int(10) unsigned NOT NULL,
+  `Subscription_ID` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`Knowledge_Item_ID`,`Subscription_ID`),
+  KEY `FK_knowledge_item_subscription_portal_subscription` (`Subscription_ID`),
+  CONSTRAINT `FK_knowledge_item_subscription_portal_knowledge_item` FOREIGN KEY (`Knowledge_Item_ID`) REFERENCES `knowledge_item_portal` (`Knowledge_Item_ID`),
+  CONSTRAINT `FK_knowledge_item_subscription_portal_subscription` FOREIGN KEY (`Subscription_ID`) REFERENCES `subscription_portal` (`Subscription_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

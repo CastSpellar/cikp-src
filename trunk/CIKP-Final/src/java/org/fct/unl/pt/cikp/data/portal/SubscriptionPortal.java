@@ -1,8 +1,11 @@
 package org.fct.unl.pt.cikp.data.portal;
-// Generated 28/Mar/2009 19:51:22 by Hibernate Tools 3.2.1.GA
+// Generated 29/Mar/2009 7:11:13 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -40,6 +44,7 @@ public class SubscriptionPortal  implements java.io.Serializable {
      private String knowledgeItemSource;
      private String knowledgeItemType;
      private String subjectDomain;
+     private Set<KnowledgeItemPortal> knowledgeItemPortals = new HashSet<KnowledgeItemPortal>(0);
 
     public SubscriptionPortal() {
     }
@@ -48,7 +53,7 @@ public class SubscriptionPortal  implements java.io.Serializable {
     public SubscriptionPortal(UserPortal userPortal) {
         this.userPortal = userPortal;
     }
-    public SubscriptionPortal(UserPortal userPortal, String name, Integer knowledgeItemFileSize, Date knowledgeItemCreationTime, Date knowledgeItemCreationDate, String knowledgeItemAuthor, String knowledgeItemCompositionLanguage, String knowledgeItemCopyrightOwner, String knowledgeItemDestination, String knowledgeItemFileType, String knowledgeItemSecurityClearance, String knowledgeItemSource, String knowledgeItemType, String subjectDomain) {
+    public SubscriptionPortal(UserPortal userPortal, String name, Integer knowledgeItemFileSize, Date knowledgeItemCreationTime, Date knowledgeItemCreationDate, String knowledgeItemAuthor, String knowledgeItemCompositionLanguage, String knowledgeItemCopyrightOwner, String knowledgeItemDestination, String knowledgeItemFileType, String knowledgeItemSecurityClearance, String knowledgeItemSource, String knowledgeItemType, String subjectDomain, Set<KnowledgeItemPortal> knowledgeItemPortals) {
        this.userPortal = userPortal;
        this.name = name;
        this.knowledgeItemFileSize = knowledgeItemFileSize;
@@ -63,6 +68,7 @@ public class SubscriptionPortal  implements java.io.Serializable {
        this.knowledgeItemSource = knowledgeItemSource;
        this.knowledgeItemType = knowledgeItemType;
        this.subjectDomain = subjectDomain;
+       this.knowledgeItemPortals = knowledgeItemPortals;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -200,6 +206,14 @@ public class SubscriptionPortal  implements java.io.Serializable {
     
     public void setSubjectDomain(String subjectDomain) {
         this.subjectDomain = subjectDomain;
+    }
+@ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="subscriptionPortals")
+    public Set<KnowledgeItemPortal> getKnowledgeItemPortals() {
+        return this.knowledgeItemPortals;
+    }
+    
+    public void setKnowledgeItemPortals(Set<KnowledgeItemPortal> knowledgeItemPortals) {
+        this.knowledgeItemPortals = knowledgeItemPortals;
     }
 
 

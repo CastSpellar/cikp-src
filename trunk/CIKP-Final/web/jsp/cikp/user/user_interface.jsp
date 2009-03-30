@@ -30,7 +30,7 @@
                     <tr>
                         <td colspan="4">
                             <h3>
-                                <s:text name="userinterface.myreceiveitems" />
+                                My Published Items
                             </h3>
                         </td>
                         <td colspan="4">
@@ -126,7 +126,7 @@
                     <tr>
                         <td colspan="4">
                             <h3>
-                                My Published Items
+                                <s:text name="userinterface.myreceiveitems" />
                             </h3>
                         </td>
                         <td colspan="4">
@@ -180,7 +180,42 @@
                             </h4>
                         </td>
                     </tr>
+                    <s:iterator value="#session['user'].subscriptionPortals">
+                    <s:iterator value="knowledgeItemPortals">
                     <tr>
+                        <td>
+                            Yes
+                        </td>
+                        <td>
+                            None
+                        </td>
+                        <td>
+                            <%--CIKP_doc--%>
+                            <s:property value="name" />
+                        </td>
+                        <td>
+
+                            <%--Something--%>
+                        </td>
+                        <td>
+                            <s:property value="knowledgeItemCreationDate" />
+                            <%--Today--%>
+                        </td>
+                        <td>
+                            <s:property value="knowledgeItemSource" />
+                            <%--Bruno Oliveira--%>
+                        </td>
+                        <td>
+                            <s:property value="filePortal.fileName" />
+                            <%--None--%>
+                        </td>
+                        <td>
+                            Poor
+                        </td>
+                    </tr>
+                    </s:iterator>
+                    </s:iterator>
+                    <%--<tr>
                         <td>
                             Yes
                         </td>
@@ -205,7 +240,7 @@
                         <td>
                             Poor
                         </td>
-                    </tr>
+                    </tr>--%>
                 </table>
             </div>
             <div class="box">

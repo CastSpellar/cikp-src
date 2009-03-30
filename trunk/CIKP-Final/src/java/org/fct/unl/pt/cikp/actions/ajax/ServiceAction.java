@@ -33,7 +33,9 @@ public class ServiceAction extends ActionSupport{
         } catch(Exception e){*/
             AttributeControl attrControl = new AttributeControl() ;
             attrControl.setControlName(name);
-            attrControl.setControlType("select");
+            String controlType = getService().getControl(name) ;
+            attrControl.setControlType(controlType);
+            //List<String> values = getService().listSubClasses(name) ;
             List<String> values = new ArrayList<String>() ;
             values.add("Teste1") ;
             values.add("Teste2") ;

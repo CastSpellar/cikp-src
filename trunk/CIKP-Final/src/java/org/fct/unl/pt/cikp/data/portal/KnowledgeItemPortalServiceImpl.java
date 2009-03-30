@@ -24,10 +24,12 @@ public class KnowledgeItemPortalServiceImpl implements KnowledgeItemPortalServic
     public KnowledgeItemPortal store(KnowledgeItemPortal ki, Session session) {
         Set<KeywordPortal> keyWords = new HashSet<KeywordPortal>(0) ;
         for(KeywordPortal k: ki.getKeywordPortals()) {
-            KeywordPortal kwP = getKwService().getKeyWord(k, session) ;
-            if(kwP == null)
-                kwP = getKwService().store(k, session) ;
-            keyWords.add(kwP);
+            KeyWordPortalService ks = getKwService() ;
+            KeywordPortal kwp = ks.getKeyWord(k, session) ;
+            //KeywordPortal kwP = getKwService().getKeyWord(k, session) ;
+            if(kwp == null)
+                kwp = getKwService().store(k, session) ;
+            keyWords.add(kwp);
         }
         ki.setKeywordPortals(keyWords) ;
         session.save(ki) ;

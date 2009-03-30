@@ -1,5 +1,5 @@
 package org.fct.unl.pt.cikp.data.portal;
-// Generated 28/Mar/2009 19:51:22 by Hibernate Tools 3.2.1.GA
+// Generated 29/Mar/2009 7:11:13 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -47,6 +47,7 @@ public class KnowledgeItemPortal  implements java.io.Serializable {
      private String knowledgeItemType;
      private String subjectDomain;
      private Set<KeywordPortal> keywordPortals = new HashSet<KeywordPortal>(0);
+     private Set<SubscriptionPortal> subscriptionPortals = new HashSet<SubscriptionPortal>(0);
 
     public KnowledgeItemPortal() {
     }
@@ -63,7 +64,7 @@ public class KnowledgeItemPortal  implements java.io.Serializable {
         this.knowledgeItemFileType = knowledgeItemFileType;
         this.knowledgeItemType = knowledgeItemType;
     }
-    public KnowledgeItemPortal(UserPortal userPortal, FilePortal filePortal, String name, int knowledgeItemFileSize, Date knowledgeItemCreationTime, Date knowledgeItemCreationDate, String knowledgeItemAuthor, String knowledgeItemCompositionLanguage, String knowledgeItemCopyrightOwner, String knowledgeItemDestination, String knowledgeItemFileType, String knowledgeItemSecurityClearance, String knowledgeItemSource, String knowledgeItemType, String subjectDomain, Set<KeywordPortal> keywordPortals) {
+    public KnowledgeItemPortal(UserPortal userPortal, FilePortal filePortal, String name, int knowledgeItemFileSize, Date knowledgeItemCreationTime, Date knowledgeItemCreationDate, String knowledgeItemAuthor, String knowledgeItemCompositionLanguage, String knowledgeItemCopyrightOwner, String knowledgeItemDestination, String knowledgeItemFileType, String knowledgeItemSecurityClearance, String knowledgeItemSource, String knowledgeItemType, String subjectDomain, Set<KeywordPortal> keywordPortals, Set<SubscriptionPortal> subscriptionPortals) {
        this.userPortal = userPortal;
        this.filePortal = filePortal;
        this.name = name;
@@ -80,6 +81,7 @@ public class KnowledgeItemPortal  implements java.io.Serializable {
        this.knowledgeItemType = knowledgeItemType;
        this.subjectDomain = subjectDomain;
        this.keywordPortals = keywordPortals;
+       this.subscriptionPortals = subscriptionPortals;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -237,6 +239,17 @@ public class KnowledgeItemPortal  implements java.io.Serializable {
     
     public void setKeywordPortals(Set<KeywordPortal> keywordPortals) {
         this.keywordPortals = keywordPortals;
+    }
+@ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+    @JoinTable(name="knowledge_item_subscription_portal", catalog="cikp", joinColumns = { 
+        @JoinColumn(name="Knowledge_Item_ID", nullable=false, updatable=false) }, inverseJoinColumns = { 
+        @JoinColumn(name="Subscription_ID", nullable=false, updatable=false) })
+    public Set<SubscriptionPortal> getSubscriptionPortals() {
+        return this.subscriptionPortals;
+    }
+    
+    public void setSubscriptionPortals(Set<SubscriptionPortal> subscriptionPortals) {
+        this.subscriptionPortals = subscriptionPortals;
     }
 
 

@@ -6,6 +6,7 @@
   <table-filter match-name="keyword_portal"/>
   <table-filter match-name="knowledge_item_keyword_portal"/>
   <table-filter match-name="knowledge_item_portal"/>
+  <table-filter match-name="knowledge_item_subscription_portal"/>
   <table-filter match-name="ontology_controls_portal"/>
   <table-filter match-name="subscription_portal"/>
   <table-filter match-name="user_portal"/>

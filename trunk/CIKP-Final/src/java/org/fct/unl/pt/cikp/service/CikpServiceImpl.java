@@ -265,7 +265,11 @@ public class CikpServiceImpl implements CikpService {
     }
 
     public SubscriptionPortal createSubscriptionPortal(SubscriptionPortal subscription) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Session session = getSession() ;
+        session.beginTransaction() ;
+        SubscriptionPortal s = getSubsService().store(subscription, session) ;
+        session.getTransaction().commit() ;
+        return s ;
     }
 
     /**
@@ -280,6 +284,15 @@ public class CikpServiceImpl implements CikpService {
      */
     public void setSubsService(SubscriptionPortalService subsService) {
         this.subsService = subsService;
+    }
+
+    public String getControl(String name) {
+        return "" ;
+        //OntologyControlsPortal control = getOntologyControls
+    }
+
+    public ArrayList<String> getSubClasses(String name) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
 }

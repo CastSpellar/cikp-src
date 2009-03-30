@@ -13,10 +13,6 @@ import org.hibernate.Session;
  */
 public class KeyWordPortalServiceImpl implements KeyWordPortalService {
 
-    private Session getSession() {
-        return HibernateUtil.getSessionFactory().getCurrentSession() ;
-    }
-
     public KeywordPortal store(KeywordPortal k, Session session) {
         session.save(k) ;
         return k ;

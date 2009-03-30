@@ -1,54 +1,61 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 28/Mar/2009 19:51:38 by Hibernate Tools 3.2.1.GA -->
-<hibernate-mapping>
-    <class name="org.fct.unl.pt.cikp.data.portal.SubscriptionPortal" table="subscription_portal" catalog="cikp">
-        <id name="subscriptionId" type="java.lang.Integer">
-            <column name="Subscription_ID" />
-            <generator class="identity" />
-        </id>
-        <many-to-one name="userPortal" class="org.fct.unl.pt.cikp.data.portal.UserPortal" fetch="select">
-            <column name="user_id" not-null="true" />
-        </many-to-one>
-        <property name="name" type="string">
-            <column name="Name" length="20" />
-        </property>
-        <property name="knowledgeItemFileSize" type="java.lang.Integer">
-            <column name="Knowledge_Item_File_Size" />
-        </property>
-        <property name="knowledgeItemCreationTime" type="time">
-            <column name="Knowledge_Item_Creation_Time" length="8" />
-        </property>
-        <property name="knowledgeItemCreationDate" type="date">
-            <column name="Knowledge_Item_Creation_Date" length="10" />
-        </property>
-        <property name="knowledgeItemAuthor" type="string">
-            <column name="Knowledge_Item_Author" length="200" />
-        </property>
-        <property name="knowledgeItemCompositionLanguage" type="string">
-            <column name="Knowledge_Item_Composition_Language" length="100" />
-        </property>
-        <property name="knowledgeItemCopyrightOwner" type="string">
-            <column name="Knowledge_Item_Copyright_Owner" length="200" />
-        </property>
-        <property name="knowledgeItemDestination" type="string">
-            <column name="Knowledge_Item_Destination" length="100" />
-        </property>
-        <property name="knowledgeItemFileType" type="string">
-            <column name="Knowledge_Item_File_Type" length="50" />
-        </property>
-        <property name="knowledgeItemSecurityClearance" type="string">
-            <column name="Knowledge_Item_Security_Clearance" length="100" />
-        </property>
-        <property name="knowledgeItemSource" type="string">
-            <column name="Knowledge_Item_Source" length="20" />
-        </property>
-        <property name="knowledgeItemType" type="string">
-            <column name="Knowledge_Item_Type" length="100" />
-        </property>
-        <property name="subjectDomain" type="string">
-            <column name="Subject_Domain" length="100" />
-        </property>
-    </class>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29/Mar/2009 7:11:29 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping default-lazy="false">
+  <class catalog="cikp" name="org.fct.unl.pt.cikp.data.portal.SubscriptionPortal" table="subscription_portal">
+    <id name="subscriptionId" type="java.lang.Integer">
+      <column name="Subscription_ID"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="org.fct.unl.pt.cikp.data.portal.UserPortal" fetch="select" name="userPortal">
+      <column name="user_id" not-null="true"/>
+    </many-to-one>
+    <property name="name" type="string">
+      <column length="20" name="Name"/>
+    </property>
+    <property name="knowledgeItemFileSize" type="java.lang.Integer">
+      <column name="Knowledge_Item_File_Size"/>
+    </property>
+    <property name="knowledgeItemCreationTime" type="time">
+      <column length="8" name="Knowledge_Item_Creation_Time"/>
+    </property>
+    <property name="knowledgeItemCreationDate" type="date">
+      <column length="10" name="Knowledge_Item_Creation_Date"/>
+    </property>
+    <property name="knowledgeItemAuthor" type="string">
+      <column length="200" name="Knowledge_Item_Author"/>
+    </property>
+    <property name="knowledgeItemCompositionLanguage" type="string">
+      <column length="100" name="Knowledge_Item_Composition_Language"/>
+    </property>
+    <property name="knowledgeItemCopyrightOwner" type="string">
+      <column length="200" name="Knowledge_Item_Copyright_Owner"/>
+    </property>
+    <property name="knowledgeItemDestination" type="string">
+      <column length="100" name="Knowledge_Item_Destination"/>
+    </property>
+    <property name="knowledgeItemFileType" type="string">
+      <column length="50" name="Knowledge_Item_File_Type"/>
+    </property>
+    <property name="knowledgeItemSecurityClearance" type="string">
+      <column length="100" name="Knowledge_Item_Security_Clearance"/>
+    </property>
+    <property name="knowledgeItemSource" type="string">
+      <column length="20" name="Knowledge_Item_Source"/>
+    </property>
+    <property name="knowledgeItemType" type="string">
+      <column length="100" name="Knowledge_Item_Type"/>
+    </property>
+    <property name="subjectDomain" type="string">
+      <column length="100" name="Subject_Domain"/>
+    </property>
+    <set inverse="true" name="knowledgeItemPortals" table="knowledge_item_subscription_portal">
+      <key>
+        <column name="Subscription_ID" not-null="true"/>
+      </key>
+      <many-to-many entity-name="org.fct.unl.pt.cikp.data.portal.KnowledgeItemPortal">
+        <column name="Knowledge_Item_ID" not-null="true"/>
+      </many-to-many>
+    </set>
+  </class>
 </hibernate-mapping>

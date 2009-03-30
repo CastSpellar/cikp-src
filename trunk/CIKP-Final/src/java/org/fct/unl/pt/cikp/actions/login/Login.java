@@ -45,7 +45,17 @@ public class Login extends ActionSupport implements SessionAware {
 
     @Override
     public void validate() {
-        
+        UserPortal user = new UserPortal() ;
+        user.setUserUsername(userUsername) ;
+        user.setUserPassword(userPassword);
+        boolean existsUser = getCikpService().existsUser(user) ;
+        if(!existsUser)
+            addFieldError(userUsername, "Username does not exists.");
+        else {
+            user = getCikpService().authenticateUser(user) ;
+            if(user == null)
+                addFieldError("userPassword", "Incorrect password");
+        }
     }
 
     /**
