@@ -63,7 +63,7 @@ var AttributeControl = Class.create({
             } else {
                 if( attributeControl.controlType == 'select'){
                     control = new Element(attributeControl.controlType,{'id' : attributeControl.controlName,
-                                                                        'name': attributeControl.controlName.underscore() });
+                                                                        'name': attributeControl.controlBind.underscore() });
                     attributeControl.values.each(function(value){
                         var option = new Element('option', { 'value':value } ).update(value);
                         control.insert(option);
@@ -72,7 +72,7 @@ var AttributeControl = Class.create({
                         control.selectedIndex = attributeControl.value;
                 }else {
                     control = new Element(attributeControl.controlType,{'id' : attributeControl.controlName,
-                                                                        'name': attributeControl.controlName.underscore() });
+                                                                        'name': attributeControl.controlBind.underscore() });
                     if( Object.isUndefined(attributeControl.value) == false )
                         control.value = attributeControl.value;
                 }
