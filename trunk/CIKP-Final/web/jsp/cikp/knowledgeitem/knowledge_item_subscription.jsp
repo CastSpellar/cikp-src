@@ -15,29 +15,72 @@
         <title><s:text name="knowledgeitem.subscribetitle" />"</title>
         <script type="text/javascript">
 
+            var AttributeController = Class.create({
+                initialize: function(){
+                    this.divContainer = 'ki_tree_div_container';
+                    this.attributes_tree = new OntXTree('<s:url value="/ontxml/human_attribute.xml" />') ;
+                    this.attributes_tree.genTree('ki_tree_div',
+                                    {'dropIds' : $w('input_box_ki'),
+                                     'imgPath' : '<s:url value="/images/custom/" />',
+                                     'checkbox' : 1}) ;
+                    this.attributeController = new AttributeControl('added_ki_attributes');
+                },
+
+                addAttributesBtnClick: function (){
+
+                    var checked = this.attributes_tree.getAllChecked() ;
+                    if(checked == ''){
+                        this.attributeController.insertAttributeControlList([]);
+                        this.hideAttrTree() ;
+                        return ;
+                    }
+
+                    checked = checked.replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#Human_Attribute ', '') ;
+                    checked = checked.replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#Human_Abstract_Attribute ', '') ;
+                    checked = checked.replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#Human_Physical_Attribute ', '') ;
+                    checked = checked.replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#Human_Affiliation ', '') ;
+                    checked = checked.replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#Personal_Contact_Number ', '') ;
+                    checked = checked.replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#Contact_Address ', '') ;
+                    checked = checked.replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#Work_Contact_Number ', '') ;
+                    //alert(checked) ;
+                    var checkedArr = checked.split(' ') ;
+                    var index = 0 ;
+                    while(index < checkedArr.length) {
+                        checkedArr[index] = checkedArr[index].replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#', '') ;
+                        index++ ;
+                    }
+                    this.attributeController.insertAttributeControlList(checkedArr);
+                    this.hideAttrTree() ;
+                },
+
+                showAttrTree : function(){
+                    $(this.divContainer).removeClassName('hidden_tree') ;
+                    $(this.divContainer).addClassName('show_tree');
+                },
+
+                hideAttrTree: function () {
+                    $(this.divContainer).removeClassName('show_tree') ;
+                    $(this.divContainer).addClassName('hidden_tree');
+                }
+            });
+
+            var attributeController;
+            
             function init() {
+                attributeController = new AttributeController();
+                
                 var tree = new OntXTree('<s:url value="/ontxml/teste2.xml" />') ;
-                tree.genTree('tree_div', {'dropIds' : $w('SubscribeKnowledgeItem_kisubscribetype'), 'imgPath' : '<s:url value="/images/custom/" />'}) ;
+                tree.genTree('tree_div', {'dropIds' : $w('input_box_ki'), 'imgPath' : '<s:url value="/images/custom/" />'}) ;
+                /*var attributes_tree = new OntXTree('<s:url value="/ontxml/human_attribute.xml" />') ;
+                attributes_tree.genTree(this.atributes_tree_div,
+                                    {'dropIds' : $w('input_box_ki'),
+                                     'imgPath' : '<s:url value="/images/custom/" />',
+                                     'checkbox' : 1}) ;
+                var attributeController = new AttributeControl('added_ki_attributes');
+                */
             }
 
-        </script>
-        <script type="text/javascript">
-            if ( typeof window.addEventListener != "undefined" )
-                window.addEventListener( "load", init, false );
-            else if ( typeof window.attachEvent != "undefined" ) {
-                window.attachEvent( "onload", init );
-            }
-            else {
-                if ( window.onload != null ) {
-                    var oldOnload = window.onload;
-                    window.onload = function ( e ) {
-                        oldOnload( e );
-                        init();
-                    };
-                }
-                else
-                    window.onload = init;
-            }
+            document.observe('dom:loaded',init);
         </script>
     </head>
     <body>
@@ -59,7 +102,7 @@
                                 <s:text name="knowledgeitem.subscribetype" />
                             </td>
                             <td>
-                                <s:textfield name="kisubscribetype" />
+                                <s:textfield id="input_box_ki" name="kisubscribetype" />
                             </td>
                         </tr>
                         <tr>
@@ -114,12 +157,16 @@
                                 <br />
                             </td>
                         </tr>
+                    </table>
+                    <table id="added_ki_attributes"></table>
+                    <table id="ki_attr_control_tab">
                         <tr>
                             <td colspan="4" align="right">
-                                <input type="button" value="<s:text name="knowledgeitem.subscribeaddattr" />" onclick="javascript:alert('Available Soon.') ;" class="button" />
+                                <input type="button" value="<s:text name="knowledgeitem.subscribeaddattr" />" onclick="javascript:attributeController.showAttrTree(); ;" class="button" />
                             </td>
                         </tr>
                     </table>
+
                     <div class="box" id="controls_div">
                         <table align="center">
                             <tr>
@@ -138,6 +185,14 @@
             <div id="left_back">
                 <h3><s:text name="knowledgeitem.subscribeonttree" /></h3>
                 <div id="tree_div" class="title_back">
+                </div>
+                <div id="ki_tree_div_container" class="hidden_tree">
+                    <h3>Knowledge Item Attributes (hard)</h3>
+                    <div id="ki_tree_div" class="title_back">
+                    </div>
+                    <div id="ki_control_div" class="attr_control_div">
+                        <input type="button" value="Add Attributes" class="button" onclick="attributeController.addAttributesBtnClick();" />
+                    </div>
                 </div>
             </div>
             <div id="bottom"></div>
