@@ -106,7 +106,7 @@
                                                       'onclick':'roleManager.getRole("'+this.roleName+'").showAttrTree();',
                                                       'type':'button'}))) ;
 
-                    var newRole_div = new Element('div', {'class':'box' , 'id': this.roleDiv }).
+                    var newRole_div = new Element('div', {'class':'box' , 'id': this.roleDiv, 'name' : 'roletype' }).
                         update(table).insert(attr_added_controls).insert(attr_control_table) ;
 
                     $('right').insertBefore(newRole_div, $('right').lastChild.previousSibling) ;
