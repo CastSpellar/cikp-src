@@ -26,23 +26,6 @@ public class ServiceAction extends ActionSupport{
         return SUCCESS;
     }
 
-            /*
-        ItemSpec item = new ItemSpec();
-        item.setName("teste");
-        item.setType("input");
-        */
-        /*
-        var defered = service.getItemSpec("asd");
-defered.addCallback(function(itemSpec){
-
-$('DefineActor').insert(itemSpec.name + ": ");
-$('DefineActor').insert(new Element(itemSpec.type).update(itemSpec.name), 'bottom');
-
-
-console.log("Name: " + itemSpec.name + " Type: " + itemSpec.type)
-});
-         */
-
     @SMDMethod
     public AttributeControl getAttributeControl(String name){
         /*try{
