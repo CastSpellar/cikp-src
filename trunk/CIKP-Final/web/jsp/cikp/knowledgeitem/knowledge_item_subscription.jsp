@@ -15,7 +15,7 @@
         <title><s:text name="knowledgeitem.subscribetitle" />"</title>
         <script type="text/javascript">
 
-            var AttributeController = Class.create({
+            var AttributeManager = Class.create({
                 initialize: function(){
                     this.divContainer = 'ki_tree_div_container';
                     this.attributes_tree = new OntXTree('<s:url value="/ontxml/human_attribute.xml" />') ;
@@ -64,10 +64,10 @@
                 }
             });
 
-            var attributeController;
+            var attributeManager;
             
             function init() {
-                attributeController = new AttributeController();
+                attributeManager = new AttributeManager();
                 
                 var tree = new OntXTree('<s:url value="/ontxml/teste2.xml" />') ;
                 tree.genTree('tree_div', {'dropIds' : $w('input_box_ki'), 'imgPath' : '<s:url value="/images/custom/" />'}) ;
@@ -162,7 +162,7 @@
                     <table id="ki_attr_control_tab">
                         <tr>
                             <td colspan="4" align="right">
-                                <input type="button" value="<s:text name="knowledgeitem.subscribeaddattr" />" onclick="javascript:attributeController.showAttrTree(); ;" class="button" />
+                                <input type="button" value="<s:text name="knowledgeitem.subscribeaddattr" />" onclick="attributeManager.showAttrTree(); ;" class="button" />
                             </td>
                         </tr>
                     </table>
@@ -191,7 +191,7 @@
                     <div id="ki_tree_div" class="title_back">
                     </div>
                     <div id="ki_control_div" class="attr_control_div">
-                        <input type="button" value="Add Attributes" class="button" onclick="attributeController.addAttributesBtnClick();" />
+                        <input type="button" value="Add Attributes" class="button" onclick="attributeManager.addAttributesBtnClick();" />
                     </div>
                 </div>
             </div>
