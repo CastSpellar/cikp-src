@@ -287,12 +287,12 @@ public class CikpServiceImpl implements CikpService {
     }
 
     public String getControl(String name) {
-        return "" ;
+        return "select" ;
         //OntologyControlsPortal control = getOntologyControls
     }
 
     public ArrayList<String> getSubClasses(String name) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return getOntServicePortal().listSubClasses(name) ;
     }
 
 }

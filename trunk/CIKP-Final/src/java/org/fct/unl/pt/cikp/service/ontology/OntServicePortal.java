@@ -175,4 +175,6 @@ public interface OntServicePortal {
      */
     public void setPhysicalProductService(PhysicalProductService physicalProductService) ;
 
+    public ArrayList<String> listSubClasses(String name) ;
+
 }

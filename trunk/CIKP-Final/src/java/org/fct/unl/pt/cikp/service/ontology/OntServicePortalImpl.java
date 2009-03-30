@@ -564,4 +564,20 @@ public class OntServicePortalImpl implements OntServicePortal {
         getOntService().writeOnt(out);
     }
 
+    public ArrayList<String> listSubClasses(String name) {
+        ArrayList<String> results = new ArrayList<String>() ;
+        ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
+        int counter = 0 ;
+        try {
+            getOntService().listAbsoluteSubClasses(results, hierarchy, counter, name, false);
+        } catch (IOException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MissingParamException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return results ;
+    }
+
 }

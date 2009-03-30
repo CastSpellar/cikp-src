@@ -20,6 +20,7 @@ public class Constants {
     public static final String ORGANIZATION = "organization" ;
     public static final String GEOAFFILIATION = "geo_aff" ;
     public static final String COMMLANG = "comm_lang" ;
+    public static final String SUBJECT_DOMAINS = "subject_domains" ;
 
 
     /*SYSTEM PATHS*/

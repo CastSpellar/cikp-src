@@ -51,7 +51,7 @@
             </div>
             <div class="box" id="knowledge_item_div">
                 <s:form action="DefineKnowledgeItem" method="POST" enctype="multipart/form-data">
-                     <table width="520px">
+                     <table width="520px" id="staticAttr_tab">
                         <tr>
                             <td >
                                 <s:text name="knowledgeitem.file" />
@@ -67,44 +67,40 @@
                         </tr>
                         <tr>
                             <td>
-                                <s:text name="knowledge_item_type" />
+                                <s:text name="Type:" />
                             </td>
                             <td>
                                 <s:textfield name="knowledge_item_type" />
                             </td>
                         </tr>
-                        <tr>
-                            <td colspan="4">
-                                <br />
-                            </td>
-                        </tr>
+                     </table>
+                     <table id="dynamicAttr_tab">
                         <tr>
                             <td class="fieldName">
-                                <s:text name="knowledge_item_file_type" />
+                                <s:text name="Subject Domain:" />
                             </td>
                             <td class="fieldValue">
-                                <s:select name="knowledge_item_file_type" headerKey="-1" headerValue="-- Select File Type --" list="{'1','2'}" />
-                            </td>
-                            <td class="fieldName">
-                                <s:text name="subject_domain" />
-                            </td>
-                            <td class="fieldValue">
-                                <s:select name="subject_domain" headerKey="-1" headerValue="-- Select Subject Domain --" list="{'1','2'}" />
+                                <s:select name="subject_domain" headerKey="-1" headerValue="-- Select --" list="#session['subject_domains']" />
                             </td>
                         </tr>
+                    </table>
+                    <table id="keywords_tab">
                         <tr>
                             <td>
-                                <s:text name="knowledge_item_keyword" />
+                                <s:text name="KeyWord:" />
                             </td>
                             <td>
                                 <s:textfield name="knowledge_item_keyword" />
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="4">
-                                <br />
+                            <td colspan="2" align="right">
+                                <input type="button" id="addKeyword_btn" value="Add Keyword" class="button" />
                             </td>
                         </tr>
+                    </table>
+                    <br />
+                    <table id="controls_tab">
                         <tr>
                             <td colspan="4" align="right">
                                 <input type="button" value="<s:text name="knowledgeitem.addattr" />" onclick="alert('Available Soon...') ;" class="button" />
