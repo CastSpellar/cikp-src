@@ -177,7 +177,7 @@
             var humanOptions = {
                 name : 'HumanRole',
                 // Role Div IDs
-                roleDiv : this.roleName+'_div',
+                roleDiv : 'actor_div',
                 inputBox : 'DefineActor',
                 added_controls_table : 'added_controls',
                 attr_control_table : 'attr_control_tab',
