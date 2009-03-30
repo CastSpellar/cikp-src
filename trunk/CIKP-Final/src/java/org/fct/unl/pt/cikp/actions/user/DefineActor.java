@@ -8,20 +8,25 @@ package org.fct.unl.pt.cikp.actions.user;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import java.util.Map;
+import org.apache.struts2.interceptor.ApplicationAware;
 import org.apache.struts2.interceptor.SessionAware;
 import org.fct.unl.pt.cikp.constants.Constants;
 import org.fct.unl.pt.cikp.data.ontology.IndividualActor;
 import org.fct.unl.pt.cikp.data.portal.UserPortal;
 import org.fct.unl.pt.cikp.service.CikpService;
 import org.fct.unl.pt.cikp.service.CikpServiceImpl;
+import org.fct.unl.pt.cikp.service.ontology.manager.PersistentOntology;
+import org.fct.unl.pt.cikp.service.ontology.manager.PersistentOntologyImpl;
 
 /**
  *
  * @author Bruno
  */
-public class DefineActor extends ActionSupport implements ModelDriven, SessionAware {
+public class DefineActor extends ActionSupport implements ModelDriven, SessionAware, ApplicationAware {
 
     private CikpService cikpService ;
+
+    private Map appVars ;
 
     private Map session ;
 
@@ -29,9 +34,16 @@ public class DefineActor extends ActionSupport implements ModelDriven, SessionAw
 
     @Override
     public String execute() throws Exception {
+        PersistentOntology po = (PersistentOntology) appVars.get(Constants.PO) ;
+        if(po == null) {
+            po = new PersistentOntologyImpl() ;
+            po.setS_reload(false) ;
+            po.setConfigFilePath(Constants.XML_FILE_PATH) ;
+            appVars.put(Constants.PO, po) ;
+        }
         UserPortal u = (UserPortal) session.get(Constants.USER) ;
         actor.setUsername(u.getUserUsername()) ;
-        IndividualActor createdIndividualActor = getCikpService().createIndividualActor(actor);
+        IndividualActor createdIndividualActor = getCikpService().createIndividualActor(actor, po);
         session.put(Constants.ACTOR, createdIndividualActor) ;
         return SUCCESS ;
     }
@@ -56,6 +68,10 @@ public class DefineActor extends ActionSupport implements ModelDriven, SessionAw
 
     public void setSession(Map session) {
         this.session = session ;
+    }
+
+    public void setApplication(Map arg0) {
+        this.appVars = arg0 ;
     }
 
 }

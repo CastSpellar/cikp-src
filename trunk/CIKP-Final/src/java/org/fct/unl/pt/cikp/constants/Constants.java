@@ -21,9 +21,10 @@ public class Constants {
     public static final String GEOAFFILIATION = "geo_aff" ;
     public static final String COMMLANG = "comm_lang" ;
     public static final String SUBJECT_DOMAINS = "subject_domains" ;
+    public static final String PO =  "persistent_ontology" ;
 
 
     /*SYSTEM PATHS*/
-    public static final String XML_FILE_PATH = "c:/xmlfiles/" ;
+    public static final String XML_FILE_PATH = "c:/config.xml" ;
 
 }

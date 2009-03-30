@@ -30,6 +30,7 @@ import org.fct.unl.pt.cikp.service.ontology.OntServicePortal;
 import org.fct.unl.pt.cikp.service.ontology.OntServicePortalImpl;
 import org.fct.unl.pt.cikp.data.portal.UserService;
 import org.fct.unl.pt.cikp.data.portal.UserServiceImpl;
+import org.fct.unl.pt.cikp.service.ontology.manager.PersistentOntology;
 import org.hibernate.Session;
 
 /**
@@ -92,8 +93,8 @@ public class CikpServiceImpl implements CikpService {
         return user ;
     }
 
-    public IndividualActor createIndividualActor(IndividualActor actor) {
-        return getOntServicePortal().createIndividualActor(actor) ;
+    public IndividualActor createIndividualActor(IndividualActor actor, PersistentOntology po) {
+        return getOntServicePortal().createIndividualActor(actor, po) ;
     }
 
     /**
@@ -110,104 +111,104 @@ public class CikpServiceImpl implements CikpService {
         this.ontServicePortal = ontServicePortal;
     }
 
-    public ArrayList<String> listAbilitys() {
-        return getOntServicePortal().listAbilitys() ;
+    public ArrayList<String> listAbilitys(PersistentOntology po) {
+        return getOntServicePortal().listAbilitys(po) ;
     }
 
-    public ArrayList<String> listAuthoritys() {
-        return getOntServicePortal().listAuthoritys() ;
+    public ArrayList<String> listAuthoritys(PersistentOntology po) {
+        return getOntServicePortal().listAuthoritys(po) ;
     }
 
-    public ArrayList<String> listCOPAffiliations() {
-        return getOntServicePortal().listCOPAffiliations() ;
+    public ArrayList<String> listCOPAffiliations(PersistentOntology po) {
+        return getOntServicePortal().listCOPAffiliations(po) ;
     }
 
-    public ArrayList<String> listCertificatesAndLicences() {
-        return getOntServicePortal().listCertificatesAndLicenses() ;
+    public ArrayList<String> listCertificatesAndLicences(PersistentOntology po) {
+        return getOntServicePortal().listCertificatesAndLicenses(po) ;
     }
 
-    public ArrayList<String> listCommLanguages() {
-        return getOntServicePortal().listCommLanguages() ;
+    public ArrayList<String> listCommLanguages(PersistentOntology po) {
+        return getOntServicePortal().listCommLanguages(po) ;
     }
 
-    public ArrayList<String> listEducationBGs() {
-        return getOntServicePortal().listEducationBGs() ;
+    public ArrayList<String> listEducationBGs(PersistentOntology po) {
+        return getOntServicePortal().listEducationBGs(po) ;
     }
 
-    public ArrayList<String> listEthnicitys() {
-        return getOntServicePortal().listEthnicitys() ;
+    public ArrayList<String> listEthnicitys(PersistentOntology po) {
+        return getOntServicePortal().listEthnicitys(po) ;
     }
 
-    public ArrayList<String> listEventAffiliations() {
-        return getOntServicePortal().listEventAffiliations() ;
+    public ArrayList<String> listEventAffiliations(PersistentOntology po) {
+        return getOntServicePortal().listEventAffiliations(po) ;
     }
 
-    public ArrayList<String> listExperiences() {
-        return getOntServicePortal().listExperiences() ;
+    public ArrayList<String> listExperiences(PersistentOntology po) {
+        return getOntServicePortal().listExperiences(po) ;
     }
 
-    public ArrayList<String> listGeoAffiliations() {
-        return getOntServicePortal().listGeoAffiliations() ;
+    public ArrayList<String> listGeoAffiliations(PersistentOntology po) {
+        return getOntServicePortal().listGeoAffiliations(po) ;
     }
 
-    public ArrayList<String> listInfoNeeds() {
-        return getOntServicePortal().listInfoNeeds() ;
+    public ArrayList<String> listInfoNeeds(PersistentOntology po) {
+        return getOntServicePortal().listInfoNeeds(po) ;
     }
 
-    public ArrayList<String> listKnowledges() {
-        return getOntServicePortal().listKnowledges() ;
+    public ArrayList<String> listKnowledges(PersistentOntology po) {
+        return getOntServicePortal().listKnowledges(po) ;
     }
 
-    public ArrayList<String> listLiabilitys() {
-        return getOntServicePortal().listLiabilitys() ;
+    public ArrayList<String> listLiabilitys(PersistentOntology po) {
+        return getOntServicePortal().listLiabilitys(po) ;
     }
 
-    public ArrayList<String> listLocations() {
-        return getOntServicePortal().listLocations() ;
+    public ArrayList<String> listLocations(PersistentOntology po) {
+        return getOntServicePortal().listLocations(po) ;
     }
 
-    public ArrayList<String> listMaritalStatus() {
-        return getOntServicePortal().listMaritalStatus() ;
+    public ArrayList<String> listMaritalStatus(PersistentOntology po) {
+        return getOntServicePortal().listMaritalStatus(po) ;
     }
 
-    public ArrayList<String> listOrgAffiliations() {
-        return getOntServicePortal().listOrgAffiliations() ;
+    public ArrayList<String> listOrgAffiliations(PersistentOntology po) {
+        return getOntServicePortal().listOrgAffiliations(po) ;
     }
 
-    public ArrayList<String> listProcAffiliations() {
-        return getOntServicePortal().listProcAffiliations() ;
+    public ArrayList<String> listProcAffiliations(PersistentOntology po) {
+        return getOntServicePortal().listProcAffiliations(po) ;
     }
 
-    public ArrayList<String> listProdAffiliations() {
-        return getOntServicePortal().listProdAffiliations() ;
+    public ArrayList<String> listProdAffiliations(PersistentOntology po) {
+        return getOntServicePortal().listProdAffiliations(po) ;
     }
 
-    public ArrayList<String> listProjAffiliations() {
-        return getOntServicePortal().listProjAffiliations() ;
+    public ArrayList<String> listProjAffiliations(PersistentOntology po) {
+        return getOntServicePortal().listProjAffiliations(po) ;
     }
 
-    public ArrayList<String> listResponsibilitys() {
-        return getOntServicePortal().listResponsibilitys() ;
+    public ArrayList<String> listResponsibilitys(PersistentOntology po) {
+        return getOntServicePortal().listResponsibilitys(po) ;
     }
 
-    public ArrayList<String> listRights() {
-        return getOntServicePortal().listRights() ;
+    public ArrayList<String> listRights(PersistentOntology po) {
+        return getOntServicePortal().listRights(po) ;
     }
 
-    public ArrayList<String> listSkills() {
-        return getOntServicePortal().listSkills() ;
+    public ArrayList<String> listSkills(PersistentOntology po) {
+        return getOntServicePortal().listSkills(po) ;
     }
 
-    public ArrayList<String> listTrainingObts() {
-        return getOntServicePortal().listTrainingObts() ;
+    public ArrayList<String> listTrainingObts(PersistentOntology po) {
+        return getOntServicePortal().listTrainingObts(po) ;
     }
 
-    public void createXMLTree(String filename, String cls) {
-        getOntServicePortal().createXMLTree(filename, cls);
+    public void createXMLTree(String filename, String cls, PersistentOntology po) {
+        getOntServicePortal().createXMLTree(filename, cls, po);
     }
 
-    public KnowledgeItem createKnowledgeItem(KnowledgeItem item) {
-        return getOntServicePortal().createKnowledgeItem(item) ;
+    public KnowledgeItem createKnowledgeItem(KnowledgeItem item, PersistentOntology po) {
+        return getOntServicePortal().createKnowledgeItem(item, po) ;
     }
 
     public AttributeControl getAttributeControl(String attributeName) {
@@ -260,12 +261,12 @@ public class CikpServiceImpl implements CikpService {
         this.fpService = fpService;
     }
 
-    public void writeOnt(OutputStream out) {
-        getOntServicePortal().writeOnt(out);
+    public void writeOnt(OutputStream out, PersistentOntology po) {
+        getOntServicePortal().writeOnt(out, po);
     }
 
-    public OrganizationActor createOrganizationActor(OrganizationActor actor) {
-        return getOntServicePortal().createOrganizationActor(actor) ;
+    public OrganizationActor createOrganizationActor(OrganizationActor actor, PersistentOntology po) {
+        return getOntServicePortal().createOrganizationActor(actor, po) ;
     }
 
     public SubscriptionPortal createSubscriptionPortal(SubscriptionPortal subscription) {
@@ -299,8 +300,8 @@ public class CikpServiceImpl implements CikpService {
         //OntologyControlsPortal control = getOntologyControls
     }
 
-    public ArrayList<String> getSubClasses(String name) {
-        return getOntServicePortal().listSubClasses(name) ;
+    public ArrayList<String> getSubClasses(String name, PersistentOntology po) {
+        return getOntServicePortal().listSubClasses(name, po) ;
     }
 
     /**
@@ -317,8 +318,12 @@ public class CikpServiceImpl implements CikpService {
         this.ontControlService = ontControlService;
     }
 
-    public List<String> listInstances(String name) {
-        return getOntServicePortal().listInstances(name) ;
+    public List<String> listInstances(String name, PersistentOntology po) {
+        return getOntServicePortal().listInstances(name, po) ;
+    }
+
+    public IndividualActor getIndividualActor(String name, PersistentOntology p) {
+        return getOntServicePortal().getIndividualActorByUsername(name, p) ;
     }
 
 }
