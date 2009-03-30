@@ -10,13 +10,13 @@ insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Nam
 insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('input', 'Name', 'Name')
 insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('input', 'Work_Phone_Number', 'Work_Phone_Number')
 insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('select', 'Ability', 'Ability') ;
-insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('select', 'Certificate_And_Licence', 'Certificate_And_Licence') ;
+insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('select', 'Certificate_And_License', 'Certificate_And_License') ;
 insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('select', 'Communication_Language', 'Communication_Language') ;
 insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('select', 'Education_Background', 'Education_Background')
 insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('select', 'Ethnicity', 'Ethnicity')
 insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('select', 'Experience', 'Experience')
 insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('select', 'Gender', 'Gender')
-insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('select', 'Information_And_Knowledge', 'Information_And_Knowledge')
+insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('select', 'Information_And_Knowledge_Need', 'Information_And_Knowledge_Need')
 insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('select', 'Geographic_Affiliation', 'Geographic_Affiliation')
 insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('select', 'Knowledge', 'Knowledge')
 insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('select', 'Marital_Status', 'Marital_Status')
