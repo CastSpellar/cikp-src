@@ -20,7 +20,7 @@
                     this.divContainer = 'ki_tree_div_container';
                     this.attributes_tree = new OntXTree('<s:url value="/ontxml/human_attribute.xml" />') ;
                     this.attributes_tree.genTree('ki_tree_div',
-                                    {'dropIds' : $w('input_box_ki'),
+                                    {'dropIds' : $w(''),
                                      'imgPath' : '<s:url value="/images/custom/" />',
                                      'checkbox' : 1}) ;
                     this.attributeController = new AttributeControl('added_ki_attributes');
