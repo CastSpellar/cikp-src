@@ -7,7 +7,6 @@
 			<item text="Information_And_Knowledge_Need" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Information_And_Knowledge_Need" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
 			<item text="Education_Background" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Education_Background" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
 			<item text="Certificate_And_License" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Certificate_And_License" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
-			<item text="Reputation" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Reputation" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
 			<item text="Training_Obtained" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Training_Obtained" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
 			<item text="Ability" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Ability" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
 			<item text="Skill" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Skill" im0="Class.ico" im1="Class.ico" im2="Class.ico" />

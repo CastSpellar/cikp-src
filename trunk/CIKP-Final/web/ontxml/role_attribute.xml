@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tree id="0" radio="1">
+    <item text="Role_Attribute" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Role_Attribute" im0="Class.ico" im1="Class.ico" im2="Class.ico">
+        <item text="Knowledge" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Knowledge" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+        <item text="Experience" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Experience" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+        <item text="Information_And_Knowledge_Need" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Information_And_Knowledge_Need" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+        <item text="Training_Obtained" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Training_Obtained" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+        <item text="Ability" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Ability" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+        <item text="Skill" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Skill" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+        <item text="Authority" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Authority" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+        <item text="Liability" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Liability" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+        <item text="Right" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Right" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+    </item>
+    <item text="Human_Affiliation" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Human_Affiliation" im0="Class.ico" im1="Class.ico" im2="Class.ico">
+        <item text="Project_Affiliation" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Project_Affiliation" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+        <item text="Process_Affiliation" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Process_Affiliation" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+        <item text="Product_Affiliation" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Product_Affiliation" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+        <item text="Organizational_Affiliation" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Organizational_Affiliation" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+        <item text="Event_Affiliation" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Event_Affiliation" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+    </item>
+</tree>
