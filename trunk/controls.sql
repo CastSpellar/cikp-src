@@ -21,6 +21,7 @@ insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Nam
 insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('select', 'Knowledge', 'Knowledge');
 insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('select', 'Marital_Status', 'Marital_Status');
 insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('select', 'Skill', 'Skill');
+insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('select', 'Training_Obtained', 'Training_Obtained');
 insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('select', 'COP_Affiliation', 'COP_Affiliation');
 insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('select', 'Organizational_Affiliation', 'Organizational_Affiliation');
 insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('input', 'Knowledge_Item_Creation_Date', 'Knowledge_Item_Creation_Date');
@@ -36,5 +37,6 @@ insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Nam
 insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('select', 'Knowledge_Item_Source', 'Knowledge_Item_Source');
 insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('select', 'Subject_Domain', 'Subject_Domain');
 insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('select', 'Event_Affiliation', 'Event_Affiliation');
+insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('select', 'Process_Affiliation', 'Process_Affiliation');
 insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('select', 'Product_Affiliation', 'Product_Affiliation');
 insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('select', 'Project_Affiliation', 'Project_Affiliation');
