@@ -31,6 +31,7 @@ import org.fct.unl.pt.cikp.data.ontology.ProcessServiceImpl;
 import org.fct.unl.pt.cikp.data.ontology.Project;
 import org.fct.unl.pt.cikp.data.ontology.ProjectService;
 import org.fct.unl.pt.cikp.data.ontology.ProjectServiceImpl;
+import org.fct.unl.pt.cikp.service.ontology.manager.PersistentOntology;
 import org.fct.unl.pt.cikp.service.ontology.manager.exceptions.MissingParamException;
 
 /**
@@ -48,41 +49,41 @@ public class OntServicePortalImpl implements OntServicePortal {
     private PhysicalProductService physicalProductService ;
     private OntService ontService ;
 
-    public IndividualActor createIndividualActor(IndividualActor actor) {
-        return getIndividualActorService().createActor(actor) ;
+    public IndividualActor createIndividualActor(IndividualActor actor, PersistentOntology p) {
+        return getIndividualActorService().createActor(actor, p) ;
     }
 
-    public IndividualActor getIndividualActorByUsername(String username) {
-        return getIndividualActorService().getIndividualActorByName(username) ;
+    public IndividualActor getIndividualActorByUsername(String username, PersistentOntology p) {
+        return getIndividualActorService().getIndividualActorByName(username, p) ;
     }
 
-    public OrganizationActor createOrganizationActor(OrganizationActor actor) {
-        return getOrganizationActorService().createOrganizationActor(actor) ;
+    public OrganizationActor createOrganizationActor(OrganizationActor actor, PersistentOntology p) {
+        return getOrganizationActorService().createOrganizationActor(actor, p) ;
     }
 
-    public OrganizationActor getOrganizationActorByUsername(String username) {
-        return getOrganizationActorService().getOrganizationActorByName(username) ;
+    public OrganizationActor getOrganizationActorByUsername(String username, PersistentOntology p) {
+        return getOrganizationActorService().getOrganizationActorByName(username, p) ;
     }
 
-    public KnowledgeItem createKnowledgeItem(KnowledgeItem item) {
-        return getKnowledgeItemService().createKnowledgeItem(item) ;
+    public KnowledgeItem createKnowledgeItem(KnowledgeItem item, PersistentOntology p) {
+        return getKnowledgeItemService().createKnowledgeItem(item, p) ;
     }
 
-    public Project createProject(Project proj) {
-        return getProjectService().createProject(proj) ;
+    public Project createProject(Project proj, PersistentOntology p) {
+        return getProjectService().createProject(proj, p) ;
     }
 
-    public Event createEvent(Event ev) {
-        return getEventService().createEvent(ev) ;
+    public Event createEvent(Event ev, PersistentOntology p) {
+        return getEventService().createEvent(ev, p) ;
     }
 
-    public Process createProcess(Process proc) {
-        return getProcessService().createProcess(proc) ;
+    public Process createProcess(Process proc, PersistentOntology p) {
+        return getProcessService().createProcess(proc, p) ;
     }
     
-    public void createXMLTree(String filename, String cls) {
+    public void createXMLTree(String filename, String cls, PersistentOntology p) {
         try {
-            getOntService().createXMLFileXTree(filename, cls);
+            getOntService().createXMLFileXTree(filename, cls, p);
         } catch (MissingParamException ex) {
             Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
@@ -90,16 +91,16 @@ public class OntServicePortalImpl implements OntServicePortal {
         }
     }
 
-    public PhysicalProduct createPhysicalProduct(PhysicalProduct prod) {
-        return getPhysicalProductService().createPhysicalProduct(prod) ;
+    public PhysicalProduct createPhysicalProduct(PhysicalProduct prod, PersistentOntology p) {
+        return getPhysicalProductService().createPhysicalProduct(prod, p) ;
     }
 
-    public ArrayList<String> listSkills() {
+    public ArrayList<String> listSkills(PersistentOntology p) {
         ArrayList<String> list = new ArrayList<String>() ;
         ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
         int counter = 0 ;
         try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Skill_Type", false);
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Skill_Type", false, p);
         } catch (IOException ex) {
             Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {
@@ -110,12 +111,12 @@ public class OntServicePortalImpl implements OntServicePortal {
         return list ;
     }
 
-    public ArrayList<String> listAbilitys() {
+    public ArrayList<String> listAbilitys(PersistentOntology p) {
         ArrayList<String> list = new ArrayList<String>() ;
         ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
         int counter = 0 ;
         try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Ability_Type", false);
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Ability_Type", false, p);
         } catch (IOException ex) {
             Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {
@@ -126,138 +127,12 @@ public class OntServicePortalImpl implements OntServicePortal {
         return list ;
     }
 
-    public ArrayList<String> listKnowledges() {
+    public ArrayList<String> listKnowledges(PersistentOntology p) {
         ArrayList<String> list = new ArrayList<String>() ;
         ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
         int counter = 0 ;
         try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Knowledge_Type", false);
-        } catch (IOException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (MissingParamException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return list ;
-    }
-    
-    public ArrayList<String> listCertificatesAndLicenses() {
-        ArrayList<String> list = new ArrayList<String>() ;
-        ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
-        int counter = 0 ;
-        try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Certificate_And_License_Type", false);
-        } catch (IOException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (MissingParamException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return list ;
-    }
-
-    public ArrayList<String> listCommLanguages() {
-        ArrayList<String> list = new ArrayList<String>() ;
-        ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
-        int counter = 0 ;
-        try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Language", false);
-        } catch (IOException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (MissingParamException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return list ;
-    }
-
-    public ArrayList<String> listEducationBGs() {
-        ArrayList<String> list = new ArrayList<String>() ;
-        ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
-        int counter = 0 ;
-        try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Education_Background_Type", false);
-        } catch (IOException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (MissingParamException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return list ;
-    }
-
-    public ArrayList<String> listEthnicitys() {
-        ArrayList<String> list = new ArrayList<String>() ;
-        ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
-        int counter = 0 ;
-        try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Ethnic_Group", false);
-        } catch (IOException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (MissingParamException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return list ;
-    }
-
-    public ArrayList<String> listExperiences() {
-        ArrayList<String> list = new ArrayList<String>() ;
-        ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
-        int counter = 0 ;
-        try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Experience_Type", false);
-        } catch (IOException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (MissingParamException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return list ;
-    }
-
-    public ArrayList<String> listInfoNeeds() {
-        ArrayList<String> list = new ArrayList<String>() ;
-        try {
-            getOntService().listAllInstancesOfClass(list, "Knowledge_Item");
-        } catch (IOException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (MissingParamException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return list ;
-    }
-
-    public ArrayList<String> listMaritalStatus() {
-        ArrayList<String> list = new ArrayList<String>() ;
-        ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
-        int counter = 0 ;
-        try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Marital_Status_Value", false);
-        } catch (IOException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (MissingParamException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return list ;
-    }
-
-    public ArrayList<String> listTrainingObts() {
-        ArrayList<String> list = new ArrayList<String>() ;
-        ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
-        int counter = 0 ;
-        try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Training_Type", false);
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Knowledge_Type", false, p);
         } catch (IOException ex) {
             Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {
@@ -268,12 +143,12 @@ public class OntServicePortalImpl implements OntServicePortal {
         return list ;
     }
     
-    public ArrayList<String> listAuthoritys() {
+    public ArrayList<String> listCertificatesAndLicenses(PersistentOntology p) {
         ArrayList<String> list = new ArrayList<String>() ;
         ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
         int counter = 0 ;
         try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Authority_Type", false);
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Certificate_And_License_Type", false, p);
         } catch (IOException ex) {
             Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {
@@ -284,12 +159,12 @@ public class OntServicePortalImpl implements OntServicePortal {
         return list ;
     }
 
-    public ArrayList<String> listLiabilitys() {
+    public ArrayList<String> listCommLanguages(PersistentOntology p) {
         ArrayList<String> list = new ArrayList<String>() ;
         ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
         int counter = 0 ;
         try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Liability_Type", false);
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Language", false, p);
         } catch (IOException ex) {
             Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {
@@ -300,12 +175,12 @@ public class OntServicePortalImpl implements OntServicePortal {
         return list ;
     }
 
-    public ArrayList<String> listResponsibilitys() {
+    public ArrayList<String> listEducationBGs(PersistentOntology p) {
         ArrayList<String> list = new ArrayList<String>() ;
         ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
         int counter = 0 ;
         try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Resposibility_Type", false);
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Education_Background_Type", false, p);
         } catch (IOException ex) {
             Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {
@@ -316,12 +191,74 @@ public class OntServicePortalImpl implements OntServicePortal {
         return list ;
     }
 
-    public ArrayList<String> listRights() {
+    public ArrayList<String> listEthnicitys(PersistentOntology p) {
         ArrayList<String> list = new ArrayList<String>() ;
         ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
         int counter = 0 ;
         try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Right_Type", false);
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Ethnic_Group", false, p);
+        } catch (IOException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MissingParamException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list ;
+    }
+
+    public ArrayList<String> listExperiences(PersistentOntology p) {
+        ArrayList<String> list = new ArrayList<String>() ;
+        ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
+        int counter = 0 ;
+        try {
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Experience_Type", false, p);
+        } catch (IOException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MissingParamException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list ;
+    }
+
+    public ArrayList<String> listInfoNeeds(PersistentOntology p) {
+        ArrayList<String> list = new ArrayList<String>() ;
+        try {
+            getOntService().listAllInstancesOfClass(list, "Knowledge_Item", p);
+        } catch (IOException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MissingParamException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list ;
+    }
+
+    public ArrayList<String> listMaritalStatus(PersistentOntology p) {
+        ArrayList<String> list = new ArrayList<String>() ;
+        ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
+        int counter = 0 ;
+        try {
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Marital_Status_Value", false, p);
+        } catch (IOException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MissingParamException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list ;
+    }
+
+    public ArrayList<String> listTrainingObts(PersistentOntology p) {
+        ArrayList<String> list = new ArrayList<String>() ;
+        ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
+        int counter = 0 ;
+        try {
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Training_Type", false, p);
         } catch (IOException ex) {
             Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {
@@ -332,96 +269,12 @@ public class OntServicePortalImpl implements OntServicePortal {
         return list ;
     }
     
-    public ArrayList<String> listEventAffiliations() {
-        ArrayList<String> list = new ArrayList<String>() ;
-        try {
-            getOntService().listAllInstancesOfClass(list, "Event");
-        } catch (IOException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (MissingParamException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return list ;
-    }
-    
-    public ArrayList<String> listOrgAffiliations() {
-        ArrayList<String> list = new ArrayList<String>() ;
-        try {
-            getOntService().listAllInstancesOfClass(list, "Organization_Actor");
-        } catch (IOException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (MissingParamException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return list ;
-    }
-
-    public ArrayList<String> listProcAffiliations() {
-        ArrayList<String> list = new ArrayList<String>() ;
-        try {
-            getOntService().listAllInstancesOfClass(list, "Process");
-        } catch (IOException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (MissingParamException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return list ;
-    }
-    
-    public ArrayList<String> listProdAffiliations() {
-        ArrayList<String> list = new ArrayList<String>() ;
-        try {
-            getOntService().listAllInstancesOfClass(list, "Product");
-        } catch (IOException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (MissingParamException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return list ;
-    }
-    
-    public ArrayList<String> listProjAffiliations() {
-        ArrayList<String> list = new ArrayList<String>() ;
-        try {
-            getOntService().listAllInstancesOfClass(list, "Project");
-        } catch (IOException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (MissingParamException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return list ;
-    }
-
-    public ArrayList<String> listCOPAffiliations() {
-        ArrayList<String> list = new ArrayList<String>() ;
-        try {
-            getOntService().listAllInstancesOfClass(list, "COP_Value");
-        } catch (IOException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (MissingParamException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return list ;
-    }
-
-    public ArrayList <String> listGeoAffiliations() {
+    public ArrayList<String> listAuthoritys(PersistentOntology p) {
         ArrayList<String> list = new ArrayList<String>() ;
         ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
         int counter = 0 ;
         try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Geographic_Area", false);
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Authority_Type", false, p);
         } catch (IOException ex) {
             Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {
@@ -432,12 +285,160 @@ public class OntServicePortalImpl implements OntServicePortal {
         return list ;
     }
 
-    public ArrayList <String> listLocations() {
+    public ArrayList<String> listLiabilitys(PersistentOntology p) {
         ArrayList<String> list = new ArrayList<String>() ;
         ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
         int counter = 0 ;
         try {
-            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Geographic_Area", false);
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Liability_Type", false, p);
+        } catch (IOException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MissingParamException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list ;
+    }
+
+    public ArrayList<String> listResponsibilitys(PersistentOntology p) {
+        ArrayList<String> list = new ArrayList<String>() ;
+        ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
+        int counter = 0 ;
+        try {
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Resposibility_Type", false, p);
+        } catch (IOException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MissingParamException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list ;
+    }
+
+    public ArrayList<String> listRights(PersistentOntology p) {
+        ArrayList<String> list = new ArrayList<String>() ;
+        ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
+        int counter = 0 ;
+        try {
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Right_Type", false, p);
+        } catch (IOException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MissingParamException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list ;
+    }
+    
+    public ArrayList<String> listEventAffiliations(PersistentOntology p) {
+        ArrayList<String> list = new ArrayList<String>() ;
+        try {
+            getOntService().listAllInstancesOfClass(list, "Event", p);
+        } catch (IOException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MissingParamException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list ;
+    }
+    
+    public ArrayList<String> listOrgAffiliations(PersistentOntology p) {
+        ArrayList<String> list = new ArrayList<String>() ;
+        try {
+            getOntService().listAllInstancesOfClass(list, "Organization_Actor", p);
+        } catch (IOException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MissingParamException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list ;
+    }
+
+    public ArrayList<String> listProcAffiliations(PersistentOntology p) {
+        ArrayList<String> list = new ArrayList<String>() ;
+        try {
+            getOntService().listAllInstancesOfClass(list, "Process", p);
+        } catch (IOException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MissingParamException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list ;
+    }
+    
+    public ArrayList<String> listProdAffiliations(PersistentOntology p) {
+        ArrayList<String> list = new ArrayList<String>() ;
+        try {
+            getOntService().listAllInstancesOfClass(list, "Product", p);
+        } catch (IOException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MissingParamException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list ;
+    }
+    
+    public ArrayList<String> listProjAffiliations(PersistentOntology p) {
+        ArrayList<String> list = new ArrayList<String>() ;
+        try {
+            getOntService().listAllInstancesOfClass(list, "Project", p);
+        } catch (IOException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MissingParamException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list ;
+    }
+
+    public ArrayList<String> listCOPAffiliations(PersistentOntology p) {
+        ArrayList<String> list = new ArrayList<String>() ;
+        try {
+            getOntService().listAllInstancesOfClass(list, "COP_Value", p);
+        } catch (IOException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MissingParamException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list ;
+    }
+
+    public ArrayList <String> listGeoAffiliations(PersistentOntology p) {
+        ArrayList<String> list = new ArrayList<String>() ;
+        ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
+        int counter = 0 ;
+        try {
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Geographic_Area", false, p);
+        } catch (IOException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MissingParamException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list ;
+    }
+
+    public ArrayList <String> listLocations(PersistentOntology p) {
+        ArrayList<String> list = new ArrayList<String>() ;
+        ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
+        int counter = 0 ;
+        try {
+            getOntService().listAbsoluteSubClasses(list, hierarchy, counter, "Geographic_Area", false, p);
         } catch (IOException ex) {
             Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {
@@ -560,16 +561,16 @@ public class OntServicePortalImpl implements OntServicePortal {
         this.physicalProductService = physicalProductService;
     }
 
-    public void writeOnt(OutputStream out) {
-        getOntService().writeOnt(out);
+    public void writeOnt(OutputStream out, PersistentOntology p) {
+        getOntService().writeOnt(out, p);
     }
 
-    public ArrayList<String> listSubClasses(String name) {
+    public ArrayList<String> listSubClasses(String name, PersistentOntology p) {
         ArrayList<String> results = new ArrayList<String>() ;
         ArrayList<Integer> hierarchy = new ArrayList<Integer>() ;
         int counter = 0 ;
         try {
-            getOntService().listAbsoluteSubClasses(results, hierarchy, counter, name, false);
+            getOntService().listAbsoluteSubClasses(results, hierarchy, counter, name, false, p);
         } catch (IOException ex) {
             Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {
@@ -580,10 +581,10 @@ public class OntServicePortalImpl implements OntServicePortal {
         return results ;
     }
 
-    public ArrayList<String> listInstances(String name) {
+    public ArrayList<String> listInstances(String name, PersistentOntology p) {
         ArrayList<String> res = new ArrayList<String>() ;
         try {
-            getOntService().listAllInstancesOfClass(res, name);
+            getOntService().listAllInstancesOfClass(res, name, p);
         } catch (IOException ex) {
             Logger.getLogger(OntServicePortalImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MissingParamException ex) {

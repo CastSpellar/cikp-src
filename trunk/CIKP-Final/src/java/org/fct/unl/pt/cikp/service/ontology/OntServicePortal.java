@@ -21,6 +21,7 @@ import org.fct.unl.pt.cikp.data.ontology.Project;
 import org.fct.unl.pt.cikp.data.ontology.ProjectService;
 import org.fct.unl.pt.cikp.data.ontology.Process;
 import org.fct.unl.pt.cikp.data.ontology.ProcessService;
+import org.fct.unl.pt.cikp.service.ontology.manager.PersistentOntology;
 
 /**
  *
@@ -28,73 +29,73 @@ import org.fct.unl.pt.cikp.data.ontology.ProcessService;
  */
 public interface OntServicePortal {
 
-   public IndividualActor createIndividualActor(IndividualActor actor) ;
+   public IndividualActor createIndividualActor(IndividualActor actor, PersistentOntology p) ;
 
-   public IndividualActor getIndividualActorByUsername(String username) ;
+   public IndividualActor getIndividualActorByUsername(String username, PersistentOntology p) ;
 
-    public OrganizationActor createOrganizationActor(OrganizationActor actor) ;
+    public OrganizationActor createOrganizationActor(OrganizationActor actor, PersistentOntology p) ;
 
-    public OrganizationActor getOrganizationActorByUsername(String username) ;
+    public OrganizationActor getOrganizationActorByUsername(String username, PersistentOntology p) ;
 
-    public KnowledgeItem createKnowledgeItem(KnowledgeItem item) ;
+    public KnowledgeItem createKnowledgeItem(KnowledgeItem item, PersistentOntology p) ;
 
-    public Project createProject(Project proj) ;
+    public Project createProject(Project proj, PersistentOntology p) ;
 
-    public Event createEvent(Event ev) ;
+    public Event createEvent(Event ev, PersistentOntology p) ;
 
-    public Process createProcess(Process proc) ;
+    public Process createProcess(Process proc, PersistentOntology p) ;
 
-    public void createXMLTree(String filename, String cls) ;
+    public void createXMLTree(String filename, String cls, PersistentOntology p) ;
 
-    public PhysicalProduct createPhysicalProduct(PhysicalProduct prod) ;
+    public PhysicalProduct createPhysicalProduct(PhysicalProduct prod, PersistentOntology p) ;
 
-    public ArrayList<String> listSkills() ;
+    public ArrayList<String> listSkills(PersistentOntology p) ;
 
-    public ArrayList<String> listAbilitys() ;
+    public ArrayList<String> listAbilitys(PersistentOntology p) ;
 
-    public ArrayList<String> listKnowledges() ;
+    public ArrayList<String> listKnowledges(PersistentOntology p) ;
 
-    public ArrayList<String> listCertificatesAndLicenses() ;
+    public ArrayList<String> listCertificatesAndLicenses(PersistentOntology p) ;
 
-    public ArrayList<String> listCommLanguages() ;
+    public ArrayList<String> listCommLanguages(PersistentOntology p) ;
 
-    public ArrayList<String> listEducationBGs() ;
+    public ArrayList<String> listEducationBGs(PersistentOntology p) ;
 
-    public ArrayList<String> listEthnicitys() ;
+    public ArrayList<String> listEthnicitys(PersistentOntology p) ;
 
-    public ArrayList<String> listExperiences() ;
+    public ArrayList<String> listExperiences(PersistentOntology p) ;
 
-    public ArrayList<String> listInfoNeeds() ;
+    public ArrayList<String> listInfoNeeds(PersistentOntology p) ;
 
-    public ArrayList<String> listMaritalStatus() ;
+    public ArrayList<String> listMaritalStatus(PersistentOntology p) ;
 
-    public ArrayList<String> listTrainingObts() ;
+    public ArrayList<String> listTrainingObts(PersistentOntology p) ;
 
-    public ArrayList<String> listAuthoritys() ;
+    public ArrayList<String> listAuthoritys(PersistentOntology p) ;
 
-    public ArrayList<String> listLiabilitys() ;
+    public ArrayList<String> listLiabilitys(PersistentOntology p) ;
 
-    public ArrayList<String> listResponsibilitys() ;
+    public ArrayList<String> listResponsibilitys(PersistentOntology p) ;
 
-    public ArrayList<String> listRights() ;
+    public ArrayList<String> listRights(PersistentOntology p) ;
 
-    public ArrayList<String> listEventAffiliations() ;
+    public ArrayList<String> listEventAffiliations(PersistentOntology p) ;
 
-    public ArrayList<String> listOrgAffiliations() ;
+    public ArrayList<String> listOrgAffiliations(PersistentOntology p) ;
 
-    public ArrayList<String> listProcAffiliations() ;
+    public ArrayList<String> listProcAffiliations(PersistentOntology p) ;
 
-    public ArrayList<String> listProdAffiliations() ;
+    public ArrayList<String> listProdAffiliations(PersistentOntology p) ;
 
-    public ArrayList<String> listProjAffiliations() ;
+    public ArrayList<String> listProjAffiliations(PersistentOntology p) ;
 
-    public ArrayList<String> listCOPAffiliations() ;
+    public ArrayList<String> listCOPAffiliations(PersistentOntology p) ;
 
-    public ArrayList <String> listGeoAffiliations() ;
+    public ArrayList <String> listGeoAffiliations(PersistentOntology p) ;
 
-    public ArrayList <String> listLocations() ;
+    public ArrayList <String> listLocations(PersistentOntology p) ;
 
-    public void writeOnt(OutputStream out) ;
+    public void writeOnt(OutputStream out, PersistentOntology p) ;
 
     /**
      * @return the individualActorService
@@ -175,8 +176,8 @@ public interface OntServicePortal {
      */
     public void setPhysicalProductService(PhysicalProductService physicalProductService) ;
 
-    public ArrayList<String> listSubClasses(String name) ;
+    public ArrayList<String> listSubClasses(String name, PersistentOntology p) ;
 
-    public ArrayList<String> listInstances(String name) ;
+    public ArrayList<String> listInstances(String name, PersistentOntology p) ;
 
 }

@@ -48,54 +48,54 @@ public class OntServiceImpl implements OntService {
 
     public OntServiceImpl() {}
 
-    public void createIndividual(String entitytype, String entityname) throws IOException, MissingParamException, ClassNotFoundException {
-        OntClass c = getClass(entitytype) ;
-        getPo().getModel().createIndividual(namespace + entityname, c) ;
+    public void createIndividual(String entitytype, String entityname, PersistentOntology p) throws IOException, MissingParamException, ClassNotFoundException {
+        OntClass c = getClass(entitytype, p) ;
+        p.getModel().createIndividual(namespace + entityname, c) ;
         return ;
     }
 
-    public Property getProperty(String propName) throws IOException, MissingParamException, ClassNotFoundException {
-        return getPo().getModel().getProperty(namespace + propName) ;
+    public Property getProperty(String propName, PersistentOntology p) throws IOException, MissingParamException, ClassNotFoundException {
+        return p.getModel().getProperty(namespace + propName) ;
     }
 
-    public OntClass getClass(String clsName) throws IOException, MissingParamException, ClassNotFoundException {
-        return getPo().getModel().getOntClass(namespace + clsName) ;
+    public OntClass getClass(String clsName, PersistentOntology p) throws IOException, MissingParamException, ClassNotFoundException {
+        return p.getModel().getOntClass(namespace + clsName) ;
     }
 
-    public Individual getIndividual(String indName) throws IOException, MissingParamException, ClassNotFoundException {
-        return getPo().getModel().getIndividual(namespace + indName) ;
+    public Individual getIndividual(String indName, PersistentOntology p) throws IOException, MissingParamException, ClassNotFoundException {
+        return p.getModel().getIndividual(namespace + indName) ;
     }
 
-    public String getIndividualLocalName(String indName) throws IOException, MissingParamException, ClassNotFoundException {
-        return getIndividual(indName).getLocalName() ;
+    public String getIndividualLocalName(String indName, PersistentOntology p) throws IOException, MissingParamException, ClassNotFoundException {
+        return getIndividual(indName, p).getLocalName() ;
     }
 
-    public String getIndividualURI(String indName) throws IOException, MissingParamException, ClassNotFoundException {
-        return getIndividual(indName).getURI() ;
+    public String getIndividualURI(String indName, PersistentOntology p) throws IOException, MissingParamException, ClassNotFoundException {
+        return getIndividual(indName, p).getURI() ;
     }
 
-    public void addLiteralByProperty(String prop, String entityname, Object value) throws IOException, MissingParamException, ClassNotFoundException {
-        Individual ind = getIndividual(entityname) ;
-        Property pr = getProperty(prop) ;
-        getPo().getModel().addLiteral(ind, pr, value) ;
+    public void addLiteralByProperty(String prop, String entityname, Object value, PersistentOntology p) throws IOException, MissingParamException, ClassNotFoundException {
+        Individual ind = getIndividual(entityname, p) ;
+        Property pr = getProperty(prop, p) ;
+        p.getModel().addLiteral(ind, pr, value) ;
     }
 
-    public String getIndividualClass(String indName) throws IOException, MissingParamException, ClassNotFoundException {
-        Individual ind = getIndividual(indName) ;
+    public String getIndividualClass(String indName, PersistentOntology p) throws IOException, MissingParamException, ClassNotFoundException {
+        Individual ind = getIndividual(indName, p) ;
         return ind.getOntClass().getLocalName() ;
     }
 
-    public ArrayList getIndividualByPropertyValue(String prop, Object value) throws IOException, MissingParamException, ClassNotFoundException {
-        ExtendedIterator iter = getPo().getModel().listIndividuals() ;
+    public ArrayList getIndividualByPropertyValue(String prop, Object value, PersistentOntology p) throws IOException, MissingParamException, ClassNotFoundException {
+        ExtendedIterator iter = p.getModel().listIndividuals() ;
         ArrayList<String> aux = new ArrayList<String>() ;
-        Property pr = getProperty(prop) ;
+        Property pr = getProperty(prop, p) ;
         Object obj = null ;
         while (iter.hasNext()) {
             Individual ind = (Individual) iter.next() ;
 
             Literal lit = (Literal) ind.getPropertyValue(pr) ;
             if(!lit.equals(obj)){
-                if(getLiteralByProperty(ind.getLocalName(), prop).equals(value)) {
+                if(getLiteralByProperty(ind.getLocalName(), prop, p).equals(value)) {
                     aux.add(ind.getLocalName()) ;
                 }
             }
@@ -103,23 +103,23 @@ public class OntServiceImpl implements OntService {
         return aux ;
     }
 
-    public void addIndividualToClass(String cls, String entityname) throws IOException, MissingParamException, ClassNotFoundException {
-        Individual ind = getIndividual(entityname) ;
-        OntClass c = getClass(cls) ;
+    public void addIndividualToClass(String cls, String entityname, PersistentOntology p) throws IOException, MissingParamException, ClassNotFoundException {
+        Individual ind = getIndividual(entityname, p) ;
+        OntClass c = getClass(cls, p) ;
         ind.addOntClass(c);
     }
 
 
-    public Object getLiteralByProperty(String entityname, String prop) throws IOException, MissingParamException, ClassNotFoundException {
-        Individual ind = getIndividual(entityname) ;
-        Property pr = getProperty(prop) ;
+    public Object getLiteralByProperty(String entityname, String prop, PersistentOntology p) throws IOException, MissingParamException, ClassNotFoundException {
+        Individual ind = getIndividual(entityname, p) ;
+        Property pr = getProperty(prop, p) ;
         Literal lit = (Literal) ind.getPropertyValue(pr) ;
         return lit.getValue() ;
     }
 
-    public void listAllInstancesOfClass(ArrayList<String> list, String cls) throws IOException, MissingParamException, ClassNotFoundException {
-        OntClass c = getClass(cls) ;
-        ExtendedIterator iter = getPo().getModel().listIndividuals(c) ;
+    public void listAllInstancesOfClass(ArrayList<String> list, String cls, PersistentOntology p) throws IOException, MissingParamException, ClassNotFoundException {
+        OntClass c = getClass(cls, p) ;
+        ExtendedIterator iter = p.getModel().listIndividuals(c) ;
         while(iter.hasNext()) {
             Individual instance = (Individual)iter.next() ;
             list.add(instance.getLocalName());
@@ -127,12 +127,12 @@ public class OntServiceImpl implements OntService {
         iter = c.listSubClasses(false) ;
         while (iter.hasNext()) {
             OntClass subC = (OntClass)iter.next() ;
-            listAllInstancesOfClass(list, subC.getLocalName());
+            listAllInstancesOfClass(list, subC.getLocalName(), p);
         }
     }
 
-    public ArrayList listDirectSubClasses(String cls) throws IOException, MissingParamException, ClassNotFoundException {
-        OntClass c = getClass(cls) ;
+    public ArrayList listDirectSubClasses(String cls, PersistentOntology p) throws IOException, MissingParamException, ClassNotFoundException {
+        OntClass c = getClass(cls, p) ;
         ArrayList<String> clsArray = new ArrayList<String>() ;
         for (ExtendedIterator iter = c.listSubClasses() ; iter.hasNext(); ) {
             OntClass aux = (OntClass) iter.next() ;
@@ -141,8 +141,8 @@ public class OntServiceImpl implements OntService {
         return clsArray ;
     }
 
-    public void listAbsoluteSubClasses(ArrayList<String> list, ArrayList<Integer> hierarchy, int counter, String cls, boolean bool) throws IOException, MissingParamException, ClassNotFoundException {
-        OntClass c = getClass(cls) ;
+    public void listAbsoluteSubClasses(ArrayList<String> list, ArrayList<Integer> hierarchy, int counter, String cls, boolean bool, PersistentOntology p) throws IOException, MissingParamException, ClassNotFoundException {
+        OntClass c = getClass(cls, p) ;
         if (!bool) {
             bool = true ;
         }
@@ -155,12 +155,12 @@ public class OntServiceImpl implements OntService {
         if(iter.hasNext()){
             while ( iter.hasNext() ) {
                 OntClass auxc = (OntClass) iter.next() ;
-                listAbsoluteSubClasses(list, hierarchy, counter, auxc.getLocalName(), true) ;
+                listAbsoluteSubClasses(list, hierarchy, counter, auxc.getLocalName(), true, p) ;
             }
         }
     }
 
-    public void createXMLFileXTree(String fileName, String supercls) throws MissingParamException, ClassNotFoundException {
+    public void createXMLFileXTree(String fileName, String supercls, PersistentOntology p) throws MissingParamException, ClassNotFoundException {
 
         String ENCODING = "ISO-8859-1" ;
 
@@ -172,8 +172,8 @@ public class OntServiceImpl implements OntService {
             out.println("<tree id=\"0\" radio=\"1\">");
             out.flush() ;
             ArrayList<String> list = new ArrayList<String>() ;
-            OntClass cls = getClass(supercls) ;
-            writeClassesXTree(cls, new ArrayList<OntClass>(), 0, out) ;
+            OntClass cls = getClass(supercls, p) ;
+            writeClassesXTree(cls, new ArrayList<OntClass>(), 0, out, p) ;
             /*
               out.println("<USER ID=\""+id[i]+"\" TYPE=\""+type[i]+"\">"+desc[i]+"</USER>");
             }*/
@@ -185,7 +185,7 @@ public class OntServiceImpl implements OntService {
         }
     }
 
-    private void writeClassesXTree(OntClass cls, ArrayList<OntClass> occurs, int depth, PrintWriter out){
+    private void writeClassesXTree(OntClass cls, ArrayList<OntClass> occurs, int depth, PrintWriter out, PersistentOntology p){
         boolean writeTerm = true ;
         if((!cls.isRestriction()) && (!cls.isAnon())) {
             for(int i = 0; i < depth + 1; i++){
@@ -202,7 +202,7 @@ public class OntServiceImpl implements OntService {
 
                         // we push this expression on the occurs list before we recurse
                         occurs.add( cls );
-                        writeClassesXTree(sub, occurs, depth + 1, out) ;
+                        writeClassesXTree(sub, occurs, depth + 1, out, p) ;
                         occurs.remove( cls );
                     }
                 }
@@ -222,36 +222,11 @@ public class OntServiceImpl implements OntService {
 
     }
 
-    /**
-     * @return the po
-     */
-    public PersistentOntology getPo() throws IOException, MissingParamException, ClassNotFoundException  {
-        po = new PersistentOntologyImpl() ;
-        po.setS_reload(false) ;
-        po.setConfigFilePath(getConfigFilePath()) ;
-        return po;
-    }
-
-    /**
-     * @param po the po to set
-     */
-    public void setPo(PersistentOntology po) {
-        this.po = po;
-    }
-
     public OntModel getM() throws IOException, MissingParamException, ClassNotFoundException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public void writeOnt(OutputStream out) {
-        try {
-            getPo().writeOnt(out);
-        } catch (IOException ex) {
-            Logger.getLogger(OntServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (MissingParamException ex) {
-            Logger.getLogger(OntServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(OntServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public void writeOnt(OutputStream out, PersistentOntology p) {
+        p.writeOnt(out);
     }
 }
