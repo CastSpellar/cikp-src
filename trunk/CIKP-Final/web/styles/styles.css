@@ -249,7 +249,7 @@ body {
     display: block;
 }
 
-#left #attr_control_div
+#left .attr_control_div
 {
     float: right;
     padding-right: 15px;

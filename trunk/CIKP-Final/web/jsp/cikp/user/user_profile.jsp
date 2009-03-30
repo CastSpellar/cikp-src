@@ -13,56 +13,153 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title><s:text name="userprofile.title" />"</title>
         <script>
+            /*
+                <s:url value="/ontxml/human_attribute.xml" />
+            */
 
-            var tree ;
-            var human_attributes_tree ;
-            var attrControl ;
-            var service ;
-            //var ui_manager ;
-            var attributeController ;
+            var RoleController = Class.create({
+                initialize: function(roleName,attributeXMLURL, options ) {
+                    this.roleName = roleName;
+                    this.attributeXMLURL = attributeXMLURL;
 
-            function init() {
-                tree = new OntXTree('<s:url value="/ontxml/teste2.xml" />') ;
-                tree.genTree('tree_div', {'dropIds' : $w('DefineActor_actortype'), 'imgPath' : '<s:url value="/images/custom/" />'}) ;
-                human_attributes_tree = new OntXTree('<s:url value="/ontxml/human_attribute.xml" />') ;
-                human_attributes_tree.genTree('atributes_tree_div', {'dropIds' : $w('DefineActor_actortype'), 'imgPath' : '<s:url value="/images/custom/" />', 'checkbox' : 1}) ;
-                service = new CIKPWebService(serviceURL);
-                attrControl = new AttributeControl('added_controls');
-                <%--ui_manager = new UiAttrManager('<s:url value="/ontxml/human_attribute_conf.xml" />', 'actor_div', 'human_attr_tab') ;--%>
-                attributeController = new AttributeControl('added_controls');
+                    if (Object.isUndefined(options) == true){
+                        // Role Div IDs
+                        this.roleDiv = this.roleName+'_div';
+                        this.inputBox = 'DefineActor_' + this.roleName;
+                        this.added_controls_table = 'added_controls_' + this.roleName;
+                        this.attr_control_table = 'attr_control_table_' + this.roleName;
 
-            }
+                        // Role Hidden Tree Id's'
+                        this.roleAttributeTreeDivContainer = 'attributes_tree_div_container_'+this.roleName;
+                        this.atributes_tree_div = 'atributes_tree_div_' + this.roleName;
+                        this.attribute_control_div = 'attr_control_div_'+this.roleName;
 
-            function addRolePrototype() {
-                var tabRow = new Element('tr') ;
-                tabRow.update(new Element('td', {'width':'15%'}).update('<s:text name="userprofile.role" />')) ;
-                tabRow.insert(new Element('td', {'width':'35%'}).update('<s:textfield name="roles" />')) ;
-                tabRow.insert(new Element('td', {'collspan': '2'})) ;
-                var nextRow = new Element('tr') ;
-                nextRow.
-                    insert(new Element('td', {'colspan':'4', 'align':'right'}).
-                    update(new Element('input' , {'class':'button', 'value':'<s:text name="userprofile.addattr" />', 'onclick':'alert(\'Available Soon\')', 'type':'button'}))) ;
-                var tab = new Element('table').update(tabRow)
-                tab.insert(nextRow) ;
-                var newRole_div = new Element('div', {'class':'box'}).
-                    update(tab) ;
-                $('right').insertBefore(newRole_div, $('right').lastChild.previousSibling) ;
-            }
+                        this.createRoleDiv();
+                        this.createRoleAttributeDiv();
+                    } else {
+                        this.roleDiv = options.roleDiv;
+                        this.inputBox = options.inputBox;
+                        this.added_controls_table = options.added_controls_table;
+                        this.attr_control_table = options.attr_control_table;
 
-            function removeRole(id) {
+                        // Role Hidden Tree Id's'
+                        this.roleAttributeTreeDivContainer = options.roleAttributeTreeDivContainer;
+                        this.atributes_tree_div = options.atributes_tree_div;
+                        this.attribute_control_div = options.attribute_control_div;
 
-            }
+                        if(options.createDivs == true){
+                            this.createRoleDiv();
+                            this.createRoleAttributeDiv();
+                        }
+                    }
+
+                    this.attributes_tree = new OntXTree(this.attributeXMLURL) ;
+                    this.attributes_tree.genTree(this.atributes_tree_div,
+                                    {'dropIds' : $w(this.inputBox),
+                                     'imgPath' : '<s:url value="/images/custom/" />',
+                                     'checkbox' : 1}) ;
+                    this.attributeController = new AttributeControl(this.added_controls_table);
+                },
+                
+                addAttributesBtnClick: function (){
+
+                    var checked = this.attributes_tree.getAllChecked() ;
+                    if(checked == ''){
+                        this.attributeController.insertAttributeControlList([]);
+                        this.hideAttrTree() ;
+                        return ;
+                    }
+
+                    checked = checked.replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#Human_Attribute ', '') ;
+                    checked = checked.replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#Human_Abstract_Attribute ', '') ;
+                    checked = checked.replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#Human_Physical_Attribute ', '') ;
+                    checked = checked.replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#Human_Affiliation ', '') ;
+                    checked = checked.replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#Personal_Contact_Number ', '') ;
+                    checked = checked.replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#Contact_Address ', '') ;
+                    checked = checked.replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#Work_Contact_Number ', '') ;
+                    //alert(checked) ;
+                    var checkedArr = checked.split(' ') ;
+                    var index = 0 ;
+                    while(index < checkedArr.length) {
+                        checkedArr[index] = checkedArr[index].replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#', '') ;
+                        index++ ;
+                    }
+                    this.attributeController.insertAttributeControlList(checkedArr);
+                    this.hideAttrTree() ;
+                },
+                
+                createRoleDiv: function(){
+                    var tabRow = new Element('tr') ;
+                    tabRow.update(new Element('td', {'width':'15%'}).update('<s:text name="userprofile.role" />')) ;
+                    //tabRow.insert(new Element('td', {'width':'35%'}).update('<s:textfield name="roles" />')) ;
+                    tabRow.insert(new Element('td', {'width':'35%'}).update(new Element('input',{'type':'text',
+                                                                                                 'id':this.inputBox }))) ;
+
+                    tabRow.insert(new Element('td', {'collspan': '2'})) ;
+                    var table = new Element('table').update(tabRow);
+
+                    var attr_added_controls = new Element('table', { 'id' : this.added_controls_table});
+                    var attr_control_table = new Element('table', { 'id' : this.attr_control_table}).
+                        insert(new Element('td', {'colspan':'4', 'align':'right'}).
+                        update(new Element('input' , {'class':'button',
+                                                      'value':'<s:text name="userprofile.additem" />',
+                                                      'onclick':'roleManager.getRole("'+this.roleName+'").showAttrTree();',
+                                                      'type':'button'}))) ;
+
+                    var newRole_div = new Element('div', {'class':'box' , 'id': this.roleDiv }).
+                        update(table).insert(attr_added_controls).insert(attr_control_table) ;
+
+                    $('right').insertBefore(newRole_div, $('right').lastChild.previousSibling) ;
+                },
+
+                createRoleAttributeDiv: function(){
+                    var h3 = new Element('h3').update('<s:text name="userprofile.attributestree" />');
+                    var roleAttributeTreeDivContainer = new Element('div',{'class':'hidden_tree' ,
+                                                                           'id' : this.roleAttributeTreeDivContainer});
+                    var roleAttributeTreeDiv = new Element('div',{'class':'title_back',
+                                                                  'id' : this.atributes_tree_div });
+                    var roleAttributeControlDiv = new Element('div',{'id':this.attribute_control_div,
+                                                                     'class':'attr_control_div'})
+                                            .update(new Element('input',{'type':'button',
+                                                                         'class':'button',
+                                                                         'value':'<s:text name="userprofile.addattr" />',
+                                                                         'onclick':'roleManager.getRole("'+this.roleName+'").addAttributesBtnClick();' }));
+
+                    roleAttributeTreeDivContainer.update(h3).insert(roleAttributeTreeDiv).insert(roleAttributeControlDiv);
+                    $('left_back').insert(roleAttributeTreeDivContainer);
+                },
+
+                showAttrTree : function(){
+                    $(this.roleAttributeTreeDivContainer).removeClassName('hidden_tree') ;
+                    $(this.roleAttributeTreeDivContainer).addClassName('show_tree');
+                },
+
+                hideAttrTree: function () {
+                    $(this.roleAttributeTreeDivContainer).removeClassName('show_tree') ;
+                    $(this.roleAttributeTreeDivContainer).addClassName('hidden_tree');
+                }
+                
+            });
+
+            var RoleManager = Class.create({
+                initialize: function() {
+                    this.roles = new $H() ;
+                },
+                
+                addRole: function (attributeXMLURL,options) {
+                    var roleName;
+                    if (Object.isUndefined(options) == false) roleName = options.name;
+                    else                                      roleName = 'Role' + this.roles.size();
+                    this.roles.set(roleName, new RoleController(roleName,attributeXMLURL,options) );
+                    return roleName;
+                },
+
+                getRole: function (roleName){
+                    return this.roles.get(roleName);
+                }
+            });
 
             function showHumanAttrTree(){
-                /*var human_attributes_tree_div = new Element('div', { 'class': 'show_tree', id: 'atributes_tree_div' }) ;
-                alert('div created') ;
-                $('left_back').appendChild(human_attributes_tree_div);
-                alert('div added') ;*/
-                // insert it in the document
-                /*var human_attributes_tree = new OntXTree('<s:url value="/ontxml/human_attribute.xml" />') ;
-                alert('tree created') ;
-                human_attributes_tree.genTree('atributes_tree_div', {'dropIds' : $w('DefineActor_actortype'), 'imgPath' : '<s:url value="/images/custom/" />', 'checkbox' : 1}) ;
-                alert('tree generated') ;*/
                 $('attributes_tree_div_container').removeClassName('hidden_tree') ;
                 $('attributes_tree_div_container').addClassName('show_tree');
             }
@@ -72,56 +169,33 @@
                 $('attributes_tree_div_container').addClassName('hidden_tree');
             }
 
-            function getAllChecked() {
-                alert(human_attributes_tree.getAllChecked());
+            var humanRole;
+            var tree;
+
+            var roleManager = new RoleManager();
+
+            var humanOptions = {
+                name : 'HumanRole',
+                // Role Div IDs
+                roleDiv : this.roleName+'_div',
+                inputBox : 'DefineActor',
+                added_controls_table : 'added_controls',
+                attr_control_table : 'attr_control_tab',
+
+                roleAttributeTreeDivContainer : 'attributes_tree_div_container',
+                atributes_tree_div : 'atributes_tree_div',
+                attribute_control_div : 'attr_control_div',
+                createDivs : false
+            };
+
+            function load(){
+                tree = new OntXTree('<s:url value="/ontxml/teste2.xml" />') ;
+                tree.genTree('tree_div', {'dropIds' : $w('DefineActor_actortype'), 'imgPath' : '<s:url value="/images/custom/" />'}) ;
+
+                humanRole = roleManager.addRole('<s:url value="/ontxml/human_attribute.xml" />',humanOptions);
             }
 
-            function addAttributesBtnClick(){
-                var checked = human_attributes_tree.getAllChecked() ;
-                if(checked == '')
-                    return ;
-                checked = checked.replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#Human_Attribute ', '') ;
-                checked = checked.replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#Human_Abstract_Attribute ', '') ;
-                checked = checked.replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#Human_Physical_Attribute ', '') ;
-                checked = checked.replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#Human_Affiliation ', '') ;
-                checked = checked.replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#Personal_Contact_Number ', '') ;
-                checked = checked.replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#Contact_Address ', '') ;
-                checked = checked.replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#Work_Contact_Number ', '') ;
-                //alert(checked) ;
-                var checkedArr = checked.split(' ') ;
-                var index = 0 ;
-                while(index < checkedArr.length) {
-                    checkedArr[index] = checkedArr[index].replace('http://www.jinyuezhang.com/work/ontology/Actor.owl#', '') ;
-                    index++ ;
-                }
-                //var tab = ui_manager.generateTable(checkedArr) ;
-
-                attributeController.insertAttributeControlList(checkedArr);
-
-                //ui_manager.generateTable(checkedArr) ;
-                hideHumanAttrTree() ;
-                //$('right').appendChild(tab) ;
-                //var table = manager.generateTable() ;
-            }
-
-        </script>
-        <script type="text/javascript">
-            if ( typeof window.addEventListener != "undefined" )
-                window.addEventListener( "load", init, false );
-            else if ( typeof window.attachEvent != "undefined" ) {
-                window.attachEvent( "onload", init );
-            }
-            else {
-                if ( window.onload != null ) {
-                    var oldOnload = window.onload;
-                    window.onload = function ( e ) {
-                        oldOnload( e );
-                        init();
-                    };
-                }
-                else
-                    window.onload = init;
-            }
+            document.observe('dom:loaded',load);
         </script>
     </head>
     <body>
@@ -298,7 +372,7 @@
                     <table align="center">
                         <tr>
                             <td colspan="4" align="right">
-                                <input type="button" value="<s:text name="userprofile.addrole" />" onclick="addRolePrototype() ;" class="button" />
+                                <input type="button" value="<s:text name="userprofile.addrole" />" onclick="roleManager.addRole('<s:url value="/ontxml/human_attribute.xml" />');" class="button" />
                                 <s:submit key="userprofile.submit" cssClass="button" />
                                 <input type="button" value="<s:text name="userprofile.cancel" />" onclick="window.location.href='<s:url action="user_interface" />'" class="button" />
                             </td>
@@ -317,8 +391,8 @@
                     <h3><s:text name="userprofile.attributestree" /></h3>
                     <div id="atributes_tree_div" class="title_back">
                     </div>
-                    <div id="attr_control_div">
-                        <input type="button" value="<s:text name="userprofile.additem" />" class="button" onclick="addAttributesBtnClick();" />
+                    <div id="attr_control_div" class="attr_control_div">
+                        <input type="button" value="<s:text name="userprofile.addattr" />" class="button" onclick="roleManager.getRole(humanRole).addAttributesBtnClick();" />
                     </div>
                 </div>
             </div>
