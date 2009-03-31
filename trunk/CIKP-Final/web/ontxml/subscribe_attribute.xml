@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tree id="0" radio="1">
+	<item text="Knowledge_Item_Attribute" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Knowledge_Item_Attribute" im0="Class.ico" im1="Class.ico" im2="Class.ico">
+		<item text="Knowledge_Item_Type" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Knowledge_Item_Type" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+		<item text="Knowledge_Item_Copywright_Owner" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Knowledge_Item_Copywright_Owner_inst" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+		<item text="Knowledge_Item_Keyword" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Knowledge_Item_Keyword" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+		<item text="Knowledge_Item_File_Type" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Knowledge_Item_File_Type_Value" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+		<item text="Knowledge_Item_File_Size" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Knowledge_Item_File_Size" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+		<item text="Knowledge_Item_Composition_Language" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Language" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+		<item text="Knowledge_Item_Source" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Individual_Actor_inst" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+		<item text="Knowledge_Item_Subject_Domain" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Subject_Domain" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+		<item text="Knowledge_Item_Security_Clearance" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Knowledge_Item_Security_Clearance" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+		<item text="Knowledge_Item_Destination" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Knowledge_Item_Destination" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+		<item text="Knowledge_Item_Author" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Individual_Actor_inst" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+		<item text="Knowledge_Item_File_Name" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Knowledge_Item_File_Name" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+    </item>
+</tree>
