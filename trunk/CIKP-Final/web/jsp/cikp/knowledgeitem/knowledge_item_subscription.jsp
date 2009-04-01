@@ -18,7 +18,7 @@
             var AttributeManager = Class.create({
                 initialize: function(){
                     this.divContainer = 'ki_tree_div_container';
-                    this.attributes_tree = new OntXTree('<s:url value="/ontxml/human_attribute.xml" />') ;
+                    this.attributes_tree = new OntXTree('<s:url value="/ontxml/subscribe_attribute.xml" />') ;
                     this.attributes_tree.genTree('ki_tree_div',
                                     {'dropIds' : $w(''),
                                      'imgPath' : '<s:url value="/images/custom/" />',
@@ -95,7 +95,7 @@
                                 <s:text name="knowledgeitem.subscribetype" />
                             </td>
                             <td>
-                                <s:textfield id="input_box_ki" name="kisubscribetype" />
+                                <s:textfield id="input_box_ki" name="knowledge_item_type" />
                             </td>
                         </tr>
                         <tr>
@@ -103,18 +103,18 @@
                                 <br />
                             </td>
                         </tr>
-                        <tr>
+                        <%--<tr>
                             <td class="fieldName">
                                 <s:text name="knowledgeitem.subscribefiletype" />
                             </td>
                             <td class="fieldValue">
-                                <s:select name="kisubscribefiletype" headerKey="-1" headerValue="-- Select File Type --" list="{'.doc', '.pdf'}" />
+                                <s:select name="knowledgeItemFileType" headerKey="-1" headerValue="-- Select File Type --" list="{'.doc', '.pdf'}" />
                             </td>
                             <td class="fieldName">
                                 <s:text name="knowledgeitem.subscribesubjectdomain" />
                             </td>
                             <td class="fieldValue">
-                                <s:select name="kisubscribesubjectdomain" headerKey="-1" headerValue="-- Select Domain Subject --" list="{'domain_1', 'domain_2'}" />
+                                <s:select name="subjectDomain" headerKey="-1" headerValue="-- Select Domain Subject --" list="{'domain_1', 'domain_2'}" />
                             </td>
                         </tr>
                         <tr>
@@ -122,9 +122,9 @@
                                 <s:text name="knowledgeitem.subscribekeyword" />
                             </td>
                             <td class="fieldValue">
-                                <s:textfield name="kisubscribekeyword" />
+                                <s:textfield name="keywordPortals.keyword" />
                             </td>
-                            <td class="fieldName">
+                            <%--<td class="fieldName">
                                 <s:text name="knowledgeitem.subscribegeoaffiliation" />
                             </td>
                             <td class="fieldValue">
@@ -142,14 +142,14 @@
                                 <s:text name="knowledgeitem.subscribecomlanguage" />
                             </td>
                             <td class="fieldValue">
-                                <s:select name="kisubscribecomlanguage" headerKey="-1" headerValue="-- Select Composition Language --" list="{'English', 'Portuguese'}" />
+                                <s:select name="knowledgeItemCompositionLanguage" headerKey="-1" headerValue="-- Select Composition Language --" list="{'English', 'Portuguese'}" />
                             </td>
                         </tr>
                         <tr>
                             <td colspan="4">
                                 <br />
                             </td>
-                        </tr>
+                        </tr>--%>
                     </table>
                     <table id="added_ki_attributes"></table>
                     <table id="ki_attr_control_tab">

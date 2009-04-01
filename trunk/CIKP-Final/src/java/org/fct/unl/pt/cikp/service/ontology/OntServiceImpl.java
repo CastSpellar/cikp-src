@@ -114,7 +114,10 @@ public class OntServiceImpl implements OntService {
         Individual ind = getIndividual(entityname, p) ;
         Property pr = getProperty(prop, p) ;
         Literal lit = (Literal) ind.getPropertyValue(pr) ;
-        return lit.getValue() ;
+        if(lit == null)
+            return null ;
+        else
+            return lit.getValue() ;
     }
 
     public void listAllInstancesOfClass(ArrayList<String> list, String cls, PersistentOntology p) throws IOException, MissingParamException, ClassNotFoundException {

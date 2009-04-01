@@ -33,6 +33,7 @@ insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Nam
 insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('select', 'Knowledge_Item_Copyright_Owner', 'Actor');
 insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('input', 'Knowledge_Item_Destination', 'Knowledge_Item_Destination');
 insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('select', 'Knowledge_Item_File_Type', 'Knowledge_Item_File_Type_Value');
+insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('input', 'Knowledge_Item_File_Name', 'Knowledge_Item_File_Name');
 insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('input', 'Knowledge_Item_Security_Clearance', 'Knowledge_Item_Security_Clearance');
 insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('select', 'Knowledge_Item_Source', 'Actor');
 insert into cikp.ontology_controls_portal(Control_Type, Control_Id, Property_Name) values('select', 'Subject_Domain', 'Subject_Domain');

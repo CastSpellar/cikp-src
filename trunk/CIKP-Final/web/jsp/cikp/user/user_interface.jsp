@@ -191,18 +191,18 @@
                         </td>
                         <td>
                             <%--CIKP_doc--%>
-                            <s:property value="name" />
+                            <s:property value="knowledge_item_file_name" />
                         </td>
                         <td>
 
                             <%--Something--%>
                         </td>
                         <td>
-                            <s:property value="knowledgeItemCreationDate" />
+                            <s:property value="knowledge_item_creation_date" />
                             <%--Today--%>
                         </td>
                         <td>
-                            <s:property value="knowledgeItemSource" />
+                            <s:property value="knowledge_item_source" />
                             <%--Bruno Oliveira--%>
                         </td>
                         <td>

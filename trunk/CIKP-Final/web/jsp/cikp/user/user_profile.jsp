@@ -93,7 +93,8 @@
                     tabRow.update(new Element('td', {'width':'15%'}).update('<s:text name="userprofile.role" />')) ;
                     //tabRow.insert(new Element('td', {'width':'35%'}).update('<s:textfield name="roles" />')) ;
                     tabRow.insert(new Element('td', {'width':'35%'}).update(new Element('input',{'type':'text',
-                                                                                                 'id':this.inputBox }))) ;
+                                                                                                 'id':this.inputBox,
+                                                                                                  'name' : 'roles.role_type'}))) ;
 
                     tabRow.insert(new Element('td', {'collspan': '2'})) ;
                     var table = new Element('table').update(tabRow);
@@ -232,13 +233,13 @@
                                 <s:text name="userprofile.givenname" />
                             </td>
                             <td class="fieldValue">
-                                <s:textfield name="givenname" />
+                                <s:textfield name="given_name" />
                             </td>
                             <td class="fieldName">
                                 <s:text name="userprofile.familyname" />
                             </td>
                             <td class="fieldValue">
-                                <s:textfield name="familyname" />
+                                <s:textfield name="family_name" />
                             </td>
                         </tr>
                         <%--<tr>
@@ -274,8 +275,8 @@
                                 <s:text name="userprofile.comunicationlanguage" />
                             </td>
                             <td class="fieldName">
-                                <s:textfield name="comunication_language" />
-                                <%--<s:select name="comunication_language" headerKey="-1" headerValue="-- Select --" list="#session['comm_lang']" />--%>
+                                <%--<s:textfield name="comunication_language" />--%>
+                                <s:select name="comunication_language" headerKey="-1" headerValue="-- Select --" list="#session['comm_lang']" />
                             </td>
                             <td class="fieldName">
                                 <s:text name="userprofile.geographicaffiliation" />
@@ -313,7 +314,7 @@
 
                     </table>
                 </div>
-                <s:iterator value="#session['actor'].roles">
+                <s:iterator value="actor.roles">
                     <div class="box" id="role_div">
                         <table id="roletable">
                             <tr>
@@ -321,7 +322,7 @@
                                     <s:text name="userprofile.role" />
                                 </td>
                                 <td width="35%">
-                                    <s:textfield name="roles" />
+                                    <s:textfield name="role_type" />
                                 </td>
                                 <td colspan="2">
                                     &nbsp;

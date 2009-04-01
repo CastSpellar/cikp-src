@@ -18,7 +18,7 @@
             var AttributeManager = Class.create({
                 initialize: function(){
                     this.divContainer = 'ki_tree_div_container';
-                    this.attributes_tree = new OntXTree('<s:url value="/ontxml/human_attribute.xml" />') ;
+                    this.attributes_tree = new OntXTree('<s:url value="/ontxml/knowledge_item_attribute.xml" />') ;
                     this.attributes_tree.genTree('ki_tree_div',
                                     {'imgPath' : '<s:url value="/images/custom/" />',
                                      'checkbox' : 1}) ;
@@ -69,7 +69,7 @@
                 attributeManager = new AttributeManager();
 
                 var tree = new OntXTree('<s:url value="/ontxml/teste2.xml" />') ;
-                tree.genTree('tree_div', {'dropIds' : $w('DefineKnowledgeItem_kitype'), 'imgPath' : '<s:url value="/images/custom/" />'}) ;
+                tree.genTree('tree_div', {'dropIds' : $w('ki_type'), 'imgPath' : '<s:url value="/images/custom/" />'}) ;
             }
 
             document.observe('dom:loaded',init);
@@ -107,7 +107,7 @@
                                 <s:text name="Type:" />
                             </td>
                             <td>
-                                <s:textfield name="knowledge_item_type" />
+                                <s:textfield name="knowledge_item_type" id="ki_type" />
                             </td>
                         </tr>
                      </table>
@@ -118,6 +118,12 @@
                             </td>
                             <td class="fieldValue">
                                 <s:select name="subject_domain" headerKey="-1" headerValue="-- Select --" list="#session['subject_domains']" />
+                            </td>
+                            <td>
+                                <s:text name="File Type:" />
+                            </td>
+                            <td>
+                                <s:textfield name="knowledge_item_file_type" />
                             </td>
                         </tr>
                     </table>

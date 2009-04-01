@@ -8,8 +8,13 @@ package org.fct.unl.pt.cikp.actions.login;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.ArrayList;
 import java.util.Map;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ApplicationAware;
+import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
+import org.apache.struts2.util.ServletContextAware;
 import org.fct.unl.pt.cikp.constants.Constants;
 import org.fct.unl.pt.cikp.data.ontology.IndividualActor;
 import org.fct.unl.pt.cikp.data.portal.UserPortal;
@@ -34,11 +39,15 @@ public class Login extends ActionSupport implements SessionAware, ApplicationAwa
 
     @Override
     public String execute() throws Exception {
+        String serverPath = ServletActionContext.getServletContext()
+                .getRealPath("/jenaconf/config.xml");
         PersistentOntology po = (PersistentOntology) appVars.get(Constants.PO) ;
         if(po == null) {
             po = new PersistentOntologyImpl() ;
             po.setS_reload(false) ;
-            po.setConfigFilePath("c:/config.xml") ;
+            
+
+            po.setConfigFilePath(serverPath) ;
             appVars.put(Constants.PO, po) ;
         }
         /*ArrayList<String> knowledges = getCikpService().listKnowledges() ;
@@ -51,8 +60,6 @@ public class Login extends ActionSupport implements SessionAware, ApplicationAwa
         u.setUserUsername(getUserUsername()) ;
         u.setUserPassword(getUserPassword()) ;
         u = getCikpService().authenticateUser(u) ;
-        IndividualActor actor = getCikpService().getIndividualActor(u.getUserUsername(), po);
-        session.put(Constants.ACTOR, actor) ;
         session.put(Constants.USER, u) ;
         return SUCCESS ;
     }

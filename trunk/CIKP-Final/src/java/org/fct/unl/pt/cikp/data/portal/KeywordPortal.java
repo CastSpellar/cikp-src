@@ -1,5 +1,5 @@
 package org.fct.unl.pt.cikp.data.portal;
-// Generated 29/Mar/2009 7:11:13 by Hibernate Tools 3.2.1.GA
+// Generated 1/Abr/2009 0:12:44 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -27,6 +27,7 @@ public class KeywordPortal  implements java.io.Serializable {
      private Integer keywordId;
      private String keyword;
      private Set<KnowledgeItemPortal> knowledgeItemPortals = new HashSet<KnowledgeItemPortal>(0);
+     private Set<SubscriptionPortal> subscriptionPortals = new HashSet<SubscriptionPortal>(0);
 
     public KeywordPortal() {
     }
@@ -35,9 +36,10 @@ public class KeywordPortal  implements java.io.Serializable {
     public KeywordPortal(String keyword) {
         this.keyword = keyword;
     }
-    public KeywordPortal(String keyword, Set<KnowledgeItemPortal> knowledgeItemPortals) {
+    public KeywordPortal(String keyword, Set<KnowledgeItemPortal> knowledgeItemPortals, Set<SubscriptionPortal> subscriptionPortals) {
        this.keyword = keyword;
        this.knowledgeItemPortals = knowledgeItemPortals;
+       this.subscriptionPortals = subscriptionPortals;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -66,6 +68,14 @@ public class KeywordPortal  implements java.io.Serializable {
     
     public void setKnowledgeItemPortals(Set<KnowledgeItemPortal> knowledgeItemPortals) {
         this.knowledgeItemPortals = knowledgeItemPortals;
+    }
+@ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="keywordPortals")
+    public Set<SubscriptionPortal> getSubscriptionPortals() {
+        return this.subscriptionPortals;
+    }
+    
+    public void setSubscriptionPortals(Set<SubscriptionPortal> subscriptionPortals) {
+        this.subscriptionPortals = subscriptionPortals;
     }
 
 

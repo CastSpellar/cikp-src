@@ -9,8 +9,10 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
+import org.fct.unl.pt.cikp.constants.Constants;
 import org.fct.unl.pt.cikp.data.ontology.KnowledgeItem;
 import org.fct.unl.pt.cikp.data.portal.SubscriptionPortal;
+import org.fct.unl.pt.cikp.data.portal.UserPortal;
 import org.fct.unl.pt.cikp.service.CikpService;
 import org.fct.unl.pt.cikp.service.CikpServiceImpl;
 
@@ -28,6 +30,8 @@ public class SubscribeKnowledgeItem extends ActionSupport implements ModelDriven
 
     @Override
     public String execute() throws Exception {
+        UserPortal user = (UserPortal) session.get(Constants.USER) ;
+        subscription.setUserPortal(user) ;
         getCikpService().createSubscriptionPortal(subscription) ;
         return SUCCESS ;
     }

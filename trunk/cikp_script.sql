@@ -1,4 +1,5 @@
 ﻿DROP TABLE IF EXISTS `cikp`.`knowledge_item_keyword_portal`;
+DROP TABLE IF EXISTS `cikp`.`subscription_keyword_portal`;
 DROP TABLE IF EXISTS `cikp`.`keyword_portal`;
 DROP TABLE IF EXISTS `cikp`.`knowledge_item_subscription_portal`;
 DROP TABLE IF EXISTS `cikp`.`knowledge_item_portal`;
@@ -70,7 +71,7 @@ CREATE TABLE  `cikp`.`knowledge_item_keyword_portal` (
 
 CREATE TABLE  `cikp`.`subscription_portal` (
   `Subscription_ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `Name` varchar(20) DEFAULT NULL,
+  `Knowledge_Item_File_Name` varchar(20) DEFAULT NULL,
   `Knowledge_Item_File_Size` int(10) unsigned DEFAULT NULL,
   `Knowledge_Item_Creation_Time` time DEFAULT NULL,
   `Knowledge_Item_Creation_Date` date DEFAULT NULL,
@@ -104,4 +105,13 @@ CREATE TABLE  `cikp`.`knowledge_item_subscription_portal` (
   KEY `FK_knowledge_item_subscription_portal_subscription` (`Subscription_ID`),
   CONSTRAINT `FK_knowledge_item_subscription_portal_knowledge_item` FOREIGN KEY (`Knowledge_Item_ID`) REFERENCES `knowledge_item_portal` (`Knowledge_Item_ID`),
   CONSTRAINT `FK_knowledge_item_subscription_portal_subscription` FOREIGN KEY (`Subscription_ID`) REFERENCES `subscription_portal` (`Subscription_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE  `cikp`.`subscription_keyword_portal` (
+  `Subscription_ID` int(10) unsigned NOT NULL,
+  `Keyword_ID` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`Subscription_ID`,`Keyword_ID`),
+  KEY `FK_subscription_keyword_keyword` (`Keyword_ID`),
+  CONSTRAINT `FK_subscription_keyword_keyword` FOREIGN KEY (`Keyword_ID`) REFERENCES `keyword_portal` (`Keyword_ID`),
+  CONSTRAINT `FK_subscription_keyword_subscription` FOREIGN KEY (`Subscription_ID`) REFERENCES `subscription_portal` (`Subscription_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
