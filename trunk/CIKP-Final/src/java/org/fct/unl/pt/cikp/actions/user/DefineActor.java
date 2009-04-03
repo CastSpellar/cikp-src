@@ -8,6 +8,7 @@ package org.fct.unl.pt.cikp.actions.user;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import java.util.Map;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ApplicationAware;
 import org.apache.struts2.interceptor.SessionAware;
 import org.fct.unl.pt.cikp.constants.Constants;
@@ -34,13 +35,18 @@ public class DefineActor extends ActionSupport implements ModelDriven, SessionAw
 
     @Override
     public String execute() throws Exception {
+        String serverPath = ServletActionContext.getServletContext()
+                .getRealPath("/jenaconf") ;
         PersistentOntology po = (PersistentOntology) appVars.get(Constants.PO) ;
         if(po == null) {
-            po = new PersistentOntologyImpl() ;
-            po.setS_reload(false) ;
-            po.setConfigFilePath(Constants.XML_FILE_PATH) ;
+            po = new PersistentOntologyImpl(serverPath) ;
+            po.load() ;
             appVars.put(Constants.PO, po) ;
+        } else {
+            po.closeCon() ;
+            po.reopenCon();
         }
+
         UserPortal u = (UserPortal) session.get(Constants.USER) ;
         actor.setUsername(u.getUserUsername()) ;
         IndividualActor createdIndividualActor = getCikpService().createIndividualActor(actor, po);

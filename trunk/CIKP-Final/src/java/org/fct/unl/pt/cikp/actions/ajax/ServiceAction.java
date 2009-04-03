@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ApplicationAware;
 import org.fct.unl.pt.cikp.constants.Constants;
 import org.fct.unl.pt.cikp.service.CikpService;
@@ -38,12 +39,15 @@ public class ServiceAction extends ActionSupport implements ApplicationAware{
 
     @SMDMethod
     public AttributeControl getAttributeControl(String name) throws IOException, MissingParamException, ClassNotFoundException{
+        String serverPath = ServletActionContext.getServletContext()
+                .getRealPath("/jenaconf") ;
         PersistentOntology po = (PersistentOntology) appVars.get(Constants.PO) ;
         if(po == null) {
-            po = new PersistentOntologyImpl() ;
-            po.setS_reload(false) ;
-            po.setConfigFilePath(Constants.XML_FILE_PATH) ;
+            po = new PersistentOntologyImpl(serverPath) ;
+            po.load() ;
             appVars.put(Constants.PO, po) ;
+        }else {
+            po.reopenCon();
         }
         AttributeControl attr = new AttributeControl() ;
         if(name.endsWith("_inst")) {

@@ -26,6 +26,8 @@ import org.xml.sax.SAXException;
 public class PersistentOntologyImpl implements PersistentOntology {
 
     private HashMap<String, String> params = new HashMap<String, String>() ;
+    private String configFilePath = "./src" ;
+    private static final String configFileName = "jena.conf.xml" ;
 
     private String s_params[] = {"ont_file", "db_url", "db_user", "db_passwd", "db", "db_driver"} ;
     private String s_dbURL ;
@@ -36,21 +38,24 @@ public class PersistentOntologyImpl implements PersistentOntology {
     private static String ns = ("http://www.jinyuezhang.com/work/ontology/Actor.owl#") ;
 
     // if true, reload the data
-    private boolean s_reload ;
+    private boolean s_reload = false;
 
     // source URL to load data from; if null, use default
     private String s_source;
-    
-    private String configFilePath ;
 
     private ModelMaker maker ;
 
     private OntModel m ;
 
+    public PersistentOntologyImpl(String configFilePath) throws MissingParamException, IOException, ClassNotFoundException {
+        this.configFilePath = configFilePath ;
+        loadConfigParams();
+    }
+
     private void loadConfigParams() throws MissingParamException, IOException, ClassNotFoundException {
         DOMParser domp = new DOMParser();
         try {
-            domp.parse(getConfigFilePath());
+            domp.parse(configFilePath + "/" + configFileName);
             Document doc = domp.getDocument() ;
             Element root = doc.getDocumentElement() ;
             for(String param: s_params){
@@ -64,12 +69,9 @@ public class PersistentOntologyImpl implements PersistentOntology {
                         throw new MissingParamException("Ficheiro de configuração incompleto.") ;
                 }
             }
-            s_source = params.get(s_params[0]) ;
+            s_source = configFilePath + "/" + params.get(s_params[0]) ;
             s_dbURL = params.get(s_params[1]) ;
             s_dbUser = params.get(s_params[2]) ;
-            /*s_dbPw = "" ;
-            s_dbType = params.get(s_params[3]) ;
-            s_dbDriver = params.get(s_params[4]) ;*/
             s_dbPw = params.get(s_params[3]) ;
             s_dbType = params.get(s_params[4]) ;
             s_dbDriver = params.get(s_params[5]) ;
@@ -80,13 +82,17 @@ public class PersistentOntologyImpl implements PersistentOntology {
         } 
     }
 
+    public void load() {
+        loadMaker() ;
+    }
+
     private void loadMaker() {
          if (isS_reload()) {
 
             // we pass cleanDB=true to clear out existing models
             // NOTE: this will remove ALL Jena models from the named persistent store, so
             // use with care if you have existing data stored
-            maker = getRDBMaker( s_dbURL, s_dbUser, s_dbPw, s_dbType, true );
+            maker = getRDBMaker( s_dbURL, s_dbUser, s_dbPw, s_dbType, true ) ;
 
             // now load the source data into the newly cleaned db
             loadDB( maker, s_source );
@@ -123,7 +129,7 @@ public class PersistentOntologyImpl implements PersistentOntology {
 
     public void createXMLFile(String fileName) {
         Model base = maker.createModel( s_source, false ) ;
-        //OntModel m = ModelFactory.createOntologyModel( getModelSpec( maker ), base ) ;
+        OntModel m = ModelFactory.createOntologyModel( getModelSpec( maker ), base ) ;
         String ENCODING = "ISO-8859-1" ;
         
         try {
@@ -213,7 +219,7 @@ public class PersistentOntologyImpl implements PersistentOntology {
 
     public void createXMLFileXTree(String fileName) {
         Model base = maker.createModel( s_source, false ) ;
-        //OntModel m = ModelFactory.createOntologyModel( getModelSpec( maker ), base ) ;
+        OntModel m = ModelFactory.createOntologyModel( getModelSpec( maker ), base ) ;
         String ENCODING = "ISO-8859-1" ;
 
         try {
@@ -299,20 +305,15 @@ public class PersistentOntologyImpl implements PersistentOntology {
         this.s_reload = s_reload;
     }
 
-    /**
-     * @return the configFilePath
-     */
-    public String getConfigFilePath() {
-        return configFilePath;
+    public void closeCon() {
+        m = null ;
+        this.maker.close();
     }
 
-    /**
-     * @param configFilePath the configFilePath to set
-     */
-    public void setConfigFilePath(String configFilePath) throws IOException, MissingParamException, ClassNotFoundException {
-        this.configFilePath = configFilePath;
-        loadConfigParams() ;
-        loadMaker();
+    public void reopenCon() {
+        this.maker.openModel(s_source, s_reload) ;
+        Model base = maker.createModel( s_source, false );
+        m = ModelFactory.createOntologyModel( getModelSpec( maker ), base );
     }
 
     public void writeOnt(OutputStream out) {

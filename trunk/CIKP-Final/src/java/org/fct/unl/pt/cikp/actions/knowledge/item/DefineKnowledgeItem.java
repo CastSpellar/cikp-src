@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ApplicationAware;
 import org.apache.struts2.interceptor.SessionAware;
 import org.fct.unl.pt.cikp.constants.Constants;
@@ -44,12 +45,15 @@ public class DefineKnowledgeItem extends ActionSupport implements SessionAware, 
 
     @Override
     public String execute() throws Exception {
+        String serverPath = ServletActionContext.getServletContext()
+                .getRealPath("/jenaconf") ;
         PersistentOntology po = (PersistentOntology) appVars.get(Constants.PO) ;
         if(po == null) {
-            po = new PersistentOntologyImpl() ;
-            po.setS_reload(false) ;
-            po.setConfigFilePath(Constants.XML_FILE_PATH) ;
+            po = new PersistentOntologyImpl(serverPath) ;
+            po.load() ;
             appVars.put(Constants.PO, po) ;
+        }else {
+            po.reopenCon();
         }
         setKiSource() ;
         setKiName();

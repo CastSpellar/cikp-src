@@ -6,12 +6,13 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/cikp</property>
     <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">admin</property>
     <property name="hibernate.current_session_context_class">thread</property>
-    <mapping resource="org/fct/unl/pt/cikp/data/portal/KnowledgeItemPortal.hbm.xml"/>
     <mapping resource="org/fct/unl/pt/cikp/data/portal/SubscriptionPortal.hbm.xml"/>
-    <mapping resource="org/fct/unl/pt/cikp/data/portal/UserPortal.hbm.xml"/>
-    <mapping resource="org/fct/unl/pt/cikp/data/portal/FilePortal.hbm.xml"/>
-    <mapping resource="org/fct/unl/pt/cikp/data/portal/OntologyControlsPortal.hbm.xml"/>
     <mapping resource="org/fct/unl/pt/cikp/data/portal/KeywordPortal.hbm.xml"/>
+    <mapping resource="org/fct/unl/pt/cikp/data/portal/FilePortal.hbm.xml"/>
+    <mapping resource="org/fct/unl/pt/cikp/data/portal/UserPortal.hbm.xml"/>
+    <mapping resource="org/fct/unl/pt/cikp/data/portal/KnowledgeItemPortal.hbm.xml"/>
+    <mapping resource="org/fct/unl/pt/cikp/data/portal/OntologyControlsPortal.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

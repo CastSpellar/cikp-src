@@ -1,5 +1,5 @@
 package org.fct.unl.pt.cikp.data.portal;
-// Generated 1/Abr/2009 0:12:44 by Hibernate Tools 3.2.1.GA
+// Generated 2/Abr/2009 23:48:37 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -32,19 +32,19 @@ public class SubscriptionPortal  implements java.io.Serializable {
 
      private Integer subscriptionId;
      private UserPortal userPortal;
-     private String knowledge_item_file_name;
-     private Integer knowledge_item_file_size;
-     private Date knowledge_item_creation_time;
-     private Date knowledge_item_creation_date;
-     private String knowledge_item_author;
-     private String knowledge_item_composition_language;
-     private String knowledge_item_copyright_owner;
-     private String knowledge_item_destination;
-     private String knowledge_item_file_type;
-     private String knowledge_item_security_clearance;
-     private String knowledge_item_source;
-     private String knowledge_item_type;
-     private String subject_domain;
+     private String knowledgeItemFileName;
+     private Integer knowledgeItemFileSize;
+     private Date knowledgeItemCreationTime;
+     private Date knowledgeItemCreationDate;
+     private String knowledgeItemAuthor;
+     private String knowledgeItemCompositionLanguage;
+     private String knowledgeItemCopyrightOwner;
+     private String knowledgeItemDestination;
+     private String knowledgeItemFileType;
+     private String knowledgeItemSecurityClearance;
+     private String knowledgeItemSource;
+     private String knowledgeItemType;
+     private String subjectDomain;
      private Set<KnowledgeItemPortal> knowledgeItemPortals = new HashSet<KnowledgeItemPortal>(0);
      private Set<KeywordPortal> keywordPortals = new HashSet<KeywordPortal>(0);
 
@@ -57,19 +57,19 @@ public class SubscriptionPortal  implements java.io.Serializable {
     }
     public SubscriptionPortal(UserPortal userPortal, String knowledgeItemFileName, Integer knowledgeItemFileSize, Date knowledgeItemCreationTime, Date knowledgeItemCreationDate, String knowledgeItemAuthor, String knowledgeItemCompositionLanguage, String knowledgeItemCopyrightOwner, String knowledgeItemDestination, String knowledgeItemFileType, String knowledgeItemSecurityClearance, String knowledgeItemSource, String knowledgeItemType, String subjectDomain, Set<KnowledgeItemPortal> knowledgeItemPortals, Set<KeywordPortal> keywordPortals) {
        this.userPortal = userPortal;
-       this.knowledge_item_file_name = knowledgeItemFileName;
-       this.knowledge_item_file_size = knowledgeItemFileSize;
-       this.knowledge_item_creation_time = knowledgeItemCreationTime;
-       this.knowledge_item_creation_date = knowledgeItemCreationDate;
-       this.knowledge_item_author = knowledgeItemAuthor;
-       this.knowledge_item_composition_language = knowledgeItemCompositionLanguage;
-       this.knowledge_item_copyright_owner = knowledgeItemCopyrightOwner;
-       this.knowledge_item_destination = knowledgeItemDestination;
-       this.knowledge_item_file_type = knowledgeItemFileType;
-       this.knowledge_item_security_clearance = knowledgeItemSecurityClearance;
-       this.knowledge_item_source = knowledgeItemSource;
-       this.knowledge_item_type = knowledgeItemType;
-       this.subject_domain = subjectDomain;
+       this.knowledgeItemFileName = knowledgeItemFileName;
+       this.knowledgeItemFileSize = knowledgeItemFileSize;
+       this.knowledgeItemCreationTime = knowledgeItemCreationTime;
+       this.knowledgeItemCreationDate = knowledgeItemCreationDate;
+       this.knowledgeItemAuthor = knowledgeItemAuthor;
+       this.knowledgeItemCompositionLanguage = knowledgeItemCompositionLanguage;
+       this.knowledgeItemCopyrightOwner = knowledgeItemCopyrightOwner;
+       this.knowledgeItemDestination = knowledgeItemDestination;
+       this.knowledgeItemFileType = knowledgeItemFileType;
+       this.knowledgeItemSecurityClearance = knowledgeItemSecurityClearance;
+       this.knowledgeItemSource = knowledgeItemSource;
+       this.knowledgeItemType = knowledgeItemType;
+       this.subjectDomain = subjectDomain;
        this.knowledgeItemPortals = knowledgeItemPortals;
        this.keywordPortals = keywordPortals;
     }
@@ -95,120 +95,120 @@ public class SubscriptionPortal  implements java.io.Serializable {
     }
     
     @Column(name="Knowledge_Item_File_Name", length=20)
-    public String getKnowledge_item_file_name() {
-        return this.knowledge_item_file_name;
+    public String getKnowledgeItemFileName() {
+        return this.knowledgeItemFileName;
     }
     
-    public void setKnowledge_item_file_name(String knowledgeItemFileName) {
-        this.knowledge_item_file_name = knowledgeItemFileName;
+    public void setKnowledgeItemFileName(String knowledgeItemFileName) {
+        this.knowledgeItemFileName = knowledgeItemFileName;
     }
     
     @Column(name="Knowledge_Item_File_Size")
-    public Integer getKnowledge_item_file_size() {
-        return this.knowledge_item_file_size;
+    public Integer getKnowledgeItemFileSize() {
+        return this.knowledgeItemFileSize;
     }
     
-    public void setKnowledge_item_file_size(Integer knowledgeItemFileSize) {
-        this.knowledge_item_file_size = knowledgeItemFileSize;
+    public void setKnowledgeItemFileSize(Integer knowledgeItemFileSize) {
+        this.knowledgeItemFileSize = knowledgeItemFileSize;
     }
     @Temporal(TemporalType.TIME)
     @Column(name="Knowledge_Item_Creation_Time", length=8)
-    public Date getKnowledge_item_creation_time() {
-        return this.knowledge_item_creation_time;
+    public Date getKnowledgeItemCreationTime() {
+        return this.knowledgeItemCreationTime;
     }
     
-    public void setKnowledge_item_creation_time(Date knowledgeItemCreationTime) {
-        this.knowledge_item_creation_time = knowledgeItemCreationTime;
+    public void setKnowledgeItemCreationTime(Date knowledgeItemCreationTime) {
+        this.knowledgeItemCreationTime = knowledgeItemCreationTime;
     }
     @Temporal(TemporalType.DATE)
     @Column(name="Knowledge_Item_Creation_Date", length=10)
-    public Date getKnowledge_item_creation_date() {
-        return this.knowledge_item_creation_date;
+    public Date getKnowledgeItemCreationDate() {
+        return this.knowledgeItemCreationDate;
     }
     
-    public void setKnowledge_item_creation_date(Date knowledgeItemCreationDate) {
-        this.knowledge_item_creation_date = knowledgeItemCreationDate;
+    public void setKnowledgeItemCreationDate(Date knowledgeItemCreationDate) {
+        this.knowledgeItemCreationDate = knowledgeItemCreationDate;
     }
     
     @Column(name="Knowledge_Item_Author", length=200)
-    public String getKnowledge_item_author() {
-        return this.knowledge_item_author;
+    public String getKnowledgeItemAuthor() {
+        return this.knowledgeItemAuthor;
     }
     
-    public void setKnowledge_item_author(String knowledgeItemAuthor) {
-        this.knowledge_item_author = knowledgeItemAuthor;
+    public void setKnowledgeItemAuthor(String knowledgeItemAuthor) {
+        this.knowledgeItemAuthor = knowledgeItemAuthor;
     }
     
     @Column(name="Knowledge_Item_Composition_Language", length=100)
-    public String getKnowledge_item_composition_language() {
-        return this.knowledge_item_composition_language;
+    public String getKnowledgeItemCompositionLanguage() {
+        return this.knowledgeItemCompositionLanguage;
     }
     
-    public void setKnowledge_item_composition_language(String knowledgeItemCompositionLanguage) {
-        this.knowledge_item_composition_language = knowledgeItemCompositionLanguage;
+    public void setKnowledgeItemCompositionLanguage(String knowledgeItemCompositionLanguage) {
+        this.knowledgeItemCompositionLanguage = knowledgeItemCompositionLanguage;
     }
     
     @Column(name="Knowledge_Item_Copyright_Owner", length=200)
-    public String getKnowledge_item_copyright_owner() {
-        return this.knowledge_item_copyright_owner;
+    public String getKnowledgeItemCopyrightOwner() {
+        return this.knowledgeItemCopyrightOwner;
     }
     
-    public void setKnowledge_item_copyright_owner(String knowledgeItemCopyrightOwner) {
-        this.knowledge_item_copyright_owner = knowledgeItemCopyrightOwner;
+    public void setKnowledgeItemCopyrightOwner(String knowledgeItemCopyrightOwner) {
+        this.knowledgeItemCopyrightOwner = knowledgeItemCopyrightOwner;
     }
     
     @Column(name="Knowledge_Item_Destination", length=100)
-    public String getKnowledge_item_destination() {
-        return this.knowledge_item_destination;
+    public String getKnowledgeItemDestination() {
+        return this.knowledgeItemDestination;
     }
     
-    public void setKnowledge_item_destination(String knowledgeItemDestination) {
-        this.knowledge_item_destination = knowledgeItemDestination;
+    public void setKnowledgeItemDestination(String knowledgeItemDestination) {
+        this.knowledgeItemDestination = knowledgeItemDestination;
     }
     
     @Column(name="Knowledge_Item_File_Type", length=50)
-    public String getKnowledge_item_file_type() {
-        return this.knowledge_item_file_type;
+    public String getKnowledgeItemFileType() {
+        return this.knowledgeItemFileType;
     }
     
-    public void setKnowledge_item_file_type(String knowledgeItemFileType) {
-        this.knowledge_item_file_type = knowledgeItemFileType;
+    public void setKnowledgeItemFileType(String knowledgeItemFileType) {
+        this.knowledgeItemFileType = knowledgeItemFileType;
     }
     
     @Column(name="Knowledge_Item_Security_Clearance", length=100)
-    public String getKnowledge_item_security_clearance() {
-        return this.knowledge_item_security_clearance;
+    public String getKnowledgeItemSecurityClearance() {
+        return this.knowledgeItemSecurityClearance;
     }
     
-    public void setKnowledge_item_security_clearance(String knowledgeItemSecurityClearance) {
-        this.knowledge_item_security_clearance = knowledgeItemSecurityClearance;
+    public void setKnowledgeItemSecurityClearance(String knowledgeItemSecurityClearance) {
+        this.knowledgeItemSecurityClearance = knowledgeItemSecurityClearance;
     }
     
     @Column(name="Knowledge_Item_Source", length=20)
-    public String getKnowledge_item_source() {
-        return this.knowledge_item_source;
+    public String getKnowledgeItemSource() {
+        return this.knowledgeItemSource;
     }
     
-    public void setKnowledge_item_source(String knowledgeItemSource) {
-        this.knowledge_item_source = knowledgeItemSource;
+    public void setKnowledgeItemSource(String knowledgeItemSource) {
+        this.knowledgeItemSource = knowledgeItemSource;
     }
     
     @Column(name="Knowledge_Item_Type", length=100)
-    public String getKnowledge_item_type() {
-        return this.knowledge_item_type;
+    public String getKnowledgeItemType() {
+        return this.knowledgeItemType;
     }
     
-    public void setKnowledge_item_type(String knowledgeItemType) {
-        this.knowledge_item_type = knowledgeItemType;
+    public void setKnowledgeItemType(String knowledgeItemType) {
+        this.knowledgeItemType = knowledgeItemType;
     }
     
     @Column(name="Subject_Domain", length=100)
-    public String getSubject_domain() {
-        return this.subject_domain;
+    public String getSubjectDomain() {
+        return this.subjectDomain;
     }
     
-    public void setSubject_domain(String subjectDomain) {
-        this.subject_domain = subjectDomain;
+    public void setSubjectDomain(String subjectDomain) {
+        this.subjectDomain = subjectDomain;
     }
 @ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="subscriptionPortals")
     public Set<KnowledgeItemPortal> getKnowledgeItemPortals() {

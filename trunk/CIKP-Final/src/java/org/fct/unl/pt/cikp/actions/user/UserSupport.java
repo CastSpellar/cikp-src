@@ -9,6 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;
 import java.util.Map;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ApplicationAware;
 import org.apache.struts2.interceptor.SessionAware;
 import org.fct.unl.pt.cikp.constants.Constants;
@@ -31,12 +32,15 @@ public class UserSupport extends ActionSupport implements Preparable, SessionAwa
     private IndividualActor actor ;
 
     public void prepare() throws Exception {
+        String serverPath = ServletActionContext.getServletContext()
+                .getRealPath("/jenaconf") ;
         PersistentOntology po = (PersistentOntology) appVars.get(Constants.PO) ;
         if(po == null) {
-            po = new PersistentOntologyImpl() ;
-            po.setS_reload(false) ;
-            po.setConfigFilePath("c:/config.xml") ;
+            po = new PersistentOntologyImpl(serverPath) ;
+            po.load() ;
             appVars.put(Constants.PO, po) ;
+        } else {
+            po.reopenCon() ;
         }
         UserPortal user = (UserPortal) session.get(Constants.USER) ;
         UserPortal updatedUser = getCikpService().authenticateUser(user) ;

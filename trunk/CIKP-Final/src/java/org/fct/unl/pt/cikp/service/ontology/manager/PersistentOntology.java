@@ -6,9 +6,7 @@
 package org.fct.unl.pt.cikp.service.ontology.manager;
 
 import com.hp.hpl.jena.ontology.OntModel;
-import java.io.IOException;
 import java.io.OutputStream;
-import org.fct.unl.pt.cikp.service.ontology.manager.exceptions.MissingParamException;
 
 /**
  *
@@ -16,7 +14,9 @@ import org.fct.unl.pt.cikp.service.ontology.manager.exceptions.MissingParamExcep
  */
 public interface PersistentOntology {
 
-    public void writeOnt(OutputStream out) ;
+    public void load() ;
+
+     public void writeOnt(OutputStream out) ;
 
     public void createXMLFile(String fileName) ;
 
@@ -24,8 +24,10 @@ public interface PersistentOntology {
 
     public OntModel getModel() ;
     
-    public void setConfigFilePath(String configFilePath) throws IOException, MissingParamException, ClassNotFoundException ;
-
     public void setS_reload(boolean s_reload) ;
+
+    public void closeCon() ;
+
+    public void reopenCon() ;
 
 }

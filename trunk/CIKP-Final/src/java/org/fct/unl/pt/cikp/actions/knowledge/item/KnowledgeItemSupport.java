@@ -9,6 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
 import java.util.ArrayList;
 import java.util.Map;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ApplicationAware;
 import org.apache.struts2.interceptor.SessionAware;
 import org.fct.unl.pt.cikp.constants.Constants;
@@ -30,12 +31,15 @@ public class KnowledgeItemSupport extends ActionSupport implements Preparable, S
     private CikpService cikpService ;
 
     public void prepare() throws Exception {
+        String serverPath = ServletActionContext.getServletContext()
+                .getRealPath("/jenaconf") ;
         PersistentOntology po = (PersistentOntology) appVars.get(Constants.PO) ;
         if(po == null) {
-            po = new PersistentOntologyImpl() ;
-            po.setS_reload(false) ;
-            po.setConfigFilePath(Constants.XML_FILE_PATH) ;
+            po = new PersistentOntologyImpl(serverPath) ;
+            po.load() ;
             appVars.put(Constants.PO, po) ;
+        }else {
+            po.reopenCon();
         }
         //ArrayList<String> fileTypes = getCikpService().listClasses() ;
         ArrayList<String> subjectDomains = getCikpService().getSubClasses("Subject_Domain", po) ;

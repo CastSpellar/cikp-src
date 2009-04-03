@@ -38,8 +38,9 @@ public class DefineOrganization extends ActionSupport implements ModelDriven, Se
         if(po == null) {
             po = new PersistentOntologyImpl() ;
             po.setS_reload(false) ;
-            po.setConfigFilePath(Constants.XML_FILE_PATH) ;
             appVars.put(Constants.PO, po) ;
+        }else {
+            po.reopenCon();
         }
         UserPortal u = (UserPortal) session.get(Constants.USER) ;
         actor.setUsername(u.getUserUsername()) ;

@@ -40,15 +40,15 @@ public class Login extends ActionSupport implements SessionAware, ApplicationAwa
     @Override
     public String execute() throws Exception {
         String serverPath = ServletActionContext.getServletContext()
-                .getRealPath("/jenaconf/config.xml");
+                .getRealPath("/jenaconf") ;
         PersistentOntology po = (PersistentOntology) appVars.get(Constants.PO) ;
         if(po == null) {
-            po = new PersistentOntologyImpl() ;
-            po.setS_reload(false) ;
-            
-
-            po.setConfigFilePath(serverPath) ;
+            po = new PersistentOntologyImpl(serverPath) ;
+            po.setS_reload(true) ;
+            po.load() ;
             appVars.put(Constants.PO, po) ;
+        }else {
+            po.reopenCon();
         }
         /*ArrayList<String> knowledges = getCikpService().listKnowledges() ;
         session.put(Constants.KNOWLEDGES, knowledges) ;*/
