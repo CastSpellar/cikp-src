@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2/Abr/2009 23:48:37 by Hibernate Tools 3.2.1.GA -->
-<hibernate-mapping>
+<hibernate-mapping default-lazy="false">
     <class name="org.fct.unl.pt.cikp.data.portal.OntologyControlsPortal" table="ontology_controls_portal" catalog="cikp">
         <id name="ontologyControlsId" type="java.lang.Integer">
             <column name="Ontology_Controls_ID" />

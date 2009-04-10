@@ -47,7 +47,8 @@ public class ServiceAction extends ActionSupport implements ApplicationAware{
             po.load() ;
             appVars.put(Constants.PO, po) ;
         }else {
-            po.reopenCon();
+            if(po.getModel() == null)
+                po.reopenCon();
         }
         AttributeControl attr = new AttributeControl() ;
         if(name.endsWith("_inst")) {

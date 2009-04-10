@@ -8,6 +8,7 @@ package org.fct.unl.pt.cikp.actions.organization;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import java.util.Map;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ApplicationAware;
 import org.apache.struts2.interceptor.SessionAware;
 import org.fct.unl.pt.cikp.data.ontology.OrganizationActor;
@@ -34,13 +35,16 @@ public class DefineOrganization extends ActionSupport implements ModelDriven, Se
 
     @Override
     public String execute() throws Exception {
+        String serverPath = ServletActionContext.getServletContext()
+                .getRealPath("/jenaconf") ;
         PersistentOntology po = (PersistentOntology) appVars.get(Constants.PO) ;
         if(po == null) {
-            po = new PersistentOntologyImpl() ;
+            po = new PersistentOntologyImpl(serverPath) ;
             po.setS_reload(false) ;
             appVars.put(Constants.PO, po) ;
         }else {
-            po.reopenCon();
+            if(po.getModel() == null)
+                po.reopenCon();
         }
         UserPortal u = (UserPortal) session.get(Constants.USER) ;
         actor.setUsername(u.getUserUsername()) ;

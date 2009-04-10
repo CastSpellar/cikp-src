@@ -39,7 +39,8 @@ public class KnowledgeItemSupport extends ActionSupport implements Preparable, S
             po.load() ;
             appVars.put(Constants.PO, po) ;
         }else {
-            po.reopenCon();
+            if(po.getModel() == null)
+                po.reopenCon();
         }
         //ArrayList<String> fileTypes = getCikpService().listClasses() ;
         ArrayList<String> subjectDomains = getCikpService().getSubClasses("Subject_Domain", po) ;

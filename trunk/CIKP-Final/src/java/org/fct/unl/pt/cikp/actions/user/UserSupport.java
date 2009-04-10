@@ -40,7 +40,8 @@ public class UserSupport extends ActionSupport implements Preparable, SessionAwa
             po.load() ;
             appVars.put(Constants.PO, po) ;
         } else {
-            po.reopenCon() ;
+            if(po.getModel() == null)
+                po.reopenCon() ;
         }
         UserPortal user = (UserPortal) session.get(Constants.USER) ;
         UserPortal updatedUser = getCikpService().authenticateUser(user) ;

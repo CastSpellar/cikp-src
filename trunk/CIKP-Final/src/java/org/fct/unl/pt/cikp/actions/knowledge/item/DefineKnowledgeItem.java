@@ -53,7 +53,8 @@ public class DefineKnowledgeItem extends ActionSupport implements SessionAware, 
             po.load() ;
             appVars.put(Constants.PO, po) ;
         }else {
-            po.reopenCon();
+            if(po.getModel() == null)
+                po.reopenCon();
         }
         setKiSource() ;
         setKiName();

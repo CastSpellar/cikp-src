@@ -44,11 +44,12 @@ public class Login extends ActionSupport implements SessionAware, ApplicationAwa
         PersistentOntology po = (PersistentOntology) appVars.get(Constants.PO) ;
         if(po == null) {
             po = new PersistentOntologyImpl(serverPath) ;
-            po.setS_reload(true) ;
+            po.setS_reload(false) ;
             po.load() ;
             appVars.put(Constants.PO, po) ;
         }else {
-            po.reopenCon();
+            if(po.getModel() == null)
+                po.reopenCon();
         }
         /*ArrayList<String> knowledges = getCikpService().listKnowledges() ;
         session.put(Constants.KNOWLEDGES, knowledges) ;*/
