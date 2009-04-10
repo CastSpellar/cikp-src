@@ -7,6 +7,7 @@ DROP TABLE IF EXISTS `cikp`.`file_portal`;
 DROP TABLE IF EXISTS `cikp`.`subscription_portal`;
 DROP TABLE IF EXISTS `cikp`.`user_portal`;
 DROP TABLE IF EXISTS `cikp`.`ontology_controls_portal`;
+DROP TABLE IF EXISTS `cikp`.`comments` ;
 
 CREATE TABLE  `cikp`.`user_portal` (
   `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -114,4 +115,16 @@ CREATE TABLE  `cikp`.`subscription_keyword_portal` (
   KEY `FK_subscription_keyword_keyword` (`Keyword_ID`),
   CONSTRAINT `FK_subscription_keyword_keyword` FOREIGN KEY (`Keyword_ID`) REFERENCES `keyword_portal` (`Keyword_ID`),
   CONSTRAINT `FK_subscription_keyword_subscription` FOREIGN KEY (`Subscription_ID`) REFERENCES `subscription_portal` (`Subscription_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+                                        
+CREATE TABLE  `cikp`.`comments` (
+  `Comment_ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `Comment` varchar(5000) NOT NULL,
+  `Knowledge_Item_ID` int(10) unsigned NOT NULL,
+  `User_ID` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`Comment_ID`),
+  KEY `FK_comments_knowledge_item_portal` (`Knowledge_Item_ID`),
+  KEY `FK_comments_User_Portal` (`User_ID`),
+  CONSTRAINT `FK_comments_User_Portal` FOREIGN KEY (`User_ID`) REFERENCES `user_portal` (`user_id`),
+  CONSTRAINT `FK_comments_knowledge_item_portal` FOREIGN KEY (`Knowledge_Item_ID`) REFERENCES `knowledge_item_portal` (`Knowledge_Item_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

@@ -371,7 +371,7 @@
                             <tr>
                                 <td colspan="2" align="right">
                                     <input type="button" value="<s:text name="userinterface.viewprofile" />" class="button" />
-                                    <input type="button" value="<s:text name="userinterface.editprofile" />" onclick="window.location.href='<s:url action="/user/user_profile.action" />'" class="button" />
+                                    <input type="button" value="<s:text name="userinterface.editprofile" />" onclick="window.location.href='<s:url action="user_profile" />'" class="button" />
                                 </td>
                             </tr>
                         </table>

@@ -319,7 +319,7 @@
                         <table id="roletable">
                             <tr>
                                 <td width="15%">
-                                    <s:text name="userprofile.role" />
+                                    <s:text name="userprofile.roles" />
                                 </td>
                                 <td width="35%">
                                     <s:textfield name="role_type" />

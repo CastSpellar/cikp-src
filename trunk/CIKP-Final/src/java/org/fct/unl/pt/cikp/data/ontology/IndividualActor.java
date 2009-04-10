@@ -39,7 +39,9 @@ public class IndividualActor {
     private String organizational_affiliation ;
     private ArrayList<Role> roles ;
 
-    public IndividualActor() {}
+    public IndividualActor() {
+        roles = new ArrayList<Role>() ;
+    }
 
     /**
      * @return the username
