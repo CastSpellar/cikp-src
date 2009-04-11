@@ -6,6 +6,7 @@ import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Property;
+import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -78,6 +79,14 @@ public class OntServiceImpl implements OntService {
         Individual ind = getIndividual(entityname, p) ;
         Property pr = getProperty(prop, p) ;
         p.getModel().addLiteral(ind, pr, value) ;
+    }
+
+    public void removeLiteralByProperty(String prop, String entityname, PersistentOntology p, Object oldValue) throws IOException, MissingParamException, ClassNotFoundException {
+        Individual ind = getIndividual(entityname, p) ;
+        Property pr = getProperty(prop, p) ;
+        Literal lit = ind.getProperty(pr).getLiteral() ;
+        p.getModel().removeAll(ind, pr, lit);
+        return ;
     }
 
     public String getIndividualClass(String indName, PersistentOntology p) throws IOException, MissingParamException, ClassNotFoundException {

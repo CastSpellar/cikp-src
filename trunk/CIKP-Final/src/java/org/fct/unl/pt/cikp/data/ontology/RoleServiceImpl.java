@@ -28,45 +28,59 @@ public class RoleServiceImpl implements RoleService {
             OntService onts = getOnt();
             onts.createIndividual(role.getRoletype(), role.getRoleentityname(), p);
             if(role.getAuthority() != null) {
+                onts.removeLiteralByProperty("has_Authority", role.getRoleentityname(), p, onts.getLiteralByProperty("has_Authority", role.getRoleentityname(), p)) ;
                 onts.addLiteralByProperty("has_Authority", role.getRoleentityname(), role.getAuthority() == null ? "" : role.getAuthority(), p);
             }
             if(role.getEvent_affiliation() != null) {
+                onts.removeLiteralByProperty("has_Event_Affiliation", role.getRoleentityname(), p, onts.getLiteralByProperty("has_Event_Affiliation", role.getRoleentityname(), p)) ;
                 onts.addLiteralByProperty("has_Event_Affiliation", role.getRoleentityname(), role.getEvent_affiliation() == null ? "" : role.getEvent_affiliation(), p);
             }
             if(role.getExperience() != null) {
+                onts.removeLiteralByProperty("has_Experience", role.getRoleentityname(), p, onts.getLiteralByProperty("has_Experience", role.getRoleentityname(), p)) ;
                 onts.addLiteralByProperty("has_Experience", role.getRoleentityname(), role.getExperience() == null ? "" : role.getExperience(), p);
             }
             if(role.getInformation_and_knowledge_need() != null) {
+                onts.removeLiteralByProperty("has_Information_And_Knowledge_Need", role.getRoleentityname(), p, onts.getLiteralByProperty("has_Information_And_Knowledge_Need", role.getRoleentityname(), p)) ;
                 onts.addLiteralByProperty("has_Information_And_Knowledge_Need", role.getRoleentityname(), role.getInformation_and_knowledge_need() == null ? "" : role.getInformation_and_knowledge_need(), p);
             }
             if(role.getKnowledge() != null) {
+                onts.removeLiteralByProperty("has_Knowledge", role.getRoleentityname(), p, onts.getLiteralByProperty("has_Knowledge", role.getRoleentityname(), p)) ;
                 onts.addLiteralByProperty("has_Knowledge", role.getRoleentityname(), role.getKnowledge() == null ? "" : role.getKnowledge(), p);
             }
             if(role.getLiability() != null) {
+                onts.removeLiteralByProperty("has_Liability", role.getRoleentityname(), p, onts.getLiteralByProperty("has_Liability", role.getRoleentityname(), p)) ;
                 onts.addLiteralByProperty("has_Liability", role.getRoleentityname(), role.getLiability() == null ? "" : role.getLiability(), p);
             }
             if(role.getOrganizational_affiliation() != null) {
+                onts.removeLiteralByProperty("has_Organization_Affiliation", role.getRoleentityname(), p, onts.getLiteralByProperty("has_Organization_Affiliation", role.getRoleentityname(), p)) ;
                 onts.addLiteralByProperty("has_Organization_Affiliation", role.getRoleentityname(), role.getOrganizational_affiliation() == null ? "" : role.getOrganizational_affiliation(), p);
             }
             if(role.getProcess_affiliation() != null) {
+                onts.removeLiteralByProperty("has_Process_Affiliation", role.getRoleentityname(), p, onts.getLiteralByProperty("has_Process_Affiliation", role.getRoleentityname(), p)) ;
                 onts.addLiteralByProperty("has_Process_Affiliation", role.getRoleentityname(), role.getProcess_affiliation() == null ? "" : role.getProcess_affiliation(), p);
             }
             if(role.getProduct_affiliation() != null) {
+                onts.removeLiteralByProperty("has_Product_Affiliation", role.getRoleentityname(), p, onts.getLiteralByProperty("has_Product_Affiliation", role.getRoleentityname(), p)) ;
                 onts.addLiteralByProperty("has_Product_Affiliation", role.getRoleentityname(), role.getProduct_affiliation() == null ? "" : role.getProduct_affiliation(), p);
             }
             if(role.getProject_affiliation() != null) {
+                onts.removeLiteralByProperty("has_Project_Affiliation", role.getRoleentityname(), p, onts.getLiteralByProperty("has_Project_Affiliation", role.getRoleentityname(), p)) ;
                 onts.addLiteralByProperty("has_Project_Affiliation", role.getRoleentityname(), role.getProject_affiliation() == null ? "" : role.getProject_affiliation(), p);
             }
             if(role.getResponsibility() != null) {
+                onts.removeLiteralByProperty("has_Responsibility", role.getRoleentityname(), p, onts.getLiteralByProperty("has_Responsibility", role.getRoleentityname(), p)) ;
                 onts.addLiteralByProperty("has_Responsibility", role.getRoleentityname(), role.getResponsibility() == null ? "" : role.getResponsibility(), p);
             }
             if(role.getRight()!= null) {
+                onts.removeLiteralByProperty("has_Right", role.getRoleentityname(), p, onts.getLiteralByProperty("has_Right", role.getRoleentityname(), p)) ;
                 onts.addLiteralByProperty("has_Right", role.getRoleentityname(), role.getRight() == null ? "" : role.getRight(), p);
             }
             if(role.getSkill() != null) {
+                onts.removeLiteralByProperty("has_Skill", role.getRoleentityname(), p, onts.getLiteralByProperty("has_Skill", role.getRoleentityname(), p)) ;
                 onts.addLiteralByProperty("has_Skill", role.getRoleentityname(), role.getSkill() == null ? "" : role.getSkill(), p);
             }
             if(role.getTraining_obtained() != null) {
+                onts.removeLiteralByProperty("has_Training_Obtained", role.getRoleentityname(), p, onts.getLiteralByProperty("has_Training_Obtained", role.getRoleentityname(), p)) ;
                 onts.addLiteralByProperty("has_Training_Obtained", role.getRoleentityname(), role.getTraining_obtained() == null ? "" : role.getTraining_obtained(), p);
             }
         } catch (IOException ex) {

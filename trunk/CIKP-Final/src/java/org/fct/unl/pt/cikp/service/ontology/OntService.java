@@ -35,6 +35,8 @@ public interface OntService {
 
     public void addLiteralByProperty(String prop, String entityname, Object value, PersistentOntology p) throws IOException, MissingParamException, ClassNotFoundException ;
 
+    public void removeLiteralByProperty(String prop, String entityname, PersistentOntology p, Object oldValue) throws IOException, MissingParamException, ClassNotFoundException ;
+
     public String getIndividualClass(String indName, PersistentOntology p) throws IOException, MissingParamException, ClassNotFoundException ;
 
     public ArrayList getIndividualByPropertyValue(String prop, Object value, PersistentOntology p) throws IOException, MissingParamException, ClassNotFoundException ;
