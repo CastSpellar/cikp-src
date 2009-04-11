@@ -311,9 +311,10 @@ public class PersistentOntologyImpl implements PersistentOntology {
     }
 
     public void reopenCon() {
-        this.maker.openModel(s_source, s_reload) ;
+        /*this.maker.openModel(s_source, s_reload) ;
         Model base = maker.createModel( s_source, false );
-        m = ModelFactory.createOntologyModel( getModelSpec( maker ), base );
+        m = ModelFactory.createOntologyModel( getModelSpec( maker ), base );*/
+        loadMaker();
     }
 
     public void writeOnt(OutputStream out) {

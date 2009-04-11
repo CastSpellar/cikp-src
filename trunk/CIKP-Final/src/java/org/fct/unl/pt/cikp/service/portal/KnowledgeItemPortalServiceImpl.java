@@ -3,8 +3,9 @@
  * and open the template in the editor.
  */
 
-package org.fct.unl.pt.cikp.data.portal;
+package org.fct.unl.pt.cikp.service.portal;
 
+import org.fct.unl.pt.cikp.data.portal.*;
 import java.util.HashSet;
 import java.util.Set;
 import org.hibernate.Session;

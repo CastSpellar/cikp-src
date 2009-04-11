@@ -13,23 +13,23 @@ import org.fct.unl.pt.cikp.data.ontology.IndividualActor;
 import org.fct.unl.pt.cikp.data.ontology.KnowledgeItem;
 import org.fct.unl.pt.cikp.data.ontology.OrganizationActor;
 import org.fct.unl.pt.cikp.data.portal.FilePortal;
-import org.fct.unl.pt.cikp.data.portal.FilePortalService;
-import org.fct.unl.pt.cikp.data.portal.FilePortalServiceImpl;
-import org.fct.unl.pt.cikp.data.portal.HibernateUtil;
+import org.fct.unl.pt.cikp.service.portal.FilePortalService;
+import org.fct.unl.pt.cikp.service.portal.FilePortalServiceImpl;
+import org.fct.unl.pt.cikp.service.portal.HibernateUtil;
 import org.fct.unl.pt.cikp.data.portal.KnowledgeItemPortal;
-import org.fct.unl.pt.cikp.data.portal.KnowledgeItemPortalService;
-import org.fct.unl.pt.cikp.data.portal.KnowledgeItemPortalServiceImpl;
+import org.fct.unl.pt.cikp.service.portal.KnowledgeItemPortalService;
+import org.fct.unl.pt.cikp.service.portal.KnowledgeItemPortalServiceImpl;
 import org.fct.unl.pt.cikp.data.portal.OntologyControlsPortal;
-import org.fct.unl.pt.cikp.data.portal.OntologyControlsPortalService;
-import org.fct.unl.pt.cikp.data.portal.OntologyControlsPortalServiceImpl;
+import org.fct.unl.pt.cikp.service.portal.OntologyControlsPortalService;
+import org.fct.unl.pt.cikp.service.portal.OntologyControlsPortalServiceImpl;
 import org.fct.unl.pt.cikp.data.portal.SubscriptionPortal;
-import org.fct.unl.pt.cikp.data.portal.SubscriptionPortalService;
-import org.fct.unl.pt.cikp.data.portal.SubscriptionPortalServiceImpl;
+import org.fct.unl.pt.cikp.service.portal.SubscriptionPortalService;
+import org.fct.unl.pt.cikp.service.portal.SubscriptionPortalServiceImpl;
 import org.fct.unl.pt.cikp.data.portal.UserPortal;
 import org.fct.unl.pt.cikp.service.ontology.OntServicePortal;
 import org.fct.unl.pt.cikp.service.ontology.OntServicePortalImpl;
-import org.fct.unl.pt.cikp.data.portal.UserService;
-import org.fct.unl.pt.cikp.data.portal.UserServiceImpl;
+import org.fct.unl.pt.cikp.service.portal.UserService;
+import org.fct.unl.pt.cikp.service.portal.UserServiceImpl;
 import org.fct.unl.pt.cikp.service.ontology.manager.PersistentOntology;
 import org.hibernate.Session;
 
@@ -48,6 +48,8 @@ public class CikpServiceImpl implements CikpService {
 
 
      private Session getSession() {
+         if(HibernateUtil.getSessionFactory().isClosed())
+             HibernateUtil.getSessionFactory().openSession() ;
         return HibernateUtil.getSessionFactory().getCurrentSession() ;
     }
 

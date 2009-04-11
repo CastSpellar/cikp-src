@@ -1,31 +1,30 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2/Abr/2009 23:48:37 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping default-lazy="false">
-    <class name="org.fct.unl.pt.cikp.data.portal.KeywordPortal" table="keyword_portal" catalog="cikp">
-        <id name="keywordId" type="java.lang.Integer">
-            <column name="Keyword_ID" />
-            <generator class="identity" />
-        </id>
-        <property name="keyword" type="string">
-            <column name="Keyword" length="100" not-null="true" />
-        </property>
-        <set name="knowledgeItemPortals" inverse="true" table="knowledge_item_keyword_portal">
-            <key>
-                <column name="Keyword_ID" not-null="true" />
-            </key>
-            <many-to-many entity-name="org.fct.unl.pt.cikp.data.portal.KnowledgeItemPortal">
-                <column name="Knowledge_Item_ID" not-null="true" />
-            </many-to-many>
-        </set>
-        <set name="subscriptionPortals" inverse="true" table="subscription_keyword_portal">
-            <key>
-                <column name="Keyword_ID" not-null="true" />
-            </key>
-            <many-to-many entity-name="org.fct.unl.pt.cikp.data.portal.SubscriptionPortal">
-                <column name="Subscription_ID" not-null="true" />
-            </many-to-many>
-        </set>
-    </class>
+  <class catalog="cikp" name="org.fct.unl.pt.cikp.data.portal.KeywordPortal" table="keyword_portal">
+    <id name="keywordId" type="java.lang.Integer">
+      <column name="Keyword_ID"/>
+      <generator class="identity"/>
+    </id>
+    <property name="keyword" type="string">
+      <column length="100" name="Keyword" not-null="true"/>
+    </property>
+    <set inverse="true" name="knowledgeItemPortals" table="knowledge_item_keyword_portal">
+      <key>
+        <column name="Keyword_ID" not-null="true"/>
+      </key>
+      <many-to-many entity-name="org.fct.unl.pt.cikp.data.portal.KnowledgeItemPortal">
+        <column name="Knowledge_Item_ID" not-null="true"/>
+      </many-to-many>
+    </set>
+    <set inverse="true" name="subscriptionPortals" table="subscription_keyword_portal">
+      <key>
+        <column name="Keyword_ID" not-null="true"/>
+      </key>
+      <many-to-many entity-name="org.fct.unl.pt.cikp.data.portal.SubscriptionPortal">
+        <column name="Subscription_ID" not-null="true"/>
+      </many-to-many>
+    </set>
+  </class>
 </hibernate-mapping>

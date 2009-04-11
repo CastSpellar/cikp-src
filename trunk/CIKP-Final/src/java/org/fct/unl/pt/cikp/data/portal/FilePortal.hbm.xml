@@ -1,24 +1,23 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2/Abr/2009 23:48:37 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-    <class name="org.fct.unl.pt.cikp.data.portal.FilePortal" table="file_portal" catalog="cikp">
-        <id name="fileId" type="java.lang.Integer">
-            <column name="File_ID" />
-            <generator class="identity" />
-        </id>
-        <property name="file" type="binary">
-            <column name="File" not-null="true" />
-        </property>
-        <property name="fileName" type="string">
-            <column name="FileName" not-null="true" />
-        </property>
-        <set name="knowledgeItemPortals" inverse="true">
-            <key>
-                <column name="File_ID" not-null="true" />
-            </key>
-            <one-to-many class="org.fct.unl.pt.cikp.data.portal.KnowledgeItemPortal" />
-        </set>
-    </class>
+  <class catalog="cikp" name="org.fct.unl.pt.cikp.data.portal.FilePortal" table="file_portal">
+    <id name="fileId" type="java.lang.Integer">
+      <column name="File_ID"/>
+      <generator class="identity"/>
+    </id>
+    <property name="file" type="binary">
+      <column name="File" not-null="true"/>
+    </property>
+    <property name="fileName" type="string">
+      <column name="FileName" not-null="true"/>
+    </property>
+    <set inverse="true" name="knowledgeItemPortals">
+      <key>
+        <column name="File_ID" not-null="true"/>
+      </key>
+      <one-to-many class="org.fct.unl.pt.cikp.data.portal.KnowledgeItemPortal"/>
+    </set>
+  </class>
 </hibernate-mapping>
