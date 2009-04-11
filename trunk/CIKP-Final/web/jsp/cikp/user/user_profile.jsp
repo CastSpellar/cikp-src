@@ -59,6 +59,19 @@
                                      'imgPath' : '<s:url value="/images/custom/" />',
                                      'checkbox' : 1}) ;
                     this.attributeController = new AttributeControl(this.added_controls_table);
+                    service.getExistingAttributes(this.getExistingAttributes.bind(this));
+
+                },
+
+                getExistingAttributes : function(attributesJSON){
+                    this.attributeController.insertAttributeControlList(attributesJSON.attributes);
+                    attributesJSON.attributes.each(
+                        function(attributeName){
+                            this.attributes_tree.setCheck(
+                                'http://www.jinyuezhang.com/work/ontology/Actor.owl#' + attributeName
+                                ,1);
+                        }.bind(this)
+                    );
                 },
                 
                 addAttributesBtnClick: function (){

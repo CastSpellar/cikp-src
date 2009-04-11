@@ -13,6 +13,10 @@ var CIKPWebService = Class.create({
     getAttributeControl: function(attributeName, callbackFunction) {
         var defered = this.service.getAttributeControl(attributeName);
         defered.addCallback(callbackFunction);
+    },
+    getExistingAttributes: function(callbackFunction) {
+        var defered = this.service.getExistingAttributes();
+        defered.addCallback(callbackFunction);
     }
 });
 var service = new CIKPWebService(serviceURL);

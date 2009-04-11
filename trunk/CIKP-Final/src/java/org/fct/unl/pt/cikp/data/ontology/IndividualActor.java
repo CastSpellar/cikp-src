@@ -23,7 +23,7 @@ public class IndividualActor {
     private String name ;
     private String work_phone_number ;
     private String ability ;
-    private String cetificate_and_license ;
+    private String certificate_and_license ;
     private String communication_language ;
     private String education_background ;
     private String ethnicity ;
@@ -240,17 +240,17 @@ public class IndividualActor {
     }
 
     /**
-     * @return the cetificate_and_license
+     * @return the certificate_and_license
      */
-    public String getCetificate_and_license() {
-        return cetificate_and_license;
+    public String getCertificate_and_license() {
+        return certificate_and_license;
     }
 
     /**
-     * @param cetificate_and_license the cetificate_and_license to set
+     * @param certificate_and_license the certificate_and_license to set
      */
-    public void setCetificate_and_license(String cetificate_and_license) {
-        this.cetificate_and_license = cetificate_and_license;
+    public void setCertificate_and_license(String cetificate_and_license) {
+        this.certificate_and_license = cetificate_and_license;
     }
 
     /**

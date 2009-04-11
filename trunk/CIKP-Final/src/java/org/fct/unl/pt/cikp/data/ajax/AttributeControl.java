@@ -17,6 +17,7 @@ public class AttributeControl {
     private String controlType ;
     private String controlBind ;
     private List<String> values ;
+    private String value;
 
     /**
      * @return the controlName
@@ -72,6 +73,14 @@ public class AttributeControl {
      */
     public void setControlBind(String controlBind) {
         this.controlBind = controlBind;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 
 }

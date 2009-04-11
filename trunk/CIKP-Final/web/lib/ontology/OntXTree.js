@@ -87,5 +87,8 @@ var OntXTree = Class.create({
     },
     getAllChecked: function(){
         return this.t.getAllChecked() ;
+    },
+    setCheck : function(itemId,state){
+        this.t.setCheck(itemId,state);
     }
 });

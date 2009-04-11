@@ -21,7 +21,6 @@ var AttributeControl = Class.create({
         } catch (e) {
             console.log(e);
         }
-        
     },   
 
     insertAttributeControl: function(attributeName) {
@@ -65,11 +64,14 @@ var AttributeControl = Class.create({
                     control = new Element(attributeControl.controlType,{'id' : attributeControl.controlName,
                                                                         'name': attributeControl.controlBind.underscore() });
                     attributeControl.values.each(function(value){
-                        var option = new Element('option', { 'value':value } ).update(value);
+                        var option = new Element('option', { 'value':value } ).update(value.gsub('_',' '));
                         control.insert(option);
                     });
-                    if( Object.isUndefined(attributeControl.value) == false )
-                        control.selectedIndex = attributeControl.value;
+                    if( Object.isUndefined(attributeControl.value) == false ){
+                        if(Object.isString(attributeControl.value) == true)
+                            control.selectedIndex = attributeControl.values.indexOf(attributeControl.value);
+                        else control.selectedIndex = attributeControl.value;
+                    }
                 }else {
                     control = new Element(attributeControl.controlType,{'id' : attributeControl.controlName,
                                                                         'name': attributeControl.controlBind.underscore() });
