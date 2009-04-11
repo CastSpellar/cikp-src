@@ -141,7 +141,7 @@
                     <table id="ki_attr_control_tab">
                         <tr>
                             <td colspan="4" align="right">
-                                <input type="button" id="addKeyword_btn" value="Add Keyword" class="button" />
+                                <input type="button" id="addKeyword_btn" value="Add Keyword" class="button" onclick="" />
                                 <input type="button" value="<s:text name="knowledgeitem.addattr" />" onclick="attributeManager.showAttrTree(); " class="button" />
                             </td>
                         </tr>
