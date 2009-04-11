@@ -81,11 +81,13 @@ public class OntServiceImpl implements OntService {
         p.getModel().addLiteral(ind, pr, value) ;
     }
 
-    public void removeLiteralByProperty(String prop, String entityname, PersistentOntology p, Object oldValue) throws IOException, MissingParamException, ClassNotFoundException {
+    public void removeLiteralByProperty(String prop, String entityname, PersistentOntology p) throws IOException, MissingParamException, ClassNotFoundException {
         Individual ind = getIndividual(entityname, p) ;
         Property pr = getProperty(prop, p) ;
-        Literal lit = ind.getProperty(pr).getLiteral() ;
-        p.getModel().removeAll(ind, pr, lit);
+        if(ind.hasProperty(pr)) {
+            Literal lit = ind.getProperty(pr).getLiteral() ;
+            p.getModel().removeAll(ind, pr, lit);
+        }
         return ;
     }
 

@@ -268,20 +268,6 @@
                                 <s:textfield name="family_name" />
                             </td>
                         </tr>
-                        <%--<tr>
-                            <td class="fieldName">
-                                <s:text name="userprofile.middlename" />
-                            </td>
-                            <td class="fieldValue">
-                                <s:textfield name="middlename" />
-                            </td>
-                            <td class="fieldName">
-                                <s:text name="userprofile.age" />
-                            </td>
-                            <td class="fieldValue">
-                                <s:textfield name="age" />
-                            </td>
-                        </tr>--%>
                         <tr>
                             <td class="fieldName">
                                 <s:text name="userprofile.gender" />
@@ -340,7 +326,7 @@
 
                     </table>
                 </div>
-                <s:iterator value="actor.roles">
+                <%--<s:iterator value="actor.roles">
                     <div class="box" id="role_div">
                         <table id="roletable">
                             <tr>
@@ -359,7 +345,7 @@
                                     <br />
                                 </td>
                             </tr>
-                            <tr>
+                            <%--<tr>
                                 <td width="15%">
                                     <s:text name="userprofile.ability" />
                                 </td>
@@ -394,7 +380,7 @@
                             </tr>
                         </table>
                     </div>
-                </s:iterator>
+                </s:iterator>--%>
                 <div class="box" id="controls_div">
                     <table align="center">
                         <tr>

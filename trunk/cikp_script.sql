@@ -25,7 +25,7 @@ CREATE TABLE  `cikp`.`user_portal` (
                                               
 CREATE TABLE  `cikp`.`file_portal` (
   `File_ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `File` blob NOT NULL,
+  `File` longblob NOT NULL,
   `FileName` varchar(255) NOT NULL,
   PRIMARY KEY (`File_ID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
