@@ -73,9 +73,9 @@ public class IndividualActorServiceImpl implements IndividualActorService {
                 onts.removeLiteralByProperty("has_Ability", actor.getUsername(), p, onts.getLiteralByProperty("has_Ability", actor.getUsername(), p)) ;
                 onts.addLiteralByProperty("has_Ability", actor.getUsername(), (actor.getAbility() == null ? "" : actor.getAbility()), p);
             }
-            if (actor.getCetificate_and_license() != null) {
+            if (actor.getCertificate_and_license() != null) {
                 onts.removeLiteralByProperty("has_Certificate_And_License", actor.getUsername(), p, onts.getLiteralByProperty("has_Certificate_And_License", actor.getUsername(), p)) ;
-                onts.addLiteralByProperty("has_Certificate_And_License", actor.getUsername(), (actor.getCetificate_and_license() == null ? "" : actor.getCetificate_and_license()), p);
+                onts.addLiteralByProperty("has_Certificate_And_License", actor.getUsername(), (actor.getCertificate_and_license() == null ? "" : actor.getCertificate_and_license()), p);
             }
             if (actor.getCommunication_language() != null) {
                 onts.removeLiteralByProperty("has_Communication_Language", actor.getUsername(), p, onts.getLiteralByProperty("has_Communication_Language", actor.getUsername(), p)) ;
@@ -169,7 +169,7 @@ public class IndividualActorServiceImpl implements IndividualActorService {
                 actor.setName((String)getOnt().getLiteralByProperty(username, "has_Name", p)) ;
                 actor.setWork_phone_number((String)getOnt().getLiteralByProperty(username, "has_Work_Phone_Number", p)) ;
                 actor.setAbility((String) getOnt().getLiteralByProperty(username, "has_Ability", p)) ;
-                actor.setCetificate_and_license((String)getOnt().getLiteralByProperty(username, "has_Certificate_And_License", p)) ;
+                actor.setCertificate_and_license((String)getOnt().getLiteralByProperty(username, "has_Certificate_And_License", p)) ;
                 actor.setCommunication_language((String)getOnt().getLiteralByProperty(username, "has_Communication_Language", p)) ;
                 actor.setEducation_background((String)getOnt().getLiteralByProperty(username, "has_Education_Background", p)) ;
                 actor.setEthnicity((String)getOnt().getLiteralByProperty(username, "has_Ethnicity_Status", p)) ;
