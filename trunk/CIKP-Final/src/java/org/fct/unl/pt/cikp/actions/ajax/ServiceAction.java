@@ -24,7 +24,9 @@ import org.fct.unl.pt.cikp.service.CikpService;
 import org.fct.unl.pt.cikp.service.CikpServiceImpl;
 import org.fct.unl.pt.cikp.data.ajax.AttributeControl;
 import org.fct.unl.pt.cikp.data.ajax.AttributeList;
+import org.fct.unl.pt.cikp.data.ajax.RoleList;
 import org.fct.unl.pt.cikp.data.ontology.IndividualActor;
+import org.fct.unl.pt.cikp.data.ontology.Role;
 import org.fct.unl.pt.cikp.data.portal.OntologyControlsPortal;
 import org.fct.unl.pt.cikp.data.portal.UserPortal;
 import org.fct.unl.pt.cikp.service.ontology.manager.PersistentOntology;
@@ -101,6 +103,34 @@ public class ServiceAction extends ActionSupport implements ApplicationAware, Se
             return attrControl ;*/
         //}
         
+    }
+
+    @SMDMethod
+    public RoleList getRoles() throws MissingParamException, MissingParamException, IOException, ClassNotFoundException{
+        String serverPath = ServletActionContext.getServletContext()
+                .getRealPath("/jenaconf") ;
+        PersistentOntology po = (PersistentOntology) appVars.get(Constants.PO) ;
+        if(po == null) {
+            po = new PersistentOntologyImpl(serverPath) ;
+            po.load() ;
+            appVars.put(Constants.PO, po) ;
+        }else {
+            if(po.getModel() == null)
+                po.reopenCon();
+        }
+        UserPortal user = (UserPortal) session.get(Constants.USER);
+        IndividualActor actor = getService().getIndividualActor(user.getUserUsername(), po);
+        if(actor != null ) {
+            if (actor.getRoles() != null){
+                List<String> roles = new LinkedList<String>();
+                for(Role role : actor.getRoles())
+                    roles.add(role.getRoletype());
+                RoleList roleList = new RoleList();
+                roleList.setRoles(roles);
+                return roleList;
+            }
+        }
+        return null;
     }
 
     @SMDMethod

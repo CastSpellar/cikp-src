@@ -14,6 +14,10 @@ var CIKPWebService = Class.create({
         var defered = this.service.getAttributeControl(attributeName);
         defered.addCallback(callbackFunction);
     },
+    getRoles: function(callbackFunction) {
+        var defered = this.service.getRoles();
+        defered.addCallback(callbackFunction);
+    },
     getExistingAttributes: function(callbackFunction) {
         var defered = this.service.getExistingAttributes();
         defered.addCallback(callbackFunction);

@@ -36,6 +36,9 @@
 
                         this.createRoleDiv();
                         this.createRoleAttributeDiv();
+
+                        this.initTree();
+                        this.initAttributeController();
                     } else {
                         this.roleDiv = options.roleDiv;
                         this.inputBox = options.inputBox;
@@ -51,16 +54,25 @@
                             this.createRoleDiv();
                             this.createRoleAttributeDiv();
                         }
-                    }
 
+                        this.initTree();
+                        this.initAttributeController();
+                        
+                        if(options.initAttributes == true)
+                            service.getExistingAttributes(this.getExistingAttributes.bind(this));
+                    }         
+                },
+
+                initTree : function(){
                     this.attributes_tree = new OntXTree(this.attributeXMLURL) ;
                     this.attributes_tree.genTree(this.atributes_tree_div,
                                     {'dropIds' : $w(this.inputBox),
                                      'imgPath' : '<s:url value="/images/custom/" />',
                                      'checkbox' : 1}) ;
-                    this.attributeController = new AttributeControl(this.added_controls_table);
-                    service.getExistingAttributes(this.getExistingAttributes.bind(this));
+                },
 
+                initAttributeController : function(){
+                    this.attributeController = new AttributeControl(this.added_controls_table);
                 },
 
                 getExistingAttributes : function(attributesJSON){
@@ -199,7 +211,8 @@
                 roleAttributeTreeDivContainer : 'attributes_tree_div_container',
                 atributes_tree_div : 'atributes_tree_div',
                 attribute_control_div : 'attr_control_div',
-                createDivs : false
+                createDivs : false,
+                initAttributes : true
             };
 
             function load(){
