@@ -2,7 +2,7 @@
 <tree id="0" radio="1">
 	<item text="Knowledge_Item_Attribute" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Knowledge_Item_Attribute" im0="Class.ico" im1="Class.ico" im2="Class.ico">
 		<!--<item text="Knowledge_Item_Type" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Knowledge_Item_Type" im0="Class.ico" im1="Class.ico" im2="Class.ico" />-->
-		<item text="Knowledge_Item_Copywright_Owner" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Knowledge_Item_Copywright_Owner_inst" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+		<item text="Knowledge_Item_Copywright_Owner" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Actor_inst" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
 		<item text="Knowledge_Item_Affiliation" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Knowledge_Item_Affiliation" im0="Class.ico" im1="Class.ico" im2="Class.ico">
 			<item text="Project_Affiliation" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Project_inst" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
 			<item text="Process_Affiliation" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Process_inst" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
@@ -20,8 +20,8 @@
 		<item text="Knowledge_Item_Security_Clearance" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Knowledge_Item_Security_Clearance" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
 		<item text="Knowledge_Item_Destination" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Knowledge_Item_Destination" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
 		<item text="Knowledge_Item_Author" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Individual_Actor_inst" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
-		<item text="Knowledge_Item_Delivery_Method" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Knowledge_Item_Delivery_Method_Value" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+		<!--<item text="Knowledge_Item_Delivery_Method" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Knowledge_Item_Delivery_Method_Value" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
 		<item text="Knowledge_Item_File_Name" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Knowledge_Item_File_Name" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
-		<item text="Knowledge_Item_Creation_Date" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Knowledge_Item_Creation_Date" im0="Class.ico" im1="Class.ico" im2="Class.ico" />
+		<item text="Knowledge_Item_Creation_Date" id="http://www.jinyuezhang.com/work/ontology/Actor.owl#Knowledge_Item_Creation_Date" im0="Class.ico" im1="Class.ico" im2="Class.ico" />-->
 	</item>
 </tree>
