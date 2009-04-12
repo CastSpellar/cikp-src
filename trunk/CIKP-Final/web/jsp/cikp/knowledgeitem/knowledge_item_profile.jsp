@@ -63,6 +63,30 @@
                 }
             });
 
+            function addKeyword(){
+                var newLine = false;
+                var tableRows = $('keywords_tab').select('tr');
+                var tr;
+                if (tableRows.size() != 0){
+                    tr = tableRows[tableRows.size()-1];
+                    var numberOfTDs = tr.select('td').size();
+                    if (numberOfTDs == 4) {
+                        tr = new Element('tr');
+                        newLine = true;
+                    }
+                } else {
+                    $('keywords_tab').insert(new Element('tbody'));
+                    tr = new Element('tr');
+                    newLine = true;
+                }
+
+                tr.insert( new Element('td', { 'class': 'fieldName' }).update('KeyWord:') );
+                tr.insert( new Element('td', { 'class': 'fieldValue' } ).update(
+                           new Element('input', {'name': 'knowledge_item_keyword',
+                                                 'type': 'text'})) );
+                if (newLine) $('keywords_tab').down('tbody').insert(tr);
+            }
+
             var attributeManager;
 
             function init() {
@@ -129,10 +153,10 @@
                     </table>
                     <table id="keywords_tab">
                         <tr>
-                            <td>
+                            <td class="fieldName">
                                 <s:text name="KeyWord:" />
                             </td>
-                            <td>
+                            <td class="fieldValue">
                                 <s:textfield name="knowledge_item_keyword" />
                             </td>
                         </tr>
@@ -141,7 +165,7 @@
                     <table id="ki_attr_control_tab">
                         <tr>
                             <td colspan="4" align="right">
-                                <input type="button" id="addKeyword_btn" value="Add Keyword" class="button" onclick="" />
+                                <input type="button" id="addKeyword_btn" value="Add Keyword" class="button" onclick="addKeyword();" />
                                 <input type="button" value="<s:text name="knowledgeitem.addattr" />" onclick="attributeManager.showAttrTree(); " class="button" />
                             </td>
                         </tr>
